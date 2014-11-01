@@ -1,0 +1,10 @@
+class CreateJobs < ActiveRecord::Migration
+  def change
+    create_table :jobs do |t|
+      t.string :description
+      t.string :location
+      t.string :posting_number
+      t.belongs_to :companies, index: true
+    end
+  end
+end
