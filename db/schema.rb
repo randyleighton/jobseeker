@@ -11,19 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141101070320) do
+ActiveRecord::Schema.define(version: 20141101221205) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "applications", force: true do |t|
-    t.date    "application_date"
-    t.integer "contacts_id"
-    t.integer "jobs_id"
-  end
-
-  add_index "applications", ["contacts_id"], name: "index_applications_on_contacts_id", using: :btree
-  add_index "applications", ["jobs_id"], name: "index_applications_on_jobs_id", using: :btree
 
   create_table "companies", force: true do |t|
     t.string "name"
@@ -35,10 +26,19 @@ ActiveRecord::Schema.define(version: 20141101070320) do
     t.string  "email"
     t.integer "cell"
     t.integer "work_number"
-    t.integer "companies_id"
+    t.integer "company_id"
   end
 
-  add_index "contacts", ["companies_id"], name: "index_contacts_on_companies_id", using: :btree
+  add_index "contacts", ["company_id"], name: "index_contacts_on_company_id", using: :btree
+
+  create_table "job_applications", force: true do |t|
+    t.date    "applied_date"
+    t.integer "contacts_id"
+    t.integer "jobs_id"
+  end
+
+  add_index "job_applications", ["contacts_id"], name: "index_job_applications_on_contacts_id", using: :btree
+  add_index "job_applications", ["jobs_id"], name: "index_job_applications_on_jobs_id", using: :btree
 
   create_table "jobs", force: true do |t|
     t.string  "description"

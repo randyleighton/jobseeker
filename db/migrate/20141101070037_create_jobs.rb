@@ -4,7 +4,7 @@ class CreateJobs < ActiveRecord::Migration
       t.string :description
       t.string :location
       t.string :posting_number
-      t.belongs_to :companies, index: true
+      t.belongs_to :company, index: true
     end
   end
 end

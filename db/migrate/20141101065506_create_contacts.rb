@@ -6,7 +6,7 @@ class CreateContacts < ActiveRecord::Migration
       t.string :email
       t.integer :cell
       t.integer :work_number
-      t.belongs_to :companies, index: true
+      t.belongs_to :company, index: true
     end
   end
 end
