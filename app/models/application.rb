@@ -1,3 +1,3 @@
-class application < ActiveRecord::Base
+class Application < ActiveRecord::Base
 
 end
