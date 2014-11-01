@@ -33,20 +33,20 @@ ActiveRecord::Schema.define(version: 20141101221205) do
 
   create_table "job_applications", force: true do |t|
     t.date    "applied_date"
-    t.integer "contacts_id"
-    t.integer "jobs_id"
+    t.integer "contact_id"
+    t.integer "job_id"
   end
 
-  add_index "job_applications", ["contacts_id"], name: "index_job_applications_on_contacts_id", using: :btree
-  add_index "job_applications", ["jobs_id"], name: "index_job_applications_on_jobs_id", using: :btree
+  add_index "job_applications", ["contact_id"], name: "index_job_applications_on_contact_id", using: :btree
+  add_index "job_applications", ["job_id"], name: "index_job_applications_on_job_id", using: :btree
 
   create_table "jobs", force: true do |t|
     t.string  "description"
     t.string  "location"
     t.string  "posting_number"
-    t.integer "companies_id"
+    t.integer "company_id"
   end
 
-  add_index "jobs", ["companies_id"], name: "index_jobs_on_companies_id", using: :btree
+  add_index "jobs", ["company_id"], name: "index_jobs_on_company_id", using: :btree
 
 end
