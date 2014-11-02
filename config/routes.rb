@@ -6,10 +6,6 @@ Rails.application.routes.draw do
   resources :jobs
   resources :job_applications
   
-
-
-
-
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
