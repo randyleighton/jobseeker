@@ -9,6 +9,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'devise'
 gem 'simple_form'
+gem 'haml'
 
 group :development do
   gem 'better_errors'
