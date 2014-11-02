@@ -1,4 +1,5 @@
 == Job Seeker
+Randy Leighton
 
 This is an application to use when looking for a job. It is designed to help you track the information about the jobs you are applying for and who you are talking to. This will eventually integrate angularjs and ruby rails.
 
