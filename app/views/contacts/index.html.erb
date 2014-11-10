@@ -2,4 +2,5 @@
 <ul>
   <li><% @contacts.all.each do |contact| %>
     <p><%= link_to contact.first_name, contact_path(contact) %> with <%= contact.company.name %></li>
+  <% end %>
 </ul>
