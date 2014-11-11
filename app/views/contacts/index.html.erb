@@ -1,0 +1,7 @@
+<h1>Here is a list of all your jobseeker contacts:</h1>
+<%= button_to "Add New Contact", new_contact_path, method: :get %>
+<ul>
+  <li><% @contacts.all.each do |contact| %>
+    <p><%= link_to contact.first_name, contact_path(contact) %> with <%= contact.company.name %></li>
+  <% end %>
+</ul>
