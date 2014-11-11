@@ -1,15 +1,16 @@
 source 'https://rubygems.org'
 
-gem 'rails'
-gem 'pg'
-gem 'sass-rails'
-gem 'uglifier'
+gem 'bootstrap-sass'
 gem 'coffee-rails'
-gem 'jquery-rails'
-gem 'turbolinks'
 gem 'devise'
-gem 'simple_form'
 gem 'haml'
+gem 'jquery-rails'
+gem 'pg'
+gem 'rails'
+gem 'sass-rails'
+gem 'simple_form'
+gem 'turbolinks'
+gem 'uglifier'
 
 group :development do
   gem 'better_errors'
@@ -18,17 +19,18 @@ group :development do
 end
 
 group :test, :development do
-  gem 'rspec-rails'
-  gem 'pry'
   gem 'launchy'
+  gem 'pry'
+  gem 'rspec-rails'
 end
 
 group :test do
-  gem 'shoulda-matchers'
   gem 'capybara'
+  gem 'factory_girl_rails'
+  gem 'shoulda-matchers'
 end
 
 group :production do
-  gem 'rails_12factor'
   gem 'angular-rails-templates'
+  gem 'rails_12factor'
 end

@@ -5,10 +5,62 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      setTimeout(function(){
+        $('#flash').remove();
+      }, 4000);
+    })
+  </script>
 </head>
-<body>
+<body class="container-fluid">
 
-<%= yield %>
+  <nav class="navbar navbar-default navbar-fixed-top" id="page_header">
+
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <div class="navbar-brand">
+        <%= link_to "Home", root_path %>
+      </div>
+    </div>
+
+    <div class="navbar-collapse collapse navbar-responsive-collapse">
+      <div class="nav navbar-nav navbar-right">
+        <%= render 'layouts/login' %>
+      </div>
+    </div>
+  </nav>
+
+  <div class="row">
+    <div class="col-xs-2 menu-options">
+      <div>
+        <%= link_to "Contacts", contacts_path %>
+      </div>
+    </div>
+    <div class="col-xs-10 yield-col">
+    	<%= yield %>
+    </div>
+  </div>
+
+
+  <div id="flash" class="clearfix">
+    <% if flash[:notice] != nil %>
+      <div class='alert alert-success' role='alert'>
+        <%= flash[:notice] %></div>
+    <% end %>
+    <% if flash[:alert] != nil %>
+      <div class='alert alert-danger' role='alert'>
+        <%= flash[:alert] %></div>
+    <% end %>
+  </div>
+
+  <div class="navbar navbar-default navbar-fixed-bottom">
+    <p id="copyright">&copy; 2014 Visible Difference Web Development</p>
+  </div>
 
 </body>
 </html>
