@@ -1,0 +1,15 @@
+<%= form_for @contact do |f| %>
+  <div class="form-group">
+    <%= f.label "First Name" %>
+    <%= f.text_field :first_name, :autofocus=>true %>
+    <%= f.label "Last Name" %>
+    <%= f.text_field :last_name %>
+    <%= f.label "Email" %>
+    <%= f.text_field :email %>
+    <%= f.label "Cell Phone" %>
+    <%= f.text_field :cell %>
+    <%= f.label "Work Phone" %>
+    <%= f.text_field :work_number %> 
+    <%= f.submit(:class => "btn btn-primary") %>
+  </div>
+<% end %>
