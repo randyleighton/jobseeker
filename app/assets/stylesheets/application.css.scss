@@ -29,6 +29,13 @@
   margin-bottom: 0px !important;
 }
 
+.navbar-fixed-bottom {
+  border: 2px solid lightgray !important;
+  display:block;
+  margin: 0 auto;
+  text-align: center;
+}
+
 .nav-format {
   float: left;
   padding-right: 30px;
@@ -41,12 +48,15 @@
   text-align: center;
   color: #428bca;
 }
+
 .logged-in {
   padding-top: 14px;
 }
+
 .logged-in p {
   font-size: 1em;
 }
+
 .logged-in-name {
   color: #428bca;
 }
@@ -57,16 +67,10 @@
   border-radius: 2em !important;
   border: 3px solid lightgray;
 }
+
 .img-box {
   max-width: 1.5em !important;
   float: right;
-}
-
-.navbar-fixed-bottom {
-  border: 2px solid lightgray !important;
-  display:block;
-  margin: 0 auto;
-  text-align: center;
 }
 
 .menu-options {
@@ -111,5 +115,4 @@ input#user_remember_me {
 input#user_email, input#user_password, input#user_password_confirmation, input#user_name {
   margin-bottom: 15px;
 }
-
 
