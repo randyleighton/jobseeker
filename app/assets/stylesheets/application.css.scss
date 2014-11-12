@@ -16,6 +16,16 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.brand-image {
+  height: 5em;
+  z-index: -9999;
+/*  padding: 0px !important;
+*/}
+
+.navbar {
+  margin-bottom: 0px !important;
+}
+
 .nav-format {
   float: left;
   padding-right: 30px;
@@ -53,4 +63,10 @@
   border: 2px solid lightgray !important;
 }
 
+.menu-options {
+  margin-top: 4em;
+}
 
+.menu-row {
+  margin-top: 4.5em;
+}

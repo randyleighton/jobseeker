@@ -24,7 +24,8 @@
         <span class="icon-bar"></span>
       </button>
       <div class="navbar-brand">
-        <%= link_to "Home", root_path %>
+        <%= link_to image_tag("jobseeker.png", class: "img img-responsive img-thumbnail brand-image"), root_path, title: "Home" %>
+
       </div>
     </div>
 
@@ -35,12 +36,13 @@
     </div>
   </nav>
 
-  <div class="row">
+  <div class="row menu-row">
     <div class="col-xs-2 menu-options">
       <div>
-        <%= link_to "Contacts", contacts_path %>
+        <%= link_to "Contacts", contacts_path, class: "btn btn-info", title: "Manage your Contacts" %>
       </div>
     </div>
+
     <div class="col-xs-10 yield-col">
     	<%= yield %>
     </div>
