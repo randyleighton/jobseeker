@@ -19,8 +19,11 @@
 .brand-image {
   height: 5em;
   z-index: -9999;
-/*  padding: 0px !important;
-*/}
+  &:hover {
+    height: 5.25em;
+  };
+
+}
 
 .navbar {
   margin-bottom: 0px !important;
