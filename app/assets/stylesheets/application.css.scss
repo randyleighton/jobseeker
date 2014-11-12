@@ -90,6 +90,26 @@
   padding: 2px;
 }
 
+.border-form-div {
+  max-width: 400px;
+  padding: 19px 29px 29px;
+  margin: 0 auto;
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+          box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
 
+input#user_remember_me {
+  margin-right: 5px;
+}
+
+input#user_email, input#user_password, input#user_password_confirmation, input#user_name {
+  margin-bottom: 15px;
+}
 
 
