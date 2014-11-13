@@ -29,20 +29,17 @@
   margin-bottom: 0px !important;
 }
 
+.navbar-right {
+  padding-right: 1em !important;
+}
 .nav-format {
   float: left;
-  padding-right: 30px;
-  padding-top: 10px;
-  font-size: 1.5em;
+  padding-right: 10px;
+  font-size: 1.4em;
 }
 
-.nav-format p {
-  font-size: .55em;
-  text-align: center;
-  color: #428bca;
-}
 .logged-in {
-  padding-top: 14px;
+  padding-top: 10px;
 }
 .logged-in p {
   font-size: 1em;
