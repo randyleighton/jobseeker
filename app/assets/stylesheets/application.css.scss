@@ -22,7 +22,6 @@
   &:hover {
     height: 5.25em;
   };
-
 }
 
 .navbar {
@@ -108,5 +107,13 @@ input#user_remember_me {
 input#user_email, input#user_password, input#user_password_confirmation, input#user_name {
   margin-bottom: 15px;
 }
+
+#contact-btn {
+  background-color: #f8f8f8;
+  &:hover {
+    background-color: white;
+  };
+}
+
 
 
