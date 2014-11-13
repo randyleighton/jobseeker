@@ -39,7 +39,17 @@
   <div class="row menu-row">
     <div class="col-xs-2 menu-options">
       <div>
-        <%= link_to "Contacts", contacts_path, class: "btn btn-default", id: "contact-btn", title: "Manage your Contacts" %>
+        <ul class="nav nav-pills nav-stacked">
+          <li role="presentation" class="active">
+            <%= link_to "Contacts", contacts_path, class: "btn btn-default", id: "contact-btn", title: "Manage your Contacts" %>
+          </li>
+          <li role="presentation" class="active">
+            <%= link_to "Jobs", contacts_path, class: "btn btn-default", id: "contact-btn", title: "Manage your Contacts" %>
+          </li>          <li role="presentation" class="active">
+            <%= link_to "Interviews", contacts_path, class: "btn btn-default", id: "contact-btn", title: "Manage your Contacts" %>
+          </li>
+        </ul>
+
       </div>
     </div>
 
