@@ -1,7 +1,32 @@
-<h1> This is the home page index.html </h1>
+<div>
 
-<p> This is the content.</p>
+	<div class="row row-one">
+		<div class="outer-box col-xs-12 col-sm-12 col-md-6">
+			<div class="index-one">
+				<p> Recent jobs applied for:</p>
+			</div>
+		</div>
+		<div class="outer-box col-xs-12 col-sm-12 col-md-6">
+			<div class="index-two">
+				<p> Some of your recent companies:</p>
+					<% @companies.each do |company| %>
+						<%= link_to "#{company.name}", company_path(company) %>
+					<% end %>
+			</div>
+		</div>
+	</div>
 
+	<div class="row row-two">
+		<div class="outer-box col-xs-12 col-sm-12 col-md-6">
+			<div class="index-three">
+				<p> Some of your upcoming interviews</p>
+			</div>
+		</div>
+		<div class="outer-box col-xs-12 col-sm-12 col-md-6">
+			<div class="index-four">
+				<p> Reminders: </p>
+			</div>
+		</div>
+	</div>
 
-<p>This is more content</p>
-
+</div>

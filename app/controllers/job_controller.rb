@@ -1,3 +1,2 @@
 class JobsController < ApplicationController
-	before_filter :authenticate_user!, except: [:index, :show]
-end
+	before_filter :authenticate_user!

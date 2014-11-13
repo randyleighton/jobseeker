@@ -24,7 +24,8 @@
         <span class="icon-bar"></span>
       </button>
       <div class="navbar-brand">
-        <%= link_to "Home", root_path %>
+        <%= link_to image_tag("jobseeker.png", class: "img img-responsive img-thumbnail brand-image hidden-xs"), root_path, title: "Home" %>
+
       </div>
     </div>
 
@@ -35,12 +36,27 @@
     </div>
   </nav>
 
-  <div class="row">
+  <div class="row menu-row">
     <div class="col-xs-2 menu-options">
       <div>
-        <%= link_to "Contacts", contacts_path %>
+        <ul class="nav nav-pills nav-stacked">
+          <li role="presentation" class="active">
+            <%= link_to "Contacts", contacts_path, class: "contact-btn btn btn-default", title: "Manage your Contacts" %>
+          </li>
+          <li role="presentation" class="active">
+            <%= link_to "Companies", companies_path, class: "contact-btn btn btn-default", title: "Manage your Companies" %>
+          </li>
+          <li role="presentation" class="active">
+            <%= link_to "Jobs", contacts_path, class: "contact-btn btn btn-default", title: "Manage your Jobs" %>
+          </li>
+          <li role="presentation" class="active">
+            <%= link_to "Interviews", contacts_path, class: "contact-btn btn btn-default", title: "Manage your Interviews" %>
+          </li>
+        </ul>
+
       </div>
     </div>
+
     <div class="col-xs-10 yield-col">
     	<%= yield %>
     </div>
@@ -59,7 +75,8 @@
   </div>
 
   <div class="navbar navbar-default navbar-fixed-bottom">
-    <p id="copyright">&copy; 2014 Visible Difference Web Development</p>
+    <p id="copyright">Ruby on Rails application &copy; 2014 built by: <%= link_to "Visible Difference Web Development", "http://www.visible-difference.com", target: "_blank" %></p>
+    
   </div>
 
 </body>
