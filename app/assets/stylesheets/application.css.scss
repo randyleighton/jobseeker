@@ -22,13 +22,15 @@
   &:hover {
     height: 5.25em;
   };
-
 }
 
 .navbar {
   margin-bottom: 0px !important;
 }
 
+.navbar-right {
+  padding-right: 1em !important;
+}
 .navbar-fixed-bottom {
   border: 2px solid lightgray !important;
   display:block;
@@ -38,11 +40,9 @@
 
 .nav-format {
   float: left;
-  padding-right: 30px;
-  padding-top: 10px;
-  font-size: 1.5em;
+  padding-right: 10px;
+  font-size: 1.4em;
 }
-
 .nav-format p {
   font-size: .55em;
   text-align: center;
@@ -50,7 +50,7 @@
 }
 
 .logged-in {
-  padding-top: 14px;
+  padding-top: 10px;
 }
 
 .logged-in p {
@@ -116,3 +116,9 @@ input#user_email, input#user_password, input#user_password_confirmation, input#u
   margin-bottom: 15px;
 }
 
+#contact-btn {
+  background-color: #f8f8f8;
+  &:hover {
+    background-color: white;
+  };
+}
