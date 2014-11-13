@@ -1,0 +1,9 @@
+<h3>Here is a list of all your jobseeker companies:</h3>
+
+<ul>
+  <% @companies.all.each do |company| %>
+    <li><p><%= link_to company.name, company_path(company) %></li>
+  <% end %>
+</ul>
+
+<%= button_to "Add New Company", new_company_path, method: :get %>
