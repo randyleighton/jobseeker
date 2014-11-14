@@ -23,7 +23,12 @@ class ContactsController < ApplicationController
   end
 
   def update
-
+    @contact = contact.find([:id])
+    if @contact.update_attributes(contact_params).valid?
+      redirect_to :back, notice: "#{@contact.name} updated."
+    else
+      render contact_path(@contact), alert: "Failed to Update."
+    end
   end
 
   def destroy
