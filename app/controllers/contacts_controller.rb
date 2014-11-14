@@ -2,7 +2,7 @@ class ContactsController < ApplicationController
 	before_filter :authenticate_user!
 
   def index
-   @contacts = Contact.all
+    @contacts = Contact.all
   end
   
   def new
@@ -10,8 +10,8 @@ class ContactsController < ApplicationController
   end
   
   def create
-    @contact = Contact.new(contact_params)
-    if @contact.save
+    @contact = Contact.create(contact_params)
+    if @contact.valid?
       redirect_to :back, notice: "#{@contact.first_name} #{@contact.last_name} created."
     else
       render 'new', alert: "Contact could not be created."
@@ -19,12 +19,17 @@ class ContactsController < ApplicationController
   end
 
   def show
-    @contact = @contact.find(params[:id])
+    @contact = Contact.find(params[:id])
   end
 
-    def destroy
-    @contact = Company.find(params[:id])
-    @contact.destroy
+  def update
+
+  end
+
+  def destroy
+    Contact.find(params[:id]).destroy
+    flash[:notice]="Contact deleted"
+    redirect_to(:action=>'index')
   end
   
   private
