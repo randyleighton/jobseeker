@@ -1,5 +1,6 @@
 class ContactsController < ApplicationController
 	before_filter :authenticate_user!
+
   def index
    @contacts = Contact.all
   end
@@ -9,14 +10,21 @@ class ContactsController < ApplicationController
   end
   
   def create
-    @contact = Contact.create(contact_params)
-    if @contact.valid
-      flash[:notice] = "Your contact has been saved"
-      redirect_to :back
+    @contact = Contact.new(contact_params)
+    if @contact.save
+      redirect_to :back, notice: "#{@contact.first_name} #{@contact.last_name} created."
     else
-      flash[:alert] = "Your contact failed to save"
-      render 'new'
+      render 'new', alert: "Contact could not be created."
     end
+  end
+
+  def show
+    @contact = @contact.find(params[:id])
+  end
+
+    def destroy
+    @contact = Company.find(params[:id])
+    @contact.destroy
   end
   
   private
