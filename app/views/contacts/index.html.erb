@@ -4,8 +4,7 @@
 </div>
 
 <ul>
-  <% @company.contacts.each do |contact| %>
-  	<% binding.pry %>
-    <li><p><%= link_to "#{contact.first_name} #{contact.last_name} ", company_contact_path(contact) %></p></li>
+  <% @contacts.each do |contact| %>
+	  <li><p><%= link_to "#{contact.first_name} #{contact.last_name} ", company_contact_path(@company, contact) %></p></li>
   <% end %>
 </ul>
