@@ -1,4 +1,7 @@
-<h3>Here is a list of all your jobseeker companies:</h3>
+<div class="row comp-index-head">
+	<h3 class="comp-head">Companies</h3>
+	<%= link_to image_tag("db-add-icon.png", class: "add-btn", title: "Add a new Company", alt: "Add a new company"), new_company_path %>
+</div>
 
 <ul>
   <% @companies.all.each do |company| %>
@@ -6,4 +9,3 @@
   <% end %>
 </ul>
 
-<%= button_to "Add New Company", new_company_path, method: :get, class: "btn btn-default" %>
