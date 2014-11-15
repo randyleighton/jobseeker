@@ -1,0 +1,22 @@
+<h1><%= h @contact.first_name + " " + @contact.last_name %></h1>
+
+<p>
+  <b>Email:</b>
+  <%=h @contact.email %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%=h @contact.work_number %>
+  <%=h @contact.cell %>
+
+</p>
+
+<p>
+  <b>Company:</b>
+  <%= link_to @contact.company.name, company_path(@contact.company) %>
+</p>
+
+<%= link_to 'Edit', edit_company_contact_path(@contact.company, @contact) %> |
+<%= link_to 'Destroy', [@contact.company, @contact], :confirm => 'Are you sure?', :method => :delete %> |
+<%= link_to 'Back', company_contacts_path %>
