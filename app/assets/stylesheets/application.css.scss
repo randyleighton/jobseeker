@@ -109,6 +109,9 @@
   padding: 2px;
 }
 
+/* ------------------
+This is for forms
+--------------------*/
 .border-form-div {
   max-width: 400px;
   padding: 19px 29px 29px;
@@ -131,6 +134,8 @@ input#user_email, input#user_password, input#user_password_confirmation, input#u
   margin-bottom: 15px;
 }
 
+
+
 .contact-btn {
   background-color: #f8f8f8;
   color: black;
@@ -138,6 +143,7 @@ input#user_email, input#user_password, input#user_password_confirmation, input#u
     background-color: white;
   };
 }
+
 .comp-index-head {
   margin: 0 0 10px 0;
   display: block;
@@ -155,7 +161,9 @@ input#user_email, input#user_password, input#user_password_confirmation, input#u
   margin: 0 0 0 5px;
 }
 
-
+.company-all li {
+  list-style: none;
+}
 
 
 
