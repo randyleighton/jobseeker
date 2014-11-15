@@ -4,7 +4,6 @@ class ContactsController < ApplicationController
 
   def index
     @contacts = @company.contacts
-    @contacts_ordered = @company.contacts.paginate(:page => params[:page], :order => :created_at)
   end
   
   def new
@@ -47,6 +46,7 @@ class ContactsController < ApplicationController
 
   def load_company
     @company = Company.find(params[:company_id])
+
   end
   
 end

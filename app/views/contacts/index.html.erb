@@ -1,10 +1,11 @@
 <div class="row comp-index-head">
 	<h3 class="comp-head">Contacts</h3>
-	<%= link_to image_tag("db-add-icon.png", class: "add-btn", title: "Add a new Contact", alt: "Add a new contact"), new_contact_path %>
+	<%= link_to image_tag("db-add-icon.png", class: "add-btn", title: "Add a new Contact", alt: "Add a new contact"), new_company_contact_path %>
 </div>
 
 <ul>
-  <% @contacts.all.each do |contact| %>
-    <li><p><%= link_to contact.first_name, contact_path(contact) %> with "XYZ company"</p></li>
+  <% @company.contacts.each do |contact| %>
+  	<% binding.pry %>
+    <li><p><%= link_to "#{contact.first_name} #{contact.last_name} ", company_contact_path(contact) %></p></li>
   <% end %>
 </ul>

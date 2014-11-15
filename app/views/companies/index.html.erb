@@ -3,6 +3,8 @@
 	<%= link_to image_tag("db-add-icon.png", class: "add-btn", title: "Add a new Company", alt: "Add a new company"), new_company_path %>
 </div>
 
+<h1>Listing contacts for '<%=h @company.name %>'</h1>
+
 <ul class="company-all">
   <% @companies.all.each do |company| %>
     <li><p><%= link_to company.name, company_path(company) %></p></li>
