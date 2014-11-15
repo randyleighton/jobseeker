@@ -2,8 +2,9 @@ Rails.application.routes.draw do
 
   devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}  
   root 'home#index'
-  resources :contacts
-  resources :companies
+  resources :companies do
+      resources :contacts
+  end
   resources :jobs
   resources :job_applications
   

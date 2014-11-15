@@ -1,4 +1,6 @@
-<%= form_for @contact do |f| %>
+<%= render 'layouts/errors', object: @contact %>
+
+<%= form_for ([@contact.company, @contact]) do |f| %>
   <div class="form-group">
     <%= f.label "First Name" %>
     <%= f.text_field :first_name, :autofocus=>true %>

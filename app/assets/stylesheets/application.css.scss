@@ -84,20 +84,34 @@
   margin-top: 5em;
 }
 
+.one-step {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
 .index-one, .index-two, .index-three, .index-four {
   padding: 3px;
   height: 300px;
   border: 1px solid black;
 }
 
+.index-two p {
+  margin-bottom: -1px;  
+}
+
 .row-one, .row-two {
   margin: 1em;
 }
+
 .outer-box {
   float: left;
   padding: 2px;
 }
 
+/* ------------------
+This is for forms
+--------------------*/
 .border-form-div {
   max-width: 400px;
   padding: 19px 29px 29px;
@@ -120,6 +134,8 @@ input#user_email, input#user_password, input#user_password_confirmation, input#u
   margin-bottom: 15px;
 }
 
+
+
 .contact-btn {
   background-color: #f8f8f8;
   color: black;
@@ -127,3 +143,27 @@ input#user_email, input#user_password, input#user_password_confirmation, input#u
     background-color: white;
   };
 }
+
+.comp-index-head {
+  margin: 0 0 10px 0;
+  display: block;
+  line-height: 24px;
+}
+.comp-head {
+  float:left;  
+  margin: 5px 5px 0 0;
+  color: rgb(66, 139, 202);
+  }
+
+.add-btn {
+  float: left;
+  width: 2em;
+  margin: 0 0 0 5px;
+}
+
+.company-all li {
+  list-style: none;
+}
+
+
+
