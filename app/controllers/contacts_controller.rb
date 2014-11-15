@@ -1,16 +1,18 @@
 class ContactsController < ApplicationController
 	before_filter :authenticate_user!
+  before_filter :load_company
 
   def index
-    @contacts = Contact.all
+    @contacts = @company.contacts
+    @contacts_ordered = @company.contacts.paginate(:page => params[:page], :order => :created_at)
   end
   
   def new
-    @contact = Contact.new
+    @contact = @company.contacts.new
   end
   
   def create
-    @contact = Contact.create(contact_params)
+    @contact = @company.contacts.create(contact_params)
     if @contact.valid?
       redirect_to :back, notice: "#{@contact.first_name} #{@contact.last_name} created."
     else
@@ -19,11 +21,11 @@ class ContactsController < ApplicationController
   end
 
   def show
-    @contact = Contact.find(params[:id])
+    @contact = @company.contacts.find(params[:id])
   end
 
   def update
-    @contact = contact.find([:id])
+    @contact = @company.contacts.find([:id])
     if @contact.update_attributes(contact_params).valid?
       redirect_to :back, notice: "#{@contact.name} updated."
     else
@@ -32,14 +34,19 @@ class ContactsController < ApplicationController
   end
 
   def destroy
-    Contact.find(params[:id]).destroy
+    @company.contacts.find(params[:id]).destroy
     flash[:notice]="Contact deleted"
     redirect_to(:action=>'index')
   end
   
   private
+
   def contact_params
     params.require(:contact).permit(:first_name, :last_name, :email, :cell, :work_number, :company_id)
+  end
+
+  def load_company
+    @company = Company.find(params[:company_id])
   end
   
 end
