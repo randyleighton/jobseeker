@@ -84,15 +84,26 @@
   margin-top: 5em;
 }
 
+.one-step {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
 .index-one, .index-two, .index-three, .index-four {
   padding: 3px;
   height: 300px;
   border: 1px solid black;
 }
 
+.index-two p {
+  margin-bottom: -1px;  
+}
+
 .row-one, .row-two {
   margin: 1em;
 }
+
 .outer-box {
   float: left;
   padding: 2px;

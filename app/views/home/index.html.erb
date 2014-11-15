@@ -1,4 +1,7 @@
-<div>
+	<div class="row one-step">
+		<button class="btn btn-primary btn-lg">I applied for a Job!</button>
+
+	</div> 
 
 	<div class="row row-one">
 		<div class="outer-box col-xs-12 col-sm-12 col-md-6">
@@ -8,9 +11,9 @@
 		</div>
 		<div class="outer-box col-xs-12 col-sm-12 col-md-6">
 			<div class="index-two">
-				<p> Some of your recent companies:</p>
+				<h4> Some of your recent companies:</h4>
 					<% @companies.each do |company| %>
-						<%= link_to "#{company.name}", company_path(company) %>
+						<p><%= link_to "#{company.name}", company_path(company), class: "companies-all" %></p>
 					<% end %>
 			</div>
 		</div>
@@ -29,4 +32,3 @@
 		</div>
 	</div>
 
-</div>
