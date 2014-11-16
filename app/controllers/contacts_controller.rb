@@ -1,11 +1,12 @@
 class ContactsController < ApplicationController
 	before_filter :authenticate_user!
-  before_filter :find_company # Company required for all contacts
+  before_filter :find_company, except: :index 
   before_filter :find_contact, except: [:index, :new, :create]
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
 
   def index
-    @contacts = @company.contacts
+    # @contacts = @company.contacts
+    @all_contacts = Contact.all
   end
   
   def new
