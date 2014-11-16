@@ -15,6 +15,23 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+$boot_blue: #428bca;
+$cardinal: #B71F3B;
+$mercury: #e5e5e5;
+
+/*--------------------
+SASS MIXINS
+--------------------*/
+@mixin rounded-corners($radius) {
+   border-radius: $radius;
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+          border-radius: $radius;
+}
+
+
+
+
 
 .brand-image {
   height: 5em;
@@ -69,6 +86,17 @@ This is for Navigation
 }
 
 
+/*------ error box ------*/
+.error_explanation {
+  border: 1px solid $mercury;
+  background-color: #fff;
+  margin: 0 0 1em 0;
+  padding: 0px .5em;
+  @include rounded-corners(.4em);
+  h4 {
+    color: $cardinal;
+  }
+}
 
 .image_box {
   margin: 0 auto;
@@ -119,17 +147,19 @@ This is for Navigation
 This is for forms
 --------------------*/
 .border-form-div {
-  max-width: 400px;
-  padding: 19px 29px 29px;
+  max-width: 40%;
+  padding: .4em .6em;
   margin: 0 auto;
   background-color: #fff;
-  border: 1px solid #e5e5e5;
-  -webkit-border-radius: 5px;
-     -moz-border-radius: 5px;
-          border-radius: 5px;
+  border: 1px solid $mercury;
+  @include rounded-corners(.4em);
   -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
      -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
           box-shadow: 0 1px 2px rgba(0,0,0,.05);
+  h3 {
+    color: $boot_blue;
+    margin: 2px auto 3px;
+  }
 }
 
 input#user_remember_me {
