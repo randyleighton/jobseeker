@@ -15,6 +15,10 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+/*--------------------
+SASS Color Variables
+--------------------*/
 $boot_blue: #428bca;
 $cardinal: #B71F3B;
 $mercury: #e5e5e5;
@@ -23,22 +27,15 @@ $mercury: #e5e5e5;
 SASS MIXINS
 --------------------*/
 @mixin rounded-corners($radius) {
-   border-radius: $radius;
+  border-radius: $radius;
   -webkit-border-radius: $radius;
      -moz-border-radius: $radius;
           border-radius: $radius;
 }
-
-
-
-
-
-.brand-image {
-  height: 5em;
-  z-index: -9999;
-  &:hover {
-    height: 5.25em;
-  };
+@mixin shadowed-corners($color) {
+  -webkit-box-shadow: 3px 3px 3px $color;
+     -moz-box-shadow: 3px 3px 3px $color;
+          box-shadow: 3px 3px 3px $color;
 }
 
 /*-------------------
@@ -53,7 +50,7 @@ This is for Navigation
   padding-right: 1em !important;
 }
 .navbar-fixed-bottom {
-  border: 2px solid lightgray !important;
+  border: 1px solid $mercury !important;
   display:block;
   margin: 0 auto;
   text-align: center;
@@ -70,21 +67,27 @@ This is for Navigation
 .nav-format p {
   font-size: .55em;
   text-align: center;
-  color: #428bca;
+  color: $boot_blue;
 }
 
 .logged-in {
   padding-top: 10px;
-}
-
-.logged-in p {
-  font-size: 1em;
+  p {
+    font-size: 1em;
+  }
 }
 
 .logged-in-name {
-  color: #428bca;
+  color: $boot_blue;
 }
 
+.brand-image {
+  height: 5em;
+  z-index: -9999;
+  &:hover {
+    height: 5.25em;
+  };
+}
 
 /*------ error box ------*/
 .error_explanation {
@@ -102,7 +105,7 @@ This is for Navigation
   margin: 0 auto;
   max-height: 50%;
   border-radius: 2em !important;
-  border: 3px solid lightgray;
+  border: 2px solid $mercury;
 }
 
 .img-box {
@@ -125,9 +128,14 @@ This is for Navigation
 }
 
 .index-one, .index-two, .index-three, .index-four {
-  padding: 3px;
+  padding: .25em .25em;
   height: 300px;
-  border: 1px solid black;
+  border: 1px solid $mercury;
+  @include rounded-corners(.5em);
+  @include shadowed-corners(rgba(0,0,0,.10));
+  h4,h3 {
+    margin: 0 auto;
+  }
 }
 
 .index-two p {
@@ -140,22 +148,19 @@ This is for Navigation
 
 .outer-box {
   float: left;
-  padding: 2px;
+  padding: .5em;
 }
 
 /* ------------------
 This is for forms
 --------------------*/
 .border-form-div {
-  max-width: 40%;
   padding: .4em .6em;
   margin: 0 auto;
   background-color: #fff;
   border: 1px solid $mercury;
   @include rounded-corners(.4em);
-  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
-     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
-          box-shadow: 0 1px 2px rgba(0,0,0,.05);
+  @include shadowed-corners(rgba(0,0,0,.10));
   h3 {
     color: $boot_blue;
     margin: 2px auto 3px;
