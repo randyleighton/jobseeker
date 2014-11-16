@@ -1,7 +1,8 @@
-<h4><%= @company.name %></h4>
+<h2>Company Profile: <%= @company.name %></h2>
 
 <%= link_to "Contacts", company_contacts_path(@company), class: "contact-btn btn btn-default", title: "Manage your company_contacts" %>
 
+<h4>Contacts at <%= @company.name %></h4>
 <ul>
   <% @company.contacts.each do |contact| %>
 	  <li><p><%= link_to "#{contact.first_name} #{contact.last_name} ", company_contact_path(@company, contact) %></p></li>
