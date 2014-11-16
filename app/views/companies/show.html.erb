@@ -1,6 +1,6 @@
 <h2>Company Profile: <span class="company-show-head"><%= @company.name %></span></h2>
 
-<%= link_to image_tag("db-add-icon.png", title: "Add a new Contact", alt: "Add a new contact"), new_company_contact_path(@company) %>
+<%= link_to image_tag("db-add-icon.png", class: "add-btn", title: "Add a new Contact", alt: "Add a new contact"), new_company_contact_path(@company) %>
 
 <h4>Contacts at <%= @company.name %></h4>
 <ul>

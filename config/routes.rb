@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :companies do
       resources :contacts
   end
+  resources :contacts, only: :index
   resources :jobs
   resources :job_applications
   
