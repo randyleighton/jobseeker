@@ -1,6 +1,7 @@
 class ContactsController < ApplicationController
 	before_filter :authenticate_user!
-  before_filter :load_company
+  before_filter :find_company
+  before_filter :find_contact, except: [:new, :create, :index]
 
   def index
     @contacts = @company.contacts
@@ -20,11 +21,10 @@ class ContactsController < ApplicationController
   end
 
   def show
-    @contact = @company.contacts.find(params[:id])
+    
   end
 
   def update
-    @contact = @company.contacts.find([:id])
     if @contact.update_attributes(contact_params).valid?
       redirect_to :back, notice: "#{@contact.name} updated."
     else
@@ -33,7 +33,7 @@ class ContactsController < ApplicationController
   end
 
   def destroy
-    @company.contacts.find(params[:id]).destroy
+    @contact.destroy
     flash[:notice]="Contact deleted"
     redirect_to(:action=>'index')
   end
@@ -44,9 +44,12 @@ class ContactsController < ApplicationController
     params.require(:contact).permit(:first_name, :last_name, :email, :cell, :work_number, :company_id)
   end
 
-  def load_company
+  def find_company
     @company = Company.find(params[:company_id])
 
   end
-  
+  def find_contact
+    @contact = @company.contacts.find(params[:id])
+  end
+
 end
