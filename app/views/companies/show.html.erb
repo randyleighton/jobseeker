@@ -1,6 +1,6 @@
-<h2>Company Profile: <%= @company.name %></h2>
+<h2>Company Profile: <span class="company-show-head"><%= @company.name %></span></h2>
 
-<%= link_to "Contacts", company_contacts_path(@company), class: "contact-btn btn btn-default", title: "Manage your company_contacts" %>
+<%= link_to "Add Contacts", company_contacts_path(@company), class: "contact-btn btn btn-default", title: "Manage your company_contacts" %>
 
 <h4>Contacts at <%= @company.name %></h4>
 <ul>
