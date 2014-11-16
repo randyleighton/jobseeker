@@ -1,7 +1,8 @@
 class ContactsController < ApplicationController
 	before_filter :authenticate_user!
-  before_filter :find_company
-  before_filter :find_contact, except: [:new, :create, :index]
+  before_filter :find_company # Company required for all contacts
+  before_filter :find_contact, except: [:index, :new, :create]
+  rescue_from ActiveRecord::RecordNotFound, with: :not_found_message
 
   def index
     @contacts = @company.contacts
@@ -48,8 +49,15 @@ class ContactsController < ApplicationController
     @company = Company.find(params[:company_id])
 
   end
+
   def find_contact
     @contact = @company.contacts.find(params[:id])
   end
+
+  def not_found_message
+      session[:return_to]||= root_url
+      redirect_to session[:return_to], flash: {alert: 'Problem finding record, you might not be authorized.'}
+  end
+
 
 end
