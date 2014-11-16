@@ -6,6 +6,7 @@ class ContactsController < ApplicationController
 
   def index
     @contacts = @company.contacts
+    @all_contacts = Contact.all
   end
   
   def new
