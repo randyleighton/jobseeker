@@ -1,17 +1,46 @@
 <%= render 'layouts/errors', object: @contact %>
 
-<%= form_for ([@contact.company, @contact]) do |f| %>
+<%= form_for(([@contact.company, @contact]), html: { method: :put, class: 'form-horizontal' }) do |f| %>
+
   <div class="form-group">
-    <%= f.label "First Name" %>
-    <%= f.text_field :first_name, :autofocus=>true %>
-    <%= f.label "Last Name" %>
-    <%= f.text_field :last_name %>
-    <%= f.label "Email" %>
-    <%= f.text_field :email %>
-    <%= f.label "Cell Phone" %>
-    <%= f.text_field :cell %>
-    <%= f.label "Work Phone" %>
-    <%= f.text_field :work_number %> 
-    <%= f.submit(:class => "btn btn-primary") %>
+    <%= f.label "First Name", class: 'col-sm-4 control-label' %>
+    <div class="col-sm-6">
+    <%= f.text_field :first_name, class: 'form-control', :autofocus=>true %>
+    </div>
   </div>
+
+  <div class="form-group">
+    <%= f.label "Last Name", class: 'col-sm-4 control-label' %>
+    <div class="col-sm-6">
+    <%= f.text_field :last_name, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "Email", class: 'col-sm-4 control-label' %>
+    <div class="col-sm-6">
+    <%= f.text_field :email, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "Cell Phone", class: 'col-sm-4 control-label' %>
+    <div class="col-sm-6">
+    <%= f.text_field :cell, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "Work Phone", class: 'col-sm-4 control-label' %>
+    <div class="col-sm-6">
+    <%= f.text_field :work_number, class: 'form-control' %> 
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-4 col-sm-6">
+      <%= f.submit(:class => "btn btn-primary") %>
+    </div>
+  </div>
+
 <% end %>
