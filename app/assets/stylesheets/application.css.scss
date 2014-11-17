@@ -16,23 +16,62 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+/*--------------------
+SASS Color Variables
+--------------------*/
+$boot_blue: #428bca;
+$boot_tan: #f8f8f8;
+$cardinal: #B71F3B;
+$mercury: #e5e5e5;
+
+/*--------------------
+SASS MIXINS
+--------------------*/
+@mixin rounded-corners($radius) {
+  border-radius: $radius;
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+          border-radius: $radius;
+}
+@mixin shadowed-corners($color) {
+  -webkit-box-shadow: 3px 3px 3px $color;
+     -moz-box-shadow: 3px 3px 3px $color;
+          box-shadow: 3px 3px 3px $color;
+}
+
+/*-------------------
+This is for Navigation
+--------------------*/
+
+.navbar {
+  margin-bottom: 0px;
+}
+
+.navbar-brand {
+  padding: 0;
+  a {
+  font-size: 1.5em;
+  color: $cardinal;
+    &:hover {
+      text-decoration: none;
+      color: $boot_blue;
+    }
+  }
+}
+
 .brand-image {
-  height: 5em;
-  z-index: -9999;
+  height: 2em;
   &:hover {
-    height: 5.25em;
+    height: 2.1em;
   };
 }
 
-.navbar {
-  margin-bottom: 0px !important;
+.navbar-right {
+  padding-right: 1em;
 }
 
-.navbar-right {
-  padding-right: 1em !important;
-}
 .navbar-fixed-bottom {
-  border: 2px solid lightgray !important;
+  border: 1px solid $mercury;
   display:block;
   margin: 0 auto;
   text-align: center;
@@ -40,6 +79,7 @@
     margin-top: 1em;
   }
 }
+
 
 .nav-format {
   float: left;
@@ -49,26 +89,36 @@
 .nav-format p {
   font-size: .55em;
   text-align: center;
-  color: #428bca;
+  color: $boot_blue;
 }
 
 .logged-in {
-  padding-top: 10px;
-}
-
-.logged-in p {
-  font-size: 1em;
+  padding-top: .6em;
+  p {
+    font-size: 1em;
+  }
 }
 
 .logged-in-name {
-  color: #428bca;
+  color: $boot_blue;
+}
+
+/*------ error box ------*/
+.error_explanation {
+  border: 1px solid $mercury;
+  margin: 0 0 1em 0;
+  padding: 0 .5em;
+  @include rounded-corners(.4em);
+  h4 {
+    color: $cardinal;
+  }
 }
 
 .image_box {
   margin: 0 auto;
   max-height: 50%;
-  border-radius: 2em !important;
-  border: 3px solid lightgray;
+  border: 2px solid $mercury;
+  @include rounded-corners(.4em);
 }
 
 .img-box {
@@ -76,8 +126,9 @@
   float: right;
 }
 
-.menu-options {
-  margin-top: 4em;
+
+.menu-col {
+  margin-top: 2em;
 }
 
 .menu-row {
@@ -91,9 +142,14 @@
 }
 
 .index-one, .index-two, .index-three, .index-four {
-  padding: 3px;
+  padding: .25em .25em;
   height: 300px;
-  border: 1px solid black;
+  border: 1px solid $mercury;
+  @include rounded-corners(.5em);
+  @include shadowed-corners(rgba(0,0,0,.10));
+  h4,h3 {
+    margin: 0 auto;
+  }
 }
 
 .index-two p {
@@ -106,24 +162,23 @@
 
 .outer-box {
   float: left;
-  padding: 2px;
+  padding: .5em;
 }
 
 /* ------------------
 This is for forms
 --------------------*/
 .border-form-div {
-  max-width: 400px;
-  padding: 19px 29px 29px;
+  padding: .4em .6em;
   margin: 0 auto;
   background-color: #fff;
-  border: 1px solid #e5e5e5;
-  -webkit-border-radius: 5px;
-     -moz-border-radius: 5px;
-          border-radius: 5px;
-  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
-     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
-          box-shadow: 0 1px 2px rgba(0,0,0,.05);
+  border: 1px solid $mercury;
+  @include rounded-corners(.4em);
+  @include shadowed-corners(rgba(0,0,0,.10));
+  h3 {
+    color: $boot_blue;
+    margin: 2px auto 3px;
+  }
 }
 
 input#user_remember_me {
@@ -135,15 +190,14 @@ input#user_email, input#user_password, input#user_password_confirmation, input#u
 }
 
 
-
 .contact-btn {
-  background-color: #f8f8f8;
-  color: black;
-  &:hover {
-    background-color: white;
-  };
+  background-color: $boot_tan;
+  color: #000;
 }
 
+/*------------------------------- 
+This is for companys and contacts
+-------------------------------*/
 .comp-index-head {
   margin: 0 0 10px 0;
   display: block;
@@ -156,14 +210,24 @@ input#user_email, input#user_password, input#user_password_confirmation, input#u
   }
 
 .add-btn {
-  float: left;
-  width: 2em;
+  width: 3.5em;
   margin: 0 0 0 5px;
 }
 
 .company-all li {
   list-style: none;
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 

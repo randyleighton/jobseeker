@@ -1,3 +1,15 @@
-<h4><%= @company.name %></h4>
+<h2>Company: <span class="company-show-head"><%= @company.name %></h2></span>
 
-<%= link_to "Contacts", company_contacts_path(@company), class: "contact-btn btn btn-default", title: "Manage your company_contacts" %>
+
+<p>Website Address <a href="http://<%= @company.url %>" target="blank"><%= @company.url %></a></p>
+
+
+
+<%= link_to image_tag("db-add-icon.png", class: "add-btn", title: "Add a new Contact", alt: "Add a new contact"), new_company_contact_path(@company) %>
+
+<h4>Contacts :</h4>
+<ul>
+  <% @company.contacts.each do |contact| %>
+	  <li><p><%= link_to "#{contact.first_name} #{contact.last_name} ", company_contact_path(@company, contact) %></p></li>
+  <% end %>
+</ul>

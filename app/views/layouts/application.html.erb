@@ -15,8 +15,7 @@
 </head>
 <body class="container-fluid">
 
-  <nav class="navbar navbar-default navbar-fixed-top" id="page_header">
-
+  <nav class="navbar navbar-default navbar-fixed-top">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
         <span class="icon-bar"></span>
@@ -24,44 +23,31 @@
         <span class="icon-bar"></span>
       </button>
       <div class="navbar-brand">
-        <%= link_to image_tag("jobseeker.png", class: "img img-responsive img-thumbnail brand-image hidden-xs"), root_path, title: "Home" %>
-
+        <%= link_to image_tag("logo.png", class: "brand-image") + "The Jobseeker", root_path, title: "Home" %>
       </div>
     </div>
-
     <div class="navbar-collapse collapse navbar-responsive-collapse">
       <div class="nav navbar-nav navbar-right">
         <%= render 'layouts/login' %>
       </div>
     </div>
-  </nav>
+    </nav>
 
-  <div class="row menu-row">
-    <div class="col-xs-2 menu-options">
-      <div>
-        <ul class="nav nav-pills nav-stacked">
-          <li role="presentation" class="active">
-            
-          </li>
-          <li role="presentation" class="active">
-            <%= link_to "Companies", companies_path, class: "contact-btn btn btn-default", title: "Manage your Companies" %>
-          </li>
-          <li role="presentation" class="active">
-            <%= link_to "Jobs", companies_path, class: "contact-btn btn btn-default", title: "Manage your Jobs" %>
-          </li>
-          <li role="presentation" class="active">
-            <%= link_to "Interviews", companies_path, class: "contact-btn btn btn-default", title: "Manage your Interviews" %>
-          </li>
-        </ul>
+    <ul class="nav nav-pills nav-justified menu-row">
+        <li role="presentation">
+        <%= link_to "Companies", companies_path, class: "contact-btn btn btn-default", title: "Manage your Companies" %></li>
 
-      </div>
-    </div>
+        <li role="presentation">
+        <%= link_to "Contacts", contacts_path, class: "contact-btn btn btn-default", title: "Manage your Jobs" %></li>
 
-    <div class="col-xs-10 yield-col">
+        <li role="presentation">
+        <%= link_to "Jobs", companies_path, class: "contact-btn btn btn-default",:data =>{:toggle => "pill", :role=>"pill"}, title: "Manage your Jobs" %></li>
+
+        <li role="presentation">
+        <%= link_to "Interviews", companies_path, class: "contact-btn btn btn-default",:data => {:toggle => "pill", :role=>"pill"}, title: "Manage your Interviews" %></li>
+    </ul>
+
     	<%= yield %>
-    </div>
-  </div>
-
 
   <div id="flash" class="clearfix">
     <% if flash[:notice] != nil %>
