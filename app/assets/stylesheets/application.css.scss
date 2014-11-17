@@ -51,9 +51,10 @@ This is for Navigation
   padding: 0;
   a {
   font-size: 1.5em;
-  color: green;
+  color: $cardinal;
     &:hover {
       text-decoration: none;
+      color: $boot_blue;
     }
   }
 }
