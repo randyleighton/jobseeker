@@ -20,6 +20,7 @@
 SASS Color Variables
 --------------------*/
 $boot_blue: #428bca;
+$boot_tan: #f8f8f8;
 $cardinal: #B71F3B;
 $mercury: #e5e5e5;
 
@@ -43,14 +44,34 @@ This is for Navigation
 --------------------*/
 
 .navbar {
-  margin-bottom: 0px !important;
+  margin-bottom: 0px;
+}
+
+.navbar-brand {
+  padding: 0;
+  a {
+  font-size: 1.5em;
+  color: $cardinal;
+    &:hover {
+      text-decoration: none;
+      color: $boot_blue;
+    }
+  }
+}
+
+.brand-image {
+  height: 2em;
+  &:hover {
+    height: 2.1em;
+  };
 }
 
 .navbar-right {
-  padding-right: 1em !important;
+  padding-right: 1em;
 }
+
 .navbar-fixed-bottom {
-  border: 1px solid $mercury !important;
+  border: 1px solid $mercury;
   display:block;
   margin: 0 auto;
   text-align: center;
@@ -58,6 +79,7 @@ This is for Navigation
     margin-top: 1em;
   }
 }
+
 
 .nav-format {
   float: left;
@@ -71,7 +93,7 @@ This is for Navigation
 }
 
 .logged-in {
-  padding-top: 10px;
+  padding-top: .6em;
   p {
     font-size: 1em;
   }
@@ -81,20 +103,11 @@ This is for Navigation
   color: $boot_blue;
 }
 
-.brand-image {
-  height: 5em;
-  z-index: -9999;
-  &:hover {
-    height: 5.25em;
-  };
-}
-
 /*------ error box ------*/
 .error_explanation {
   border: 1px solid $mercury;
-  background-color: #fff;
   margin: 0 0 1em 0;
-  padding: 0px .5em;
+  padding: 0 .5em;
   @include rounded-corners(.4em);
   h4 {
     color: $cardinal;
@@ -104,8 +117,8 @@ This is for Navigation
 .image_box {
   margin: 0 auto;
   max-height: 50%;
-  border-radius: 2em !important;
   border: 2px solid $mercury;
+  @include rounded-corners(.4em);
 }
 
 .img-box {
@@ -113,8 +126,9 @@ This is for Navigation
   float: right;
 }
 
-.menu-options {
-  margin-top: 4em;
+
+.menu-col {
+  margin-top: 2em;
 }
 
 .menu-row {
@@ -177,11 +191,8 @@ input#user_email, input#user_password, input#user_password_confirmation, input#u
 
 
 .contact-btn {
-  background-color: #f8f8f8;
-  color: black;
-  &:hover {
-    background-color: white;
-  };
+  background-color: $boot_tan;
+  color: #000;
 }
 
 /*------------------------------- 
@@ -207,7 +218,7 @@ This is for companys and contacts
   list-style: none;
 }
 
-         
+
 
 
 
