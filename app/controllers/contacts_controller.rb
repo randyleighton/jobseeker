@@ -1,6 +1,6 @@
 class ContactsController < ApplicationController
 	before_filter :authenticate_user!
-  before_filter :find_company, except: :index 
+  before_filter :find_company, except: :index
   before_filter :find_contact, except: [:index, :new, :create]
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
 
@@ -8,11 +8,11 @@ class ContactsController < ApplicationController
     # @contacts = @company.contacts
     @all_contacts = Contact.all
   end
-  
+
   def new
     @contact = @company.contacts.new
   end
-  
+
   def create
     @contact = @company.contacts.create(contact_params)
     if @contact.valid?
@@ -23,12 +23,16 @@ class ContactsController < ApplicationController
   end
 
   def show
-    
+
+  end
+
+  def edit
+    render 'new'
   end
 
   def update
-    if @contact.update_attributes(contact_params).valid?
-      redirect_to :back, notice: "#{@contact.name} updated."
+    if @contact.update_attributes(contact_params)
+      redirect_to :back, notice: "#{@contact.first_name} updated."
     else
       render contact_path(@contact), alert: "Failed to Update."
     end
@@ -39,7 +43,7 @@ class ContactsController < ApplicationController
     flash[:notice]="Contact deleted"
     redirect_to(:action=>'index')
   end
-  
+
   private
 
   def contact_params

@@ -41,7 +41,7 @@
         <%= link_to "Contacts", contacts_path, class: "contact-btn btn btn-default", title: "Manage your Jobs" %></li>
 
         <li role="presentation">
-        <%= link_to "Jobs", companies_path, class: "contact-btn btn btn-default",:data =>{:toggle => "pill", :role=>"pill"}, title: "Manage your Jobs" %></li>
+        <%= link_to "Jobs", jobs_path, class: "contact-btn btn btn-default", title: "Manage your Jobs" %></li>
 
         <li role="presentation">
         <%= link_to "Interviews", companies_path, class: "contact-btn btn btn-default",:data => {:toggle => "pill", :role=>"pill"}, title: "Manage your Interviews" %></li>
@@ -62,7 +62,7 @@
 
   <div class="navbar navbar-default navbar-fixed-bottom">
     <p id="copyright">Ruby on Rails application &copy; 2014 built by: <%= link_to "Visible Difference Web Development", "http://www.visible-difference.com", target: "_blank" %></p>
-    
+
   </div>
 
 </body>

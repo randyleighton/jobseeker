@@ -12,3 +12,12 @@
 	  <li><p><%= link_to "#{contact.first_name} #{contact.last_name} ", company_contact_path(@company, contact) %></p></li>
   <% end %>
 </ul>
+
+<%= link_to image_tag("db-add-icon.png", class: "add-btn", title: "Add a new Job", alt: "Add a new job"), new_company_job_path(@company) %>
+
+<h4>Jobs :</h4>
+<ul>
+  <% @company.jobs.each do |job| %>
+    <li><p><%= link_to "#{job.description}", company_job_path(@company, job) %></p></li>
+  <% end %>
+</ul>
