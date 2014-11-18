@@ -1,14 +1,15 @@
 Rails.application.routes.draw do
 
-  devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}  
+  devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}
   root 'home#index'
   resources :companies do
       resources :contacts
+      resources :jobs
   end
   resources :contacts, only: :index
-  resources :jobs
+  resources :jobs, only: :index
   resources :job_applications
-  
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
