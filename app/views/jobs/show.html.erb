@@ -1,0 +1,20 @@
+<h2><%= @job.description %></h2>
+
+<p>
+  <b>Location:</b>
+  <%= @job.location %>
+</p>
+
+<p>
+  <b>Posting ID:</b>
+  <%= @job.posting_number %>
+</p>
+
+<p>
+  <b>Company:</b>
+  <%= link_to @job.company.name, company_path(@job.company) %>
+</p>
+
+<%= link_to 'Edit', edit_company_job_path(@job.company, @job) %> |
+<%= link_to 'Destroy', [@job.company, @job], :confirm => 'Are you sure?', :method => :delete %> |
+<%= link_to 'Back', company_jobs_path %>
