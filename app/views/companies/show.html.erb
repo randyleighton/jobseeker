@@ -1,9 +1,8 @@
 <h2>Company: <span class="company-show-head"><%= @company.name %></h2></span>
-
-
 <p>Website Address <a href="http://<%= @company.url %>" target="blank"><%= @company.url %></a></p>
-
-
+<% if @company.comments !="" %>
+  <p>Your comments:  <%= @company.comments %></p>
+<% end %>
 
 <%= link_to image_tag("db-add-icon.png", class: "add-btn", title: "Add a new Contact", alt: "Add a new contact"), new_company_contact_path(@company) %>
 

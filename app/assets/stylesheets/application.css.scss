@@ -137,8 +137,12 @@ This is for Navigation
 
 .one-step {
   display: block;
-  margin: 0 auto;
+  margin: 1em auto .5em;
   text-align: center;
+}
+
+.row-one, .row-two {
+  margin: 0 0 1em;
 }
 
 .index-one, .index-two, .index-three, .index-four {
@@ -154,10 +158,6 @@ This is for Navigation
 
 .index-two p {
   margin-bottom: -1px;  
-}
-
-.row-one, .row-two {
-  margin: 1em;
 }
 
 .outer-box {
