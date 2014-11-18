@@ -2,11 +2,10 @@ class JobsController < ApplicationController
 	before_filter :authenticate_user!
 
   before_filter :find_company, except: :index
-  before_filter :find_job, except: :index
+  before_filter :find_job, except: [:index, :new, :create]
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
 
   def index
-    # @contacts = @company.contacts
     @all_jobs = Job.all
   end
 
@@ -17,7 +16,7 @@ class JobsController < ApplicationController
   def create
     @job = @company.jobs.create(job_params)
     if @job.valid?
-      redirect_to company_jobs_path, notice: "#{@job.description} with #{@job.company_id.name} created."
+      redirect_to company_jobs_path, notice: "#{@job.description} with #{@job.company.name} created."
     else
       render 'new', alert: "Job posting could not be created."
     end
@@ -27,8 +26,12 @@ class JobsController < ApplicationController
 
   end
 
+  def edit
+    render 'new'
+  end
+
   def update
-    if @job.update_attributes(job_params).valid?
+    if @job.update_attributes(job_params)
       redirect_to :back, notice: "#{@job.description} updated."
     else
       render job_path(@job), alert: "Failed to Update."
@@ -49,7 +52,6 @@ class JobsController < ApplicationController
 
   def find_company
     @company = Company.find(params[:company_id])
-
   end
 
   def find_job

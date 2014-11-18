@@ -26,9 +26,13 @@ class ContactsController < ApplicationController
 
   end
 
+  def edit
+    render 'new'
+  end
+
   def update
-    if @contact.update_attributes(contact_params).valid?
-      redirect_to :back, notice: "#{@contact.name} updated."
+    if @contact.update_attributes(contact_params)
+      redirect_to :back, notice: "#{@contact.first_name} updated."
     else
       render contact_path(@contact), alert: "Failed to Update."
     end
