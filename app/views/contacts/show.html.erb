@@ -16,6 +16,8 @@
   <%= link_to @contact.company.name, company_path(@contact.company) %>
 </p>
 
-<%= link_to 'Edit', edit_company_contact_path(@contact.company, @contact) %> |
-<%= link_to 'Destroy', [@contact.company, @contact], :confirm => 'Are you sure?', :method => :delete %> |
-<%= link_to 'Back', company_contacts_path %>
+<div class="show-edit-del">
+  <%= link_to 'Edit', edit_company_contact_path(@contact.company, @contact) %> |
+  <%= link_to 'Destroy', [@contact.company, @contact], :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to 'Back', company_contacts_path %>
+</div>
