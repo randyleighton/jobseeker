@@ -218,17 +218,31 @@ This is for companys and contacts
   list-style: none;
 }
 
+/*-------------
+Show page icons
+------------- */
 .show-edit-del {
   float: left;
   max-width: 3em;
   margin: 0 1em 0 0;
   a {
-
+    &:hover {
+        text-decoration: none;
+      }
+    &:hover p {
+        color: $boot_blue;
+      }
     img {
       max-width: 100%;
+      opacity: .8;
+      &:hover {
+        opacity: 1;
+      }
     }
     p {
       color: $cardinal;
+      font-size: 1em;
+      font-weight: bold;
       text-align: center;
     }
   }
@@ -238,20 +252,6 @@ This is for companys and contacts
 .margin-top {
   margin-top: 1.5em;
 }
-
-
-// img.link-images {
-//     max-width: 4em;
-//     p {
-//     color: $cardinal;
-//     font-size: 1.3em;
-//   }
-// }
-
-
-
-
-
 
 
 
