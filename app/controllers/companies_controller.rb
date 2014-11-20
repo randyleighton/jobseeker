@@ -1,5 +1,6 @@
 class CompaniesController < ApplicationController
 	before_filter :authenticate_user!
+  rescue_from ActiveRecord::RecordNotFound, with: :not_found
 
 	def index
 		@companies = Company.all
@@ -41,6 +42,11 @@ class CompaniesController < ApplicationController
   private
   def company_params
     params.require(:company).permit(:name, :url, :comments)
+  end
+
+  def not_found
+    session[:return_to]||= root_url
+    redirect_to session[:return_to], flash: {alert: 'Problem finding record, you might not be authorized.'}
   end
 
 end

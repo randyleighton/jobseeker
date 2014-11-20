@@ -1,6 +1,5 @@
 class JobsController < ApplicationController
 	before_filter :authenticate_user!
-
   before_filter :find_company, except: :index
   before_filter :find_job, except: [:index, :new, :create]
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
@@ -32,7 +31,7 @@ class JobsController < ApplicationController
 
   def update
     if @job.update_attributes(job_params)
-      redirect_to :back, notice: "#{@job.description} updated."
+      redirect_to company, notice: "#{@job.description} updated."
     else
       render job_path(@job), alert: "Failed to Update."
     end
@@ -41,7 +40,7 @@ class JobsController < ApplicationController
   def destroy
     @job.destroy
     flash[:notice]="Job deleted"
-    redirect_to(:action=>'index')
+    redirect_to company_path
   end
 
   private
