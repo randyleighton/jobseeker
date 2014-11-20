@@ -1,0 +1,13 @@
+<div class="row comp-index-head">
+	<h2 class="comp-head">All Contacts</h2>
+</div>
+
+<div class="row">
+<ul>
+  <% @all_contacts.each do |contact| %>
+  	<% company = Company.find(contact.company_id) %>
+	  <li><p><%= link_to "#{contact.first_name} #{contact.last_name} @ #{company.name}", company_contact_path(company, contact) %></p></li>
+  <% end %>
+</ul>
+</div>
+<!-- This page needs to loop through companies, displaying all contacts -->

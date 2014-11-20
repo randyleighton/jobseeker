@@ -4,8 +4,8 @@ class CreateContacts < ActiveRecord::Migration
       t.string :first_name
       t.string :last_name
       t.string :email
-      t.integer :cell
-      t.integer :work_number
+      t.string :cell_phone
+      t.string :work_phone
       t.belongs_to :company, index: true
     end
   end

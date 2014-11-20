@@ -1,8 +1,38 @@
-<% if user_signed_in? %>
-  Logged in as <strong><%= current_user.email %></strong>.
-  <%= link_to 'Edit profile', edit_user_registration_path %> |
-  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-<% else %>
-  <%= link_to "Sign up", new_user_registration_path %> |
-  <%= link_to "Login", new_user_session_path %>
-<% end %>
+	<div class="row one-step">
+		<button class="btn btn-warning btn-lg">Process a Job Application</button>
+
+	</div> 
+
+	<div class="row row-one">
+		<div class="outer-box col-xs-12 col-sm-12 col-md-6">
+			<div class="index-one">
+				<h4> Recent jobs applied for:</h4>
+					<% @jobs.each do |job| %>
+						<% company = Company.find(job.company_id) %>
+						<p><%= link_to "#{job.description}", company_job_path(company, job), class: "companies-all" %></p>
+						<% end %>
+			</div>
+		</div>
+		<div class="outer-box col-xs-12 col-sm-12 col-md-6">
+			<div class="index-two">
+				<h4> Some of your recent companies:</h4>
+					<% @companies.each do |company| %>
+						<p><%= link_to "#{company.name}", company_path(company), class: "companies-all" %></p>
+					<% end %>
+			</div>
+		</div>
+	</div>
+
+	<div class="row row-two">
+		<div class="outer-box col-xs-12 col-sm-12 col-md-6">
+			<div class="index-three">
+				<h4> Some of your upcoming interviews</h4>
+			</div>
+		</div>
+		<div class="outer-box col-xs-12 col-sm-12 col-md-6">
+			<div class="index-four">
+				<h4> Reminders: </h4>
+			</div>
+		</div>
+	</div>
+

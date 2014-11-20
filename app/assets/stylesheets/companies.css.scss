@@ -1,0 +1,35 @@
+$boot_blue: #428bca;
+
+/*-------------------------
+This is for companies table
+ -------------------------*/
+table {
+  width:95%;
+  border-top:1px solid #e5eff8;
+  border-right:1px solid #e5eff8;
+  margin:1em auto;
+  border-collapse:collapse;
+  } 
+tr.odd td {
+  background:#f7fbff
+  }
+td {
+  color:#678197;
+  border-bottom:1px solid #e5eff8;
+  border-left:1px solid #e5eff8;
+  padding:.3em 1em;
+  text-align:center;
+  }       
+th {
+  font-weight:bold;
+  background:#f4f9fe;
+  text-align:center;
+  color: #66a3d3;
+  border-bottom: 1px solid #e5eff8;
+  border-left:1px solid #e5eff8;
+  padding:.3em 1em;
+  }    
+
+.company-show-head {
+  color: $boot_blue;
+}

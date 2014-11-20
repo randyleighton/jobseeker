@@ -1,0 +1,261 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/*--------------------
+SASS Color Variables
+--------------------*/
+$boot_blue: #428bca;
+$boot_tan: #f8f8f8;
+$cardinal: #B71F3B;
+$mercury: #e5e5e5;
+
+/*--------------------
+SASS MIXINS
+--------------------*/
+@mixin rounded-corners($radius) {
+  border-radius: $radius;
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+          border-radius: $radius;
+}
+@mixin shadowed-corners($color) {
+  -webkit-box-shadow: 3px 3px 3px $color;
+     -moz-box-shadow: 3px 3px 3px $color;
+          box-shadow: 3px 3px 3px $color;
+}
+
+/*-------------------
+This is for Navigation
+--------------------*/
+
+.navbar {
+  margin-bottom: 0px;
+}
+
+.navbar-brand {
+  padding: 0;
+  a {
+  font-size: 1.5em;
+  color: $cardinal;
+    &:hover {
+      text-decoration: none;
+      color: $boot_blue;
+    }
+  }
+}
+
+.brand-image {
+  height: 2em;
+  &:hover {
+    height: 2.1em;
+  };
+}
+
+.navbar-right {
+  padding-right: 1em;
+}
+
+.navbar-fixed-bottom {
+  border: 1px solid $mercury;
+  display:block;
+  margin: 0 auto;
+  text-align: center;
+  p {
+    margin-top: 1em;
+  }
+}
+
+
+.nav-format {
+  float: left;
+  padding-right: 10px;
+  font-size: 1.4em;
+}
+.nav-format p {
+  font-size: .55em;
+  text-align: center;
+  color: $boot_blue;
+}
+
+.logged-in {
+  padding-top: .6em;
+  p {
+    font-size: 1em;
+  }
+}
+
+.logged-in-name {
+  color: $cardinal;
+}
+
+/*------ error box ------*/
+.error_explanation {
+  border: 1px solid $mercury;
+  margin: 0 0 1em 0;
+  padding: 0 .5em;
+  @include rounded-corners(.4em);
+  h4 {
+    color: $cardinal;
+  }
+}
+
+.image_box {
+  margin: 0 auto;
+  max-height: 50%;
+  border: 2px solid $mercury;
+  @include rounded-corners(.4em);
+}
+
+.img-box {
+  max-width: 1.5em !important;
+  float: right;
+}
+
+
+.menu-col {
+  margin-top: 2em;
+}
+
+.menu-row {
+  margin-top: 5em;
+}
+
+.one-step {
+  display: block;
+  margin: 1em auto .5em;
+  text-align: center;
+}
+
+.row-one, .row-two {
+  margin: 0 0 1em;
+}
+
+.index-one, .index-two, .index-three, .index-four {
+  padding: .25em .25em;
+  height: 300px;
+  border: 1px solid $mercury;
+  @include rounded-corners(.5em);
+  @include shadowed-corners(rgba(0,0,0,.10));
+  h4,h3 {
+    margin: 0 auto;
+  }
+}
+
+.index-two p {
+  margin-bottom: -1px;
+}
+
+.outer-box {
+  float: left;
+  padding: .5em;
+}
+
+/* ------------------
+This is for forms
+--------------------*/
+.border-form-div {
+  padding: .4em .6em;
+  margin: 0 auto;
+  background-color: #fff;
+  border: 1px solid $mercury;
+  @include rounded-corners(.4em);
+  @include shadowed-corners(rgba(0,0,0,.10));
+  h3 {
+    color: $boot_blue;
+    margin: 2px auto 3px;
+  }
+}
+
+input#user_remember_me {
+  margin-right: 5px;
+}
+
+input#user_email, input#user_password, input#user_password_confirmation, input#user_name {
+  margin-bottom: 15px;
+}
+
+
+.contact-btn {
+  background-color: $boot_tan;
+  color: #000;
+}
+
+/*-------------------------------
+This is for companys and contacts
+-------------------------------*/
+.comp-index-head {
+  margin: 0 0 10px 0;
+  display: block;
+  line-height: 24px;
+}
+.comp-head {
+  float:left;
+  margin: 5px 5px 0 0;
+  color: rgb(66, 139, 202);
+  }
+
+.add-btn {
+  width: 3.5em;
+  margin: 0 0 0 5px;
+}
+
+.company-all li {
+  list-style: none;
+}
+
+/*-------------
+Show page icons
+------------- */
+.show-edit-del {
+  float: left;
+  max-width: 3em;
+  margin: 0 1em 0 0;
+  a {
+    &:hover {
+        text-decoration: none;
+      }
+    &:hover p {
+        color: $boot_blue;
+      }
+    img {
+      max-width: 100%;
+      opacity: .8;
+      &:hover {
+        opacity: 1;
+      }
+    }
+    p {
+      color: $cardinal;
+      font-size: 1em;
+      font-weight: bold;
+      text-align: center;
+    }
+  }
+}
+
+.margin-top {
+  margin-top: 1.5em;
+}
+
+
+
+
+
+
+
+

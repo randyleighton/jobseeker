@@ -18,14 +18,16 @@ ActiveRecord::Schema.define(version: 20141102033146) do
 
   create_table "companies", force: true do |t|
     t.string "name"
+    t.text   "url"
+    t.text   "comments"
   end
 
   create_table "contacts", force: true do |t|
     t.string  "first_name"
     t.string  "last_name"
     t.string  "email"
-    t.integer "cell"
-    t.integer "work_number"
+    t.string  "cell_phone"
+    t.string  "work_phone"
     t.integer "company_id"
   end
 

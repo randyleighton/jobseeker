@@ -1,0 +1,37 @@
+<h2><%= @job.description %></h2>
+
+<p>
+  <b>Location:</b>
+  <%= @job.location %>
+</p>
+
+<p>
+  <b>Posting ID:</b>
+  <%= @job.posting_number %>
+</p>
+
+<p>
+  <b>Company:</b>
+  <%= link_to @job.company.name, company_path(@job.company) %>
+</p>
+
+<div class="margin-top">
+  <div class="show-edit-del">
+    <%= link_to edit_company_job_path(@job.company, @job) do %>
+      <%= image_tag("edit.png") %>
+      <p>Edit</p>
+    <% end %>
+  </div>
+  <div class="show-edit-del">
+    <%= link_to [@job.company, @job], :method => :delete, :confirm => 'Are you sure?' do %>
+      <%= image_tag("trash-holiday.png") %>
+      <p>Delete</p>
+    <% end %>
+  </div>
+  <div class="show-edit-del">
+  <%= link_to company_jobs_path do %>
+    <%= image_tag("navigation.png") %>
+     <p>Back</p>
+  <% end %>
+  </div>
+</div>
