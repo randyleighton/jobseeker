@@ -3,7 +3,7 @@
 
     <div class="nav-format logged-in">
       <% if current_user.username %>
-        Logged in as <strong><span class="logged-in-name"><%= current_user.username %></span></strong>.      
+        Logged in as <strong><span class="logged-in-name"><%= current_user.username %></span></strong>.
       <% else %>
         Logged in as <strong><span class="logged-in-name"><%= current_user.email %></span></strong>.
       <% end %>

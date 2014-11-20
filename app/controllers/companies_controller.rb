@@ -1,5 +1,7 @@
 class CompaniesController < ApplicationController
 	before_filter :authenticate_user!
+  before_filter :find_company, except: [:index, :new, :create]
+  rescue_from ActiveRecord::RecordNotFound, with: :not_found
 
 	def index
 		@companies = Company.all
@@ -18,12 +20,14 @@ class CompaniesController < ApplicationController
 	  end
 	end
 
+	def edit
+
+	end
+
 	def show
-		@company = Company.find(params[:id])
 	end
 
 	def update
-		@company = Company.find([:id])
 		if @company.update_attributes(company_params).valid?
 			redirect_to :back, notice: "#{@company.name} updated."
 		else
@@ -32,15 +36,23 @@ class CompaniesController < ApplicationController
 	end
 
 	def destroy
-		Company.find(params[:id]).destroy
-    flash[:notice]="Company deleted"
-   	redirect_to(:action=>'index')
+		@company.destroy, alert: "Company and all its contacts and jobs were deleted."
+   	redirect_to root_path
 	end
 
 
   private
   def company_params
     params.require(:company).permit(:name, :url, :comments)
+  end
+
+  def find_company
+		@company = Company.find(params[:id])
+  end
+
+  def not_found
+    session[:return_to]||= root_url
+    redirect_to session[:return_to], flash: {alert: 'Problem finding record, you might not be authorized.'}
   end
 
 end

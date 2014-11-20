@@ -100,7 +100,7 @@ This is for Navigation
 }
 
 .logged-in-name {
-  color: $boot_blue;
+  color: $cardinal;
 }
 
 /*------ error box ------*/
@@ -157,7 +157,7 @@ This is for Navigation
 }
 
 .index-two p {
-  margin-bottom: -1px;  
+  margin-bottom: -1px;
 }
 
 .outer-box {
@@ -195,7 +195,7 @@ input#user_email, input#user_password, input#user_password_confirmation, input#u
   color: #000;
 }
 
-/*------------------------------- 
+/*-------------------------------
 This is for companys and contacts
 -------------------------------*/
 .comp-index-head {
@@ -204,7 +204,7 @@ This is for companys and contacts
   line-height: 24px;
 }
 .comp-head {
-  float:left;  
+  float:left;
   margin: 5px 5px 0 0;
   color: rgb(66, 139, 202);
   }
@@ -218,11 +218,39 @@ This is for companys and contacts
   list-style: none;
 }
 
+/*-------------
+Show page icons
+------------- */
+.show-edit-del {
+  float: left;
+  max-width: 3em;
+  margin: 0 1em 0 0;
+  a {
+    &:hover {
+        text-decoration: none;
+      }
+    &:hover p {
+        color: $boot_blue;
+      }
+    img {
+      max-width: 100%;
+      opacity: .8;
+      &:hover {
+        opacity: 1;
+      }
+    }
+    p {
+      color: $cardinal;
+      font-size: 1em;
+      font-weight: bold;
+      text-align: center;
+    }
+  }
+}
 
-
-
-
-
+.margin-top {
+  margin-top: 1.5em;
+}
 
 
 
