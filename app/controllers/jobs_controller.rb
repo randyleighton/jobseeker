@@ -22,11 +22,9 @@ class JobsController < ApplicationController
   end
 
   def show
-
   end
 
   def edit
-    render 'new'
   end
 
   def update
@@ -38,8 +36,7 @@ class JobsController < ApplicationController
   end
 
   def destroy
-    @job.destroy
-    flash[:notice]="Job deleted"
+    @job.destroy, notice: "Job deleted"
     redirect_to company_path
   end
 

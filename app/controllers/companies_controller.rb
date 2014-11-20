@@ -36,9 +36,8 @@ class CompaniesController < ApplicationController
 	end
 
 	def destroy
-		@company.destroy
-    flash[:notice]="Company deleted"
-   	redirect_to(:action=>'index')
+		@company.destroy, alert: "Company and all its contacts and jobs were deleted."
+   	redirect_to root_path
 	end
 
 
