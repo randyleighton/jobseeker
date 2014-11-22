@@ -15,7 +15,7 @@ class JobsController < ApplicationController
   def create
     @job = @company.jobs.create(job_params)
     if @job.valid?
-      redirect_to company_jobs_path, notice: "#{@job.description} with #{@job.company.name} created."
+      redirect_to company_path(@company), notice: "#{@job.description} with #{@job.company.name} created."
     else
       render 'new', alert: "Job posting could not be created."
     end
