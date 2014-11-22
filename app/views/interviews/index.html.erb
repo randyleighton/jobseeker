@@ -4,8 +4,7 @@
 <div class="row">
 <ul>
   <% @all_interviews.each do |interview| %>
-    <% job = Job.find(interview.job_id) %>
-    <li><p><%= link_to "#{interview.description} @ #{job.company.name}", interview_path(interview, job) %></p></li>
+    <li><p><%= link_to "Interview Date: #{interview.interview_date} | Notes: #{interview.notes} ", interview_path(interview) %></p></li>
   <% end %>
 </ul>
 </div>

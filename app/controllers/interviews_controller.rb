@@ -10,9 +10,9 @@ class InterviewsController < ApplicationController
   end
 
   def create
-    @interview = @interview.create(interview_params)
+    @interview = Interview.create(interview_params)
     if @interview.valid?
-      redirect_to interviews_path, notice: "Interview on #{@interview.date} created."
+      redirect_to interviews_path, notice: "Interview on #{@interview.interview_date} created."
     else
       render 'new', alert: "Interview could not be created."
     end
@@ -43,7 +43,7 @@ class InterviewsController < ApplicationController
   private
 
   def interview_params
-    params.require(:interview).permit(:interview_date, :notes, :interview_id)
+    params.require(:interview).permit(:interview_date, :notes, :job_id)
   end
 
   def not_found
