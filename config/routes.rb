@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   resources :jobs, only: :index
   resources :job_applications
 
+  resources :interviews
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
