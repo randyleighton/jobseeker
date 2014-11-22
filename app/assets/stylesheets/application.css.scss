@@ -15,6 +15,8 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import url(http://fonts.googleapis.com/css?family=Raleway:700,400);
+
 
 /*--------------------
 SASS Color Variables
@@ -51,12 +53,18 @@ This is for Navigation
   padding: 0;
   a {
   font-size: 1.5em;
-  color: $cardinal;
+  color: black;
     &:hover {
       text-decoration: none;
       color: $boot_blue;
     }
   }
+}
+
+.job-seeker {
+  font-weight: bold;
+  font-family: 'Raleway', sans-serif;
+  color: $cardinal !important;
 }
 
 .brand-image {
@@ -250,6 +258,7 @@ Show page icons
 .margin-top {
   margin-top: 1.5em;
 }
+
 
 
 
