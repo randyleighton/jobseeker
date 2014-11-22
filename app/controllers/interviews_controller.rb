@@ -7,12 +7,14 @@ class InterviewsController < ApplicationController
 
   def new
     @interview = Interview.new
+    @job = Job.find(params[:job_id])
   end
 
   def create
+    @job = Job.find(params[:job_id])
     @interview = Interview.create(interview_params)
     if @interview.valid?
-      redirect_to interviews_path, notice: "Interview on #{@interview.interview_date} created."
+      redirect_to job_path(@job), notice: "Interview on #{@interview.interview_date} created."
     else
       render 'new', alert: "Interview could not be created."
     end
@@ -28,7 +30,7 @@ class InterviewsController < ApplicationController
 
   def update
     if @interview.update_attributes(interview_params)
-      redirect_to interviews_path, notice: "#Interview updated."
+      redirect_to root_path, notice: "#Interview updated."
     else
       render interview_path(@interview), alert: "Failed to Update."
     end

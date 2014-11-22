@@ -4,7 +4,7 @@
 <div class="row">
 <ul>
   <% @all_interviews.each do |interview| %>
-    <li><p><%= link_to "Interview Date: #{interview.interview_date} | Notes: #{interview.notes} ", interview_path(interview) %></p></li>
+    <li><p><%= link_to "Interview Date: #{interview.interview_date} | Notes: #{interview.notes} ", job_interview_path(interview) %></p></li>
   <% end %>
 </ul>
 </div>
