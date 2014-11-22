@@ -1,7 +1,7 @@
 class InterviewsController < ApplicationController
   before_filter :authenticate_user!
 
-def index
+  def index
     @all_interviews = Interview.all
   end
 
@@ -50,8 +50,5 @@ def index
       session[:return_to]||= root_url
       redirect_to session[:return_to], flash: {alert: 'Problem finding record, you might not be authorized.'}
   end
-
-end
-
 
 end
