@@ -1,21 +1,16 @@
 <h2><%= @job.description %></h2>
-
-<p>
-  <b>Location:</b>
-  <%= @job.location %>
-</p>
-
-<p>
-  <b>Posting ID:</b>
-  <%= @job.posting_number %>
-</p>
-
-<p>
-  <b>Company:</b>
-  <%= link_to @job.company.name, company_path(@job.company) %>
-</p>
+<p><b>Location:</b><%= @job.location %></p>
+<p><b>Posting ID:</b><%= @job.posting_number %></p>
+<p><b>Company:</b><%= link_to @job.company.name, company_path(@job.company) %></p>
+<p><b>Date Applied:</b><%= @job.application_date.strftime("%m/%d/%Y") %>
 
 <div class="margin-top">
+  <div class="show-edit-del">
+    <%= link_to new_job_interview_path(@job) do %>
+      <%= image_tag("db-add-icon.png") %>
+      <p>Add Interview</p>
+    <% end %>
+  </div>
   <div class="show-edit-del">
     <%= link_to edit_company_job_path(@job.company, @job) do %>
       <%= image_tag("edit.png") %>

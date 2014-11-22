@@ -23,7 +23,7 @@
         <span class="icon-bar"></span>
       </button>
       <div class="navbar-brand">
-        <%= link_to image_tag("logo.png", class: "brand-image") + "The Jobseeker", root_path, title: "Home" %>
+        <%= link_to image_tag("search.png", class: "brand-image") + ("<span class='job-seeker'>Job</span>Seeker".html_safe), root_path, title: "Home" %>
       </div>
     </div>
     <div class="navbar-collapse collapse navbar-responsive-collapse">
@@ -34,17 +34,17 @@
     </nav>
 
     <ul class="nav nav-pills nav-justified menu-row">
-        <li role="presentation">
-        <%= link_to "Companies", companies_path, class: "contact-btn btn btn-default", title: "Manage your Companies" %></li>
+      <li role="presentation">
+      <%= link_to "Companies", companies_path, class: "contact-btn btn btn-default", title: "Manage your Companies" %></li>
 
-        <li role="presentation">
-        <%= link_to "Contacts", contacts_path, class: "contact-btn btn btn-default", title: "Manage your Jobs" %></li>
+      <li role="presentation">
+      <%= link_to "Contacts", contacts_path, class: "contact-btn btn btn-default", title: "View your Contacts" %></li>
 
-        <li role="presentation">
-        <%= link_to "Jobs", jobs_path, class: "contact-btn btn btn-default", title: "Manage your Jobs" %></li>
+      <li role="presentation">
+      <%= link_to "Jobs", jobs_path, class: "contact-btn btn btn-default", title: "View your jobs applied for." %></li>
 
-        <li role="presentation">
-        <%= link_to "Interviews", companies_path, class: "contact-btn btn btn-default",:data => {:toggle => "pill", :role=>"pill"}, title: "Manage your Interviews" %></li>
+      <li role="presentation">
+      <%= link_to "Interviews", interviews_path, class: "contact-btn btn btn-default", title: "View your Interviews." %></li>
     </ul>
 
    	<%= yield %>

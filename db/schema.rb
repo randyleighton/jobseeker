@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20141122031316) do
   add_index "contacts", ["company_id"], name: "index_contacts_on_company_id", using: :btree
 
   create_table "interviews", force: true do |t|
-    t.integer "interview_date"
+    t.date    "interview_date"
     t.string  "notes"
     t.integer "job_id"
   end
@@ -46,7 +46,6 @@ ActiveRecord::Schema.define(version: 20141122031316) do
     t.string  "location"
     t.string  "posting_number"
     t.date    "application_date"
-    t.integer "interview_id"
     t.integer "company_id"
   end
 

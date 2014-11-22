@@ -1,18 +1,20 @@
 class InterviewsController < ApplicationController
   before_filter :authenticate_user!
 
-def index
+  def index
     @all_interviews = Interview.all
   end
 
   def new
     @interview = Interview.new
+    @job = Job.find(params[:job_id])
   end
 
   def create
-    @interview = @interview.create(interview_params)
+    @job = Job.find(params[:job_id])
+    @interview = Interview.create(interview_params)
     if @interview.valid?
-      redirect_to interviews_path, notice: "Interview on #{@interview.date} created."
+      redirect_to root_path, notice: "Interview on #{@interview.interview_date} created."
     else
       render 'new', alert: "Interview could not be created."
     end
@@ -28,7 +30,7 @@ def index
 
   def update
     if @interview.update_attributes(interview_params)
-      redirect_to interviews_path, notice: "#Interview updated."
+      redirect_to root_path, notice: "#Interview updated."
     else
       render interview_path(@interview), alert: "Failed to Update."
     end
@@ -43,15 +45,12 @@ def index
   private
 
   def interview_params
-    params.require(:interview).permit(:interview_date, :notes, :interview_id)
+    params.require(:interview).permit(:interview_date, :notes, :job_id)
   end
 
   def not_found
       session[:return_to]||= root_url
       redirect_to session[:return_to], flash: {alert: 'Problem finding record, you might not be authorized.'}
   end
-
-end
-
 
 end
