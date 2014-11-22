@@ -28,8 +28,8 @@ class CompaniesController < ApplicationController
 	end
 
 	def update
-		if @company.update_attributes(company_params).valid?
-			redirect_to :back, notice: "#{@company.name} updated."
+    if @company.update_attributes(company_params)
+			redirect_to company_path(@company), notice: "#{@company.name} updated."
 		else
 			render company_path(@company), alert: "Failed to Update."
 		end

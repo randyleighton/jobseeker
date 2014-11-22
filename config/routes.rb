@@ -7,11 +7,14 @@ Rails.application.routes.draw do
       resources :jobs
   end
   resources :contacts, only: :index
-  resources :jobs, only: :index
   resources :job_applications
 
-  resources :interviews
+  resources :jobs do
+    resources :interviews
+  end
 
+  resources :jobs, only: :index
+  resources :interviews, only: :index
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
