@@ -5,6 +5,7 @@ class CreateJobs < ActiveRecord::Migration
       t.string :location
       t.string :posting_number
       t.date :application_date
+      t.integer :interview_id
       t.belongs_to :company, index: true
     end
   end

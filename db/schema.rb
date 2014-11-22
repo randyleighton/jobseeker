@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20141102033146) do
     t.string  "location"
     t.string  "posting_number"
     t.date    "application_date"
+    t.integer "interview_id"
     t.integer "company_id"
   end
 
