@@ -21,7 +21,7 @@ class CompaniesController < ApplicationController
 	end
 
 	def edit
-
+    render 'new'
 	end
 
 	def show
