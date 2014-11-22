@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :contacts, only: :index
   resources :jobs, only: :index
   resources :job_applications
+
   resources :interviews
 
   # Example of regular route:
