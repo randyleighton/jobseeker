@@ -16,7 +16,7 @@ class ContactsController < ApplicationController
   def create
     @contact = @company.contacts.create(contact_params)
     if @contact.valid?
-      redirect_to company_contacts_path, notice: "#{@contact.first_name} #{@contact.last_name} created."
+      redirect_to company_path(@company), notice: "#{@contact.first_name} #{@contact.last_name} created."
     else
       render 'new', alert: "Contact could not be created."
     end
