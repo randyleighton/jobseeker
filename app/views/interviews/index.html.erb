@@ -6,8 +6,7 @@
   <% @all_interviews.each do |interview| %>
     <% job = Job.find(interview.job_id) %>
     <% company = Company.find(job.company_id) %>
-
-    <li><p><%= link_to "Interview Date: #{interview.interview_date}  |  Notes: #{interview.notes} ", job_interview_path(company, interview) %></p></li>
+    <li><p><%= link_to "Interview Date: #{interview.interview_date.strftime("%m/%d/%Y")}  |  Notes: #{interview.notes} ", job_interview_path(company, interview) %></p></li>
   <% end %>
 </ul>
 </div>
