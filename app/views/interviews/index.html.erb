@@ -1,0 +1,11 @@
+<div class="row comp-index-head">
+  <h2 class="comp-head">All Jobs</h2>
+</div>
+<div class="row">
+<ul>
+  <% @all_interviews.each do |interview| %>
+    <% job = Job.find(interview.job_id) %>
+    <li><p><%= link_to "#{interview.description} @ #{job.company.name}", interview_path(interview, job) %></p></li>
+  <% end %>
+</ul>
+</div>
