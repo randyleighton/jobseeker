@@ -6,13 +6,12 @@ Rails.application.routes.draw do
       resources :contacts
       resources :jobs
   end
-  resources :contacts, only: :index
-  resources :job_applications
-
   resources :jobs do
     resources :interviews
+    resources :responses
   end
-
+  resources :job_applications
+  resources :contacts, only: :index
   resources :jobs, only: :index
   resources :interviews, only: :index
   # Example of regular route:
