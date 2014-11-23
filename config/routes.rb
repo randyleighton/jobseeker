@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   resources :jobs do
     resources :interviews
+    resources :responses
   end
 
   resources :jobs, only: :index
