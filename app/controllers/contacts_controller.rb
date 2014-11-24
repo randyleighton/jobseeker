@@ -5,7 +5,6 @@ class ContactsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
 
   def index
-    # @contacts = @company.contacts
     @all_contacts = Contact.all
   end
 

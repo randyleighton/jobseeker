@@ -1,5 +1,6 @@
 class InterviewsController < ApplicationController
   before_filter :authenticate_user!
+  before_filter :find_interview, except: [:index,:new, :create]
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
 
   def index
@@ -44,6 +45,10 @@ class InterviewsController < ApplicationController
   end
 
   private
+
+  def find_interview
+    @interview = Interview.find(params[:id])
+  end
 
   def interview_params
     params.require(:interview).permit(:interview_date, :notes, :job_id)
