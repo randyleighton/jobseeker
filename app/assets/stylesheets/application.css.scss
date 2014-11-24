@@ -17,7 +17,6 @@
 @import "bootstrap";
 @import url(http://fonts.googleapis.com/css?family=Raleway:700,400);
 
-
 /*--------------------
 SASS Color Variables
 --------------------*/
@@ -25,6 +24,8 @@ $boot_blue: #428bca;
 $boot_tan: #f8f8f8;
 $cardinal: #B71F3B;
 $mercury: #e5e5e5;
+$silk: #e3e3e3;
+$button-pri: #88add6;
 
 /*--------------------
 SASS MIXINS
@@ -41,12 +42,18 @@ SASS MIXINS
           box-shadow: 3px 3px 3px $color;
 }
 
+
+body {
+  background-image: url("bg-tan.jpg")
+}
+
 /*-------------------
 This is for Navigation
 --------------------*/
 
 .navbar {
   margin-bottom: 0px;
+  background-image: url("128-59.jpg");
 }
 
 .navbar-brand {
@@ -197,8 +204,13 @@ input#user_email, input#user_password, input#user_password_confirmation, input#u
 }
 
 
+
+.btn-default {
+    background-color: $button-pri;    
+}
+
 .contact-btn {
-  background-color: $boot_tan;
+  background-color: $button-pri;
   color: #000;
 }
 
