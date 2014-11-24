@@ -25,7 +25,8 @@ $boot_tan: #f8f8f8;
 $cardinal: #B71F3B;
 $mercury: #e5e5e5;
 $silk: #e3e3e3;
-$button-pri: #88add6;
+$button-pri: #a9c2de;
+$button-sec: #88add6;
 
 /*--------------------
 SASS MIXINS
@@ -206,13 +207,18 @@ input#user_email, input#user_password, input#user_password_confirmation, input#u
 
 
 .btn-default {
-    background-color: $button-pri;    
+  background-color: $button-pri;
+  &:hover {
+    background-color: white;
+  }
+}
+a.btn-default {
+  background-color: $button-pri;
+  &:hover {
+    background-color: white !important;
+  }
 }
 
-.contact-btn {
-  background-color: $button-pri;
-  color: #000;
-}
 
 /*-------------------------------
 This is for companys and contacts
