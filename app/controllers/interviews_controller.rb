@@ -1,5 +1,6 @@
 class InterviewsController < ApplicationController
   before_filter :authenticate_user!
+  rescue_from ActiveRecord::RecordNotFound, with: :not_found
 
   def index
     @all_interviews = Interview.all
