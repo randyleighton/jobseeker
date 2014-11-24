@@ -1,5 +1,6 @@
 class ResponsesController < ApplicationController
   before_filter :authenticate_user!
+  before_filter :find_response, except: [:index,:new, :create]
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
 
   def index
@@ -44,6 +45,10 @@ class ResponsesController < ApplicationController
   end
 
   private
+
+  def find_response
+    @response = Response.find(params[:id])
+  end
 
   def response_params
     params.require(:response).permit(:response_date, :notes, :job_id)
