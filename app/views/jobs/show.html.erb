@@ -5,8 +5,10 @@
 <p><b>Date Applied: </b><%= @job.application_date.strftime("%m/%d/%Y") %>
 <p><b>Scheduled Interview(s): </b>
         <% @job.interviews.each do |interview| %>
-          <%= interview.interview_date.strftime("%m/%d/%Y") %></p>
+          <p><%= interview.interview_date.strftime("%m/%d/%Y") %> | Notes:
+          <%= interview.notes %></p>
         <% end %>
+</p>
 
 <div class="margin-top">
   <div class="show-edit-del">
