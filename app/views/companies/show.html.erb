@@ -1,7 +1,7 @@
 <h2>Company: <span class="company-show-head"><%= @company.name %></h2></span>
-<p>Website Address <a href="http://<%= @company.url %>" target="blank"><%= @company.url %></a></p>
+<p><b>Website Address: </b><a href="http://<%= @company.url %>" target="blank"><%= @company.url %></a></p>
 <% if @company.comments !="" %>
-  <p>Your comments:  <%= @company.comments %></p>
+  <p><b>Notes: </b>  <%= @company.comments %></p>
 <% end %>
 <div class="row">
   <div class="margin-top">
