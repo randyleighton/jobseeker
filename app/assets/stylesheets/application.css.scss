@@ -86,7 +86,7 @@ This is for Navigation
   padding-right: 1em;
 }
 
-.navbar-fixed-bottom {
+.navbar-bot {
   border: 1px solid $mercury;
   display:block;
   margin: 0 auto;
@@ -95,7 +95,6 @@ This is for Navigation
     margin-top: 1em;
   }
 }
-
 
 .nav-format {
   float: left;
@@ -180,6 +179,13 @@ This is for Navigation
   padding: .5em;
 }
 
+.btn-default {
+  background-color: $button-pri;
+  &:hover {
+    background-color: $button-sec !important;
+  }
+}
+
 /* ------------------
 This is for forms
 --------------------*/
@@ -205,19 +211,6 @@ input#user_email, input#user_password, input#user_password_confirmation, input#u
 }
 
 
-
-.btn-default {
-  background-color: $button-pri;
-  &:hover {
-    background-color: white;
-  }
-}
-a.btn-default {
-  background-color: $button-pri;
-  &:hover {
-    background-color: white !important;
-  }
-}
 
 
 /*-------------------------------
