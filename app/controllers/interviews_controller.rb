@@ -15,7 +15,7 @@ class InterviewsController < ApplicationController
   def create
     @interview = Interview.create(interview_params)
     if @interview.valid?
-      redirect_to job_interview_path, notice: "Interview on #{@interview.interview_date} created."
+      redirect_to job_interviews_path, notice: "Interview on #{@interview.interview_date} created."
     else
       render 'new', alert: "Interview could not be created."
     end

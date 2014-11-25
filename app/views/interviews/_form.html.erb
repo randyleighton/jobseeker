@@ -1,27 +1,28 @@
 <%= render 'layouts/errors', object: @interview %>
 
-<%= form_for(@interview, html: { class: 'form-horizontal' }, url: job_interview_path(@job, @interview)) do |f| %>
+<%= form_for(@interview, html: { class: 'form-horizontal' }, url: job_interviews_path(@job, @interview)) do |f| %>
+  <% if !@interview.interview_date %>
+    <div class="form-group">
+        <%= f.label "Interview Date", class: "col-sm-2"%>
+      <div class="col-sm-6">
+        <%= f.date_field :interview_date, :autofocus=>true, class: 'form-control' %>
+      </div>
+    </div>
+  <% end %>
 
- 	<div class="form-group">
-    	<%= f.label "Interview Date", class: "col-sm-2"%>
+  <div class="form-group">
+      <%= f.label "Interview Notes", class: "col-sm-2"%>
     <div class="col-sm-6">
-    	<%= f.date_field :interview_date, :autofocus=>true, class: 'form-control' %>
-   	</div>
-  </div>
-
- 	<div class="form-group">
-    	<%= f.label "Interview Notes", class: "col-sm-2"%>
-    <div class="col-sm-6">
-    	<%= f.text_area :notes, class: 'form-control' %>
-   	</div>
+      <%= f.text_area :notes, class: 'form-control' %>
+    </div>
   </div>
 
  <%= f.hidden_field :job_id, :value => @job.id %>
 
- 	<div class="form-group">
-	  <div class="col-sm-offset-2 col-sm-9">
-			<%= f.submit(:class => "btn btn-primary") %>
-		</div>
- 	</div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-9">
+      <%= f.submit(:class => "btn btn-primary") %>
+    </div>
+  </div>
 
 <% end %>
