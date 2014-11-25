@@ -96,7 +96,6 @@ This is for Navigation
   }
 }
 
-
 .nav-format {
   float: left;
   padding-right: 10px;
@@ -180,6 +179,13 @@ This is for Navigation
   padding: .5em;
 }
 
+.btn-default {
+  background-color: $button-pri;
+  &:hover {
+    background-color: $button-sec !important;
+  }
+}
+
 /* ------------------
 This is for forms
 --------------------*/
@@ -205,19 +211,6 @@ input#user_email, input#user_password, input#user_password_confirmation, input#u
 }
 
 
-
-.btn-default {
-  background-color: $button-pri;
-  &:hover {
-    background-color: white;
-  }
-}
-a.btn-default {
-  background-color: $button-pri;
-  &:hover {
-    background-color: white !important;
-  }
-}
 
 
 /*-------------------------------
