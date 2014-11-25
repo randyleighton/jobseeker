@@ -1,0 +1,9 @@
+<h4>Interview Details</h4>
+
+<p><b>Company: </b><%= @company.name %></p>
+<p><b>Job: </b><%= @job.description %></p>
+<p><b>Date Scheduled: </b><%= @interview.interview_date %></p>
+<p><b>Notes: </b><%=@interview.notes %></p>
+<br>
+<h4>Update Notes for this interview </h4>
+<%= render 'form' %>
