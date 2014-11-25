@@ -1,12 +1,16 @@
-<h2><%= @job.description %></h2>
+<h4>Job Title: <%= @job.description %></h4>
 <p><b>Location: </b><%= @job.location %></p>
 <p><b>Posting ID: </b><%= @job.posting_number %></p>
 <p><b>Company: </b><%= link_to @job.company.name, company_path(@job.company) %></p>
 <p><b>Date Applied: </b><%= @job.application_date.strftime("%m/%d/%Y") %>
 <p><b>Scheduled Interview(s): </b>
-        <% @job.interviews.each do |interview| %>
-          <p><%= interview.interview_date.strftime("%m/%d/%Y") %> | Notes:
-          <%= interview.notes %></p>
+        <% if @job.interviews != [] %>
+          <% @job.interviews.each do |interview| %>
+            <p><b>Date:</b><%= interview.interview_date.strftime("%m/%d/%Y") %> | <b>Notes:</b>
+            <%= interview.notes %></p>
+          <% end %>
+        <% else %>
+          <p>None Yet.</p>
         <% end %>
 </p>
 
