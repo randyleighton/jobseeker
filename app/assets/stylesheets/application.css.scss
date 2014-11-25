@@ -94,6 +94,12 @@ This is for Navigation
   p {
     margin-top: 1em;
   }
+  a {
+    color: $cardinal;
+  &:hover {
+    text-decoration: none;
+  };
+  }
 }
 
 .nav-format {
