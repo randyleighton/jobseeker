@@ -3,8 +3,8 @@ class HomeController < ApplicationController
 def index
 	@companies = Company.all
 	@contacts = Contact.all
+  @interviews = Interview.all
 	@jobs = Job.all
-	# @job_application = Job_application.all
 end
 
 end
