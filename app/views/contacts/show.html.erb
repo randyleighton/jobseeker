@@ -24,7 +24,7 @@
     <% end %>
   </div>
   <div class="show-edit-del">
-    <%= link_to [@contact.company, @contact], data: {method: :delete, confirm: 'Are you sure you want to delete this contact?' } do %>
+    <%= link_to [@contact.company, @contact], data: {method: :delete, confirm: "Are you sure you want to delete #{@contact.first_name} #{@contact.last_name} from your contacts?" } do %>
       <%= image_tag("trash-holiday.png") %>
       <p>Delete</p>
     <% end %>
