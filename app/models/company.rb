@@ -1,7 +1,7 @@
 class Company < ActiveRecord::Base
 
-has_many :contacts
-has_many :jobs
+has_many :contacts, dependent: :destroy
+has_many :jobs, dependent: :destroy
 
 validates :name, presence: true, uniqueness: true
 
