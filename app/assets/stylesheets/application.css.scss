@@ -168,7 +168,7 @@ This is for Navigation
 
 .index-one, .index-two, .index-three, .index-four {
   padding: .25em .25em;
-  height: 300px;
+  height: 250px;
   border: 1px solid $mercury;
   @include rounded-corners(.5em);
   @include shadowed-corners(rgba(0,0,0,.10));
