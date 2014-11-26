@@ -27,7 +27,7 @@
     </div>
 
     <div class="show-edit-del">
-      <%= link_to [@company], :method => :delete, :confirm =>'Are you sure? This deletes jobs and contacts from this company also.' do %>
+      <%= link_to company_path(@company), data: {method: :delete, confirm: 'Are you sure? This deletes jobs and contacts from this company also.' } do %>
         <%= image_tag("trash-holiday.png") %>
         <p>Delete</p>
       <% end %>
