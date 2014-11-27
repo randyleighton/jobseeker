@@ -1,6 +1,7 @@
 <div class="row">
   <h3><%= @contact.first_name + " " + @contact.last_name %></h3>
   <p><b>Company:</b><%= link_to @contact.company.name, company_path(@contact.company) %></p>
+  <p><b>Title: </b><%= @contact.title %></p>
   <p><b>Email:</b><%=h @contact.email %></p>
   <p><b>Phone:</b><%=h @contact.work_phone %><%=h @contact.cell_phone %></p>
 </div>
