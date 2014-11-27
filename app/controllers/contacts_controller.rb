@@ -31,7 +31,7 @@ class ContactsController < ApplicationController
 
   def update
     if @contact.update_attributes(contact_params)
-      redirect_to :back, notice: "#{@contact.first_name} updated."
+      redirect_to company_contact_path(@company, @contact), notice: "#{@contact.first_name} updated."
     else
       render contact_path(@contact), alert: "Failed to Update."
     end
