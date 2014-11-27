@@ -47,8 +47,6 @@
       <%= link_to "Interviews", interviews_path, class: "btn btn-default", title: "View your Interviews." %></li>
     </ul>
 
-   	<%= yield %>
-
   <div id="flash" class="clearfix">
     <% if flash[:notice] != nil %>
       <div class='alert alert-success' role='alert'>
@@ -59,6 +57,8 @@
         <%= flash[:alert] %></div>
     <% end %>
   </div>
+
+   	<%= yield %>
 
   <div class="navbar navbar-default navbar-fixed-bottom">
     <p id="copyright">Ruby on Rails application &copy; 2014 built by: <%= link_to "Visible Difference Web Development", "http://www.visible-difference.com", target: "_blank" %></p>

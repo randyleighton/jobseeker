@@ -11,8 +11,7 @@
   <% end %>
 
  	<div class="form-group">
-    	<%= f.label "Interview Notes", class: "col-sm-2"%>
-    <div class="col-sm-6">
+    <div class="col-sm-5">
     	<%= f.text_area :notes, class: 'form-control' %>
    	</div>
   </div>
@@ -20,7 +19,7 @@
  <%= f.hidden_field :job_id, :value => @job.id %>
 
  	<div class="form-group">
-	  <div class="col-sm-offset-2 col-sm-9">
+	  <div class="col-sm-5">
 			<%= f.submit(:class => "btn btn-primary") %>
 		</div>
  	</div>

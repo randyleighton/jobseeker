@@ -1,33 +1,23 @@
-<div class="row">
+<div class="row show-header">
   <h2>Company: <span class="company-show-head"><%= @company.name %></h2></span>
-  <p><b>Website Address: </b><a href="http://<%= @company.url %>" target="blank"><%= @company.url %></a></p>
-  <% if @company.comments !="" %>
-    <p><b>Notes: </b>  <%= @company.comments %></p>
-  <% end %>
 </div>
-<div class="row">
-  <div class="margin-top">
-    <div class="show-edit-del">
-      <%= link_to new_company_contact_path(@company) do %>
-        <%= image_tag("db-add-icon.png") %>
-        <p>Add New Contact</p>
-      <% end %>
-    </div>
 
-    <div class="show-edit-del">
-      <%= link_to new_company_job_path(@company) do %>
-        <%= image_tag("db-add-icon.png") %>
-        <p>Add a Job </p>
-      <% end %>
-    </div>
+<div class="col-xs-12 col-sm-4">
+  <div class="row">
+    <h4>Company Information:</h4>
+    <p><b>Website Address: </b><a href="http://<%= @company.url %>" target="blank"><%= @company.url %></a></p>
+    <% if @company.comments !="" %>
+      <p><b>Notes: </b>  <%= @company.comments %></p>
+    <% end %>
+  </div>
 
+  <div class="row margin-top">
     <div class="show-edit-del">
       <%= link_to edit_company_path(@company) do %>
         <%= image_tag("edit.png") %>
         <p>Edit</p>
       <% end %>
     </div>
-
     <div class="show-edit-del">
       <%= link_to company_path(@company), data: {method: :delete, confirm: "WARNING! This will delete all contacts and interviews with #{@company.name}. Are you sure?" } do %>
         <%= image_tag("trash-holiday.png") %>
@@ -43,21 +33,49 @@
   </div>
 </div>
 
-<div class="row">
-  <h4>Contacts :</h4>
-  <ul>
-    <% @company.contacts.each do |contact| %>
-  	  <li><p><%= link_to "#{contact.first_name} #{contact.last_name} ", company_contact_path(@company, contact) %></p></li>
-    <% end %>
-  </ul>
+
+<div class="col-xs-12 col-sm-4">
+
+  <div class="row">
+    <h4>Contacts :</h4>
+    <div class="show-edit-del">
+      <%= link_to new_company_contact_path(@company) do %>
+        <%= image_tag("db-add-icon.png") %>
+        <p>New</p>
+        <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <ul>
+      <% @company.contacts.each do |contact| %>
+        <li><p><%= link_to "#{contact.first_name} #{contact.last_name} ", company_contact_path(@company, contact) %></p></li>
+      <% end %>
+    </ul>
+  </div>
+
 </div>
-<div class="row">
-  <h4>Jobs :</h4>
-  <ul>
-    <% @company.jobs.each do |job| %>
-      <li><p><%= link_to "#{job.description}", company_job_path(@company, job) %></p></li>
-    <% end %>
-  </ul>
+
+<div class="col-xs-12 col-sm-4">
+  
+  <div class="row">
+    <h4>Jobs :</h4>
+    <div class="show-edit-del">
+      <%= link_to new_company_job_path(@company) do %>
+        <%= image_tag("db-add-icon.png") %>
+        <p>New</p>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <ul>
+      <% @company.jobs.each do |job| %>
+        <li><p><%= link_to "#{job.description}", company_job_path(@company, job) %></p></li>
+      <% end %>
+    </ul>
+  </div>
+
 </div>
 
 
