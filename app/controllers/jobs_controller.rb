@@ -31,9 +31,9 @@ class JobsController < ApplicationController
 
   def update
     if @job.update_attributes(job_params)
-      redirect_to company, notice: "#{@job.description} updated."
+      redirect_to company_job_path, notice: "#{@job.description} job application updated."
     else
-      render job_path(@job), alert: "Failed to Update."
+      render company_job_path(@job), alert: "Failed to Update."
     end
   end
 
@@ -46,7 +46,7 @@ class JobsController < ApplicationController
   private
 
   def job_params
-    params.require(:job).permit(:description, :location, :posting_number,:application_date, :company_id)
+    params.require(:job).permit(:description, :location, :posting_url,:application_date, :company_id)
   end
 
   def find_company

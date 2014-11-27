@@ -1,22 +1,14 @@
-<h2><%= @contact.first_name + " " + @contact.last_name %></h2>
+<div class="row col-pads">
+  <h3><%= @contact.first_name + " " + @contact.last_name %></h3>
+  <p><b>Company: </b><%= link_to @contact.company.name, company_path(@contact.company) %></p>
+  <p><b>Title: </b><%= @contact.title %></p>
+  <p><b>Email: </b><%=h @contact.email %></p>
+  <p><b>Work Phone: </b><%=h @contact.work_phone %></p>
+  <p><b>Mobile Phone: </b><%=h @contact.cell_phone %></p>
+</div>
 
-<p>
-  <b>Email:</b>
-  <%=h @contact.email %>
-</p>
-
-<p>
-  <b>Phone:</b>
-  <%=h @contact.work_phone %>
-  <%=h @contact.cell_phone %>
-</p>
-
-<p>
-  <b>Company:</b>
-  <%= link_to @contact.company.name, company_path(@contact.company) %>
-</p>
-
-<div class="margin-top">
+<div class="margin-top row col-pads">
+  
   <div class="show-edit-del">
     <%= link_to edit_company_contact_path(@contact.company, @contact) do %>
       <%= image_tag("edit.png") %>
@@ -24,15 +16,16 @@
     <% end %>
   </div>
   <div class="show-edit-del">
-    <%= link_to [@contact.company, @contact], :method => :delete, :confirm => 'Are you sure?' do %>
+    <%= link_to [@contact.company, @contact], data: {method: :delete, confirm: "Are you sure you want to delete #{@contact.first_name} #{@contact.last_name} from your contacts?" } do %>
       <%= image_tag("trash-holiday.png") %>
       <p>Delete</p>
     <% end %>
   </div>
   <div class="show-edit-del">
-  <%= link_to company_contacts_path do %>
+  <%= link_to company_path(@company) do %>
     <%= image_tag("navigation.png") %>
      <p>Back</p>
   <% end %>
   </div>
+
 </div>

@@ -1,4 +1,6 @@
 $boot_blue: #428bca;
+$cardinal: #B71F3B;
+$mercury: #e5e5e5;
 
 /*-------------------------
 This is for companies table
@@ -31,5 +33,14 @@ th {
   }    
 
 .company-show-head {
-  color: $boot_blue;
+  color: $cardinal;
+    font-family: 'Raleway', sans-serif; 
+    font-weight: bold;
+}
+
+.show-header {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  border-bottom: 1px solid $mercury;
 }

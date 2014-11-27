@@ -5,16 +5,15 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <script type="text/javascript">
-    $(document).ready(function(){
-      setTimeout(function(){
-        $('#flash').remove();
-      }, 4000);
-    })
+  <script>
+  $(document).ready(function(){
+        setTimeout(function(){
+          $('#flash').remove();
+        }, 4000);
+      })
   </script>
 </head>
 <body class="container-fluid">
-
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
@@ -26,39 +25,33 @@
         <%= link_to image_tag("search.png", class: "brand-image") + ("<span class='job-seeker'>Job</span>Seeker".html_safe), root_path, title: "Home" %>
       </div>
     </div>
-    <div class="navbar-collapse collapse navbar-responsive-collapse">
+    <div class="collapse navbar-collapse navbar-responsive-collapse">
+      <ul class="nav navbar-nav">
+        <li><%= link_to "Companies", companies_path, title: "Manage your Companies" %></li>
+        <li><%= link_to "Contacts", contacts_path, title: "View your Contacts" %></li>
+        <li><%= link_to "Jobs", jobs_path, title: "View your jobs applied for." %></li>
+        <li><%= link_to "Interviews", interviews_path, title: "View your Interviews." %></li>
+      </ul>
       <div class="nav navbar-nav navbar-right">
         <%= render 'layouts/login' %>
       </div>
     </div>
-    </nav>
+  </nav>
 
-    <ul class="nav nav-pills nav-justified menu-row">
-      <li role="presentation">
-      <%= link_to "Companies", companies_path, class: "contact-btn btn btn-default", title: "Manage your Companies" %></li>
-
-      <li role="presentation">
-      <%= link_to "Contacts", contacts_path, class: "contact-btn btn btn-default", title: "View your Contacts" %></li>
-
-      <li role="presentation">
-      <%= link_to "Jobs", jobs_path, class: "contact-btn btn btn-default", title: "View your jobs applied for." %></li>
-
-      <li role="presentation">
-      <%= link_to "Interviews", interviews_path, class: "contact-btn btn btn-default", title: "View your Interviews." %></li>
-    </ul>
-
-   	<%= yield %>
-
-  <div id="flash" class="clearfix">
-    <% if flash[:notice] != nil %>
-      <div class='alert alert-success' role='alert'>
-        <%= flash[:notice] %></div>
-    <% end %>
-    <% if flash[:alert] != nil %>
-      <div class='alert alert-danger' role='alert'>
-        <%= flash[:alert] %></div>
-    <% end %>
+  <div class="yield-box">
+    <div id="flash" class="clearfix">
+      <% if flash[:notice] != nil %>
+        <div class='alert alert-success' role='alert'>
+          <%= flash[:notice] %></div>
+      <% end %>
+      <% if flash[:alert] != nil %>
+        <div class='alert alert-danger' role='alert'>
+          <%= flash[:alert] %></div>
+      <% end %>
+    </div>
+    <%= yield %>
   </div>
+
 
   <div class="navbar navbar-default navbar-fixed-bottom">
     <p id="copyright">Ruby on Rails application &copy; 2014 built by: <%= link_to "Visible Difference Web Development", "http://www.visible-difference.com", target: "_blank" %></p>
