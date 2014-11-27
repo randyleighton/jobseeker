@@ -1,18 +1,20 @@
-<h4>Job Title: <%= @job.description %></h4>
-<p><b>Location: </b><%= @job.location %></p>
-<p><b>Posting ID: </b><%= @job.posting_number %></p>
-<p><b>Company: </b><%= link_to @job.company.name, company_path(@job.company) %></p>
-<p><b>Date Applied: </b><%= @job.application_date.strftime("%m/%d/%Y") %>
-<p><b>Scheduled Interview(s): </b>
-        <% if @job.interviews != [] %>
-          <% @job.interviews.each do |interview| %>
-            <p><b>Date:</b><%=  link_to "#{interview.interview_date.strftime("%m/%d/%Y")}", job_interview_path(@job, interview), title: "View this Interview" %>
-            | <b>Notes:</b><%= interview.notes %></p>
+<div class="row">
+  <h4>Job Title: <span class="company-show-head"><%= @job.description %></span></h4>
+  <p><b>Location: </b><%= @job.location %></p>
+  <p><b>Posting ID: </b><%= @job.posting_number %></p>
+  <p><b>Company: </b><%= link_to @job.company.name, company_path(@job.company) %></p>
+  <p><b>Date Applied: </b><%= @job.application_date.strftime("%m/%d/%Y") %>
+  <p><b>Scheduled Interview(s): </b>
+          <% if @job.interviews != [] %>
+            <% @job.interviews.each do |interview| %>
+              <p><b>Date:</b><%=  link_to "#{interview.interview_date.strftime("%m/%d/%Y")}", job_interview_path(@job, interview), title: "View this Interview" %>
+              | <b>Notes:</b><%= interview.notes %></p>
+            <% end %>
+          <% else %>
+            <p>None Yet.</p>
           <% end %>
-        <% else %>
-          <p>None Yet.</p>
-        <% end %>
-</p>
+  </p>
+</div>
 
 <div class="margin-top">
   <div class="show-edit-del">
@@ -34,7 +36,7 @@
     <% end %>
   </div>
   <div class="show-edit-del">
-  <%= link_to company_jobs_path do %>
+  <%= link_to company_path(@company) do %>
     <%= image_tag("navigation.png") %>
      <p>Back</p>
   <% end %>
