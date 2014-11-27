@@ -48,6 +48,10 @@ body {
   background-image: url("bg-tan.jpg")
 }
 
+.yield-box {
+  margin-top: 60px;
+}
+
 /*-------------------
 This is for Navigation
 --------------------*/
@@ -55,6 +59,13 @@ This is for Navigation
 .navbar {
   margin-bottom: 0px;
   background-image: url("128-59.jpg");
+}
+
+.navbar-default .navbar-nav {
+  li a{
+    color: black;
+    font-size: 1.1em;
+  }
 }
 
 .navbar-brand {
@@ -114,10 +125,8 @@ This is for Navigation
 }
 
 .logged-in {
-  padding-top: .6em;
-  p {
-    font-size: 1em;
-  }
+  padding-top: 1.1em;
+  font-size: 1em;
 }
 
 .logged-in-name {
@@ -187,6 +196,7 @@ This is for Navigation
 
 .btn-default {
   background-color: $button-pri;
+  border-color: $cardinal;
   &:hover {
     background-color: $button-sec !important;
   }
