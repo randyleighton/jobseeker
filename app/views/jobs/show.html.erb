@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row col-pads">
   <h4>Job Title: <span class="company-show-head"><%= @job.description %></span></h4>
   <p><b>Location: </b><%= @job.location %></p>
   <p><b>Posting ID: </b><%= @job.posting_url %></p>
@@ -16,7 +16,8 @@
   </p>
 </div>
 
-<div class="margin-top">
+<div class="margin-top col-pads
+">
   <div class="show-edit-del">
     <%= link_to new_job_interview_path(@job) do %>
       <%= image_tag("db-add-icon.png") %>

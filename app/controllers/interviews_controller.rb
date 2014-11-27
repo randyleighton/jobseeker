@@ -27,7 +27,7 @@ class InterviewsController < ApplicationController
 
   def update
     if @interview.update_attributes(interview_params)
-      redirect_to job_interview_path, notice: "#Interview updated."
+      redirect_to job_interview_path, notice: "Interview on #{@interview.interview_date} updated."
     else
       render job_interview_path(@interview), alert: "Failed to Update."
     end

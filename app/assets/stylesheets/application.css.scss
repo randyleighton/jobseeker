@@ -75,7 +75,8 @@ This is for Navigation
   color: black;
     &:hover {
       text-decoration: none;
-      color: $boot_blue;
+      color: $cardinal;
+      text-shadow: 0 1px 1px black;
     }
   }
 }
@@ -84,6 +85,7 @@ This is for Navigation
   font-weight: bold;
   font-family: 'Raleway', sans-serif;
   color: $cardinal;
+    text-shadow: 0 1px 1px black;
 }
 
 .brand-image {
@@ -286,7 +288,9 @@ Show page icons
   margin-top: 1.5em;
 }
 
-
+.col-pads {
+  padding: 0 .5em;
+}
 
 
 

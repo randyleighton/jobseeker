@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row col-pads">
   <h3><%= @contact.first_name + " " + @contact.last_name %></h3>
   <p><b>Company: </b><%= link_to @contact.company.name, company_path(@contact.company) %></p>
   <p><b>Title: </b><%= @contact.title %></p>
@@ -7,7 +7,7 @@
   <p><b>Mobile Phone: </b><%=h @contact.cell_phone %></p>
 </div>
 
-<div class="margin-top row">
+<div class="margin-top row col-pads">
   
   <div class="show-edit-del">
     <%= link_to edit_company_contact_path(@contact.company, @contact) do %>
