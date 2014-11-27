@@ -3,7 +3,7 @@ class CreateJobs < ActiveRecord::Migration
     create_table :jobs do |t|
       t.string :description
       t.string :location
-      t.string :posting_number
+      t.string :posting_url
       t.date :application_date
       t.belongs_to :company, index: true
     end

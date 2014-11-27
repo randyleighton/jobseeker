@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20141123175549) do
   create_table "jobs", force: true do |t|
     t.string  "description"
     t.string  "location"
-    t.string  "posting_number"
+    t.string  "posting_url"
     t.date    "application_date"
     t.integer "company_id"
   end
