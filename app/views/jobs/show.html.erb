@@ -1,3 +1,5 @@
+<% content_for(:title, "Company Jobs") %>
+
 <div class="row col-pads">
   <h4>Job Title: <span class="company-show-head"><%= @job.description %></span></h4>
   <p><b>Company Name: </b><%= link_to @job.company.name, company_path(@job.company) %></p>
