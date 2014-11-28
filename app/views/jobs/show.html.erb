@@ -1,8 +1,10 @@
+<% content_for(:title, "Company Jobs") %>
+
 <div class="row col-pads">
   <h4>Job Title: <span class="company-show-head"><%= @job.description %></span></h4>
+  <p><b>Company Name: </b><%= link_to @job.company.name, company_path(@job.company) %></p>
   <p><b>Location: </b><%= @job.location %></p>
-  <p><b>Posting ID: </b><%= @job.posting_url %></p>
-  <p><b>Company: </b><%= link_to @job.company.name, company_path(@job.company) %></p>
+  <p><b>Web link to Job: </b><%= link_to "#{@job.posting_url}", @job.posting_url, target: "_blank" %></p>
   <p><b>Date Applied: </b><%= @job.application_date.strftime("%m/%d/%Y") %>
   <p><b>Scheduled Interview(s): </b>
           <% if @job.interviews != [] %>

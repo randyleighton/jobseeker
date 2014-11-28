@@ -1,14 +1,16 @@
-<div class="col-pads">
+<% content_for(:title, "Job Interviews") %>
+
+<div class="row col-pads">
   <h4>Interview Details</h4>
   <p><b>Company: </b><%= link_to "#{@company.name}", company_path(@company) %></p>
   <p><b>Job: </b><%=link_to "#{@job.description}", job_path(@job) %></p>
   <p><b>Date Scheduled: </b><%= @interview.interview_date %></p>
   <p><b>Notes: </b><%=@interview.notes %></p>
-  <h4>Update Notes for this interview </h4>
+  <h4>Note log for this interview </h4>
   <%= render 'edit' %>
 </div>
 
-<div class="col-pads">
+<div class="row col-pads">
   <div class="show-edit-del">
     <%= link_to job_interview_path(@job,@interview), data: {method: :delete, confirm: "Are you sure you want to delete this interview for the #{@job.description} job?" } do %>
       <%= image_tag("trash-holiday.png") %>

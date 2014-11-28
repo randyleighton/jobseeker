@@ -1,3 +1,5 @@
+<% content_for(:title, "Company Contacts") %>
+
 <div class="row col-pads">
   <h3><%= @contact.first_name + " " + @contact.last_name %></h3>
   <p><b>Company: </b><%= link_to @contact.company.name, company_path(@contact.company) %></p>
