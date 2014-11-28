@@ -48,6 +48,15 @@ body {
   background:image-url("bg-tan.jpg")
 }
 
+a {
+  color: $cardinal;
+  &:hover {
+    color: black;
+    text-decoration: none;
+  }
+}
+
+
 .yield-box {
   margin-top: 60px;
 }
