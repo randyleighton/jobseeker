@@ -4,7 +4,7 @@
   <p><b>Job: </b><%=link_to "#{@job.description}", job_path(@job) %></p>
   <p><b>Date Scheduled: </b><%= @interview.interview_date %></p>
   <p><b>Notes: </b><%=@interview.notes %></p>
-  <h4>Update Notes for this interview </h4>
+  <h4>Note log for this interview </h4>
   <%= render 'edit' %>
 </div>
 
