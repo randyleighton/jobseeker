@@ -200,7 +200,8 @@ This is for Navigation
   background-color: $button-pri;
   border-color: $cardinal;
   &:hover {
-    background-color: $button-sec !important;
+    background-color: $cardinal !important;
+    color: white;
   }
 }
 
