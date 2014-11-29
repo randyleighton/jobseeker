@@ -1,8 +1,9 @@
 <div class="row index-head">
   <h2>Interviews List</h2>
 </div>
-<div class="row">
-<ul>
+
+<div class="row interviews-ul">
+<ul class="fa-ul">
   <% @all_interviews.each do |interview| %>
     <% job = Job.find(interview.job_id) %>
     <li><p><%= link_to "Interview Date: #{interview.interview_date.strftime("%m/%d/%Y")}  |  Notes: #{interview.notes} ", job_interview_path(job, interview) %></p></li>
