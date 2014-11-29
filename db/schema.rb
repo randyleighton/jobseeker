@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20141123175549) do
     t.string  "email"
     t.string  "cell_phone"
     t.string  "work_phone"
+    t.text    "notes"
     t.integer "company_id"
   end
 
@@ -36,16 +37,16 @@ ActiveRecord::Schema.define(version: 20141123175549) do
 
   create_table "interviews", force: true do |t|
     t.date    "interview_date"
-    t.string  "notes"
+    t.text    "notes"
     t.integer "job_id"
   end
 
   add_index "interviews", ["job_id"], name: "index_interviews_on_job_id", using: :btree
 
   create_table "jobs", force: true do |t|
-    t.string  "description"
+    t.text    "description"
     t.string  "location"
-    t.string  "posting_url"
+    t.text    "posting_url"
     t.date    "application_date"
     t.integer "company_id"
   end
@@ -53,7 +54,7 @@ ActiveRecord::Schema.define(version: 20141123175549) do
   add_index "jobs", ["company_id"], name: "index_jobs_on_company_id", using: :btree
 
   create_table "responses", force: true do |t|
-    t.string  "notes"
+    t.text    "notes"
     t.date    "response_date"
     t.integer "job_id"
   end
