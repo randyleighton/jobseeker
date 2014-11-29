@@ -46,7 +46,7 @@ SASS MIXINS
 }
 @mixin list-bullets($content) {
   margin: 1em;
-  margin-left: 3em;
+  // margin-left: 1em;
   &:before {
   content: $content;
   font-family: 'FontAwesome';
@@ -238,7 +238,7 @@ Navigation
 
 .btn-default {
   background-color: $button-pri;
-  border-color: $cardinal;
+  border-color: black;
   &:hover {
     background-color: $cardinal !important;
     color: white;
