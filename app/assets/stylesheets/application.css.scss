@@ -244,16 +244,16 @@ input#user_email, input#user_password, input#user_password_confirmation, input#u
 /*-------------------------------
 This is for companys and contacts
 -------------------------------*/
-.comp-index-head {
+.index-head {
   margin: 0 0 10px 0;
   display: block;
   line-height: 24px;
-}
-.comp-head {
+  h2 {
   float:left;
   margin: 5px 5px 0 0;
-  color: rgb(66, 139, 202);
+  color: black;
   }
+}
 
 .add-btn {
   width: 3.5em;
