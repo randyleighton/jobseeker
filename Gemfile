@@ -11,7 +11,7 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'turbolinks'
 gem 'uglifier'
-gem 'font-awesome-less'
+gem 'font-awesome-rails'
 
 group :development do
   gem 'better_errors'

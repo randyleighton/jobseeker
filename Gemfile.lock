@@ -57,7 +57,6 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.8.0)
-    commonjs (0.2.7)
     debug_inspector (0.0.2)
     devise (3.4.1)
       bcrypt (~> 3.0)
@@ -74,8 +73,8 @@ GEM
     factory_girl_rails (4.5.0)
       factory_girl (~> 4.5.0)
       railties (>= 3.0.0)
-    font-awesome-less (4.2.0)
-      less (~> 2.4.0)
+    font-awesome-rails (4.1.0.0)
+      railties (>= 3.2, < 5.0)
     haml (4.0.5)
       tilt
     hike (1.2.3)
@@ -86,8 +85,6 @@ GEM
     json (1.8.1)
     launchy (2.4.3)
       addressable (~> 2.3)
-    less (2.4.0)
-      commonjs (~> 0.2.7)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
     method_source (0.8.2)
@@ -195,7 +192,7 @@ DEPENDENCIES
   coffee-rails
   devise
   factory_girl_rails
-  font-awesome-less
+  font-awesome-rails
   haml
   jquery-rails
   launchy

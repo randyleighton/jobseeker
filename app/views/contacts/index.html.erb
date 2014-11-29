@@ -3,10 +3,10 @@
 </div>
 
 <div class="row">
-<ul>
+<ul class="fa ul">
   <% @all_contacts.each do |contact| %>
   	<% company = Company.find(contact.company_id) %>
-	  <li><p><%= link_to "#{contact.first_name} #{contact.last_name} @ #{company.name}", company_contact_path(company, contact) %></p></li>
+	  <li class="fa li"><p><%= link_to "#{contact.first_name} #{contact.last_name} @ #{company.name}", company_contact_path(company, contact) %></p></li>
   <% end %>
 </ul>
 </div>
