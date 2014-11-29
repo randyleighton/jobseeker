@@ -256,9 +256,22 @@ This is for companys and contacts
 }
 
 .add-btn {
-  width: 3.5em;
+  width: 3em;
   margin: 0 0 0 5px;
+  opacity: .8;
+  &:hover {
+    opacity: 1;
+  }
 }
+
+
+.add-new {
+  font-size: 1.1em;
+  color: $cardinal;
+  text-shadow: 0 1px 1px black;
+  // display:none;
+}
+
 
 .company-all li {
   list-style: none;
