@@ -44,6 +44,19 @@ SASS MIXINS
           box-shadow: 3px 3px 3px $color;
 }
 
+.fa-ul li {
+  margin: 1em;
+  margin-left: 3em;
+}
+
+.fa-ul li:before {
+  content: '\f005';
+  font-family: 'FontAwesome';
+  float: left;
+  margin-left: -1.5em;
+  color: $button-sec;
+}
+
 
 body {
   background:image-url("bg-tan.jpg")
