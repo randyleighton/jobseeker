@@ -1,4 +1,5 @@
-describe JobApplication do
+describe OneStep do
 
 it { should have_many :companies }
+
 end

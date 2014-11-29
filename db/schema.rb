@@ -11,16 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141123175549) do
+ActiveRecord::Schema.define(version: 20141129193751) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "companies", force: true do |t|
-    t.string "name"
-    t.text   "url"
-    t.text   "comments"
+    t.string  "name"
+    t.text    "url"
+    t.text    "comments"
+    t.integer "one_step_id"
   end
+
+  add_index "companies", ["one_step_id"], name: "index_companies_on_one_step_id", using: :btree
 
   create_table "contacts", force: true do |t|
     t.string  "first_name"
@@ -52,6 +55,9 @@ ActiveRecord::Schema.define(version: 20141123175549) do
   end
 
   add_index "jobs", ["company_id"], name: "index_jobs_on_company_id", using: :btree
+
+  create_table "one_steps", force: true do |t|
+  end
 
   create_table "responses", force: true do |t|
     t.text    "notes"
