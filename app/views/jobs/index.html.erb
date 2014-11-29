@@ -1,8 +1,9 @@
 <div class="row index-head">
   <h2>Job Applications List</h2>
 </div>
-<div class="row">
-<ul>
+
+<div class="row jobs-ul">
+<ul class="fa-ul">
   <% @all_jobs.each do |job| %>
     <% company = Company.find(job.company_id) %>
     <li><p><%= link_to "#{job.description} @ #{job.company.name}", company_job_path(company, job) %></p></li>
