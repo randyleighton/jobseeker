@@ -28,6 +28,7 @@ $mercury: #e5e5e5;
 $silk: #e3e3e3;
 $button-pri: #a9c2de;
 $button-sec: #88add6;
+$tan-bg: #f4f3f1;
 
 /*--------------------
 SASS MIXINS
@@ -45,7 +46,7 @@ SASS MIXINS
 }
 @mixin list-bullets($content) {
   margin: 1em;
-  margin-left: 3em;
+  // margin-left: 1em;
   &:before {
   content: $content;
   font-family: 'FontAwesome';
@@ -207,9 +208,15 @@ Navigation
 
 .one-step {
   display: block;
-  margin: 1em auto .5em;
+  margin: 1em 0 auto;
   text-align: center;
-}
+  a {
+    img {
+    margin-right: .35em;
+    max-width: 8%;
+    }
+  }
+ }
 
 .row-one, .row-two {
   margin: 0 0 1em;
@@ -217,6 +224,7 @@ Navigation
 
 .index-one, .index-two, .index-three, .index-four {
   padding: .25em .25em;
+  background-color: $tan-bg;
   height: 250px;
   border: 1px solid $mercury;
   @include rounded-corners(.5em);
@@ -236,7 +244,7 @@ Navigation
 
 .btn-default {
   background-color: $button-pri;
-  border-color: $cardinal;
+  border-color: black;
   &:hover {
     background-color: $cardinal !important;
     color: white;

@@ -1,4 +1,0 @@
-describe JobApplication do
-
-
-end
