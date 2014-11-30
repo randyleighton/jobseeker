@@ -1,3 +1,5 @@
+<% content_for(:title, "Job Interviews") %>
+
 <%= render 'layouts/errors', object: @interview %>
 
 <%= form_for(@interview, html: { class: 'form-horizontal' }, url: job_interview_path(@job, @interview)) do |f| %>
