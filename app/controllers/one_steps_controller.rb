@@ -22,7 +22,7 @@ class OneStepsController < ApplicationController
 
 private
   def onestep_params
-    params.require(:one_step).permit(:company_attributes=>[:name,:url,:comments], :job_attributes=>[:description,:location,:posting_url,:application_date]);
+    params.require(:one_step).permit(company_attributes: [:name, :url, :comments], job_attributes: [:description, :location,:posting_url,:application_date])
   end
 
 end
