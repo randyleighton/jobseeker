@@ -49,8 +49,8 @@
     </div>
   </div>
 
-  <div class="row">
-    <ul>
+  <div class="row contacts-ul">
+    <ul class="fa-ul">
       <% @company.contacts.each do |contact| %>
         <li><p><%= link_to "#{contact.first_name} #{contact.last_name} ", company_contact_path(@company, contact) %></p></li>
       <% end %>
@@ -72,8 +72,8 @@
     </div>
   </div>
 
-  <div class="row">
-    <ul>
+  <div class="row jobs-ul">
+    <ul class="fa-ul">
       <% @company.jobs.each do |job| %>
         <li><p><%= link_to "#{job.description}", company_job_path(@company, job) %></p></li>
       <% end %>

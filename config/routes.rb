@@ -10,7 +10,8 @@ Rails.application.routes.draw do
     resources :interviews
     resources :responses
   end
-  resources :job_applications
+  resources :one_steps, only:[:index,:new]
+  
   resources :contacts, only: :index
   resources :jobs, only: :index
   resources :interviews, only: :index
