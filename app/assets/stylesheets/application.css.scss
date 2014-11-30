@@ -208,9 +208,15 @@ Navigation
 
 .one-step {
   display: block;
-  margin: 1em auto .5em;
+  margin: 1em 0 auto;
   text-align: center;
-}
+  a {
+    img {
+    margin-right: .35em;
+    max-width: 8%;
+    }
+  }
+ }
 
 .row-one, .row-two {
   margin: 0 0 1em;
