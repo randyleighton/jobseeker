@@ -2,6 +2,7 @@ class OneStepsController < ApplicationController
 	before_filter :authenticate_user!
 
   def index
+    @one_steps = One_step.all
   end
 
   def new

@@ -1,1 +1,14 @@
-<% content_for(:title, "Fill out Job Information") %>
+<% content_for(:title, "One step submissions") %>
+
+<div class="row index-head">
+  <h2>One Step Submissions List</h2>
+</div>
+
+<div class="row interviews-ul">
+<ul class="fa-ul">
+  <% @one_steps.each do |one| %>
+
+    <li><p><%= link_to "#{one.id} ", one_steps_path %></p></li>
+  <% end %>
+</ul>
+</div>
