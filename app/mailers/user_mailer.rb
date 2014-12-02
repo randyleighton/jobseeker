@@ -7,4 +7,10 @@ class UserMailer < ActionMailer::Base
     mail to: "randyleighton@yahoo.com", subject: "Sign up for Jobseeker"
   end
 
+  def send_reminder(user, job)
+    @user = user
+    @greeting = "Hello"
+    @job = job
+    mail to: "#{@user.email}", subject: "#{@job.description} - Reminder"
+  end
 end
