@@ -1,6 +1,7 @@
 class ResponsesController < ApplicationController
   before_filter :authenticate_user!
   before_filter :find_response, except: [:index,:new, :create]
+  before_filter :find_job, only: [:new, :create, :show]
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
 
   def index
@@ -9,14 +10,13 @@ class ResponsesController < ApplicationController
 
   def new
     @response = Response.new
-    @job = Job.find(params[:job_id])
   end
 
   def create
-    @job = Job.find(params[:job_id])
+    @company = Company.find(@job.company_id)
     @response = Response.create(response_params)
     if @response.valid?
-      redirect_to root_path, notice: "Response on #{@response.response_date} created."
+      redirect_to company_job_path(@company, @job), notice: "Response on #{@response.response_date} created."
     else
       render 'new', alert: "Response could not be created."
     end
@@ -32,22 +32,26 @@ class ResponsesController < ApplicationController
 
   def update
     if @response.update_attributes(response_params)
-      redirect_to root_path, notice: "Response updated."
+      redirect_to job_response_path, notice: "Response updated."
     else
-      render response_path(@response), alert: "Failed to Update."
+      render job_response_path(@response), alert: "Failed to Update."
     end
   end
 
   def destroy
     @response.destroy
     flash[:notice]="Response deleted"
-    redirect_to interviews_path
+    redirect_to responses_path
   end
 
   private
 
   def find_response
     @response = Response.find(params[:id])
+  end
+
+  def find_job
+    @job = Job.find(params[:job_id])
   end
 
   def response_params
