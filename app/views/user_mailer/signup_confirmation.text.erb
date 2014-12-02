@@ -1,5 +1,3 @@
-<%= @user.name %>,
+Hello <% if @user.username !="" %><%= @user.username %>,<% else %>Jobseeker,<% end %>
 
 Thank you for signing up for Jobseeker.
-
-<%= @url(@user) %>
