@@ -16,6 +16,18 @@
             <p>None Yet.</p>
           <% end %>
   </p>
+  <p><b>Responses from Company: </b>
+          <% if @job.responses != [] %>
+            <% @job.responses.each do |response| %>
+              <p><b>Date: </b><%=  link_to "#{response.response_date.strftime("%m/%d/%Y")}", job_response_path(@job, response), title: "View this Response" %>
+              | <b>Notes: </b><%= response.notes %></p>
+            <% end %>
+          <% else %>
+            <p>None Yet.</p>
+          <% end %>
+  </p>
+
+
 </div>
 
 <div class="margin-top col-pads">

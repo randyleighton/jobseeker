@@ -1,4 +1,4 @@
-<%= render 'layouts/errors', object: @interview %>
+<%= render 'layouts/errors', object: @response %>
 
 <%= form_for(@response, html: { class: 'form-horizontal' }, url: job_responses_path(@job, @response)) do |f| %>
   <% if !@response.response_date %>
