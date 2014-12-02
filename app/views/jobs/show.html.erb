@@ -18,12 +18,17 @@
   </p>
 </div>
 
-<div class="margin-top col-pads
-">
+<div class="margin-top col-pads">
   <div class="show-edit-del">
     <%= link_to new_job_interview_path(@job) do %>
       <%= image_tag("db-add-icon.png") %>
       <p>Add Interview</p>
+    <% end %>
+  </div>
+  <div class="show-edit-del">
+    <%= link_to new_job_response_path(@job) do %>
+      <%= image_tag("db-add-icon.png") %>
+      <p>Add Response</p>
     <% end %>
   </div>
   <div class="show-edit-del">
