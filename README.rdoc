@@ -1,11 +1,13 @@
 == Job Seeker
-Randy Leighton
-
+Visible Difference http://www.visible-difference.com
+---
 This is an application to use when looking for a job. It is designed to help you track the information about the jobs you are applying for and who you are talking to. This will eventually integrate angularjs and ruby rails.
-
+---
+View this application running in production: http://thejobseeker.herokuapp.com
+---
 This will utilize the following branching structure:
 	Master - Production Code
 		Develop - pre production all features merge into this.
 		Features - these will branch off most current develop then merge into develop when done.
-
-View this application running live on heroku: <a href="http://thejobseeker.herokuapp.com">Jobseeker</a>
+---
+No free license to use this.
