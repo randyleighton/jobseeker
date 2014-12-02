@@ -1,5 +1,19 @@
-<p><%= @user.name %>,</p>
-
+<h4>Hello 
+  <% if @user.username !="" %>
+    <%= @user.username %>,
+  <% else %>
+    Jobseeker,
+  <% end %>
+</h4>
 <p>Thank you for signing up for Jobseeker.</p>
 
-<p><%= link_to "User Profile", edit_user_registration_path(@user) %></p>
+<h4>How you can benefit?</h4>
+<p>This tool was designed for you to help in your job search. Job searching experts tell you to use a spreadsheet to keep track of vital information when you are job searching. This helps you track companies, contacts and the responses. Spreadsheets are clunky and frustrating. Now you can do much more:</p>
+<h4>Try the Jobseeker way..</h4>
+<p><strong>Companies</strong>: This is the hub. You create a company and then you can enter contacts and jobs.</p>
+<p><strong>Contacts</strong>: Organize your contacts with phone numbers, emails, and notes.</p>
+<p><strong>Jobs</strong>: Jobs are the important part: this is what you are applying for. Now enter interviews and notes for the jobs. In addition, you can keep notes on their responses.</p>
+<p><strong>Interviews</strong>: This is entered under a job. Keep notes and date and time of the interviews you have.</p>
+<p><strong>Reminders</strong>: Keep track of things that you need to follow up with. Starting with email reminders to quickly glance at when they are due.</p>
+
+<p>Good luck, Jobseeker!</p>
