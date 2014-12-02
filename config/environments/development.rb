@@ -15,6 +15,7 @@ Rails.application.configure do
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :letter_opener
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -36,5 +37,5 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   #added for devise
-  config.action_mailer.default_url_options = :letter_opener
+  config.action_mailer.default_url_options = {host: "localhost:3000"}
 end
