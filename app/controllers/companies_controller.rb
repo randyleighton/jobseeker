@@ -37,7 +37,7 @@ class CompaniesController < ApplicationController
 
 	def destroy
 		@company.destroy
-    flash[:alert]="Company and all its contacts and jobs were deleted."
+    flash[:notice]="Company deleted, including all its contacts and jobs."
    	redirect_to root_path
 	end
 
