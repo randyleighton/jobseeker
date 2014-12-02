@@ -1,64 +1,73 @@
-<%= form_for(@company, :html => { :class => "form-horizontal" }) do |f| %>
-  <% if @company.errors.any? %>
+<%= form_for(@one_step, :html => { :class => "form-horizontal" }) do |f| %>
+  <% if @one_step.errors.any? %>
     <div class="alert alert-danger alert-dismissable">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      <h4><%= pluralize(@company.errors.count, "error") %> prohibited this company from being saved:</h4>
+      <h4><%= pluralize(@one_step.errors.count, "error") %> prohibited this company from being saved:</h4>
 
       <ul>
-      <% @company.errors.full_messages.each do |msg| %>
+      <% @one_step.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="form-group">
-    <%= f.label :name, :class => "col-lg-2 control-label" %>
-    <div class="col-lg-10">
-      <%= f.text_field :name, :class => "form-control" %>
-    </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :url, :class => "col-lg-2 control-label" %>
-    <div class="col-lg-10">
-      <%= f.text_field :url, :class => "form-control" %>
-    </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :comments, :class => "col-lg-2 control-label" %>
-    <div class="col-lg-10">
-      <%= f.text_field :comments, :class => "form-control" %>
-    </div>
-  </div>
-
-  <%= f.fields_for :jobs do |t| %>
+  <%= f.fields_for :company do |c| %>
     <div class="panel panel-default">
       <div class="panel-heading">
-        Jobs
+        Company
       </div>
       <div class="panel-body">
         <div class="form-group">
-          <%= t.label :description, :class => "col-lg-2 control-label" %>
-          <div class="col-lg-10">
-            <%= t.text_field :description, :class => "form-control" %>
+          <%= c.label :name, :class => "col-sm-2 control-label" %>
+          <div class="col-sm-9">
+            <%= c.text_field :name, :class => "form-control" %>
           </div>
         </div>
         <div class="form-group">
-          <%= t.label :location, :class => "col-lg-2 control-label" %>
-          <div class="col-lg-10">
-            <%= t.text_field :location, :class => "form-control" %>
+          <%= c.label :url, "Website", :class => "col-sm-2 control-label" %>
+          <div class="col-sm-9">
+            <%= c.text_field :url, :class => "form-control" %>
           </div>
         </div>
         <div class="form-group">
-          <%= t.label :posting_url, :class => "col-lg-2 control-label" %>
-          <div class="col-lg-10">
-            <%= t.text_field :posting_url, :class => "form-control" %>
+          <%= c.label :comments, :class => "col-sm-2 control-label" %>
+          <div class="col-sm-9">
+            <%= c.text_field :comments, :class => "form-control" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <%= f.fields_for :job do |j| %>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Job Application
+      </div>
+      <div class="panel-body">
+        <div class="form-group">
+          <%= j.label :description, :class => "col-sm-2 control-label" %>
+          <div class="col-sm-9">
+            <%= j.text_field :description, :class => "form-control" %>
           </div>
         </div>
         <div class="form-group">
-          <%= t.label "Date Applied", class: 'col-lg-2 control-label' %>
-          <div class="col-lg-10">
-          <%= t.date_field :application_date, class: 'form-control' %>
+          <%= j.label :location, "City/State", :class => "col-sm-2 control-label" %>
+          <div class="col-sm-9">
+            <%= j.text_field :location, :class => "form-control" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= j.label :posting_url, "Web link to job", :class => "col-sm-2 control-label" %>
+          <div class="col-sm-9">
+            <%= j.text_field :posting_url, :class => "form-control" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= j.label :application_date, "Date Applied", class: 'col-sm-2 control-label' %>
+          <div class="col-sm-9">
+          <%= j.date_field :application_date, class: 'form-control' %>
           </div>
         </div>
       </div>
@@ -66,8 +75,10 @@
   <% end %>
 
   <div class="form-group">
-    <div class="col-lg-offset-2 col-lg-10">
-      <%= f.submit :class => "btn btn-primary" %>
+    <div class="col-sm-offset-2 col-sm-9">
+      <%= f.submit(:class => "btn btn-default float-btn") %>
+      <%= link_to "Cancel", :back, class: "btn btn-default float-btn" %>
     </div>
   </div>
+
 <% end %>

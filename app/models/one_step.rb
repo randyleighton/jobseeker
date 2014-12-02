@@ -1,6 +1,6 @@
 class One_step < ActiveRecord::Base
 
-  has_many :companies
+  has_many :companies, inverse_of: :one_step
   has_many :contacts, through: :companies
   has_many :jobs, through: :companies
 

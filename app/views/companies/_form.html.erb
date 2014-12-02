@@ -23,8 +23,9 @@
 
  	<div class="form-group">
 	  <div class="col-sm-offset-2 col-sm-9">
-			<%= f.submit(:class => "btn btn-default") %>
-		</div>
+			<%= f.submit(:class => "btn btn-default float-btn") %>
+      <%= link_to "Cancel", :back, class: "btn btn-default float-btn" %>
+    </div>
  	</div>
 
 <% end %>
