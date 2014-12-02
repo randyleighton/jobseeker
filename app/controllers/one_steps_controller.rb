@@ -7,13 +7,12 @@ class OneStepsController < ApplicationController
 
   def new
     @one_step = One_step.new
-    @company = Company.new
-    @contact = @company.contacts.new
-    @job = @company.jobs.new
+    @one_step.companies.build
   end
 
   def create
     @one_step = One_step.create(onestep_params)
+    binding.pry
     if @one_step.valid?
       redirect_to root_path
     else
@@ -23,7 +22,8 @@ class OneStepsController < ApplicationController
 
 private
   def onestep_params
-    params.require(:one_step).permit(company_attributes: [:name, :url, :comments], job_attributes: [:description, :location,:posting_url,:application_date])
+    params.require(:one_step).permit(company: [:name, :url, :comments], job: [:description, :location,:posting_url,:application_date])
+
   end
 
 end

@@ -13,8 +13,10 @@ class JobsController < ApplicationController
   end
 
   def create
+    @user = current_user
     @job = @company.jobs.create(job_params)
     if @job.valid?
+      UserMailer.send_reminder(@user, @job).deliver
       redirect_to company_path(@company), notice: "#{@job.description} with #{@job.company.name} created."
     else
       render 'new', alert: "Job posting could not be created."

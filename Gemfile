@@ -12,6 +12,7 @@ gem 'simple_form'
 gem 'turbolinks'
 gem 'uglifier'
 gem 'font-awesome-rails'
+gem 'letter_opener'
 
 group :development do
   gem 'better_errors'

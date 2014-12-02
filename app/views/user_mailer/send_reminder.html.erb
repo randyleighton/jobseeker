@@ -1,0 +1,11 @@
+<p>Hello 
+  <% if @user.username !="" %>
+    <%= @user.username %>,
+  <% else %>
+    Jobseeker,
+  <% end %>
+</p>
+
+<p>Job: <strong><%= @job.description %></strong> is due for a follow-up email or call</p>
+
+<p>Login to your account: <%= link_to "Log In", @url %> </p>
