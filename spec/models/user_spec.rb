@@ -2,6 +2,8 @@ describe User do
 
   it { should have_many :companies }
   it { should have_many(:jobs).through(:companies) }
+  it { should have_many(:interviews).through(:companies) }
+
 
   describe "signup_confirmation" do
     user = User.new({username: "John", email: "john@yahoo.com", 
