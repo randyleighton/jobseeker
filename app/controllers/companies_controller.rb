@@ -37,7 +37,7 @@ class CompaniesController < ApplicationController
 
 	def destroy
 		@company.destroy
-    flash[:alert]="Company and all its contacts and jobs were deleted."
+    flash[:notice]="Company deleted, including all its contacts and jobs."
    	redirect_to root_path
 	end
 
@@ -53,7 +53,7 @@ class CompaniesController < ApplicationController
 
   def not_found
     session[:return_to]||= root_url
-    redirect_to session[:return_to], flash: {alert: 'Problem finding record, you might not be authorized.'}
+    redirect_to session[:return_to], flash: {alert: 'Problem finding company record, you might not be authorized.'}
   end
 
 end
