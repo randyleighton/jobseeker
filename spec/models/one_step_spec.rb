@@ -1,4 +1,4 @@
-describe OneStep do
+describe One_step do
 
 it { should have_many :companies }
 it { should have_many(:contacts).through(:companies) }
