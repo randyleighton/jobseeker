@@ -11,4 +11,5 @@ describe Company do
   it { should validate_uniqueness_of :name }
 
   it { should accept_nested_attributes_for :contacts }
+  
 end

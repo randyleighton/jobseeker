@@ -1,5 +1,5 @@
 describe Contact do
 
-	it { should belong_to :company}
+  it { should belong_to :company}
 
 end
