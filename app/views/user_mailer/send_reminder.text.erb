@@ -1,0 +1,5 @@
+Hello <% if @user.username !="" %><%= @user.username %>,<% else %>Jobseeker,<% end %>
+
+Job: <%= @job.description %> is due for a follow-up email or call
+
+Login to your account: <%= @url %>
