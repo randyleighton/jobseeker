@@ -2,7 +2,7 @@ class JobsController < ApplicationController
 	before_filter :authenticate_user!
   before_filter :find_company, except: :index
   before_filter :find_job, except: [:index, :new, :create]
-  rescue_from ActiveRecord::RecordNotFound, with: :not_found
+  # rescue_from ActiveRecord::RecordNotFound, with: :not_found
 
   def index
     @all_jobs = Job.all
