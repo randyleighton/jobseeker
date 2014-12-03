@@ -86,7 +86,5 @@ Rails.application.configure do
   :user_name => ENV["mailgun_sandbox_username"],
   :password => ENV["mailgun_sandbox_password"]
   }
-
-
-
+  
 end

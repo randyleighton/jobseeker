@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: "randyleighton@yahoo.com"
+  default from: ENV["mailgun_sandbox_username"]
 
   def signup_confirmation(user)
     @user = user
