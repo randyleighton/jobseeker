@@ -4,11 +4,11 @@ class CompaniesController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
 
 	def index
-		@companies = Company.all
+		@companies = Company.where(user_id:current_user.id)
 	end
 
 	def new
-		@company = Company.new
+		@company = Company.new({user_id: current_user.id})
 	end
 
 	def create
@@ -44,7 +44,7 @@ class CompaniesController < ApplicationController
 
   private
   def company_params
-    params.require(:company).permit(:name, :url, :comments)
+    params.require(:company).permit(:name, :url, :comments, :user_id)
   end
 
   def find_company
