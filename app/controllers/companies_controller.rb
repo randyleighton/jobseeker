@@ -8,7 +8,7 @@ class CompaniesController < ApplicationController
 	end
 
 	def new
-		@company = Company.new({user_id: current_user.id})
+		@company = Company.new
 	end
 
 	def create
