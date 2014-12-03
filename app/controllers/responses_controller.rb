@@ -23,7 +23,7 @@ class ResponsesController < ApplicationController
   end
 
   def show
-
+    @company = Company.find(@job.company_id)
   end
 
   def edit
@@ -55,7 +55,7 @@ class ResponsesController < ApplicationController
   end
 
   def response_params
-    params.require(:response).permit(:response_date, :notes, :job_id, :user_id
+    params.require(:response).permit(:response_date, :notes, :job_id, :user_id)
   end
 
   def not_found
