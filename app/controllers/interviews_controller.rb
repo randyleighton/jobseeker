@@ -1,7 +1,7 @@
 class InterviewsController < ApplicationController
   before_filter :authenticate_user!
   before_filter :find_interview, except: [:index,:new, :create]
-  before_filter :find_job, only: [:new, :create, :show]
+  before_filter :find_job, except: [:index]
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
 
   def index
@@ -37,7 +37,8 @@ class InterviewsController < ApplicationController
   def destroy
     @interview.destroy
     flash[:notice]="Interview deleted"
-    redirect_to interviews_path
+    @company = Company.find(@job.company_id)
+    redirect_to company_job_path(@company, @job)
   end
 
   private
