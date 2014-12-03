@@ -5,7 +5,7 @@ class InterviewsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
 
   def index
-    @all_interviews = Interview.all
+    @all_interviews = Interview.where(user_id:current_user.id)
   end
 
   def new
@@ -51,7 +51,7 @@ class InterviewsController < ApplicationController
   end
 
   def interview_params
-    params.require(:interview).permit(:interview_date, :notes, :job_id)
+    params.require(:interview).permit(:interview_date, :notes, :job_id, :user_id)
   end
 
   def not_found

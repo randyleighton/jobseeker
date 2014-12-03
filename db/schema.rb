@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20141202193232) do
     t.string  "work_phone"
     t.text    "notes"
     t.integer "company_id"
+    t.integer "user_id"
   end
 
   add_index "contacts", ["company_id"], name: "index_contacts_on_company_id", using: :btree
@@ -43,6 +44,7 @@ ActiveRecord::Schema.define(version: 20141202193232) do
     t.date    "interview_date"
     t.text    "notes"
     t.integer "job_id"
+    t.integer "user_id"
   end
 
   add_index "interviews", ["job_id"], name: "index_interviews_on_job_id", using: :btree
@@ -53,6 +55,7 @@ ActiveRecord::Schema.define(version: 20141202193232) do
     t.text    "posting_url"
     t.date    "application_date"
     t.integer "company_id"
+    t.integer "user_id"
   end
 
   add_index "jobs", ["company_id"], name: "index_jobs_on_company_id", using: :btree
@@ -64,6 +67,7 @@ ActiveRecord::Schema.define(version: 20141202193232) do
     t.text    "notes"
     t.date    "response_date"
     t.integer "job_id"
+    t.integer "user_id"
   end
 
   add_index "responses", ["job_id"], name: "index_responses_on_job_id", using: :btree
