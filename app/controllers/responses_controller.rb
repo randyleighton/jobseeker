@@ -16,7 +16,7 @@ class ResponsesController < ApplicationController
     @company = Company.find(@job.company_id)
     @response = Response.create(response_params)
     if @response.valid?
-      redirect_to company_job_path(@company, @job), notice: "Response on #{@response.response_date} created."
+      redirect_to company_job_path(@company, @job), notice: "Response on #{@response.response_date.strftime("%m/%d/%Y")} created."
     else
       render 'new', alert: "Response could not be created."
     end

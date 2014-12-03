@@ -16,7 +16,7 @@ class InterviewsController < ApplicationController
     @company = Company.find(@job.company_id)
     @interview = Interview.create(interview_params)
     if @interview.valid?
-      redirect_to company_job_path(@company, @job), notice: "Interview on #{@interview.interview_date} created."
+      redirect_to company_job_path(@company, @job), notice: "Interview on #{@interview.interview_date.strftime("%m/%d/%Y")} created."
     else
       render 'new', alert: "Interview could not be created."
     end
@@ -28,7 +28,7 @@ class InterviewsController < ApplicationController
 
   def update
     if @interview.update_attributes(interview_params)
-      redirect_to job_interview_path, notice: "Interview on #{@interview.interview_date} updated."
+      redirect_to job_interview_path, notice: "Interview on #{@interview.interview_date.strftime("%m/%d/%Y")} updated."
     else
       render job_interview_path(@interview), alert: "Failed to Update."
     end
@@ -36,7 +36,7 @@ class InterviewsController < ApplicationController
 
   def destroy
     @interview.destroy
-    flash[:notice]="Interview deleted"
+    flash[:notice]="Interview on #{@interview.interview_date.strftime("%m/%d/%Y")} deleted"
     @company = Company.find(@job.company_id)
     redirect_to company_job_path(@company, @job)
   end
