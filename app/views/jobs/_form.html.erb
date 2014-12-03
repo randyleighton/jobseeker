@@ -1,6 +1,7 @@
 <%= render 'layouts/errors', object: @job %>
 
 <%= form_for(([@job.company, @job]), html: { class: 'form-horizontal' }) do |f| %>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
 
   <div class="form-group">
     <%= f.label "Description", class: 'col-sm-3 control-label' %>
