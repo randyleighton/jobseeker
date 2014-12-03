@@ -14,7 +14,7 @@ class CompaniesController < ApplicationController
 	def create
 		@company = Company.create(company_params)
 		if @company.valid?
-      redirect_to companies_path, notice: "#{@company.name} created."
+      redirect_to companies_path, notice: "Company: #{@company.name} created."
 	  else
 	   	render 'new', alert: "Company could not be created."
 	  end
@@ -29,7 +29,7 @@ class CompaniesController < ApplicationController
 
 	def update
     if @company.update_attributes(company_params)
-			redirect_to company_path(@company), notice: "#{@company.name} updated."
+			redirect_to company_path(@company), notice: "Company: #{@company.name} updated."
 		else
 			render company_path(@company), alert: "Failed to Update."
 		end
@@ -37,7 +37,7 @@ class CompaniesController < ApplicationController
 
 	def destroy
 		@company.destroy
-    flash[:notice]="Company deleted, including all its contacts and jobs."
+    flash[:notice]="Company: #{@company.name} deleted, including all its contacts and jobs."
    	redirect_to root_path
 	end
 
