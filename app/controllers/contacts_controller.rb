@@ -40,7 +40,7 @@ class ContactsController < ApplicationController
   def destroy
     @contact.destroy
     flash[:notice]="Contact deleted"
-    redirect_to(:action=>'index')
+    redirect_to company_path(@company)
   end
 
   private
