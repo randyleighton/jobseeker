@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   
   after_create :signup_confirm
 
-  has_many :companies
+  has_many :companies, dependent: :destroy
   has_many :jobs, through: :companies
   has_many :interviews, through: :companies
 
