@@ -4,13 +4,13 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   
-  after_create :signup_confirmation
+  # after_create :signup_confirmation
 
   has_many :companies
   has_many :jobs, through: :companies
   has_many :interviews, through: :companies
 
-  def signup_confirmation
-    UserMailer.signup_confirmation(self).deliver
-  end
+  # def signup_confirmation
+  #   UserMailer.signup_confirmation(self).deliver
+  # end
 end
