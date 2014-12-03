@@ -32,7 +32,7 @@ class ResponsesController < ApplicationController
 
   def update
     if @response.update_attributes(response_params)
-      redirect_to job_response_path, notice: "Response updated."
+      redirect_to job_response_path, notice: "Response on #{@response.response_date.strftime("%m/%d/%Y")} updated."
     else
       render job_response_path(@response), alert: "Failed to Update."
     end
@@ -40,7 +40,7 @@ class ResponsesController < ApplicationController
 
   def destroy
     @response.destroy
-    flash[:notice]="Response deleted"
+    flash[:notice]="Response on #{@response.response_date.strftime("%m/%d/%Y")} deleted"
     @company = Company.find(@job.company_id)
     redirect_to company_job_path(@company, @job)
   end
