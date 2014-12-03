@@ -5,3 +5,7 @@ development:
 test:
   adapter: postgresql
   database: jobseeker_test
+
+production: 
+  adapter: postgresql
+  database: jobseeker_production

@@ -13,6 +13,8 @@ gem 'turbolinks'
 gem 'uglifier'
 gem 'font-awesome-rails'
 gem 'letter_opener'
+gem 'sinatra'
+gem 'oauth'
 
 group :development do
   gem 'better_errors'
