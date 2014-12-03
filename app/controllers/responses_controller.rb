@@ -5,7 +5,7 @@ class ResponsesController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
 
   def index
-    @all_responses = Response.all
+    @all_responses = Response.where(user_id:current_user.id)
   end
 
   def new
@@ -55,7 +55,7 @@ class ResponsesController < ApplicationController
   end
 
   def response_params
-    params.require(:response).permit(:response_date, :notes, :job_id)
+    params.require(:response).permit(:response_date, :notes, :job_id, :user_id
   end
 
   def not_found

@@ -2,19 +2,23 @@ Rails.application.routes.draw do
 
   devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}
   root 'home#index'
+
   resources :companies do
       resources :contacts
       resources :jobs
   end
+
   resources :jobs do
     resources :interviews
     resources :responses
   end
+
   resources :one_steps, only:[:index,:new,:create]
-  
   resources :contacts, only: :index
   resources :jobs, only: :index
   resources :interviews, only: :index
+
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

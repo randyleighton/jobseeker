@@ -5,7 +5,7 @@ class JobsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
 
   def index
-    @all_jobs = Job.all
+    @all_jobs = Job.where(user_id:current_user.id)
   end
 
   def new
@@ -47,7 +47,7 @@ class JobsController < ApplicationController
   private
 
   def job_params
-    params.require(:job).permit(:description, :location, :posting_url,:application_date, :company_id)
+    params.require(:job).permit(:description, :location, :posting_url,:application_date, :company_id, :user_id)
   end
 
   def find_company

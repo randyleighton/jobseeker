@@ -1,24 +1,24 @@
 <% content_for(:title, "Job Interviews") %>
 
 <%= render 'layouts/errors', object: @interview %>
-
 <%= form_for(@interview, html: { class: 'form-horizontal' }, url: job_interview_path(@job, @interview)) do |f| %>
   <% if !@interview.interview_date %>
-   	<div class="form-group">
-      	<%= f.label "Interview Date", class: "col-sm-2"%>
+    <div class="form-group">
+        <%= f.label "Interview Date", class: "col-sm-2"%>
       <div class="col-sm-6">
-      	<%= f.date_field :interview_date, :autofocus=>true, class: 'form-control' %>
-     	</div>
+        <%= f.date_field :interview_date, :autofocus=>true, class: 'form-control' %>
+      </div>
     </div>
   <% end %>
 
- 	<div class="form-group">
+  <div class="form-group">
     <div class="col-sm-5">
-    	<%= f.text_area :notes, class: 'form-control' %>
-   	</div>
+      <%= f.text_area :notes, class: 'form-control' %>
+    </div>
   </div>
 
- <%= f.hidden_field :job_id, :value => @job.id %>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+  <%= f.hidden_field :job_id, :value => @job.id %>
 
  	<div class="form-group">
 	  <div class="col-sm-5">

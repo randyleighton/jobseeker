@@ -5,7 +5,7 @@ class ContactsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
 
   def index
-    @all_contacts = Contact.all
+    @all_contacts = Contact.all.where(user_id:current_user.id)
   end
 
   def new
@@ -46,7 +46,7 @@ class ContactsController < ApplicationController
   private
 
   def contact_params
-    params.require(:contact).permit(:first_name, :last_name, :title, :email, :cell_phone, :work_phone, :company_id)
+    params.require(:contact).permit(:first_name, :last_name, :title, :email, :cell_phone, :work_phone, :company_id, :user_id)
   end
 
   def find_company
