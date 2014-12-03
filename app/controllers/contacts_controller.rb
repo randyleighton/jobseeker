@@ -31,7 +31,7 @@ class ContactsController < ApplicationController
 
   def update
     if @contact.update_attributes(contact_params)
-      redirect_to company_contact_path(@company, @contact), notice: "#{@contact.first_name} #{@contact.last_name} updated."
+      redirect_to company_contact_path(@company, @contact), notice: "Contact #{@contact.first_name} #{@contact.last_name} updated."
     else
       render contact_path(@contact), alert: "Failed to Update."
     end
@@ -39,7 +39,7 @@ class ContactsController < ApplicationController
 
   def destroy
     @contact.destroy
-    flash[:notice]="Contact deleted"
+    flash[:notice]="Contact #{@contact.first_name} #{@contact.last_name} deleted"
     redirect_to company_path(@company)
   end
 
