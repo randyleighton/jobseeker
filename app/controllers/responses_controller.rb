@@ -1,7 +1,7 @@
 class ResponsesController < ApplicationController
   before_filter :authenticate_user!
   before_filter :find_response, except: [:index,:new, :create]
-  before_filter :find_job, only: [:new, :create, :show]
+  before_filter :find_job, except: [:index]
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
 
   def index
@@ -16,14 +16,14 @@ class ResponsesController < ApplicationController
     @company = Company.find(@job.company_id)
     @response = Response.create(response_params)
     if @response.valid?
-      redirect_to company_job_path(@company, @job), notice: "Response on #{@response.response_date} created."
+      redirect_to company_job_path(@company, @job), notice: "Response on #{@response.response_date.strftime("%m/%d/%Y")} created."
     else
       render 'new', alert: "Response could not be created."
     end
   end
 
   def show
-
+    @company = Company.find(@job.company_id)
   end
 
   def edit
@@ -32,7 +32,7 @@ class ResponsesController < ApplicationController
 
   def update
     if @response.update_attributes(response_params)
-      redirect_to job_response_path, notice: "Response updated."
+      redirect_to job_response_path, notice: "Response on #{@response.response_date.strftime("%m/%d/%Y")} updated."
     else
       render job_response_path(@response), alert: "Failed to Update."
     end
@@ -40,8 +40,9 @@ class ResponsesController < ApplicationController
 
   def destroy
     @response.destroy
-    flash[:notice]="Response deleted"
-    redirect_to responses_path
+    flash[:notice]="Response on #{@response.response_date.strftime("%m/%d/%Y")} deleted"
+    @company = Company.find(@job.company_id)
+    redirect_to company_job_path(@company, @job)
   end
 
   private
@@ -55,7 +56,7 @@ class ResponsesController < ApplicationController
   end
 
   def response_params
-    params.require(:response).permit(:response_date, :notes, :job_id, :user_id
+    params.require(:response).permit(:response_date, :notes, :job_id, :user_id)
   end
 
   def not_found

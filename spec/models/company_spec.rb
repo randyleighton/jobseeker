@@ -8,7 +8,6 @@ describe Company do
   # it { should belong_to :one_step }
 
   it { should validate_presence_of :name }
-  it { should validate_uniqueness_of :name }
 
   it { should accept_nested_attributes_for :contacts }
   
