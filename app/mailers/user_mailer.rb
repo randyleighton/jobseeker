@@ -1,16 +1,10 @@
 class UserMailer < ActionMailer::Base
-  default from: "randyleighton@visible-difference.com"
+  default from: "randyleighton@yahoo.com"
 
   def signup_confirmation(user)
     @user = user
-    @url = "http://localhost:3000/users/login"
-    mail to: "randyleighton@yahoo.com", subject: "Sign up for Jobseeker"
+    @email = @user.email
+    mail(to: @email, subject: 'Welcome to My Jobseeker')
   end
-
-  def send_reminder(user, job)
-    @user = user
-    @url = "http://localhost:3000/users/login"
-    @job = job
-    mail to: "#{@user.email}", subject: "#{@job.description} - Reminder"
-  end
+  
 end
