@@ -15,6 +15,7 @@ gem 'font-awesome-rails'
 gem 'letter_opener'
 gem 'sinatra'
 gem 'oauth'
+gem 'figaro'
 
 group :development do
   gem 'better_errors'

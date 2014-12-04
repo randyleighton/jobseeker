@@ -1,5 +1,6 @@
 class UserMailer < ActionMailer::Base
-  default from: ENV["mailgun_sandbox_username"]
+  # default from: ENV["mailgun_sandbox_username"]
+  default from: "\"The Jobseeker\" <#{ENV['mailgun_sandbox_username']}>"
 
   def signup_confirmation(user)
     @user = user
