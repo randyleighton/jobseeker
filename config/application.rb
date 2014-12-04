@@ -20,7 +20,6 @@ module Jobs
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
-    ENV.update YAML.load_file('config/application.yml')[Rails.env] rescue {}
 
   end
 end
