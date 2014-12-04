@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.1.1'
+
 gem 'bootstrap-sass'
 gem 'coffee-rails'
 gem 'devise'
@@ -16,7 +18,6 @@ gem 'font-awesome-rails'
 gem 'letter_opener'
 gem 'sinatra'
 gem 'oauth'
-gem 'figaro'
 
 group :development do
   gem 'better_errors'
