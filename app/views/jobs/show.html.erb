@@ -6,21 +6,23 @@
   <p><b>Location: </b><%= @job.location %></p>
   <p><b>Web link to Job: </b><%= link_to "#{@job.posting_url}", @job.posting_url, target: "_blank" %></p>
   <p><b>Date Applied: </b><%= @job.application_date.strftime("%m/%d/%Y") %>
-  <p><b>Interview(s): </b>
-          <% if @job.interviews != [] %>
-            <% @job.interviews.each do |interview| %>
-              <p><b>Date: </b><%=  link_to "#{interview.interview_date.strftime("%m/%d/%Y")}", job_interview_path(@job, interview), title: "View this Interview" %>
-              | <b>Notes: </b><%= interview.notes %></p>
-            <% end %>
-          <% else %>
-            <p>None Yet.</p>
-          <% end %>
-  </p>
   <p><b>Responses from Company: </b>
           <% if @job.responses != [] %>
             <% @job.responses.each do |response| %>
               <p><b>Date: </b><%=  link_to "#{response.response_date.strftime("%m/%d/%Y")}", job_response_path(@job, response), title: "View this Response" %>
               | <b>Notes: </b><%= response.notes %></p>
+            <% end %>
+          <% else %>
+            <p>None Yet.</p>
+          <% end %>
+  </p>
+  <p><b>Job open status: </b><%= @job.status %></p>
+  <% binding.pry %>
+  <p><b>Interview(s): </b>
+          <% if @job.interviews != [] %>
+            <% @job.interviews.each do |interview| %>
+              <p><b>Date: </b><%=  link_to "#{interview.interview_date.strftime("%m/%d/%Y")}", job_interview_path(@job, interview), title: "View this Interview" %>
+              | <b>Notes: </b><%= interview.notes %></p>
             <% end %>
           <% else %>
             <p>None Yet.</p>
