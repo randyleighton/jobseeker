@@ -40,14 +40,14 @@ class JobsController < ApplicationController
 
   def destroy
     @job.destroy
-    flash[:notice]="Job deleted"
+    flash[:notice]="#{@job.description} job application, interviews, and responses deleted."
     redirect_to company_path
   end
 
   private
 
   def job_params
-    params.require(:job).permit(:description, :location, :posting_url,:application_date, :company_id, :user_id)
+    params.require(:job).permit(:description, :location, :posting_url,:application_date, :company_id, :status, :user_id)
   end
 
   def find_company
