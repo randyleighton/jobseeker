@@ -320,7 +320,7 @@ Show page icons
 .show-edit-del {
   float: left;
   max-width: 2.5em;
-  margin: 0 1em 0 0;
+  margin: 0 1.5em 0 0;
   a {
     &:hover {
         text-decoration: none;
@@ -337,7 +337,7 @@ Show page icons
     }
     p {
       color: $cardinal;
-      font-size: 1em;
+      font-size: .85em;
       font-weight: bold;
       text-align: center;
     }

@@ -6,6 +6,7 @@
   <p><b>Location: </b><%= @job.location %></p>
   <p><b>Web link to Job: </b><%= link_to "#{@job.posting_url}", @job.posting_url, target: "_blank" %></p>
   <p><b>Date Applied: </b><%= @job.application_date.strftime("%m/%d/%Y") %>
+  <p><b>Current Application Status: </b><%= @job.status %></p>
   <p><b>Responses from Company: </b>
           <% if @job.responses != [] %>
             <% @job.responses.each do |response| %>
@@ -16,7 +17,6 @@
             <p>None Yet.</p>
           <% end %>
   </p>
-  <p><b>Current Application Status: </b><%= @job.status %></p>
   <p><b>Interview(s): </b>
           <% if @job.interviews != [] %>
             <% @job.interviews.each do |interview| %>
