@@ -6,7 +6,7 @@ has_many :interviews, dependent: :destroy
 has_many :responses, dependent: :destroy
 has_one :user, through: :company
 
-validates_presence_of :description, :location
+validates_presence_of :description, :location, :application_date
 
 
 private
