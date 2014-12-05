@@ -16,8 +16,7 @@
             <p>None Yet.</p>
           <% end %>
   </p>
-  <p><b>Job open status: </b><%= @job.status %></p>
-  <% binding.pry %>
+  <p><b>Current Application Status: </b><%= @job.status %></p>
   <p><b>Interview(s): </b>
           <% if @job.interviews != [] %>
             <% @job.interviews.each do |interview| %>

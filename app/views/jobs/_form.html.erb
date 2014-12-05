@@ -2,7 +2,6 @@
 
 <%= form_for(([@job.company, @job]), html: { class: 'form-horizontal' }) do |f| %>
   <%= f.hidden_field :user_id, :value => current_user.id %>
-  <%= f.hidden_field :status, :value => "open" %>
 
   <div class="form-group">
     <%= f.label "Description", class: 'col-sm-3 control-label' %>
@@ -29,6 +28,13 @@
     <%= f.label "Date Applied", class: 'col-sm-3 control-label' %>
     <div class="col-sm-8">
     <%= f.date_field :application_date, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "Application Status", class: 'col-sm-3 control-label' %>
+    <div class="col-sm-8">
+    <%= f.text_field :status, placeholder: "Open or Closed",class: 'form-control' %>
     </div>
   </div>
 
