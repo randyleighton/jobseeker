@@ -352,8 +352,12 @@ Show page icons
   padding: 0 .5em;
 }
 
-
-
+/*---------------------
+panels for forms
+-------------------- */
+.panel-default>.panel-heading {
+  background-color: $button-sec;
+}
 
 
 
