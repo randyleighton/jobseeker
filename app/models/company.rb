@@ -1,4 +1,5 @@
 class Company < ActiveRecord::Base
+before_save :style_text
 
 has_many :contacts, dependent: :destroy
 has_many :jobs, dependent: :destroy
@@ -11,5 +12,13 @@ accepts_nested_attributes_for :contacts
 accepts_nested_attributes_for :jobs
 
 validates :name, presence: true
+
+private
+
+def style_text
+  self.name = self.name.downcase.titleize
+  self.url = self.url.downcase
+end
+
 
 end
