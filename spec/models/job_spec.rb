@@ -12,9 +12,14 @@ describe Job do
                        location: "Portland, OR", posting_url: "www.abc.com"})
     expect(Job.order_by).to eq [job2, job1]
   end
+
   it "should titleize all the words in the description" do
     job = FactoryGirl.create(:job)
     expect(job.description.titleize).to eq "Ruby Rails Developer"
+  end
+  it "should downcase and titleize the location" do
+    job = FactoryGirl.create(:job)
+    expect(job.location.titleize).to eq "Portland, Or"
   end
 
 

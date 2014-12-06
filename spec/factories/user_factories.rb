@@ -22,7 +22,7 @@ FactoryGirl.define do
 
   factory :job do
     description "Ruby Rails developer"
-    location Faker::Address.city
+    location "portland, or"
     posting_url Faker::Internet.url
     application_date Faker::Date.between(2.days.ago, Date.today)
     status "open"
