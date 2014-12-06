@@ -11,9 +11,9 @@ describe User do
     let(:mail) { UserMailer.signup_confirmation(user) }
 
       it "renders the headers" do
-        expect(mail.subject).to eq("Sign up for Jobseeker")
-        expect(mail.to).to eq(["randyleighton@yahoo.com"])
-        expect(mail.from).to eq(["randyleighton@visible-difference.com"])
+        expect(mail.subject).to eq("Welcome to My Jobseeker")
+        expect(mail.to).to eq(["john@yahoo.com"])
+        expect(mail.from).to eq(["postmaster@sandbox125040c2263144c7a0c152df1aedc874.mailgun.org"])
       end
   end
 

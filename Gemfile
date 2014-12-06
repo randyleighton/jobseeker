@@ -27,11 +27,13 @@ group :test, :development do
   gem 'launchy'
   gem 'pry'
   gem 'rspec-rails'
+  gem 'database_cleaner'
 end
 
 group :test do
   gem 'capybara'
   gem 'factory_girl_rails'
+  gem 'faker'
   gem 'shoulda-matchers'
 end
 

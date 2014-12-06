@@ -6,6 +6,7 @@ class CreateJobs < ActiveRecord::Migration
       t.text :posting_url
       t.date :application_date
       t.belongs_to :company, index: true
+      t.timestamps
     end
   end
 end
