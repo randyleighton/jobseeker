@@ -9,6 +9,7 @@ class CreateContacts < ActiveRecord::Migration
       t.string :work_phone
       t.text :notes
       t.belongs_to :company, index: true
+      t.timestamps
     end
   end
 end

@@ -1,9 +1,9 @@
 class Company < ActiveRecord::Base
 before_save :style_text
 
-has_many :contacts, dependent: :destroy
-has_many :jobs, dependent: :destroy
-has_many :interviews, through: :jobs
+has_many :contacts, -> { order(last_name: :desc) }, dependent: :destroy
+has_many :jobs, -> { order(created_at: :desc) }, dependent: :destroy
+has_many :interviews, -> { order(created_at: :desc) }, through: :jobs
 has_many :responses, through: :jobs
 belongs_to :user
 belongs_to :one_step, inverse_of: :company
