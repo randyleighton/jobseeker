@@ -5,4 +5,12 @@ describe Job do
   it { should have_many :responses }
   it { should have_one(:user).through(:company)}
 
+  it "should display jobs from most recent to oldest applied for" do
+    job1 = Job.create({description: "Rails Dev", application_date: "12/7/2014", 
+                       location: "Bend, OR", posting_url: "www.abc.com"})
+    job2 = Job.create({description: "Rails Ruby Dev", application_date: "12/5/2014", 
+                       location: "Portland, OR", posting_url: "www.abc.com"})
+    expect(Job.order_by).to eq [job2, job1]
+  end
+
 end
