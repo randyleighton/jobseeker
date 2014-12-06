@@ -15,11 +15,15 @@ describe Job do
 
   it "should titleize all the words in the description" do
     job = FactoryGirl.create(:job)
-    expect(job.description.titleize).to eq "Ruby Rails Developer"
+    expect(job.description).to eq "Ruby Rails Developer"
   end
   it "should downcase and titleize the location" do
     job = FactoryGirl.create(:job)
-    expect(job.location.titleize).to eq "Portland, Or"
+    expect(job.location).to eq "Portland, Or"
+  end
+  it "should downcase the posting_url" do
+    job = FactoryGirl.create(:job)
+    expect(job.posting_url).to eq "www.code.com"
   end
 
 
