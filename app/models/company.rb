@@ -13,6 +13,8 @@ accepts_nested_attributes_for :jobs
 
 validates :name, presence: true
 
+scope :by_name, ->{ order(:name) }
+
 private
 
 def style_text
