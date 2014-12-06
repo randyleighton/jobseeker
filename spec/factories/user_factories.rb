@@ -1,7 +1,7 @@
 FactoryGirl.define do
 
   factory :user do
-  	username Faker::Name.username
+  	username Faker::Internet.user_name
     email Faker::Internet.email
     password Faker::Internet.password
     password_confirmation { password }
@@ -18,8 +18,8 @@ FactoryGirl.define do
     association :user, strategy: :create
     association :company, strategy: :build
     first_name Faker::Name.first_name
-    last_name Faker::last_name
-    title Faker::title
+    last_name Faker::Name.last_name
+    title Faker::Name.title
     email Faker::Internet.email
     cell_phone Faker::PhoneNumber.cell_phone
     work_phone Faker::PhoneNumber.phone_number
