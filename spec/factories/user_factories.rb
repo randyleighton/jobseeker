@@ -21,7 +21,7 @@ FactoryGirl.define do
   end
 
   factory :job do
-    description "Ruby Rails Developer"
+    description "Ruby Rails developer"
     location Faker::Address.city
     posting_url Faker::Internet.url
     application_date Faker::Date.between(2.days.ago, Date.today)
