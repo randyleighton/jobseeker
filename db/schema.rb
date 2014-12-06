@@ -17,58 +17,70 @@ ActiveRecord::Schema.define(version: 20141205072951) do
   enable_extension "plpgsql"
 
   create_table "companies", force: true do |t|
-    t.string  "name"
-    t.text    "url"
-    t.text    "comments"
-    t.integer "one_step_id"
-    t.integer "user_id"
+    t.string   "name"
+    t.text     "url"
+    t.text     "comments"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "one_step_id"
+    t.integer  "user_id"
   end
 
   add_index "companies", ["one_step_id"], name: "index_companies_on_one_step_id", using: :btree
 
   create_table "contacts", force: true do |t|
-    t.string  "first_name"
-    t.string  "last_name"
-    t.string  "title"
-    t.string  "email"
-    t.string  "cell_phone"
-    t.string  "work_phone"
-    t.text    "notes"
-    t.integer "company_id"
-    t.integer "user_id"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "title"
+    t.string   "email"
+    t.string   "cell_phone"
+    t.string   "work_phone"
+    t.text     "notes"
+    t.integer  "company_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   add_index "contacts", ["company_id"], name: "index_contacts_on_company_id", using: :btree
 
   create_table "interviews", force: true do |t|
-    t.date    "interview_date"
-    t.text    "notes"
-    t.integer "job_id"
-    t.integer "user_id"
+    t.date     "interview_date"
+    t.text     "notes"
+    t.integer  "job_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   add_index "interviews", ["job_id"], name: "index_interviews_on_job_id", using: :btree
 
   create_table "jobs", force: true do |t|
-    t.text    "description"
-    t.string  "location"
-    t.text    "posting_url"
-    t.date    "application_date"
-    t.integer "company_id"
-    t.integer "user_id"
-    t.string  "status"
+    t.text     "description"
+    t.string   "location"
+    t.text     "posting_url"
+    t.date     "application_date"
+    t.integer  "company_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.string   "status"
   end
 
   add_index "jobs", ["company_id"], name: "index_jobs_on_company_id", using: :btree
 
   create_table "one_steps", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "responses", force: true do |t|
-    t.text    "notes"
-    t.date    "response_date"
-    t.integer "job_id"
-    t.integer "user_id"
+    t.text     "notes"
+    t.date     "response_date"
+    t.integer  "job_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   add_index "responses", ["job_id"], name: "index_responses_on_job_id", using: :btree
