@@ -1,6 +1,8 @@
 class Contact < ActiveRecord::Base
 before_save :text_style
 
+scope :by_last_name, -> {order(:last_name) }
+
 belongs_to :company
 
 validates_uniqueness_of :email

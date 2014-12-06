@@ -4,7 +4,7 @@ class CompaniesController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
 
 	def index
-		@companies = Company.where(user_id:current_user.id)
+		@companies = Company.where(user_id:current_user.id).by_name
 	end
 
 	def new

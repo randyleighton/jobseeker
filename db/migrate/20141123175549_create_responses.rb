@@ -4,6 +4,7 @@ class CreateResponses < ActiveRecord::Migration
       t.text :notes
       t.date :response_date
       t.belongs_to :job, index: true
+      t.timestamps
     end
   end
 end
