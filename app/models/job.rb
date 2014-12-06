@@ -8,14 +8,15 @@ has_one :user, through: :company
 
 validates_presence_of :description, :location, :application_date
 
+scope :order_by, ->{ order(created_at: :desc)}
 
 private
 
 def text_style
   self.description = self.description.downcase.titleize
-  self.location = self.location.downcase.titleize
-  self.posting_url = self.posting_url.downcase
-  self.status = self.status.downcase.capitalize
+  self.location = self.location.downcase.titleize 
+  self.posting_url = self.posting_url.downcase  if self.posting_url
+  self.status = self.status.downcase.capitalize if self.status
 end
 
 end
