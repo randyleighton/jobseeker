@@ -8,12 +8,15 @@ FactoryGirl.define do
   end
 
   factory :company do
+    association :user, strategy: :create
     name Faker::Company.name
     url Faker::Internet.url
     comments
   end
 
   factory :contact do
+    association :user, strategy: :create
+    association :company, strategy: :build
     first_name Faker::Name.first_name
     last_name Faker::last_name
     title Faker::title
@@ -23,6 +26,8 @@ FactoryGirl.define do
   end
 
   factory :job do
+    association :user, strategy: :create
+    association :company, strategy: :build
     description "Ruby Rails Developer"
     location Faker::Address.city
     posting_url Faker::Internet.url
