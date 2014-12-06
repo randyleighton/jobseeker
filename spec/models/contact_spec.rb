@@ -6,7 +6,7 @@ describe Contact do
   let!(:user2) { build(:user) }
 
   it 'instantiates a user' do
-    expect(user1.class.name).to eq("user1")
+    expect(user1.class.name).to eq("User")
   end
 
   it "should display contacts in alphabetical order by last name" do
