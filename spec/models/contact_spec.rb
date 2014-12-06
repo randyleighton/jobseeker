@@ -3,14 +3,21 @@ describe Contact do
   it { should belong_to :company}
 
   let!(:user1) { build(:user) }
-  let!(:user2) { build(:user) }
+  let!(:company) { build(:company)}
 
-  it 'instantiates a user' do
+  before :each do
+
+  end
+
+  it 'instantiates a user and company' do
     expect(user1.class.name).to eq("User")
+    expect(company.class.name).to eq("Company")
   end
 
   it "should display contacts in alphabetical order by last name" do
-    expect(User.all).to eq [user2, user1]
+    contact1 = FactoryGirl.create(:contact, last_name:"Pizza", email: "1@2.com")
+    contact2 = FactoryGirl.create(:contact, last_name: "Cheese", email: "3@4.com")
+    expect(Contact.by_last_name).to eq [contact2, contact1]
   end
 
 end
