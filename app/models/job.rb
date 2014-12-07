@@ -15,7 +15,6 @@ class Job < ActiveRecord::Base
 
   def verify_date
     if self.application_date.strftime("%m/%d/%Y") > Time.now.strftime("%m/%d/%Y")
-      binding.pry
       errors.add(:application_date, "cannot be a future event")
       return false
     end
