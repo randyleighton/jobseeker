@@ -14,7 +14,8 @@ class Job < ActiveRecord::Base
   scope :order_by, ->{ order(created_at: :desc)}
 
   def verify_date
-    if self.application_date > Time.now
+    if self.application_date.strftime("%m/%d/%Y") > Time.now.strftime("%m/%d/%Y")
+      binding.pry
       errors.add(:application_date, "cannot be a future event")
       return false
     end
