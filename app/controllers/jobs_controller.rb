@@ -5,7 +5,7 @@ class JobsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
 
   def index
-    @all_jobs = Job.where(user_id:current_user.id)
+    @all_jobs = Job.where(user_id:current_user.id).order_by
   end
 
   def new
@@ -41,7 +41,7 @@ class JobsController < ApplicationController
   def destroy
     @job.destroy
     flash[:notice]="#{@job.description} job application, interviews, and responses deleted."
-    redirect_to company_path
+    redirect_to company_path(@company)
   end
 
   private

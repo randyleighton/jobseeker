@@ -19,7 +19,7 @@ private
 
 def style_text
   self.name = self.name.downcase.titleize
-  self.url = self.url.downcase
+  self.url = self.url.downcase if self.url
 end
 
 
