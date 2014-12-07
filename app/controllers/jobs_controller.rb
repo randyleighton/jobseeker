@@ -41,7 +41,7 @@ class JobsController < ApplicationController
   def destroy
     @job.destroy
     flash[:notice]="#{@job.description} job application, interviews, and responses deleted."
-    redirect_to company_path
+    redirect_to company_path(@company)
   end
 
   private
