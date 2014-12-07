@@ -26,5 +26,22 @@ describe Job do
     expect(job.posting_url).to eq "www.code.com"
   end
 
+  it "should allow job applications to be created now or prior" do
+    date_now = Date.new(2014,12,6)
+    date_prev = Date.new(2014,12,1)
+    date_future = Date.new(2014,12,10)
+    job = FactoryGirl.create(:job, application_date: date_prev)
+    job2 = FactoryGirl.create(:job, application_date: date_now)
+    expect(job.application_date).to be <= date_now
+    expect(job2.application_date).to be <= date_now
+  end
+
+  it "should allow job applications to not be created in the future" do
+    date_now = Date.new(2014,12,6)
+    date_future = Date.new(2014,12,10)
+    job = FactoryGirl.build(:job, application_date: date_future)
+    expect(job.save).to eq false
+  end
+
 
 end
