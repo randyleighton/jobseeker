@@ -7,7 +7,7 @@
   <p><b>Date Scheduled: </b><%= @interview.interview_date %></p>
   <p><b>Primary Contact: </b><%= link_to "#{@contact.first_name} #{@contact.last_name}", company_contact_path(@company, @contact) %></p>
   <p><b>Notes: </b><%=@interview.notes %></p>
-  <h4>Note log for this interview </h4>
+  <h4>Note log: </h4>
   <%= render 'edit' %>
 </div>
 
