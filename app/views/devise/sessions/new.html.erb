@@ -1,8 +1,9 @@
 <% content_for(:title, "Jobseeker Log In") %>
 
 <div class="border-form-div">
-  <h2>Log In</h2>
   <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <h2>Log In</h2>
+  <%= f.error_notification %>
     <div class="form-group">
       <%= f.label :email, class: "col-xs-3 control-label" %>
       <div class="col-xs-9">

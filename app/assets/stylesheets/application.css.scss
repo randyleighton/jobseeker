@@ -258,24 +258,21 @@ Navigation
 This is for forms
 --------------------*/
 .border-form-div {
+  max-width: 540px;
   padding: .4em .6em;
   margin: 0 auto;
   background-color: #fff;
   border: 1px solid $mercury;
   @include rounded-corners(.4em);
   @include shadowed-corners(rgba(0,0,0,.10));
-  h3 {
+  h2 {
     color: $boot_blue;
-    margin: 2px auto 3px;
+    margin: .5em;
   }
-}
-
-input#user_remember_me {
-  margin-right: 5px;
-}
-
-input#user_email, input#user_password, input#user_password_confirmation, input#user_name {
-  margin-bottom: 15px;
+  a {
+    color: $boot_blue;
+    margin: 3px;
+  }
 }
 
 /*-------------------------------
@@ -287,7 +284,7 @@ This is for companys and contacts
   line-height: 24px;
   h2 {
   float:left;
-  margin: 5px 5px 0 0;
+  margin: .5em .5em 0 0;
   color: black;
   }
 }
@@ -350,6 +347,11 @@ Show page icons
 
 .col-pads {
   padding: 0 .5em;
+}
+
+.form-fix {
+  max-height: 70px;
+  margin-left: .75em;
 }
 
 /*---------------------
