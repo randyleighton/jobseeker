@@ -1,45 +1,45 @@
 <%= render 'layouts/errors', object: @job %>
 
-<%= form_for(([@job.company, @job]), html: { class: 'form-horizontal' }) do |f| %>
+<%= simple_form_for(([@job.company, @job]), html: { class: 'form-horizontal' }) do |f| %>
   <%= f.hidden_field :user_id, :value => current_user.id %>
 
   <div class="form-group">
-    <%= f.label "Description", class: 'col-sm-3 control-label' %>
+    <%= f.label "Description", class: 'col-sm-4 control-label' %>
     <div class="col-sm-8">
     <%= f.text_field :description, class: 'form-control', :autofocus=>true %>
     </div>
   </div>
 
   <div class="form-group">
-    <%= f.label "City/State Location", class: 'col-sm-3 control-label' %>
+    <%= f.label "City/State Location", class: 'col-sm-4 control-label' %>
     <div class="col-sm-8">
     <%= f.text_field :location, class: 'form-control' %>
     </div>
   </div>
 
   <div class="form-group">
-    <%= f.label "Web link to Job", class: 'col-sm-3 control-label' %>
+    <%= f.label "Web link to Job", class: 'col-sm-4 control-label' %>
     <div class="col-sm-8">
     <%= f.text_field :posting_url, class: 'form-control' %>
     </div>
   </div>
 
   <div class="form-group">
-    <%= f.label "Date Applied", class: 'col-sm-3 control-label' %>
+    <%= f.label "Date Applied", class: 'col-sm-4 control-label' %>
     <div class="col-sm-8">
     <%= f.date_field :application_date, class: 'form-control' %>
     </div>
   </div>
 
   <div class="form-group">
-    <%= f.label "Application Status", class: 'col-sm-3 control-label' %>
-    <div class="col-sm-8">
-    <%= f.text_field :status, placeholder: "Open or Closed",class: 'form-control' %>
+    <%= f.label "Application Status", class: 'col-sm-4 control-label' %>
+    <div class="col-sm-7 radios-style">
+      <%= f.collection_radio_buttons :status, [['Open', 'Open ',checked:true],['Closed', 'Closed ']],:first, :last, class: 'radio-inline form-control' %>
     </div>
   </div>
 
   <div class="form-group">
-    <div class="col-sm-offset-3 col-sm-8">
+    <div class="col-sm-offset-4 col-sm-8">
       <%= f.submit(:class => "btn btn-default float-btn") %>
       <%= link_to "Cancel", :back, class: "btn btn-default float-btn" %>
     </div>
