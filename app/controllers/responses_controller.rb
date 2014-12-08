@@ -14,10 +14,13 @@ class ResponsesController < ApplicationController
 
   def create
     @company = Company.find(@job.company_id)
-    @response = Response.create(response_params)
-    if @response.valid?
+    @response = Response.new(response_params)
+    if @response.response_date.strftime("%m/%d/%Y") >= @job.application_date.strftime("%m/%d/%Y")
+      @response.save
       redirect_to company_job_path(@company, @job), notice: "Response on #{@response.response_date.strftime("%m/%d/%Y")} created."
     else
+      @response.errors.add(:response_date, "can not be before job application date")
+      @response.response_date = nil
       render 'new', alert: "Response could not be created."
     end
   end
