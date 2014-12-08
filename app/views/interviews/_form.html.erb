@@ -17,6 +17,13 @@
     </div>
   </div>
 
+  <div class="form-group">
+      <%= f.label "Primary Interview Contact", class: "col-sm-2"%>
+    <div class="col-sm-6">
+      <%= f.collection_select :contact_id, @company.contacts, :id, :first_name, class: 'form-select' %>
+    </div>
+  </div>
+
   <%= f.hidden_field :job_id, :value => @job.id %>
   <%= f.hidden_field :user_id, :value => current_user.id %>
 
