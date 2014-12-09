@@ -2,7 +2,7 @@ class InterviewsController < ApplicationController
   before_filter :authenticate_user!
   before_filter :find_interview, except: [:index,:new, :create]
   before_filter :find_job, except: [:index]
-  rescue_from ActiveRecord::RecordNotFound, with: :not_found
+  # rescue_from ActiveRecord::RecordNotFound, with: :not_found
 
   def index
     @all_interviews = Interview.where(user_id:current_user.id)
@@ -28,7 +28,9 @@ class InterviewsController < ApplicationController
 
   def show
     @company = Company.find(@job.company_id)
-    @contact = Contact.find(@interview.contact_id)
+    if @interview.contact_id
+      @contact = Contact.find(@interview.contact_id)
+    end
   end
 
   def update
