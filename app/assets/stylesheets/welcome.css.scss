@@ -43,8 +43,12 @@ $button-sec: #88add6;
 }
 
 .image-div {
+  display: block;
+  margin: 0 auto;
   padding: .5em .5em;
+  text-align: center;
   p {
+    margin: .5em;
     padding:0 2px;
     font-size: 1.1em;
     font-weight: bold;
@@ -54,4 +58,8 @@ $button-sec: #88add6;
 .image-style {
 @include rounded-corners(5px);
 @include shadowed-corners(#696969);
+max-width: 100%;
+height: auto;
 }
+
+
