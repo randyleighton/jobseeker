@@ -10,6 +10,7 @@ class InterviewsController < ApplicationController
 
   def new
     @interview = Interview.new
+    @company = Company.find(@job.company_id)
   end
 
   def create
@@ -27,6 +28,7 @@ class InterviewsController < ApplicationController
 
   def show
     @company = Company.find(@job.company_id)
+    @contact = Contact.find(@interview.contact_id)
   end
 
   def update
@@ -55,12 +57,12 @@ class InterviewsController < ApplicationController
   end
 
   def interview_params
-    params.require(:interview).permit(:interview_date, :notes, :job_id, :user_id)
+    params.require(:interview).permit(:interview_date, :notes, :job_id, :user_id, :contact_id)
   end
 
   def not_found
       session[:return_to]||= root_url
-      redirect_to session[:return_to], flash: {alert: 'Problem finding record, you might not be authorized.'}
+      redirect_to session[:return_to], flash: {alert: 'Problem finding a record, you might not be authorized.'}
   end
 
 end
