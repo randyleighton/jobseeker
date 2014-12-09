@@ -1,0 +1,22 @@
+$cardinal: #B71F3B;
+$button-sec: #88add6;
+
+.bgvideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -9999;
+}
+
+.welcome-head {
+  display: block;
+  margin: 0 auto;
+  h1 {
+    color: $button-sec;
+    text-shadow: 0 .5px 0 #000;
+  }
+}
