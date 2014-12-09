@@ -2,16 +2,16 @@
 
 <%= render 'layouts/errors', object: @interview %>
 <%= form_for(@interview, html: { class: 'form-horizontal' }, url: job_interview_path(@job, @interview)) do |f| %>
-  <% if !@interview.interview_date %>
-    <div class="form-group">
-        <%= f.label "Interview Date", class: "col-sm-2"%>
-      <div class="col-sm-6">
-        <%= f.date_field :interview_date, :autofocus=>true, class: 'form-control' %>
-      </div>
-    </div>
-  <% end %>
 
   <div class="form-group">
+      <%= f.label "Interview Date", class: "col-sm-2"%>
+    <div class="col-sm-3">
+      <%= f.date_field :interview_date, :autofocus=>true, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "Interview Notes", class: "col-sm-2"%>
     <div class="col-sm-5">
       <%= f.text_area :notes, class: 'form-control' %>
     </div>
@@ -20,9 +20,16 @@
   <%= f.hidden_field :user_id, :value => current_user.id %>
   <%= f.hidden_field :job_id, :value => @job.id %>
 
+  <div class="form-group">
+      <%= f.label "Choose a Contact", class: "col-sm-2"%>
+    <div class="col-sm-6">
+      <%= f.collection_select :contact_id, @company.contacts, :id, :first_name, class: 'form-select' %>
+    </div>
+  </div>
+
  	<div class="form-group">
 	  <div class="col-sm-5">
-      <%= submit_tag "Update Note Log", class: "btn btn-default" %>
+      <%= submit_tag "Update Details", class: "btn btn-default" %>
 		</div>
  	</div>
 
