@@ -13,10 +13,14 @@ $button-sec: #88add6;
 }
 
 .welcome-head {
+  margin-top: 70px;
   display: block;
   margin: 0 auto;
   h1 {
     color: $button-sec;
     text-shadow: 0 .5px 0 #000;
+  }
+  a {
+    color: $button-sec;
   }
 }
