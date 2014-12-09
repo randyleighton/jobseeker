@@ -1,6 +1,18 @@
 $cardinal: #B71F3B;
 $button-sec: #88add6;
 
+@mixin rounded-corners($radius) {
+  border-radius: $radius;
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+          border-radius: $radius;
+}
+@mixin shadowed-corners($color) {
+  -webkit-box-shadow: 3px 3px 3px $color;
+     -moz-box-shadow: 3px 3px 3px $color;
+          box-shadow: 3px 3px 3px $color;
+}
+
 .bgvideo {
   position: fixed;
   right: 0;
@@ -16,6 +28,7 @@ $button-sec: #88add6;
   margin-top: 70px;
   display: block;
   margin: 0 auto;
+  text-align: center;
   h1 {
     color: $button-sec;
     text-shadow: 0 .5px 0 #000;
@@ -24,4 +37,21 @@ $button-sec: #88add6;
     color: $button-sec;
     text-shadow: 0 .5px 0 #000;
   }
+}
+.welcome-body {
+  margin: .75em 0 0 0;
+}
+
+.image-div {
+  padding: .5em .5em;
+  p {
+    padding:0 2px;
+    font-size: 1.1em;
+    font-weight: bold;
+  }
+}
+
+.image-style {
+@include rounded-corners(5px);
+@include shadowed-corners(#696969);
 }
