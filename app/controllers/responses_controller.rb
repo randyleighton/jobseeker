@@ -59,7 +59,7 @@ class ResponsesController < ApplicationController
   end
 
   def response_params
-    params.require(:response).permit(:response_date, :notes, :job_id, :user_id)
+    params.require(:response).permit(:response_date, :notes, :job_id, :user_id, :contact_id)
   end
 
   def not_found
