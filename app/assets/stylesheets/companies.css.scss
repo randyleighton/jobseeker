@@ -46,4 +46,7 @@ th {
 }
 .fa-thumbs-down {
   color: $boot_blue;
+  &:hover {
+    color: black;
+  }
 }
