@@ -51,6 +51,11 @@ describe Job do
     job = FactoryGirl.create(:job, status:"closed")
     expect(Job.all).to eq [job]
   end
+  it "should be unique to a user" do
+    user = FactoryGirl.create(:user)
+    job = FactoryGirl.create(:job, user_id: user.id)
+    expect(job.user_id).to eq user.id
+  end
 
 end
 
