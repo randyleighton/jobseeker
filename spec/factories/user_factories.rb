@@ -16,6 +16,7 @@ FactoryGirl.define do
     first_name Faker::Name.first_name
     last_name Faker::Name.last_name
     title Faker::Name.title
+    email Faker::Internet.email("Tester")
     cell_phone Faker::PhoneNumber.cell_phone
     work_phone Faker::PhoneNumber.phone_number
   end
@@ -31,10 +32,13 @@ FactoryGirl.define do
 
   factory :interview do
     interview_date Faker::Date.forward(7)
+    notes "This is interview notes"
 
   end
 
   factory :response do
+    response_date Faker::Date.forward(1)
+    notes "This is a response test"
 
   end
 
