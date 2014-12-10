@@ -34,8 +34,9 @@ class InterviewsController < ApplicationController
   end
 
   def update
+    @company = Company.find(@job.company_id)
     if @interview.update_attributes(interview_params)
-      redirect_to job_interview_path, notice: "Interview on #{@interview.interview_date.strftime("%m/%d/%Y")} updated."
+      redirect_to company_job_path(@company,@job), notice: "Interview on #{@interview.interview_date.strftime("%m/%d/%Y")} updated."
     else
       render job_interview_path(@interview), alert: "Failed to Update."
     end
