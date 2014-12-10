@@ -10,4 +10,9 @@ describe Interview do
     expect(Interview.all).to eq [interview]
   end
 
+  it "should be unique to a user" do
+    user = FactoryGirl.create(:user)
+    interview = FactoryGirl.create(:interview, user_id: user.id)
+    expect(interview.user_id).to eq user.id
+  end
 end
