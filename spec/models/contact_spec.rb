@@ -20,4 +20,10 @@ describe Contact do
     expect(Contact.by_last_name).to eq [contact2, contact1]
   end
 
+  it "should be unique to a user" do
+    user = FactoryGirl.create(:user)
+    contact = FactoryGirl.create(:contact, user_id: user.id)
+    expect(contact.user_id).to eq user.id
+  end
+
 end
