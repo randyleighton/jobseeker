@@ -23,7 +23,7 @@
   <div class="form-group">
       <%= f.label "Choose a Contact", class: "col-sm-2"%>
     <div class="col-sm-6">
-      <%= f.collection_select :contact_id, @company.contacts, :id, :first_name, class: 'form-select' %>
+      <%= f.collection_select :contact_id, @company.contacts, :id, :first_name, prompt: true, class: 'form-select' %>
     </div>
   </div>
 
