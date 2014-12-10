@@ -14,5 +14,9 @@ describe Company do
     company2 = Company.create({name: "Alpha", url: "www.alpha.com"})
     expect(Company.by_name).to eq [company2,company1]  
   end
-  
+  it "should be unique to a user" do
+    user = FactoryGirl.create(:user)
+    company = FactoryGirl.create(:company, user_id: user.id)
+    expect(company.user_id).to eq user.id
+  end
 end
