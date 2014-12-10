@@ -20,7 +20,7 @@ describe Job do
     end
   end
 
-  describe "job date criteria" do
+  describe "date criteria" do
     it "should display jobs from most recent to oldest applied for" do
       job1 = Job.create({description: "Rails Dev", application_date: "12/7/2014", 
                          location: "Bend, OR", posting_url: "www.abc.com"})
@@ -39,9 +39,9 @@ describe Job do
       expect(job2.application_date).to be <= date_now
     end
 
-    it "should allow job applications to not be created in the future" do
+    it "should not allow job applications to be created in the future" do
       date_now = Date.new(2014,12,6)
-      date_future = Date.new(2014,12,10)
+      date_future = date_now + 20
       job = FactoryGirl.build(:job, application_date: date_future)
       expect(job.save).to eq false
     end
