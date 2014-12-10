@@ -10,4 +10,10 @@ describe Response do
     expect(Response.all).to eq [response]
   end
 
+  it "should be unique to a user" do
+    user = FactoryGirl.create(:user)
+    response = FactoryGirl.create(:response, user_id: user.id)
+    expect(response.user_id).to eq user.id
+  end
+
 end
