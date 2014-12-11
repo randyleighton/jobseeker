@@ -6,6 +6,12 @@
   <p><b>Job: </b><%=link_to "#{@job.description}", job_path(@job) %></p>
   <p><b>Response Date: </b><%= @response.response_date %></p>
   <p><b>Notes: </b><%=@response.notes %></p>
+  <p><b>Primary Contact: </b>
+  <% if @contact %>
+    <%= link_to "#{@contact.first_name} #{@contact.last_name}", company_contact_path(@company, @contact) %>
+  <% end %>
+  </p>
+  <br>
 </div>
 
 <div class="row col-pads">
