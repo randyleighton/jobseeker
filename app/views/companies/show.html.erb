@@ -75,7 +75,13 @@
   <div class="row jobs-ul">
     <ul class="fa-ul">
       <% @company.jobs.each do |job| %>
-        <li><p><%= link_to "#{job.description}", company_job_path(@company, job) %></p></li>
+        <li><p>
+          <%= link_to company_job_path(@company, job) do %>
+            <%= job.description %>
+            <% if job.status == "Closed" %>
+              <i class="fa fa-thumbs-down"> Closed</i>
+            <% end %>
+          <% end %></p></li>
       <% end %>
     </ul>
   </div>

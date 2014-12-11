@@ -2,6 +2,7 @@ class ResponsesController < ApplicationController
   before_filter :authenticate_user!
   before_filter :find_response, except: [:index,:new, :create]
   before_filter :find_job, except: [:index]
+  before_filter :find_company, except: [:index]
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
 
   def index
@@ -13,7 +14,6 @@ class ResponsesController < ApplicationController
   end
 
   def create
-    @company = Company.find(@job.company_id)
     @response = Response.new(response_params)
     if @response.response_date.strftime("%m/%d/%Y") >= @job.application_date.strftime("%m/%d/%Y")
       @response.save
@@ -26,7 +26,9 @@ class ResponsesController < ApplicationController
   end
 
   def show
-    @company = Company.find(@job.company_id)
+    if @response.contact_id
+      @contact = Contact.find(@response.contact_id)
+    end
   end
 
   def edit
@@ -58,8 +60,12 @@ class ResponsesController < ApplicationController
     @job = Job.find(params[:job_id])
   end
 
+  def find_company
+    @company = Company.find(@job.company_id)
+  end
+
   def response_params
-    params.require(:response).permit(:response_date, :notes, :job_id, :user_id)
+    params.require(:response).permit(:response_date, :notes, :job_id, :user_id, :contact_id)
   end
 
   def not_found
