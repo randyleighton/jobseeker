@@ -3,23 +3,23 @@
 <%= form_for(@interview, html: { class: 'form-horizontal' }, url: job_interviews_path(@job, @interview)) do |f| %>
   <% if !@interview.interview_date %>
     <div class="form-group">
-        <%= f.label "Interview Date", class: "col-sm-2"%>
-      <div class="col-sm-6">
+        <%= f.label "Date", class: "col-xs-12 col-sm-2"%>
+      <div class="col-xs-6 col-sm-5">
         <%= f.date_field :interview_date, :autofocus=>true, class: 'form-control' %>
       </div>
     </div>
   <% end %>
 
   <div class="form-group">
-      <%= f.label "Interview Notes", class: "col-sm-2"%>
-    <div class="col-sm-6">
-      <%= f.text_area :notes, class: 'form-control' %>
+      <%= f.label "Notes", class: "col-xs-12 col-sm-2"%>
+    <div class="col-xs-11 col-sm-9">
+      <%= f.text_area :notes, size: "100%x8%", class: 'form-control' %>
     </div>
   </div>
 
   <div class="form-group">
-      <%= f.label "Primary Interview Contact", class: "col-sm-2"%>
-    <div class="col-sm-6">
+      <%= f.label "Contact", class: "col-xs-2 col-sm-2"%>
+    <div class="col-xs-3 col-sm-3">
       <%= f.collection_select :contact_id, @company.contacts, :id, :first_name, prompt: true, class: 'form-select' %>
     </div>
   </div>
