@@ -11,9 +11,7 @@
     <li><p>
       <%= link_to company_job_path(company, job)  do %>
         <%= job.description %> @ <%= company.name %>
-        <% if job.status == "Closed" %>
-          <i class="fa fa-thumbs-down"> Closed</i>
-        <% end %>
+        <%= render 'layouts/job_closed', object: job%>
       <% end %>
     </p></li>
   <% end %>
