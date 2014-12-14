@@ -8,8 +8,14 @@
 <ul class="fa-ul">
   <% @all_jobs.each do |job| %>
     <% company = Company.find(job.company_id) %>
-    <li><p><%= link_to "#{job.description} @ #{job.company.name}", company_job_path(company, job) %></p></li>
+    <li><p>
+      <%= link_to company_job_path(company, job)  do %>
+        <%= job.description %> @ <%= company.name %>
+        <% if job.status == "Closed" %>
+          <i class="fa fa-thumbs-down"> Closed</i>
+        <% end %>
+      <% end %>
+    </p></li>
   <% end %>
 </ul>
 </div>
-<!-- This page needs to loop through companies, displaying all contacts -->

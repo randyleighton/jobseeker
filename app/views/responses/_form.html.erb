@@ -3,22 +3,22 @@
 <%= form_for(@response, html: { class: 'form-horizontal' }, url: job_responses_path(@job, @response)) do |f| %>
   <% if !@response.response_date %>
     <div class="form-group">
-        <%= f.label "Response Date", class: "col-sm-2"%>
-      <div class="col-sm-6">
+        <%= f.label "Date Received", class: "col-xs-12 col-sm-3"%>
+      <div class="col-xs-5 col-sm-5">
         <%= f.date_field :response_date, :autofocus=>true, class: 'form-control' %>
       </div>
     </div>
   <% end %>
 
   <div class="form-group">
-      <%= f.label "Response notes", class: "col-sm-2"%>
-    <div class="col-sm-6">
-      <%= f.text_area :notes, class: 'form-control' %>
+      <%= f.label "Notes", class: "col-xs-12 col-sm-3"%>
+    <div class="col-xs-12 col-sm-8">
+      <%= f.text_area :notes, :size => "100%x6%", class: 'form-control' %>
     </div>
   </div>
 
   <div class="form-group">
-    <%= f.label "Primary Response Contact", class: "col-sm-3"%>
+    <%= f.label "Contact Name", class: "col-sm-3"%>
     <div class="col-sm-6">
       <%= f.collection_select(:contact_id, @company.contacts, :id, :first_name, prompt: true, class: 'form-select') %>
     </div>
