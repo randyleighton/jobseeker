@@ -100,7 +100,11 @@ Navigation
 .navbar-default .navbar-nav {
   li a{
     color: black;
-    font-size: 1.1em;
+    font-size: 1.2em;
+    &:hover {
+      color: $cardinal;
+      font-weight: bold;
+    }
   }
 }
 
@@ -397,7 +401,7 @@ radio buttons
   &:hover {
     color: #000;
     background-color: $button-pri;
-    padding: 3px;
+    padding: 5px;
     border: 1px #000 solid;
     border-radius: 5px;
   }
