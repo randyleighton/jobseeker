@@ -5,6 +5,6 @@ class Response < ActiveRecord::Base
 
   validates :response_date, presence: true
 
-  scope :order_by, ->{ order(interview_date: :desc)}
+  scope :order_by, ->{ order(response_date: :desc)}
 
 end
