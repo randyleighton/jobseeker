@@ -12,7 +12,6 @@
       <p><b>Notes: </b>  <%= @company.comments %></p>
     <% end %>
   </div>
-
   <div class="row margin-top">
     <div class="show-edit-del">
       <%= link_to edit_company_path(@company) do %>
@@ -37,7 +36,6 @@
 
 
 <div class="col-xs-12 col-sm-4">
-
   <div class="row col-pads">
     <h4>Contacts: </h4>
     <p>Add all your contacts with this company.</p>
@@ -48,7 +46,6 @@
         <% end %>
     </div>
   </div>
-
   <div class="row contacts-ul">
     <ul class="fa-ul">
       <% @company.contacts.each do |contact| %>
@@ -56,11 +53,9 @@
       <% end %>
     </ul>
   </div>
-
 </div>
 
 <div class="col-xs-12 col-sm-4">
-  
   <div class="row col-pads">
     <h4>Job Applications: </h4>
     <p>Enter any jobs you have applied for.</p>
@@ -71,7 +66,6 @@
       <% end %>
     </div>
   </div>
-
   <div class="row jobs-ul">
     <ul class="fa-ul">
       <% @company.jobs.each do |job| %>
