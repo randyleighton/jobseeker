@@ -15,7 +15,11 @@ describe Interview do
     interview = FactoryGirl.create(:interview, user_id: user.id)
     expect(interview.user_id).to eq user.id
   end
-  it "can add a time to an interview" do
-    interview = FactoryGirl.create(:interview, interview_time: "00:38:07 -0800")
+  it "can add a time to an interview with Time object" do
+    interview = FactoryGirl.create(:interview, interview_time: Time.now)
   end
+  it "can add a time to an interview with DateTime object" do
+    interview = FactoryGirl.create(:interview, interview_time: DateTime.now)
+  end
+
 end
