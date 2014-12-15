@@ -27,8 +27,8 @@ $boot_tan: #f8f8f8;
 $cardinal: #B71F3B;
 $mercury: #e5e5e5;
 $silk: #e3e3e3;
-$button-pri: #a9c2de;
-$button-sec: #88add6;
+$button-pri: #c1c9d4;
+$button-sec: #b5bdc8;
 $tan-bg: #f4f3f1;
 
 /*--------------------
@@ -94,13 +94,17 @@ Navigation
 --------------------*/
 .navbar {
   margin-bottom: 0px;
-  background: image-url("128-59.jpg");
+  background: image-url("bg4.jpg");
 }
 
 .navbar-default .navbar-nav {
   li a{
     color: black;
-    font-size: 1.1em;
+    font-size: 1.2em;
+    &:hover {
+      color: $cardinal;
+      font-weight: bold;
+    }
   }
 }
 
@@ -375,4 +379,40 @@ radio buttons
   padding: .5em 0;
 }
 
+.unselectable {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  &:hover {
+    cursor: default;
+  };
+}
 
+.enter-home-1 {
+  /* transition in a button style on the create company link */
+  -webkit-transition: color 1s ease-in;
+  -moz-transition: color 1s ease-in;
+  -o-transition: color 1s ease-in;
+  transition: color 1s ease-in;
+  color: $cardinal;
+  &:hover {
+    color: #000;
+    background-color: $button-pri;
+    padding: 5px;
+    border: 1px #000 solid;
+    border-radius: 5px;
+  }
+}
+
+span.enter-home-2 {
+  -webkit-transition: color 2s ease-out;
+  -moz-transition: color 2s ease-out;
+  -o-transition: color 2s ease-out;
+  transition: color 2s ease-out;
+  &:hover {
+    color: $cardinal;
+  }
+}
