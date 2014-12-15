@@ -60,7 +60,7 @@ class InterviewsController < ApplicationController
   end
 
   def interview_params
-    params.require(:interview).permit(:interview_date, :notes, :job_id, :user_id, :contact_id)
+    params.require(:interview).permit(:interview_date, :interview_time, :notes, :job_id, :user_id, :contact_id)
   end
 
   def not_found

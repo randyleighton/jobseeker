@@ -31,9 +31,9 @@ FactoryGirl.define do
   end
 
   factory :interview do
-    interview_date Faker::Date.forward(7)
     notes "This is interview notes"
-
+    interview_date "2014/12/14"
+    interview_time "00:38:07 -0800"
   end
 
   factory :response do
