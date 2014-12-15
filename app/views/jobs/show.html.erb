@@ -6,7 +6,7 @@
   <p><b>Location: </b><%= @job.location %></p>
   <p><b>Web link to Job: </b><%= link_to "#{@job.posting_url}", @job.posting_url, target: "_blank" %></p>
   <p><b>Date Applied: </b><%= @job.application_date.strftime("%m/%d/%Y") %>
-  <p><b>Application Status: </b><%= @job.status %></p>
+  <p><b>Application Status: </b><%= render 'layouts/job_closed', object: @job%></p>
   <p><b>Responses from Company: </b>
     <% if @job.responses != [] %>
       <% @job.responses.each do |response| %>
