@@ -16,7 +16,8 @@ class InterviewsController < ApplicationController
   def create
     @company = Company.find(@job.company_id)
     @interview = Interview.new(interview_params)
-    if @interview.interview_date.strftime("%m/%d/%Y") >= @job.application_date.strftime("%m/%d/%Y")
+    binding.pry
+    if @interview.interview_date >= @job.application_date
       @interview.save
       redirect_to company_job_path(@company, @job), notice: "Interview on #{@interview.interview_date.strftime("%m/%d/%Y")} created."
     else
