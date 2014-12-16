@@ -10,4 +10,7 @@ This will utilize the following branching structure:
 		Develop - pre production all features merge into this.
 		Features - these will branch off most current develop then merge into develop when done.
 ---
+Application is Ruby 2.1.1 and Rails 4.1.8
+Testing is RSPEC and Capybara for unit and integration testing.
+---
 No free license to use this.
