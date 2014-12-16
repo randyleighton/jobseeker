@@ -6,4 +6,6 @@ class Interview < ActiveRecord::Base
   validates :interview_date, presence: true
   validates :interview_time, presence: true
 
+  scope :order_by, ->{ order(interview_date: :desc)}
+
 end
