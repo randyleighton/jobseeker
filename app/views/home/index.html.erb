@@ -30,7 +30,9 @@
 				<h4> Some of your upcoming interviews</h4>
 					<% @interviews.each do |interview| %>
 						<% job = Job.find(interview.job_id) %>
-						<p><%= link_to "#{interview.interview_date.strftime("%A, %b %d")}", job_interview_path(job,interview), class: "companies-all" %></p>
+						<% if interview.interview_date >= DateTime.now %>
+						<p><%= link_to "#{interview.interview_date.strftime("%A, %b %d")} - #{interview.interview_time.strftime("%I:%M %p")}", job_interview_path(job,interview), class: "companies-all" %></p>
+						<% end %>
 					<% end -%>
 			</div>
 		</div>
