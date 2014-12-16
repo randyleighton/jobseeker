@@ -12,7 +12,6 @@ feature 'Navigation links', type: :feature do
 
   scenario 'view navigation links when logged in' do
     user = FactoryGirl.create(:user)
-    visit new_user_registration_path
     sign_in_user(user.email, user.password)
     visit root_path
     expect(page).to have_content 'Companies'
