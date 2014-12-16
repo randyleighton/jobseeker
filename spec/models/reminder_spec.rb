@@ -1,3 +1,0 @@
-describe Reminder do
-
-end
