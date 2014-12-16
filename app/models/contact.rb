@@ -6,6 +6,7 @@ scope :by_last_name, -> {order(:last_name) }
 belongs_to :company
 
 validates_uniqueness_of :email
+validates :email, :format => { :with => /@/, :message => "Invalid email format" }
 validates_presence_of :first_name, :last_name
 
 private

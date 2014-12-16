@@ -26,4 +26,16 @@ describe Contact do
     expect(contact.user_id).to eq user.id
   end
 
+  it "should validate email address has the @ will pass" do
+    contact = FactoryGirl.create(:contact, user_id: user1.id, email: "coder@code.com")
+    expect(contact).to be_valid       
+  end
+
+  it "should validate email address without the @ will not pass" do
+    contact = FactoryGirl.create(:contact, user_id: user1.id, email: "coder@code.com")
+    contact.email = nil
+    expect(contact).to_not be_valid
+  end
+
+
 end
