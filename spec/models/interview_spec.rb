@@ -11,7 +11,6 @@ describe Interview do
   it "should have a contact id" do
     job = FactoryGirl.create(:job, application_date: DateTime.now-1)
     contact = FactoryGirl.create(:contact)
-    binding.pry
     interview = FactoryGirl.create(:interview, interview_date: DateTime.now, contact_id: contact.id, job_id:job.id)
     expect(Interview.all).to eq [interview]
   end
