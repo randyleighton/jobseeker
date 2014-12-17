@@ -1,13 +1,10 @@
 describe Contact do
 
   it { should belong_to :company}
+  it { should have_many :reminders }
 
   let!(:user1) { build(:user) }
   let!(:company) { build(:company)}
-
-  before :each do
-
-  end
 
   it 'instantiates a user and company' do
     expect(user1.class.name).to eq("User")
