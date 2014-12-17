@@ -16,4 +16,10 @@ describe Response do
     expect(response.user_id).to eq user.id
   end
 
+  # it "should display responses from newest to oldest" do
+  #   response1 = FactoryGirl.create(:response, notes:"Created First")
+  #   response2 = FactoryGirl.create(:response, notes:"Created Second")
+  #   expect(Response.all).to eq [response2, response1]
+  # end
+
 end

@@ -34,6 +34,7 @@ FactoryGirl.define do
     notes "This is interview notes"
     interview_date "2014/12/14"
     interview_time "00:38:07 -0800"
+    contact_id 1
   end
 
   factory :response do
