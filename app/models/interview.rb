@@ -5,7 +5,15 @@ class Interview < ActiveRecord::Base
 
   validates :interview_date, presence: true
   validates :interview_time, presence: true
+  validate :verify_date
 
   scope :order_by, ->{ order(interview_date: :desc)}
+
+  def verify_date
+    if self.interview_date < self.job.application_date
+      errors.add(:interview_date, "must be after job application date")
+      return false
+    end
+  end
 
 end
