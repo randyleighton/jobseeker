@@ -10,7 +10,7 @@ class Interview < ActiveRecord::Base
   scope :order_by, ->{ order(interview_date: :desc)}
 
   def verify_date
-    if self.interview_date < self.job.application_date
+    if self.interview_date != nil && self.interview_date < self.job.application_date
       errors.add(:interview_date, "must be after job application date")
       return false
     end
