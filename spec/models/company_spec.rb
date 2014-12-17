@@ -8,6 +8,7 @@ describe Company do
   # it { should belong_to :one_step }
   it { should validate_presence_of :name }
   it { should accept_nested_attributes_for :contacts }
+  it { should have_many :reminders }
 
   it "should display companies in alphabetical order" do
     company1 = Company.create({name:"Beta", url: "www.beta.com"})
