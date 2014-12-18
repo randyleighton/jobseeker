@@ -6,7 +6,7 @@ def index
     @companies = Company.where(user_id:current_user.id).by_name
     @contacts = Contact.where(user_id:current_user.id)
     @interviews = Interview.where(user_id:current_user.id)
-    @jobs = Job.where(user_id:current_user.id)
+    @jobs = Job.where(user_id:current_user.id).order_by
   else
     @companies = []
     @contacts = []
