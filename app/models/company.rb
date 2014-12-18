@@ -2,7 +2,7 @@ class Company < ActiveRecord::Base
 before_save :style_text
 
 has_many :contacts, ->{ order("last_name ASC")}, dependent: :destroy
-has_many :jobs, dependent: :destroy
+has_many :jobs, ->{ order("application_date DESC")}, dependent: :destroy
 has_many :interviews, through: :jobs
 has_many :responses, through: :jobs
 belongs_to :user
