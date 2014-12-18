@@ -2,7 +2,7 @@ class Job < ActiveRecord::Base
   before_save :text_style
   
   belongs_to :company
-  has_many :interviews, dependent: :destroy
+  has_many :interviews, -> { order('interview_date desc') }, dependent: :destroy
   has_many :responses, -> { order('response_date desc') }, dependent: :destroy
   has_one :user, through: :company
 
