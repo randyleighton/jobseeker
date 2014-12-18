@@ -35,8 +35,8 @@ describe Contact do
   end
 
   it "should display all contacts in lastname order with by_last_name method" do
-    contact1 = FactoryGirl.create(:contact, last_name: "Pickleton", email: "coder1@code.com")
-    contact2 = FactoryGirl.create(:contact, last_name: "Snausager", email: "coder2@code.com")
+    contact1 = FactoryGirl.create(:contact, last_name: "Snausager", email: "coder1@code.com")
+    contact2 = FactoryGirl.create(:contact, last_name: "Pickleton", email: "coder2@code.com")
     expect(Contact.by_last_name).to eq [contact2, contact1]
   end
 
