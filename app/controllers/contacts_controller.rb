@@ -5,7 +5,7 @@ class ContactsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
 
   def index
-    @all_contacts = Contact.all.where(user_id:current_user.id).by_last_name
+    @all_contacts = Contact.all.where(user_id:current_user.id)
   end
 
   def new
