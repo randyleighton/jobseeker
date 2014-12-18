@@ -64,11 +64,11 @@ describe Job do
       response1 = FactoryGirl.create(:response, job_id: job.id, response_date: date_prev)
       response2 = FactoryGirl.create(:response, job_id: job.id, response_date: date_now)
       expect(job.responses).to eq [response2, response1]
-    end    
+    end
     it "should display nested job interviews by interview date descending order" do
-      job = FactoryGirl.create(:job, application_date: date_prev)
-      interview1 = FactoryGirl.create(:interview, job_id: job.id, interview_date: date_now)
-      interview2 = FactoryGirl.create(:interview, job_id: job.id, interview_date: date_future)
+      job = FactoryGirl.create(:job, application_date: date_prev) # 12/1
+      interview1 = FactoryGirl.create(:interview, job_id: job.id, interview_date: date_now) #12/6
+      interview2 = FactoryGirl.create(:interview, job_id: job.id, interview_date: date_future) #12/10
       expect(job.interviews).to eq [interview2, interview1]
     end
   end
