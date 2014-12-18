@@ -58,12 +58,21 @@ describe Job do
     expect(job.user_id).to eq user.id
   end
 
-  it "should display nested responses by response date descending order" do
-    job = FactoryGirl.create(:job)
-    response1 = FactoryGirl.create(:response, job_id: job.id, response_date: date_prev)
-    response2 = FactoryGirl.create(:response, job_id: job.id, response_date: date_now)
-    expect(job.responses).to eq [response2, response1]
+  describe "nested order" do
+    it "should display nested job responses by response date descending order" do
+      job = FactoryGirl.create(:job)
+      response1 = FactoryGirl.create(:response, job_id: job.id, response_date: date_prev)
+      response2 = FactoryGirl.create(:response, job_id: job.id, response_date: date_now)
+      expect(job.responses).to eq [response2, response1]
+    end    
+    it "should display nested job interviews by interview date descending order" do
+      job = FactoryGirl.create(:job, application_date: date_prev)
+      interview1 = FactoryGirl.create(:interview, job_id: job.id, interview_date: date_now)
+      interview2 = FactoryGirl.create(:interview, job_id: job.id, interview_date: date_future)
+      expect(job.interviews).to eq [interview2, interview1]
+    end
   end
+
 
 end
 
