@@ -3,7 +3,7 @@ class Job < ActiveRecord::Base
   
   belongs_to :company
   has_many :interviews, dependent: :destroy
-  has_many :responses, dependent: :destroy
+  has_many :responses, -> { order('response_date desc') }, dependent: :destroy
   has_one :user, through: :company
 
   validates :description, presence: true
