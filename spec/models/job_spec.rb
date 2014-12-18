@@ -5,6 +5,10 @@ describe Job do
   it { should have_many :responses }
   it { should have_one(:user).through(:company)}
 
+  let!(:date_now){ date_now = Date.new(2014,12,6) }
+  let!(:date_prev) { date_prev = Date.new(2014,12,1) }
+  let!(:date_future) { date_future = Date.new(2014,12,10) }
+
   describe "text styling" do
     it "should titleize all the words in the description" do
       job = FactoryGirl.create(:job)
@@ -30,9 +34,6 @@ describe Job do
     end
 
     it "should allow job applications to be created now or prior" do
-      date_now = Date.new(2014,12,6)
-      date_prev = Date.new(2014,12,1)
-      date_future = Date.new(2014,12,10)
       job = FactoryGirl.create(:job, application_date: date_prev)
       job2 = FactoryGirl.create(:job, application_date: date_now)
       expect(job.application_date).to be <= date_now
@@ -56,6 +57,22 @@ describe Job do
     job = FactoryGirl.create(:job, user_id: user.id)
     expect(job.user_id).to eq user.id
   end
+
+  describe "nested order" do
+    it "should display nested job responses by response date descending order" do
+      job = FactoryGirl.create(:job)
+      response1 = FactoryGirl.create(:response, job_id: job.id, response_date: date_prev)
+      response2 = FactoryGirl.create(:response, job_id: job.id, response_date: date_now)
+      expect(job.responses).to eq [response2, response1]
+    end
+    it "should display nested job interviews by interview date descending order" do
+      job = FactoryGirl.create(:job, application_date: date_prev) # 12/1
+      interview1 = FactoryGirl.create(:interview, job_id: job.id, interview_date: date_now) #12/6
+      interview2 = FactoryGirl.create(:interview, job_id: job.id, interview_date: date_future) #12/10
+      expect(job.interviews).to eq [interview2, interview1]
+    end
+  end
+
 
 end
 

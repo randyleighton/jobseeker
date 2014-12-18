@@ -20,4 +20,20 @@ describe Company do
     company = FactoryGirl.create(:company, user_id: user.id)
     expect(company.user_id).to eq user.id
   end
+  describe "nested order" do
+    it "should display nested contacts by name order" do
+      company = FactoryGirl.create(:company, name:"Beta", url: "www.beta.com")
+      contact1 = FactoryGirl.create(:contact, last_name: "Sanders", company_id: company.id, email:"yar@yar.com")
+      contact2 = FactoryGirl.create(:contact, last_name: "Landers", company_id: company.id)
+      contact3= FactoryGirl.create(:contact, last_name: "Anders", company_id: company.id, email:"yar2@yar.com")
+      expect(company.contacts).to eq [contact3,contact2, contact1]
+    end
+    it "should display nested jobs by application date" do
+      company = FactoryGirl.create(:company, name:"Beta", url: "www.beta.com")
+      job1 = FactoryGirl.create(:job, company_id: company.id, application_date: DateTime.now - 1)
+      job2 = FactoryGirl.create(:job, company_id: company.id, application_date: DateTime.now)
+      expect(company.jobs).to eq [job2, job1]
+    end
+  end
+
 end
