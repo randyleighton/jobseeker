@@ -1,14 +1,14 @@
 class Contact < ActiveRecord::Base
-before_save :text_style
+  belongs_to :company
+  has_many :reminders, as: :rem
 
-scope :by_last_name, -> {order(:last_name) }
+  validates_uniqueness_of :email
+  validates :email, :format => { :with => /@/, :message => "Invalid email format" }
+  validates_presence_of :first_name, :last_name
 
-belongs_to :company
-has_many :reminders, as: :rem
+  before_save :text_style
 
-validates_uniqueness_of :email
-validates :email, :format => { :with => /@/, :message => "Invalid email format" }
-validates_presence_of :first_name, :last_name
+  scope :by_last_name, -> {order(:last_name) }
 
 private
 
