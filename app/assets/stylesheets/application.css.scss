@@ -58,7 +58,7 @@ SASS MIXINS
 }
 
 /* Responsive for 3 column view when reduced */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 480px) {
   .show-bottom-line {
     display: block;
     margin: 0 auto;
