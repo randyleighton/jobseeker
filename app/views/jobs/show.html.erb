@@ -4,7 +4,7 @@
   <h2>Job Detail: <span class="company-show-head"><%= @job.description %></h2></span>
 </div>
 
-  <div class="col-xs-12 col-sm-4  col-pads">
+  <div class="col-xs-12 col-sm-4 show-bottom-line">
     <div class="row col-pads">
       <h4>Job Title: <span class="company-show-head"><%= @job.description %></span></h4>
       <p><b>Company Name: </b><%= link_to @job.company.name, company_path(@job.company) %></p>
@@ -41,7 +41,7 @@
   </div>
 
 
-  <div class="col-xs-12 col-sm-4">
+  <div class="col-xs-12 col-sm-4 show-bottom-line ">
     <div class="row col-pads">
       <h4>Responses: </h4>
       <p>Any responses from the company go here.</p>
