@@ -8,7 +8,14 @@
 <div class="row companies-ul">
 	<ul class="fa-ul">
 	  <% @companies.all.each do |company| %>
-	    <li><p><%= link_to company.name, company_path(company) %></p></li>
+	    <li>
+        <%= link_to company_path(company) do %>
+          <%= company.name %>
+          <% if company.reminders.count > 0 %>
+            <%= content_tag(:i,nil,class: 'fa-reminder fa fa-bell')%> 
+          <% end %>
+        <% end %>
+      </li>
 	  <% end %>
 	</ul>
 </div>

@@ -1,7 +1,7 @@
 class RemindersController < ApplicationController
   before_filter :find_company, except: :index
 
-def new
+  def new
     @context = context
     @reminder = @context.reminders.new
   end
