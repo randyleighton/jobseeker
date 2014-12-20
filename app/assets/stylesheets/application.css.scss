@@ -30,6 +30,7 @@ $silk: #e3e3e3;
 $button-pri: #c1c9d4;
 $button-sec: #b5bdc8;
 $tan-bg: #f4f3f1;
+$atlantis: #8ed022;
 
 /*--------------------
 SASS MIXINS
@@ -436,7 +437,7 @@ overflow: hidden;
 }
 
 .fa-reminder {
-  color: $cardinal;
+  color: $atlantis;
   text-shadow: 0px 1px 1px #000;
 }
 

@@ -31,7 +31,7 @@ class RemindersController < ApplicationController
 
 private
   def reminder_params
-    params.require(:reminder).permit!
+    params.require(:reminder).permit(:subject, :body)
   end
 
   def find_company

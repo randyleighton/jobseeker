@@ -32,6 +32,15 @@
     <% end %>
     </div>
   </div>
+
+  <div class="row col-pads">
+    <% if @company.reminders.count > 0 %>
+      <h4>Important Reminders:</h4>
+      <% @company.reminders.each do |reminder| %>
+        <%= reminder.subject %> - <%= reminder.body %>
+      <% end %>
+    <% end %>
+  </div>
 </div>
 
 
