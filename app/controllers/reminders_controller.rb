@@ -1,5 +1,5 @@
 class RemindersController < ApplicationController
-  before_filter :find_company
+  before_filter :find_company, except: :index
 
 def new
     @context = context
@@ -33,6 +33,11 @@ private
   def reminder_params
     params.require(:reminder).permit!
   end
+
+  def find_company
+    @company = Company.find(params[:company_id])
+  end
+
 
   def context
     if params[:job_id]
