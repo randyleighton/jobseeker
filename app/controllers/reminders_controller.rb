@@ -65,7 +65,7 @@ private
     if Company === context
       company_path(context)
     else
-      job_path(context)
+      company_job_path(context)
     end
   end
 
