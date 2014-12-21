@@ -89,7 +89,8 @@ list bullets for each indexpage
 global css entire program
 -----------------------------*/
 body {
-  background:image-url("bg-tan.jpg")
+  background:image-url("bg-tan.jpg");
+  margin-bottom: 70px;
 }
 
 a {
@@ -153,7 +154,7 @@ Navigation
 .navbar-fixed-bottom {
   border: 1px solid $mercury;
   display:block;
-  margin: 35px 0 0 0;
+  margin: 0 auto;
   text-align: center;
   p {
     margin-top: 1em;
