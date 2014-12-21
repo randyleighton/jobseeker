@@ -14,7 +14,10 @@
       <%= time_ago_in_words reminder.created_at %> ago
     <% end %>
   <% else %>
-    <h4><%= link_to "No reminders found - Create one", new_company_reminder_path(@company) %></h4>
+    <h4><%= link_to new_company_reminder_path(@company) do %>
+          <%= content_tag(:i,nil,class: 'fa-reminder fa fa-bell-slash')%>
+          No reminders found - Create one
+        <% end %></h4>
   <% end %>
 </div>
 
