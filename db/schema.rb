@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(version: 20141216203105) do
   create_table "reminders", force: true do |t|
     t.string   "subject"
     t.string   "body"
+    t.date     "due_date"
     t.integer  "rem_id"
     t.string   "rem_type"
     t.datetime "created_at"
