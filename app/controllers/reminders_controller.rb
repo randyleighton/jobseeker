@@ -16,6 +16,10 @@ class RemindersController < ApplicationController
     end
   end
 
+  def show
+    @reminder = context.reminders.find(params[:id])
+  end
+
   def edit
     @context = context
     @reminder = context.reminders.find(params[:id])
@@ -29,9 +33,17 @@ class RemindersController < ApplicationController
     end
   end
 
+  def destroy
+    @context = context
+    @reminder = context.reminders.find(params[:id])
+    @reminder.destroy
+    flash["notice"] = "Reminder removed."
+    redirect_to context_url(context)
+  end
+
 private
   def reminder_params
-    params.require(:reminder).permit(:subject, :body)
+    params.require(:reminder).permit(:subject, :body, :due_date)
   end
 
   def find_company
@@ -53,7 +65,7 @@ private
     if Company === context
       company_path(context)
     else
-      job_path(context)
+      company_job_path(context)
     end
   end
 
