@@ -33,6 +33,14 @@ class RemindersController < ApplicationController
     end
   end
 
+  def destroy
+    @context = context
+    @reminder = Reminder.find(params[:id])
+    @reminder.destroy
+    flash["notice"] = "Reminder removed."
+    redirect_to context_url(context)
+  end
+
 private
   def reminder_params
     params.require(:reminder).permit(:subject, :body, :due_date)
