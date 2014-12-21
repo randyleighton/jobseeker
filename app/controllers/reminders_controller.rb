@@ -1,7 +1,7 @@
 class RemindersController < ApplicationController
   before_filter :find_company, except: :index
 
-def new
+  def new
     @context = context
     @reminder = @context.reminders.new
   end
@@ -31,7 +31,7 @@ def new
 
 private
   def reminder_params
-    params.require(:reminder).permit!
+    params.require(:reminder).permit(:subject, :body)
   end
 
   def find_company
@@ -56,6 +56,8 @@ private
       job_path(context)
     end
   end
-end
 
 end
+
+
+

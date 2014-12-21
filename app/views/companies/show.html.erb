@@ -4,6 +4,23 @@
   <h2>Company: <span class="company-show-head"><%= @company.name %></h2></span>
 </div>
 
+<div class="col-xs-12 show-header show_bottom_line">
+
+  <% if @company.reminders.count > 0 %>
+    <h4>Important Reminders:</h4>
+    <% @company.reminders.each do |reminder| %>
+      <p><%= link_to "#{reminder.subject}", company_reminder_path(@company,reminder) %>
+      <%= time_ago_in_words reminder.created_at %> ago</p>
+    <% end %>
+  <% else %>
+    <h4><%= link_to new_company_reminder_path(@company) do %>
+          <%= content_tag(:i,nil,class: 'fa-reminder fa fa-bell-slash')%>
+          No reminders found - Create one
+        <% end %></h4>
+  <% end %>
+</div>
+
+
 <div class="col-xs-12 col-sm-4 show-bottom-line">
   <div class="row col-pads">
     <h4>Company Information:</h4>
@@ -32,8 +49,8 @@
     <% end %>
     </div>
   </div>
-</div>
 
+</div>
 
 <div class="col-xs-12 col-sm-4 show-bottom-line">
   <div class="row col-pads">
@@ -77,7 +94,6 @@
       <% end %>
     </ul>
   </div>
-
 </div>
 
 

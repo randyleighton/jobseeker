@@ -30,6 +30,7 @@ $silk: #e3e3e3;
 $button-pri: #c1c9d4;
 $button-sec: #b5bdc8;
 $tan-bg: #f4f3f1;
+$atlantis: #8ed022;
 
 /*--------------------
 SASS MIXINS
@@ -433,6 +434,15 @@ span.enter-home-2 {
 
 .web-links {
 overflow: hidden;
+}
+
+.fa-reminder, .fa-plus{
+  color: $atlantis;
+  text-shadow: 0px 1px 1px #000;
+}
+
+.add-buttons {
+  padding: 2px 2px 4px 2px;
 }
 
 
