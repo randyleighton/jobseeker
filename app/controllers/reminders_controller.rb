@@ -16,6 +16,10 @@ class RemindersController < ApplicationController
     end
   end
 
+  def show
+    @reminder = Reminder.find(params[:id])
+  end
+
   def edit
     @context = context
     @reminder = context.reminders.find(params[:id])
