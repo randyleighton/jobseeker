@@ -441,9 +441,20 @@ overflow: hidden;
   text-shadow: 0px 1px 1px #000;
 }
 
-.add-buttons {
-  padding: 2px 2px 4px 2px;
+
+/* These are for the add new buttons*/
+.btn-adds {
+  border-color: black;
+  background-color: $tan-bg;
+  color: #000;
+  &:hover {
+    background-color: $cardinal !important;
+    color: white;
+  }
 }
 
+.fa-plus {
+  vertical-align: middle;
+}
 
 

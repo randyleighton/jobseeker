@@ -40,7 +40,11 @@ FactoryGirl.define do
   factory :response do
     response_date Faker::Date.forward(1)
     notes "This is a response test"
+  end
 
+  factory :reminder do
+    subject "Call them tomorrow"
+    due_date Faker::Date.forward(1)
   end
 
 
