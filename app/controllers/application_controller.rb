@@ -10,4 +10,8 @@ class ApplicationController < ActionController::Base
             devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:username, :email, :password) }
             devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:username, :email, :password, :current_password) }
         end
+  def adjust_format_for_iphone    
+    request.format = :ios if request.env["HTTP_USER_AGENT"] =~ %r{Mobile/.+Safari}
+  end
+        
 end
