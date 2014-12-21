@@ -5,20 +5,24 @@ Rails.application.routes.draw do
   resources :home, only: :index
 
   resources :companies do
+      resources :reminders
       resources :contacts
       resources :jobs
   end
 
   resources :jobs do
+    resources :reminders
     resources :interviews
     resources :responses
   end
-  resources :one_steps, only:[:index,:new,:create]
   resources :contacts, only: :index
   resources :jobs, only: :index
   resources :interviews, only: :index
 
-  resources :reminders
+
+
+  #one_steps is in development testing
+  #   resources :one_steps, only:[:index,:new,:create]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
