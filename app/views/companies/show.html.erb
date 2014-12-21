@@ -9,8 +9,9 @@
   <% if @company.reminders.count > 0 %>
     <h4>Important Reminders:</h4>
     <% @company.reminders.each do |reminder| %>
-      <p><%= link_to "#{reminder.subject}", company_reminder_path(@company,reminder) %>
-      <%= reminder.due_date %></p>
+      <p><%= l reminder.due_date, format: :short %> - 
+        <%= link_to "#{reminder.subject}", company_reminder_path(@company,reminder) %>
+        </p>
     <% end %>
   <% else %>
     <h4><%= link_to new_company_reminder_path(@company) do %>
