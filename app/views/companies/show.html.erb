@@ -6,14 +6,15 @@
 
 <div class="col-xs-12 show-header show_bottom_line">
 
-  <% if @company.reminders %>
+  <% if @company.reminders.count > 0 %>
     <h4>Important Reminders:</h4>
     <% @company.reminders.each do |reminder| %>
+    <% binding.pry %>
       <p><%= link_to "#{reminder.subject}", reminder.subject %></p>
       <%= time_ago_in_words reminder.created_at %> ago
     <% end %>
   <% else %>
-    <%= link_to "No reminders found for this company. Click to Create one.", new_company_reminder_path(@company,reminder) %>
+    <h4><%= link_to "No reminders found - Create one", new_company_reminder_path(@company) %></h4>
   <% end %>
 </div>
 
