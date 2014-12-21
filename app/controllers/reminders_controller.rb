@@ -17,7 +17,7 @@ class RemindersController < ApplicationController
   end
 
   def show
-    @reminder = Reminder.find(params[:id])
+    @reminder = context.reminders.find(params[:id])
   end
 
   def edit
@@ -35,7 +35,7 @@ class RemindersController < ApplicationController
 
   def destroy
     @context = context
-    @reminder = Reminder.find(params[:id])
+    @reminder = context.reminders.find(params[:id])
     @reminder.destroy
     flash["notice"] = "Reminder removed."
     redirect_to context_url(context)
