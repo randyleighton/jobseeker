@@ -9,7 +9,6 @@
   <% if @company.reminders.count > 0 %>
     <h4>Important Reminders:</h4>
     <% @company.reminders.each do |reminder| %>
-    <% binding.pry %>
       <p><%= link_to "#{reminder.subject}", reminder.subject %></p>
       <%= time_ago_in_words reminder.created_at %> ago
     <% end %>

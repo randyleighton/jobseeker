@@ -56,6 +56,8 @@ private
       job_path(context)
     end
   end
-end
 
 end
+
+
+
