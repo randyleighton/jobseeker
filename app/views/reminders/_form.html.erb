@@ -1,13 +1,25 @@
-<%= form_for [@context, @reminder] do |f| %>
+<%= render 'layouts/errors', object: @reminder %>
+
+<%= form_for [@context, @reminder], html: { class: 'form-horizontal' } do |f| %>
   <div class="form-group">
-    <%= f.label :subject %>
-    <%= f.text_area :subject, class: "form-control", placeholder: "Enter a reminder here.", rows: 10 %>
-  </div>
-  <div class="form-group">
-    <%= f.label "Reminder Due", :due_date %>
-    <%= f.date_field :due_date, class: "form-control" %>
+    <%= f.label :subject, class: "col-xs-12 col-sm-3" %>
+    <div class="col-xs-12 col-sm-8">
+      <%= f.text_area :subject, class: "form-control", placeholder: "Enter a reminder here." %>
+    </div>
   </div>
 
+  <div class="form-group">
+    <%= f.label "Reminder Due", class: "col-xs-12 col-sm-3" %>
+    <div class="col-xs-5 col-sm-5">
+      <%= f.date_field :due_date, class: "form-control" %>
+    </div>
+  </div>
 
-  <%= f.submit class: "btn btn-primary" %>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-9">
+      <%= f.submit(:class => "btn btn-default float-btn") %>
+      <%= link_to "Cancel", company_path(@company), class: "btn btn-default float-btn" %>
+    </div>
+  </div>
+
 <% end %>

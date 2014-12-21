@@ -60,7 +60,7 @@ describe Job do
 
   describe "nested order" do
     it "should display nested job responses by response date descending order" do
-      job = FactoryGirl.create(:job)
+      job = FactoryGirl.create(:job, application_date: date_prev - 5)
       response1 = FactoryGirl.create(:response, job_id: job.id, response_date: date_prev)
       response2 = FactoryGirl.create(:response, job_id: job.id, response_date: date_now)
       expect(job.responses).to eq [response2, response1]
