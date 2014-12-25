@@ -4,5 +4,6 @@ class Reminder < ActiveRecord::Base
   validates :subject, presence: true
   validates :due_date, presence: true
 
+  scope :recent, ->(max){ limit(max) }
 
 end
