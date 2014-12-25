@@ -12,6 +12,7 @@ class Job < ActiveRecord::Base
   validate :verify_date
 
   scope :order_by, ->{ order(created_at: :desc)}
+  scope :recent, ->(max){ limit(max) }
 
   def verify_date
     if self.application_date !=nil && self.application_date >= DateTime.now

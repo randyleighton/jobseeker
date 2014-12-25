@@ -10,6 +10,13 @@ describe Interview do
  let!(:user) { create(:user) }
  let!(:contact) { contact = FactoryGirl.create(:contact) }
 
+  it "should display the number of companies passed into scope" do
+    interview = FactoryGirl.create(:interview, interview_date: DateTime.now, contact_id: contact.id, job_id:job.id)
+    interview2 = FactoryGirl.create(:interview, interview_date: DateTime.now, contact_id: contact.id, job_id:job.id)
+    expect(Interview.all).to eq [interview, interview2]
+    expect(Interview.recent(1)).to eq [interview]
+  end
+
   it "should have a contact id" do
     interview = FactoryGirl.create(:interview, interview_date: DateTime.now, contact_id: contact.id, job_id:job.id)
     expect(Interview.all).to eq [interview]

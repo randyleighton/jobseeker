@@ -5,9 +5,18 @@ describe Job do
   it { should have_many :responses }
   it { should have_one(:user).through(:company)}
 
-  let!(:date_now){ date_now = Date.new(2014,12,6) }
+  let!(:date_now) { date_now = Date.new(2014,12,6) }
   let!(:date_prev) { date_prev = Date.new(2014,12,1) }
   let!(:date_future) { date_future = Date.new(2014,12,10) }
+
+describe "scope testing" do
+  it "should display the number of jobs passed into scope" do
+    job = FactoryGirl.create(:job)
+    job2 = FactoryGirl.create(:job)
+    expect(Job.all).to eq [job,job2]
+    expect(Job.recent(1)).to eq [job]
+  end
+end
 
   describe "text styling" do
     it "should titleize all the words in the description" do
