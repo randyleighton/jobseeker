@@ -30,6 +30,10 @@ $button-sec: #b5bdc8;
   display: block;
   margin: 0 auto;
   text-align: center;
+  h3 {
+    margin-bottom: .9em;
+  }
+
   h1 {
     color: $button-sec;
     text-shadow: 0 .5px 0 #000;
@@ -38,6 +42,7 @@ $button-sec: #b5bdc8;
     color: $button-sec;
     text-shadow: 0 .5px 0 #000;
   }
+
 }
 .welcome-body {
   margin: .75em 0 0 0;
@@ -63,4 +68,11 @@ max-width: 100%;
 height: auto;
 }
 
+.guest-style {
+  color: $button-sec;
+  text-shadow: 0 .5px 0 #000;
+  &:hover {
+      color: $cardinal;
+  }
+}
 
