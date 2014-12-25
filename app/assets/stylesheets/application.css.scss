@@ -281,9 +281,9 @@ This is for forms
   border: 1px solid $mercury;
   @include rounded-corners(.4em);
   @include shadowed-corners(rgba(0,0,0,.10));
-  h2 {
+  h2,h4,p {
     color: $boot_blue;
-    margin: .5em;
+    margin-left: 10px;
   }
   a {
     color: $boot_blue;
@@ -442,7 +442,6 @@ overflow: hidden;
   text-shadow: 0px 1px 1px #000;
 }
 
-
 /* These are for the add new buttons*/
 .btn-adds {
   border-color: black;
@@ -457,5 +456,13 @@ overflow: hidden;
 .fa-plus {
   vertical-align: middle;
 }
+
+/* Devise login form style for test login */
+.test-style {
+  color: $cardinal;
+  font-weight: bold;
+}
+
+
 
 
