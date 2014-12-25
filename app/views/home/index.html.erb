@@ -7,7 +7,7 @@
 	<div class="row row-one">
 		<div class="outer-box col-xs-12 col-sm-12 col-md-6">
 			<div class="index-one">
-				<h4> Recent jobs applied for:</h4>
+				<h4><%= content_tag(:i,nil,class: 'fa-reminder fa fa-keyboard-o')%> Recent Job Applications:</h4>
 					<% @jobs.each do |job| %>
 						<% company = Company.find(job.company_id) %>
 						<p><%= link_to "#{job.description}", company_job_path(company, job), class: "companies-all" %></p>
@@ -16,7 +16,7 @@
 		</div>
 		<div class="outer-box col-xs-12 col-sm-12 col-md-6">
 			<div class="index-two">
-				<h4> Some of your recent companies:</h4>
+				<h4><%= content_tag(:i,nil,class: 'fa-reminder fa fa-building')%>  Recent Companies: </h4>
 					<% @companies.each do |company| %>
 						<p><%= link_to "#{company.name}", company_path(company), class: "companies-all" %></p>
 					<% end %>
@@ -27,7 +27,7 @@
 	<div class="row row-two">
 		<div class="outer-box col-xs-12 col-sm-12 col-md-6">
 			<div class="index-three">
-				<h4> Some of your upcoming interviews</h4>
+				<h4><%= content_tag(:i,nil,class: 'fa-reminder fa fa-comments')%> Upcoming Interviews:</h4>
 					<% @interviews.each do |interview| %>
 						<% job = Job.find(interview.job_id) %>
 						<% if interview.interview_date >= DateTime.now %>
@@ -39,7 +39,7 @@
 
 		<div class="outer-box col-xs-12 col-sm-12 col-md-6">
 			<div class="index-four">
-				<h4> Reminders: </h4>
+				<h4><%= content_tag(:i,nil,class: 'fa-reminder fa fa-bell')%>  Reminders: </h4>
 					<% @companies.each do |company| %>
 						<% company.reminders.each do |reminder| %>
 							<p><%= reminder.due_date.to_formatted_s(:short) %>:<%= link_to " #{company.name}: #{reminder.subject}", company_path(company) %></p>
