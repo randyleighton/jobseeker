@@ -10,6 +10,14 @@ describe Company do
   it { should accept_nested_attributes_for :contacts }
   it { should have_many :reminders }
 
+  it "should display the number of companies passed into scope" do
+    company1 = Company.create({name:"Beta", url: "www.beta.com"})
+    company2 = Company.create({name: "Alpha", url: "www.alpha.com"})
+    company3 = Company.create({name: "Alpha", url: "www.alpha.com"})
+    expect(Company.all).to eq [company1,company2,company3]
+    expect(Company.recent(2)).to eq [company1,company2]
+  end
+
   it "should display companies in alphabetical order" do
     company1 = Company.create({name:"Beta", url: "www.beta.com"})
     company2 = Company.create({name: "Alpha", url: "www.alpha.com"})

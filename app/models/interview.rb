@@ -8,6 +8,7 @@ class Interview < ActiveRecord::Base
   validate :verify_date
 
   scope :order_by, ->{ order(interview_date: :desc)}
+  scope :recent, ->(max){ limit(max) }
 
   def verify_date
     if self.interview_date != nil && self.interview_date < self.job.application_date

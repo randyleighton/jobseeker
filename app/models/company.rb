@@ -15,6 +15,7 @@ accepts_nested_attributes_for :jobs
 validates :name, presence: true
 
 scope :by_name, ->{ order(:name) }
+scope :recent, ->(max){ limit(max) }
 
 private
 
