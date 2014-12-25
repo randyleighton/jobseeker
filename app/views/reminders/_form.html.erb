@@ -1,6 +1,7 @@
 <%= render 'layouts/errors', object: @reminder %>
 
 <%= form_for [@context, @reminder], html: { class: 'form-horizontal' } do |f| %>
+  <%= f.hidden_field :user_id, value: current_user.id  %>
   <div class="form-group">
     <%= f.label :subject, class: "col-xs-12 col-sm-3" %>
     <div class="col-xs-12 col-sm-8">
