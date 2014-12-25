@@ -4,7 +4,9 @@
 
 <div class="welcome-head">
   <h1>Welcome to the Jobseeker!</h1>
-  <h3><%= link_to "Log In", new_user_session_path, id: "login-prof" %> now to organize your jobsearch.</h3>
+  <h3><%= link_to "Sign up now", new_user_registration_path, id: "login-prof",class: "guest-style" %> to organize your jobsearch!</h3>
+  <p> -or- </p>
+  <h3><%= link_to "Use the test account ", new_user_session_path, id: "login-prof",class: "guest-style" %>to try out the Jobseeker.</h3>
 </div>
 
 <div class="welcome-body">

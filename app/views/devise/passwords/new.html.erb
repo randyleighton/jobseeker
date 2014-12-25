@@ -2,12 +2,13 @@
 
 <div class="border-form-div">
   <h2>Forgot your password?</h2>
+  <p>This will send you an email to reset your password one time.</p>
   <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: 'form-horizontal' }) do |f| %>
     <%= f.error_notification %>
 
     <div class="form-group">
       <%= f.label "Email", :email, class: "col-sm-3 control-label" %>
-      <div class="col-sm-9">
+      <div class="col-sm-6">
       <%= f.email_field :email, required: true, autofocus: true, :placeholder => 'email@provider.com', class: "form-control"  %>
       </div>
     </div>
