@@ -8,8 +8,8 @@ class RemindersController < ApplicationController
 
   def create
     @context = context
-    @reminder = @context.reminders.new(reminder_params)
-    if @reminder.save
+    @reminder = @context.reminders.create(reminder_params)
+    if @reminder.valid?
       redirect_to context_url(context), notice: "The reminder has been successfully created."
     else
       render 'new'
