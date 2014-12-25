@@ -281,7 +281,7 @@ This is for forms
   border: 1px solid $mercury;
   @include rounded-corners(.4em);
   @include shadowed-corners(rgba(0,0,0,.10));
-  h2,h4 {
+  h2,h4,p {
     color: $boot_blue;
     margin-left: 10px;
   }
