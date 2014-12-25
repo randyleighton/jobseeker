@@ -16,7 +16,11 @@
     <div class="form-group">
       <%= f.label :password, class: "col-sm-3 control-label" %>
       <div class="col-sm-9">
-        <%= f.password_field :password, :placeholder => 'Password with 8 characters', class: "form-control" %>
+        <% if :email == "test@test.com" %>
+            <%= f.password_field :password, value: "test1234", class: "form-control" %>
+        <% else %>
+            <%= f.password_field :password, :placeholder => 'Password with 8 characters', class: "form-control" %>
+        <% end %>
       </div>
       <div class="col-xs-12 col-sm-offset-3 col-sm-9 checkbox ">
         <%= f.input :remember_me, :class=>"checkbox", as: :boolean if devise_mapping.rememberable? %>
