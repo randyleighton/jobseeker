@@ -262,6 +262,7 @@ Navigation
 }
 
 .btn-default {
+  color: black;
   background-color: $button-pri;
   border-color: black;
   &:hover {
@@ -282,11 +283,11 @@ This is for forms
   @include rounded-corners(.4em);
   @include shadowed-corners(rgba(0,0,0,.10));
   h2,h4,p {
-    color: $boot_blue;
+    color: $cardinal;
     margin-left: 10px;
   }
   a {
-    color: $boot_blue;
+    color: $cardinal;
     margin: 3px;
   }
 }
@@ -312,10 +313,12 @@ This is for companys and contacts
 }
 
 .float-btn {
+  color: $cardinal;
   float: left;
   margin: 0 1em;
 }
 a.float-btn {
+  color: $cardinal;
   margin-top: 0px;
 }
 
