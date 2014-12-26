@@ -1,7 +1,7 @@
-<% content_for(:title, "The Jobseeker - A Job Search Organizer") %>
+<% content_for(:title, "The Jobseeker") %>
 
 	<div class="row one-step">
-	<h3><%= link_to "Create a company", companies_path, class: "enter-home-1" %> to get started.. <span class="enter-home-2">then add jobs, contacts and interviews.</span></h3>
+	<h3><%= link_to "Create a company", companies_path, class: "enter-home-1", title: "Create New Company" %> to get started.. <span class="enter-home-2">then add jobs, contacts and interviews.</span></h3>
 	</div> 
 
 	<div class="row row-one">
@@ -10,7 +10,7 @@
 				<h4><%= content_tag(:i,nil,class: 'fa-reminder fa fa-keyboard-o')%> Recent Job Applications:</h4>
 					<% @jobs.each do |job| %>
 						<% company = Company.find(job.company_id) %>
-						<p><%= link_to "#{job.description}", company_job_path(company, job), class: "companies-all" %></p>
+						<p><%= link_to "#{job.description}", company_job_path(company, job), class: "companies-all", title: "View Application for #{job.description}" %></p>
 						<% end %>
 			</div>
 		</div>
@@ -18,7 +18,7 @@
 			<div class="index-two">
 				<h4><%= content_tag(:i,nil,class: 'fa-reminder fa fa-building')%>  Recent Companies: </h4>
 					<% @companies.each do |company| %>
-						<p><%= link_to "#{company.name}", company_path(company), class: "companies-all" %></p>
+						<p><%= link_to "#{company.name}", company_path(company), class: "companies-all", title:"View #{company.name}" %></p>
 					<% end %>
 			</div>
 		</div>
@@ -31,7 +31,7 @@
 					<% @interviews.each do |interview| %>
 						<% job = Job.find(interview.job_id) %>
 						<% if interview.interview_date >= DateTime.now %>
-						<p><%= link_to "#{interview.interview_date.strftime("%A, %b %d")} - #{interview.interview_time.strftime("%I:%M %p")}", job_interview_path(job,interview), class: "companies-all" %></p>
+						<p><%= link_to "#{interview.interview_date.strftime("%A, %b %d")} - #{interview.interview_time.strftime("%I:%M %p")}", job_interview_path(job,interview), title: "View Interview on #{interview.interview_date.to_formatted_s(:short)}", class: "companies-all" %></p>
 						<% end %>
 					<% end -%>
 			</div>
@@ -42,7 +42,7 @@
 				<h4><%= content_tag(:i,nil,class: 'fa-reminder fa fa-bell')%>  Reminders: </h4>
 					<% @companies.each do |company| %>
 						<% company.reminders.each do |reminder| %>
-							<p><%= reminder.due_date.to_formatted_s(:short) %>:<%= link_to " #{company.name}: #{reminder.subject}", company_path(company) %></p>
+							<p><%= reminder.due_date.to_formatted_s(:short) %>:<%= link_to " #{company.name}: #{reminder.subject}", company_path(company), title:"View Reminder on #{reminder.due_date.to_formatted_s(:short)}" %></p>
 						<% end %>
 					<% end %>
 			</div>
