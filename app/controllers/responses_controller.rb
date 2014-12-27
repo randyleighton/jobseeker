@@ -13,7 +13,7 @@ class ResponsesController < ApplicationController
     @response = Response.new
   end
 
-def create
+  def create
     @company = Company.find(@job.company_id)
     @response = Response.create(response_params)
     if @response.valid?
@@ -24,6 +24,10 @@ def create
     end
   end
 
+  def edit
+
+  end
+
 
   def show
     if @response.contact_id
@@ -31,15 +35,11 @@ def create
     end
   end
 
-  def edit
-    render 'new'
-  end
-
   def update
     if @response.update_attributes(response_params)
-      redirect_to job_response_path, notice: "Response on #{@response.response_date.strftime("%m/%d/%Y")} updated."
+      redirect_to job_response_path(@job, @response), notice: "Response on #{@response.response_date.strftime("%m/%d/%Y")} updated."
     else
-      render job_response_path(@response), alert: "Failed to Update."
+      render 'edit', alert: "Failed to Update."
     end
   end
 

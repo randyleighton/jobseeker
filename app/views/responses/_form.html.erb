@@ -1,6 +1,6 @@
 <%= render 'layouts/errors', object: @response %>
 
-<%= form_for(@response, html: { class: 'form-horizontal' }, url: job_responses_path(@job, @response)) do |f| %>
+<%= simple_form_for(([@job, @response]), html: { class: 'form-horizontal' }) do |f| %>
   <% if !@response.response_date %>
     <div class="form-group">
         <%= f.label "Date Received", class: "col-xs-12 col-sm-3"%>
@@ -27,10 +27,9 @@
   <%= f.hidden_field :job_id, :value => @job.id %>
   <%= f.hidden_field :user_id, :value => current_user.id %>
 
-
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-9">
-      <%= f.submit(:class => "btn btn-default float-btn",title:"Create Response") %>
+      <%= f.submit(class: "btn btn-default float-btn") %>
       <%= link_to "Cancel", company_job_path(@company,@job), class: "btn btn-default float-btn",title:"Cancel" %>
     </div>
   </div>
