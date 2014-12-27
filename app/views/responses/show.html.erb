@@ -2,13 +2,13 @@
 
 <div class="row col-pads">
   <h4>Response Details</h4>
-  <p><b>Company: </b><%= link_to "#{@company.name}", company_path(@company) %></p>
-  <p><b>Job: </b><%=link_to "#{@job.description}", job_path(@job) %></p>
-  <p><b>Response Date: </b><%= @response.response_date %></p>
+  <p><b>Company: </b><%= link_to "#{@company.name}", company_path(@company),title:"View #{@company.name}" %></p>
+  <p><b>Job: </b><%=link_to "#{@job.description}", job_path(@job),title:"View #{@job.description} Job Application" %></p>
+  <p><b>Response Date: </b><%= @response.response_date.strftime("%m/%d/%Y") %></p>
   <p><b>Notes: </b><%=@response.notes %></p>
   <p><b>Primary Contact: </b>
   <% if @contact %>
-    <%= link_to "#{@contact.first_name} #{@contact.last_name}", company_contact_path(@company, @contact) %>
+    <%= link_to "#{@contact.first_name} #{@contact.last_name}", company_contact_path(@company, @contact),title: "View #{@contact.first_name} #{@contact.last_name}" %>
   <% end %>
   </p>
   <br>
@@ -16,13 +16,13 @@
 
 <div class="row col-pads">
   <div class="show-edit-del">
-    <%= link_to job_response_path(@job,@response), data: {method: :delete, confirm: "Are you sure you want to delete this response for the #{@job.description} job?" } do %>
+    <%= link_to job_response_path(@job,@response), data: {method: :delete, confirm: "Are you sure you want to delete this response for the #{@job.description} job?" }, title: "Delete this Response" do %>
       <%= image_tag("trash-holiday.png") %>
       <p>Delete</p>
     <% end %>
   </div>
   <div class="show-edit-del">
-  <%= link_to company_job_path(@company, @job) do %>
+  <%= link_to company_job_path(@company, @job), title: "Back" do %>
     <%= image_tag("navigation.png") %>
      <p>Back</p>
   <% end %>

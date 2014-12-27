@@ -9,8 +9,8 @@
   <% @all_jobs.each do |job| %>
     <% company = Company.find(job.company_id) %>
     <li><p>
-      <%= link_to company_job_path(company, job)  do %>
-        <%= job.description %> @ <%= company.name %>
+      <%= link_to company_job_path(company, job),title:"View #{job.description} at #{company.name}" do %>
+        <%= job.description %> at <%= company.name %>
         <%= render 'layouts/job_closed', object: job%>
       <% end %>
     </p></li>
