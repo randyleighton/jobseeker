@@ -21,7 +21,6 @@ class CompaniesController < ApplicationController
 	end
 
 	def edit
-    render 'new'
 	end
 
 	def show
@@ -32,7 +31,7 @@ class CompaniesController < ApplicationController
     if @company.update_attributes(company_params)
 			redirect_to company_path(@company), notice: "Company: #{@company.name} updated."
 		else
-			render company_path(@company), alert: "Failed to Update."
+			render 'edit', alert: "Failed to Update."
 		end
 	end
 
