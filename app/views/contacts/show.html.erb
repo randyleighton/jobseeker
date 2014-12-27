@@ -2,7 +2,7 @@
 
 <div class="row col-pads">
   <h3><%= @contact.first_name + " " + @contact.last_name %></h3>
-  <p><b>Company: </b><%= link_to @contact.company.name, company_path(@contact.company) %></p>
+  <p><b>Company: </b><%= link_to @contact.company.name, company_path(@contact.company),title:"View #{@contact.company.name}" %></p>
   <p><b>Title: </b><%= @contact.title %></p>
   <p><b>Email: </b><%=h @contact.email %></p>
   <p><b>Work Phone: </b><%=h @contact.work_phone %></p>
@@ -12,19 +12,19 @@
 <div class="margin-top row col-pads">
   
   <div class="show-edit-del">
-    <%= link_to edit_company_contact_path(@contact.company, @contact) do %>
+    <%= link_to edit_company_contact_path(@contact.company, @contact),title:"Edit Contact Details" do %>
       <%= image_tag("edit.png") %>
       <p>Edit</p>
     <% end %>
   </div>
   <div class="show-edit-del">
-    <%= link_to [@contact.company, @contact], data: {method: :delete, confirm: "Are you sure you want to delete #{@contact.first_name} #{@contact.last_name} from your contacts?" } do %>
+    <%= link_to [@contact.company, @contact], data: {method: :delete, confirm: "Are you sure you want to delete #{@contact.first_name} #{@contact.last_name} from your contacts?" }, title:"Delete Contact" do %>
       <%= image_tag("trash-holiday.png") %>
       <p>Delete</p>
     <% end %>
   </div>
   <div class="show-edit-del">
-  <%= link_to company_path(@company) do %>
+  <%= link_to company_path(@company),title:"Back to Company" do %>
     <%= image_tag("navigation.png") %>
      <p>Back</p>
   <% end %>

@@ -18,8 +18,8 @@
 
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-9">
-      <%= f.submit(:class => "btn btn-default float-btn") %>
-      <%= link_to "Cancel", company_path(@company), class: "btn btn-default float-btn" %>
+      <%= f.submit(:class => "btn btn-default float-btn", title: value) %>
+      <%= link_to "Cancel", company_path(@company), class: "btn btn-default float-btn", title: "Cancel" %>
     </div>
   </div>
 

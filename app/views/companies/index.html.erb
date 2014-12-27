@@ -1,8 +1,8 @@
 <% content_for(:title, "Companies") %>
 
 <div class="row col-pads">
-	<h2>Companies List
-	<%= link_to new_company_path, class: "btn btn-adds", title: "Add a new Company", alt: "Add a new company" do %>
+	<h2>Companies
+	<%= link_to new_company_path, class: "btn btn-adds", title: "Add a new Company" do %>
     <%= content_tag(:i,nil,class: 'fa fa-plus fa-2x')%>
     Add New
   <% end %></h2>
@@ -12,7 +12,7 @@
 	<ul class="fa-ul">
 	  <% @companies.all.each do |company| %>
 	    <li>
-        <%= link_to company_path(company) do %>
+        <%= link_to company_path(company), title: "View #{company.name}" do %>
           <%= company.name %>
           <% if company.reminders.count > 0 %>
             <%= content_tag(:i,nil,class: 'fa-reminder fa fa-bell')%> 
