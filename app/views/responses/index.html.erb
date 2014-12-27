@@ -8,7 +8,7 @@
 <ul class="fa-ul">
   <% @all_responses.each do |response| %>
     <% job = Job.find(response.job_id) %>
-    <li><p><%= link_to "Response Date: #{response.response_date.strftime("%m/%d/%Y")}  |  Notes: #{response.notes} ", job_response_path(job, response) %></p></li>
+    <li><p><%= link_to "Response Date: #{response.response_date.strftime("%m/%d/%Y")}  |  Notes: #{response.notes} ", job_response_path(job, response), title: "View Response on #{response.response_date.strftime("%m/%d/%Y")}" %></p></li>
   <% end %>
 </ul>
 </div>
