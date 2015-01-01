@@ -1,7 +1,7 @@
 <%= render 'layouts/errors', object: @feedback %>
 
-<% form_for ([@feedback,@user]) do |f| %>
-
+<%= simple_form_for @feedback do |f| %>
+  <%= f.hidden_field :user, value: @user.id %>
   <div class="form-group">
     <%= f.label "Subject", :subject, class: "col-xs-12" %>
     <div class="col-xs-6 col-sm-9">
@@ -11,12 +11,16 @@
 
   <div class="form-group">
     <%= f.label "Body", :body, class: "col-xs-12" %>
-    <div class="col-xs-12">
+    <div class="col-xs-12 col-sm-9">
       <%= f.text_field :body, class: "form-control" %>    
     </div>
   </div>
 
-  <%= render 'layouts/submit', form_type: "Feedback", object: @feedback %>
+  <div class="form-group">
+    <div class="col-xs-12">
+      <%= render 'layouts/submit', form_type: "Feedback", object: @feedback, f: f %>
+    </div>
+  </div>
 
 <% end %>
 

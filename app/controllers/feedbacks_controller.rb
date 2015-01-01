@@ -3,6 +3,7 @@ class FeedbacksController < ApplicationController
 
   def new
     @feedback = Feedback.new
+    @user = current_user
   end
 
   def create
