@@ -10,7 +10,11 @@
 				<h4><%= content_tag(:i,nil,class: 'fa-reminder fa fa-keyboard-o')%> Recent Job Applications:</h4>
 					<% @jobs.each do |job| %>
 						<% company = Company.find(job.company_id) %>
-						<p><%= link_to "#{job.description}", company_job_path(company, job), class: "companies-all", title: "View Application for #{job.description}" %></p>
+						<p><%= link_to company_job_path(company, job), class: "companies-all", title: "View Application for #{job.description}" do %>
+								<%= job.description %>
+			        	<%= render 'layouts/job_closed', object: job %>
+			        <% end %>
+						</p>
 						<% end %>
 			</div>
 		</div>
