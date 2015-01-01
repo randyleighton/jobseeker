@@ -1,5 +1,4 @@
 class Company < ActiveRecord::Base
-before_save :style_text
 
 has_many :contacts, ->{ order("last_name ASC")}, dependent: :destroy
 has_many :jobs, ->{ order("application_date DESC")}, dependent: :destroy
@@ -17,6 +16,7 @@ validates :name, presence: true
 scope :by_name, ->{ order(:name) }
 scope :recent, ->(max){ limit(max) }
 
+before_save :style_text
 before_save :external_link
 
 private

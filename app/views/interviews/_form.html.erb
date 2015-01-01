@@ -38,8 +38,7 @@
 
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-9">
-      <%= f.submit(:class => "btn btn-default float-btn",title:"Create Interview") %>
-      <%= link_to "Cancel", :back, class: "btn btn-default float-btn",title:"Cancel" %>
+      <%= render 'layouts/submit', form_type: "Interview", object: @interview, f: f %>
     </div>
   </div>
 
