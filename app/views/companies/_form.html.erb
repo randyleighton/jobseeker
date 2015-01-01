@@ -2,18 +2,18 @@
 
 <%= form_for(@company, html: { class: 'form-horizontal' }) do |f| %>
  	<div class="form-group">
-    	<%= f.label "Name", class: "col-sm-2"%>
+    	<%= f.label "Name", class: "col-sm-2 control-label"%>
     <div class="col-sm-6">
     	<%= f.text_field :name, :autofocus=>true, class: 'form-control' %>
    	</div>
   </div>
  	<div class="form-group">
-    	<%= f.label "Website", class: "col-sm-2"%>
+    	<%= f.label "Website", class: "col-sm-2 control-label"%>
     <div class="col-sm-6">
     	<%= f.text_field :url, placeholder: "Enter the website address",class: 'form-control' %>
    	</div>
   </div> 	<div class="form-group">
-    	<%= f.label :"Comments", class: "col-sm-2"%>
+    	<%= f.label :"Comments", class: "col-sm-2 control-label"%>
     <div class="col-sm-6">
     	<%= f.text_area :comments, class: 'form-control' %>
    	</div>
