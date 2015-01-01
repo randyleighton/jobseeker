@@ -38,7 +38,7 @@ FactoryGirl.define do
   end
 
   factory :response do
-    response_date Faker::Date.forward(1)
+    response_date DateTime.now
     notes "This is a response test"
   end
 
