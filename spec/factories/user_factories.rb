@@ -47,5 +47,10 @@ FactoryGirl.define do
     due_date Faker::Date.forward(1)
   end
 
+  factory :feedback do
+    user_id 1
+    subject "This needs fixed"
+    body "Look at this particular place in the app"
+  end
 
 end
