@@ -40,8 +40,7 @@
 
   <div class="form-group">
     <div class="col-sm-offset-4 col-sm-8">
-      <%= f.submit(class: "btn btn-default float-btn", title: f.object.new_record? ? "Create Job Application" : "Update Job Application") %>
-      <%= link_to "Cancel", :back, class: "btn btn-default float-btn",title:"Cancel" %>
+      <%= render 'layouts/submit', form_type: "Job Application", object: @job, f: f %>
     </div>
   </div>
 
