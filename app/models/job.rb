@@ -1,5 +1,4 @@
 class Job < ActiveRecord::Base
-  before_save :text_style
   
   belongs_to :company
   has_many :interviews, -> { order('interview_date desc') }, dependent: :destroy
@@ -14,10 +13,16 @@ class Job < ActiveRecord::Base
   scope :order_by, ->{ order(created_at: :desc)}
   scope :recent, ->(max){ limit(max) }
 
-
-  
+  before_save :text_style
+  before_save :external_link
 
 private
+
+  def external_link
+    if !self.posting_url.include?("http://")
+      self.posting_url.insert(0,"http://")
+    end
+  end
 
   def verify_date
     if self.application_date !=nil && self.application_date >= DateTime.now
