@@ -9,7 +9,7 @@
     <h4>Important Reminder:</h4>
     <% @company.reminders.each do |reminder| %>
       <p><%= l reminder.due_date, format: :short %> - 
-        <%= link_to "#{reminder.subject}", company_reminder_path(@company,reminder), title: "View This Reminder", alt: "View This Reminder" %>
+        <%= link_to "<i class='fa fa-reminder fa-bell'></i> #{reminder.subject}".html_safe, company_reminder_path(@company,reminder), title: "View This Reminder", alt: "View This Reminder" %>
         </p>
     <% end %>
   <% else %>
