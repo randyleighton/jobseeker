@@ -1,0 +1,5 @@
+<%= button_tag(type: "submit", class: "btn btn-default float-btn", title: f.object.new_record? ? "Create " + form_type : "Update " + form_type) do %>
+  <i class="fa fa-plus-circle fa-fw"></i>
+  <%= f.object.new_record? ? "Create " + form_type : "Update " + form_type %>
+<% end %>
+<%= link_to "<i class='fa fa-arrow-circle-left fa-fw'></i> Cancel".html_safe, :back, class: "btn btn-default float-btn",title:"Cancel" %>

@@ -36,7 +36,7 @@
 
  	<div class="form-group">
     <div class="col-sm-offset-2">
-      <%= submit_tag "Update Details", class: "btn btn-default float-btn",title:"Update Interview Details" %>
+      <%= render 'layouts/submit', form_type: "Interview", object: @interview, f: f %>
     </div>
   </div>
 
