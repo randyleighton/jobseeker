@@ -3,19 +3,17 @@ source 'https://rubygems.org'
 gem 'bootstrap-sass'
 gem 'coffee-rails'
 gem 'devise'
+gem 'figaro'
+gem 'font-awesome-rails'
 gem 'haml'
 gem 'jquery-rails'
-gem 'figaro'
+gem 'oauth'
 gem 'pg'
 gem 'rails'
 gem 'sass-rails'
 gem 'simple_form'
 gem 'turbolinks'
 gem 'uglifier'
-gem 'font-awesome-rails'
-gem 'letter_opener'
-gem 'sinatra'
-gem 'oauth'
 
 group :development do
   gem 'better_errors'
@@ -24,10 +22,11 @@ group :development do
 end
 
 group :test, :development do
+  gem 'database_cleaner'
   gem 'launchy'
+  gem 'letter_opener'
   gem 'pry'
   gem 'rspec-rails'
-  gem 'database_cleaner'
 end
 
 group :test do

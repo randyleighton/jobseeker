@@ -4,9 +4,9 @@
 
 <div class="welcome-head">
   <h1>Welcome to the Jobseeker!</h1>
-  <h3><%= link_to "Sign up now", new_user_registration_path, id: "login-prof",class: "guest-style" %> to organize your jobsearch!</h3>
+  <h3><%= link_to "Sign up now", new_user_registration_path, id: "login-prof",class: "guest-style",title: "Sign up for a new account" %> to organize your jobsearch!</h3>
   <p> -or- </p>
-  <h3><%= link_to "Use the test account ", new_user_session_path, id: "login-prof",class: "guest-style" %>to try out the Jobseeker.</h3>
+  <h3><%= link_to "Use the test account ", new_user_session_path, id: "login-prof",class: "guest-style", title:"Log In now to start using The Jobseeker" %>to try out the Jobseeker.</h3>
 </div>
 
 <div class="welcome-body">
@@ -16,11 +16,11 @@
       <p class="unselectable" >See your reminders and recent activities from your home page.</p>
     </div>    
     <div class="col-sm-6 col-xs-12 image-div">
-      <%= link_to image_tag("welcome-full1.png", class: "image-style"), new_user_session_path, id: "login-prof", title: "Log In now to start using The Jobseeker"  %>
+      <%= link_to image_tag("welcome-full1.png", class: "image-style"), new_user_session_path, id: "login-prof", title: "Log In now to start using The Jobseeker" %>
       <p class="unselectable">Once you create a company you then enter the job you applied for, create contacts and more.</p>
     </div>
     <div class="col-xs-12 col-sm-3 image-div">
-      <%= link_to image_tag("welcome-mobile2.png", class: "image-style"), new_user_session_path, id: "login-prof", title: "Log In now to start using The Jobseeker"  %>
+      <%= link_to image_tag("welcome-mobile2.png", class: "image-style"), new_user_session_path, id: "login-prof", title: "Log In now to start using The Jobseeker" %>
       <p class="unselectable">Each job application has a wealth of information opportunities, including tracking responses and interviews with note logs.</p>
     </div>    
   </div>
