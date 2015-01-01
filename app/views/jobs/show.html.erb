@@ -7,9 +7,9 @@
   <div class="col-xs-12 col-sm-4 show-bottom-line">
     <div class="row col-pads">
       <h4>Job Title: <span class="company-show-head"><%= @job.description %></span></h4>
-      <p><b>Company Name: </b><%= link_to @job.company.name, company_path(@job.company) %></p>
+      <p><b>Company Name: </b><%= link_to @job.company.name, company_path(@job.company), title: "View #{@job.company.name}" %></p>
       <p><b>Location: </b><%= @job.location %></p>
-      <p class="web-links"><b>Web link to Job: </b><%= link_to "#{@job.posting_url}",@job.posting_url, target: "_blank",title:"View #{@job.posting_url}" %></p>
+      <p class="web-links"><b>Web link to Job: </b><%= link_to "#{@job.posting_url}", @job.posting_url, target: "_blank",title:"View #{@job.posting_url}" %></p>
       <p><b>Date Applied: </b><%= @job.application_date.strftime("%m/%d/%Y") %>
       <p><b>Application Status: </b>
         <% if @job.status == "Open" %>
@@ -20,19 +20,19 @@
     </div>
     <div class="row margin-top col-pads">
       <div class="show-edit-del">
-        <%= link_to edit_company_job_path(@company, @job) do %>
+        <%= link_to edit_company_job_path(@company, @job), title: "Edit this Job Application" do %>
           <%= image_tag("edit.png") %>
           <p>Edit</p>
         <% end %>
       </div>
       <div class="show-edit-del">
-        <%= link_to [@job.company, @job], data: {method: :delete, confirm: "Are you sure you want to delete the #{@job.description} job application from #{@company.name}?" } do %>
+        <%= link_to [@job.company, @job], data: {method: :delete, confirm: "Are you sure you want to delete the #{@job.description} job application from #{@company.name}?" }, title: "Delete #{@job.description}, WARNING" do %>
           <%= image_tag("trash-holiday.png") %>
           <p>Delete</p>
         <% end %>
       </div>
       <div class="show-edit-del">
-      <%= link_to company_path(@company) do %>
+      <%= link_to company_path(@company), title: "Back" do %>
         <%= image_tag("navigation.png") %>
          <p>Back</p>
       <% end %>
@@ -44,7 +44,7 @@
   <div class="col-xs-12 col-sm-4 show-bottom-line ">
     <div class="row col-pads">
       <h3>Responses: 
-        <%= link_to new_job_response_path(@job), class: "btn btn-adds" do %>
+        <%= link_to new_job_response_path(@job), class: "btn btn-adds", title: "Add New Response" do %>
           <%= content_tag(:i,nil,class: 'fa fa-plus fa-2x')%> 
           Add New
         <% end %></h3>
@@ -65,7 +65,7 @@
   <div class="col-xs-12 col-sm-4">
     <div class="row col-pads">
       <h3>Interviews:
-        <%= link_to new_job_interview_path(@job), class: "btn btn-adds" do %>
+        <%= link_to new_job_interview_path(@job), class: "btn btn-adds", title: "Add New Job Interview" do %>
           <%= content_tag(:i,nil,class: 'fa fa-plus fa-2x')%> 
           Add New
         <% end %></h3>
