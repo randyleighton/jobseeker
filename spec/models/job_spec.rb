@@ -5,18 +5,18 @@ describe Job do
   it { should have_many :responses }
   it { should have_one(:user).through(:company)}
 
-  let!(:date_now) { date_now = Date.new(2014,12,6) }
-  let!(:date_prev) { date_prev = Date.new(2014,12,1) }
-  let!(:date_future) { date_future = Date.new(2014,12,10) }
+  let!(:date_now) { date_now = DateTime.now }
+  let!(:date_prev) { date_prev = DateTime.now - 10 }
+  let!(:date_future) { date_future = DateTime.now + 10 }
 
-describe "scope testing" do
-  it "should display the number of jobs passed into scope" do
-    job = FactoryGirl.create(:job)
-    job2 = FactoryGirl.create(:job)
-    expect(Job.all).to eq [job,job2]
-    expect(Job.recent(1)).to eq [job]
+  describe "scope testing" do
+    it "should display the number of jobs passed into scope" do
+      job = FactoryGirl.create(:job)
+      job2 = FactoryGirl.create(:job)
+      expect(Job.all).to eq [job,job2]
+      expect(Job.recent(1)).to eq [job]
+    end
   end
-end
 
   describe "text styling" do
     it "should titleize all the words in the description" do
@@ -29,7 +29,7 @@ end
     end
     it "should downcase the posting_url" do
       job = FactoryGirl.create(:job)
-      expect(job.posting_url).to eq "www.code.com"
+      expect(job.posting_url).to eq "http://www.code.com"
     end
   end
 
@@ -50,8 +50,6 @@ end
     end
 
     it "should not allow job applications to be created in the future" do
-      date_now = Date.new(2014,12,6)
-      date_future = date_now + 20
       job = FactoryGirl.build(:job, application_date: date_future)
       expect(job.save).to eq false
     end
@@ -80,6 +78,11 @@ end
       interview2 = FactoryGirl.create(:interview, job_id: job.id, interview_date: date_future) #12/10
       expect(job.interviews).to eq [interview2, interview1]
     end
+  end
+
+  it "should add 'http://' to job.posting_url if missing" do
+      job = FactoryGirl.create(:job, posting_url: "www.yahoo.com")
+      expect(job.posting_url).to eq 'http://www.yahoo.com'
   end
 
 
