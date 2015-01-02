@@ -8,7 +8,7 @@ class AdminMailer < ActionMailer::Base
     @email = @user.email
     @subject = @feedback.subject
     @body = @feedback.body
-    mail(to: ENV['visible_difference_admin'], subject: 'Jobseeker User Fedback')
+    mail(to: ENV['visible_difference_admin'], subject: 'Jobseeker User Feedback')
   end
 
   def feedback_confirmation(feedback)
