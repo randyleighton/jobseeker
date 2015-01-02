@@ -5,42 +5,73 @@
  <%= f.hidden_field :user_id, value: current_user.id %>
 
   <div class="form-group">
-      <%= f.label "Name", class: "col-sm-2 control-label"%>
+      <%= f.label "Name", class: "col-sm-3 control-label"%>
     <div class="col-sm-6">
-      <%= f.text_field :name, :autofocus=>true, class: 'form-control' %>
+      <%= f.text_field :name, placeholder: "Enter the Company Name", :autofocus=>true, class: 'form-control' %>
     </div>
   </div>
   
   <div class="form-group">
-      <%= f.label "Website", class: "col-sm-2 control-label"%>
+      <%= f.label "Website", class: "col-sm-3 control-label"%>
     <div class="col-sm-6">
       <%= f.text_field :url, placeholder: "Enter the website address",class: 'form-control' %>
     </div>
   </div>  
 
   <div class="form-group">
-      <%= f.label :"Comments", class: "col-sm-2 control-label"%>
+      <%= f.label "Phone Number", class: "col-sm-3 control-label"%>
+    <div class="col-sm-6">
+      <%= f.text_field :phone, placeholder: "Phone to call company", class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+      <%= f.label "email", class: "col-sm-3 control-label"%>
+    <div class="col-sm-6">
+      <%= f.text_field :email, placeholder: "example: recruiting@company.com",class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+      <%= f.label :"Comments", class: "col-sm-3 control-label"%>
     <div class="col-sm-6">
       <%= f.text_area :comments, class: 'form-control' %>
     </div>
   </div>
 
-  <div class="col-sm-offset-2">
-    <%= button_tag(f.object.new_record? ? "<i id='iconChange'class='fa fa-list-alt'> Add an Address (Optional)</i>".html_safe : "<i id='iconChange'class='fa fa-list-alt'> Update the Address</i>".html_safe,id:"add-comp-address-btn",type:'button',class: "btn btn-default btn-nofloat",title:'Click if you want to to add an address to this pharmacy') %>
+  <div class="col-sm-offset-3">
+    <%= button_tag(f.object.new_record? ? "<i id='iconChange'class='fa fa-list-alt'> Add an Address (Optional)</i>".html_safe : "<i id='iconChange'class='fa fa-list-alt'> Update the Address</i>".html_safe,id:"add-comp-address-btn",type:'button',class: "btn btn-default btn-nofloat",title:'Click if you want to to add an address to this company') %>
   </div>
 
   <div id="add-comp-address">
     <div class="form-group">
-        <%= f.label "Street Address", :street, class: "col-xs-12 col-sm-2 control-label"%>
-      <div class="col-xs-8 col-sm-7">
-        <%= f.text_area :street, class: 'form-control' %>
+      <%= f.label "Street Address", class: "col-xs-12 col-sm-3 control-label"%>
+      <div class="col-xs-12 col-sm-6">
+        <%= f.text_field :street, class: 'form-control' %>
       </div>
     </div>
-
+    <div class="form-group">
+      <%= f.label "City", class: "col-xs-12 col-sm-3 control-label"%>
+      <div class="col-xs-12 col-sm-6">
+        <%= f.text_field :city, class: 'form-control' %>
+      </div>
+    </div>    
+    <div class="form-group">
+      <%= f.label "State", class: "col-xs-12 col-sm-3 control-label"%>
+      <div class="col-xs-12 col-sm-6">
+        <%= f.text_field :state, class: 'form-control' %>
+      </div>
+    </div>    
+    <div class="form-group">
+      <%= f.label "Zip Code", class: "col-xs-12 col-sm-3 control-label"%>
+      <div class="col-xs-12 col-sm-6">
+        <%= f.text_field :zip, class: 'form-control' %>
+      </div>
+    </div>
   </div>
 
  	<div class="form-group">
-	  <div class="col-sm-offset-2 col-sm-9">
+	  <div class="col-sm-offset-3 col-sm-9">
       <%= render 'layouts/submit', form_type: "Company", object: @company, f: f %>
     </div>
  	</div>
