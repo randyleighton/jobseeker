@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150102060824) do
+ActiveRecord::Schema.define(version: 20150102174728) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,13 @@ ActiveRecord::Schema.define(version: 20150102060824) do
     t.datetime "updated_at"
     t.integer  "one_step_id"
     t.integer  "user_id"
+    t.string   "street"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.string   "phone"
+    t.string   "email"
+    t.string   "country"
   end
 
   add_index "companies", ["one_step_id"], name: "index_companies_on_one_step_id", using: :btree
