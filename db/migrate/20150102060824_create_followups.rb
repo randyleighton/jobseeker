@@ -5,7 +5,6 @@ class CreateFollowups < ActiveRecord::Migration
       t.string :follow_type
       t.string :action
       t.text :notes
-      t.integer :contact_id
     end
   end
 end

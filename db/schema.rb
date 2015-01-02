@@ -57,7 +57,6 @@ ActiveRecord::Schema.define(version: 20150102060824) do
     t.string  "follow_type"
     t.string  "action"
     t.text    "notes"
-    t.integer "contact_id"
   end
 
   create_table "interviews", force: true do |t|
