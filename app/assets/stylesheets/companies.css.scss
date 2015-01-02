@@ -23,9 +23,10 @@ td {
   }       
 
 th {
+  background: image-url("bg4.jpg");
   font-weight:bold;
   border: 1px solid $mercury;
-  background: $cardinal;
+/*  background: $cardinal;*/
   text-align:center;
   color: black;
   padding:.3em 1em;
