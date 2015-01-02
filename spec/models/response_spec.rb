@@ -4,7 +4,7 @@ describe Response do
   it { should have_one(:company).through(:job) }
   it { should validate_presence_of :response_date }
 
-let!(:job) { FactoryGirl.create(:job, application_date:DateTime.now-5)}
+let!(:job) { FactoryGirl.create(:job, application_date:DateTime.now-10)}
 
   it "should have a contact id" do
     contact = FactoryGirl.create(:contact)
@@ -18,10 +18,10 @@ let!(:job) { FactoryGirl.create(:job, application_date:DateTime.now-5)}
     expect(response.user_id).to eq user.id
   end
 
-  # it "should display responses from newest to oldest" do
-  #   response1 = FactoryGirl.create(:response, notes:"Created First")
-  #   response2 = FactoryGirl.create(:response, notes:"Created Second")
-  #   expect(Response.all).to eq [response2, response1]
-  # end
+  it "should display responses from newest to oldest" do
+    response1 = FactoryGirl.create(:response, notes:"Created First", job_id: job.id, response_date:DateTime.now-2)
+    response2 = FactoryGirl.create(:response, notes:"Created Second", job_id: job.id, response_date: DateTime.now-1)
+    expect(Response.all.order_by).to eq [response2, response1]
+  end
 
 end
