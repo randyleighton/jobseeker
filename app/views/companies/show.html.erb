@@ -28,7 +28,7 @@
     </thead>
     <tbody>
       <tr>
-        <td>Website Address: </td>
+        <td>Website: </td>
         <td><%= link_to "#{@company.url}", @company.url, target: "_blank", title: "#{@company.url}", alt:"#{@company.url}" %></td>
       </tr>
       <tr>
@@ -45,17 +45,9 @@
           <td><%= @company.street %></td>
         </tr>      
         <tr>
-          <td>City: </td>
-          <td><%= @company.city %></td>
+          <td>City/State/Zip: </td>
+          <td><%= @company.city %>, <%= @company.state %> <%= @company.zip %></td>
         </tr>      
-        <tr>
-          <td> State: </td>
-          <td><%= @company.state %></td>
-        </tr>
-        <tr>
-          <td>Zip Code: </td>
-          <td><%= @company.zip %></td>
-        </tr>
       <% end %>        
     </tbody>
   </table>
