@@ -9,6 +9,7 @@ describe Company do
   it { should validate_presence_of :name }
   it { should accept_nested_attributes_for :contacts }
   it { should have_many :reminders }
+  it { should have_many :followups }
 
   it "should display the number of companies passed into scope" do
     company1 = Company.create({name:"Beta", url: "www.beta.com"})
