@@ -1,6 +1,7 @@
 class Contact < ActiveRecord::Base
   belongs_to :company
   has_many :reminders, as: :rem
+  has_many :followups, as: :follow
 
   validates_uniqueness_of :email
   validates :email, :format => { :with => /@/, :message => "Invalid email format" }
