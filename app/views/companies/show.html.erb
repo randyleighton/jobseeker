@@ -24,6 +24,17 @@
   <div class="row col-pads">
     <h4>Company Information:</h4>
     <p><b>Website Address: </b><%= link_to "#{@company.url}", @company.url, target: "_blank", title: "#{@company.url}", alt:"#{@company.url}" %></p>
+    <p><b>Phone: </b><%= @company.phone %></p>
+    <p><b>email: </b><%= @company.email %></p>
+    <% if @company.street !="" %>
+      <p><b>Street: </b><%= @company.street %></p>
+      <p><b>City: </b><%= @company.city %></p>
+      <p><b>State: </b><%= @company.state %></p>
+      <p><b>Zip Code: </b><%= @company.zip %></p>
+    <% end %>
+
+
+
     <% if @company.comments !="" %>
       <p><b>Notes: </b>  <%= @company.comments %></p>
     <% end %>
