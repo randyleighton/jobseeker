@@ -2,7 +2,7 @@
 
 <%= simple_form_for @feedback do |f| %>
 
-  <%= f.hidden_field :user, value: current_user.id %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
 
   <div class="form-group">
     <%= f.label "Subject", :subject, class: "col-xs-12" %>

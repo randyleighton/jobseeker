@@ -1,0 +1,9 @@
+<h4>User Feedback</h4>
+<p>User email: <%= @user.email %></p>
+<% if @user.username != "" %>
+  <p>User name: <%= @user.username %></p>
+<% end %>
+<h4>Feedback</h4>
+<p>Subject: <%= @feedback.subject %></p>
+<br>
+<p>Body: <%= @feedback.body %></p>

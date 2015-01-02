@@ -9,7 +9,9 @@ class FeedbacksController < ApplicationController
   def create
     @feedback = Feedback.create(feedback_params)
     if @feedback.valid?
-      redirect_to root_path, notice: "Thank you so much for the feedback, we will look at it"
+      AdminMailer.send_feedback(@feedback).deliver
+      AdminMailer.feedback_confirmation(@feedback).deliver
+      redirect_to root_path, notice: "Thank you so much for the feedback, we will look at it ASAP"
     else
       render 'new'
     end
