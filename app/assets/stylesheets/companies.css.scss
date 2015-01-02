@@ -5,28 +5,29 @@ This is for companies table
  -------------------------*/
 table {
   width:95%;
-  border-top:1px solid #e5eff8;
-  border-right:1px solid #e5eff8;
+  border-top:1px solid $mercury;
+  border-right:1px solid $mercury;
   margin:1em auto;
   border-collapse:collapse;
-  } 
-tr.odd td {
-  background:#f7fbff
-  }
+} 
+
+/*tr.odd td {
+  background:#f7fbff;
+}
+*/
 td {
-  color:#678197;
-  border-bottom:1px solid #e5eff8;
-  border-left:1px solid #e5eff8;
+  color: black;
+  border: 1px solid $mercury;
   padding:.3em 1em;
   text-align:center;
   }       
+
 th {
   font-weight:bold;
-  background:#f4f9fe;
+  border: 1px solid $mercury;
+  background: $cardinal;
   text-align:center;
-  color: #66a3d3;
-  border-bottom: 1px solid #e5eff8;
-  border-left:1px solid #e5eff8;
+  color: black;
   padding:.3em 1em;
   }    
 
