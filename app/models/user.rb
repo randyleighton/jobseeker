@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   has_many :companies, dependent: :destroy
   has_many :jobs, through: :companies
   has_many :interviews, through: :companies
+  has_many :feedbacks
 
   def signup_confirm
     UserMailer.signup_confirmation(self).deliver
