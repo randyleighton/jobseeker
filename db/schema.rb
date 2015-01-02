@@ -53,10 +53,13 @@ ActiveRecord::Schema.define(version: 20150102060824) do
   end
 
   create_table "followups", force: true do |t|
-    t.integer "follow_id"
-    t.string  "follow_type"
-    t.string  "action"
-    t.text    "notes"
+    t.integer  "follow_id"
+    t.string   "follow_type"
+    t.string   "action"
+    t.text     "notes"
+    t.date     "action_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "interviews", force: true do |t|
