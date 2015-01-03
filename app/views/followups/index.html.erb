@@ -1,0 +1,17 @@
+<% content_for(:title, "Follow Ups") %>
+
+<div class="row col-pads">
+  <h2>Follow Up Activity</h2>
+</div>
+
+<div class="row companies-ul">
+  <ul class="fa-ul">
+    <% @followups.all.each do |followup| %>
+      <li>
+        <%= link_to followup_path(followup), title: "View #{followup.action}" do %>
+          <%= followup.action %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>
