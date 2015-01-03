@@ -3,8 +3,8 @@
 <div class="row show-header-box">
 
   <div class="col-xs-6">
-    <h2 class="show-head"><%= @company.name %>
-    <%= button_tag("<i id='iconChange'class='fa fa-chevron-down'> Info </i>".html_safe ,id:"view-comp-info-btn",type:'button',class: "btn btn-default btn-nofloat",title:'View Company Information') %>
+    <h2><%= button_tag("<i id='iconChange'class='fa fa-chevron-down'> Company Info </i>".html_safe ,id:"view-comp-info-btn",type:'button',class: "btn btn-default btn-nofloat",title:'View Company Information') %><span class="show-head"> <%= @company.name %></span>
+    
     </h2>
   </div>
   <div class="col-xs-2"></div>
