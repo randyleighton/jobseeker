@@ -1,18 +1,4 @@
-$cardinal: #B71F3B;
-$button-pri: #c1c9d4;
-$button-sec: #b5bdc8;
-
-@mixin rounded-corners($radius) {
-  border-radius: $radius;
-  -webkit-border-radius: $radius;
-     -moz-border-radius: $radius;
-          border-radius: $radius;
-}
-@mixin shadowed-corners($color) {
-  -webkit-box-shadow: 3px 3px 3px $color;
-     -moz-box-shadow: 3px 3px 3px $color;
-          box-shadow: 3px 3px 3px $color;
-}
+@import "sass_styles.css.scss";
 
 .bgvideo {
   position: fixed;
