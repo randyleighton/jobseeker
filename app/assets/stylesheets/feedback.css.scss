@@ -1,3 +1,16 @@
+@import "sass_styles.css.scss";
+
 .feedback-submit {
   margin-top: .8em;
+}
+.jumbotron {
+  background-color: $button-sec !important;
+  @include rounded-corners(.4em);
+  @include shadowed-corners(rgba(0,0,0,.10));
+  h1,h2,h3,h4 {
+    color: black;
+  span {
+    color: $cardinal;
+  }
+  }
 }

@@ -18,47 +18,18 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import url(http://fonts.googleapis.com/css?family=Raleway:700,400);
+@import "sass_styles.css.scss";
 
-/*--------------------
-SASS Color Variables
---------------------*/
-$boot_blue: #428bca;
-$boot_tan: #f8f8f8;
-$cardinal: #B71F3B;
-$mercury: #e5e5e5;
-$silk: #e3e3e3;
-$button-pri: #c1c9d4;
-$button-sec: #b5bdc8;
-$tan-bg: #f4f3f1;
-$atlantis: #8ed022;
 
-/*--------------------
-SASS MIXINS
---------------------*/
-@mixin rounded-corners($radius) {
-  border-radius: $radius;
-  -webkit-border-radius: $radius;
-     -moz-border-radius: $radius;
-          border-radius: $radius;
-}
-@mixin shadowed-corners($color) {
-  -webkit-box-shadow: 3px 3px 3px $color;
-     -moz-box-shadow: 3px 3px 3px $color;
-          box-shadow: 3px 3px 3px $color;
-}
-@mixin list-bullets($content) {
-  margin: 1em;
-  // margin-left: 1em;
-  &:before {
-  content: $content;
-  font-family: 'FontAwesome';
-  float: left;
-  margin-left: -1.5em;
-  color: $button-sec;
-  }
+/* Responsive Media Queries */
+@media screen and (min-width: 769px) and (max-width: 880px) {
+  body { padding-top: 100px !important; }
 }
 
-/* Responsive for 3 column view when reduced */
+@media screen and (max-width: 768px) {
+  body { padding-top: 0px; }
+}
+
 @media screen and (max-width: 480px) {
   .show-bottom-line {
     display: block;
@@ -67,30 +38,19 @@ SASS MIXINS
   }
 }
 
-
-/*-----------------------------
-list bullets for each indexpage
------------------------------*/
-.contacts-ul .fa-ul li {
-@include list-bullets('\f007')
-}
-.companies-ul .fa-ul li {
-@include list-bullets('\f0f7')
-}
-.jobs-ul .fa-ul li {
-@include list-bullets('\f11c')
-}
-.interviews-ul .fa-ul li {
-@include list-bullets('\f086')
-}
-
-
 /*----------------------------- 
 global css entire program
 -----------------------------*/
+
+/*.yield-box {
+  padding-top: 4.5em;
+  margin-bottom: 6em;
+}*/
+
 body {
+  padding-top: 50px;
+  padding-bottom: 70px;
   background:image-url("bg-tan.jpg");
-  margin-bottom: 70px;
 }
 
 a {
@@ -132,6 +92,11 @@ Navigation
     }
   }
 }
+
+.nav li a {
+  padding: 15px 10px;
+}
+
 
 .job-seeker {
   font-weight: bold;
@@ -187,6 +152,22 @@ Navigation
   color: $cardinal;
 }
 
+/*-----------------------------
+list bullets for each indexpage
+-----------------------------*/
+.contacts-ul .fa-ul li {
+@include list-bullets('\f007')
+}
+.companies-ul .fa-ul li {
+@include list-bullets('\f0f7')
+}
+.jobs-ul .fa-ul li {
+@include list-bullets('\f11c')
+}
+.interviews-ul .fa-ul li {
+@include list-bullets('\f086')
+}
+
 /*------ error box ------*/
 .error_explanation {
   border: 1px solid $mercury;
@@ -196,11 +177,6 @@ Navigation
   h4 {
     color: $cardinal;
   }
-}
-
-.yield-box {
-  margin-top: 4.5em;
-  margin-bottom: 6em;
 }
 
 .image_box {
@@ -262,7 +238,7 @@ Navigation
 }
 
 .btn-default {
-  color: black;
+  color: $cardinal;
   background-color: $button-pri;
   border-color: black;
   &:hover {
