@@ -336,6 +336,14 @@ Show page icons
   margin-top: 1.5em;
 }
 
+
+/* Index pages use head-dev and col-pads
+col-pads used in more places */
+.head-div {
+  h1,h2,h3 {
+    margin: 5px 0;
+  }
+}
 .col-pads {
   padding: 0 .5em;
 }
