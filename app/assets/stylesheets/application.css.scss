@@ -23,11 +23,11 @@
 
 /* Responsive Media Queries */
 @media screen and (min-width: 769px) and (max-width: 880px) {
-  body { padding-top: 100px !important; }
+  body { padding-top: 105px !important; }
 }
 
 @media screen and (max-width: 768px) {
-  body { padding-top: 0px; }
+  body { padding-top: 5px; }
 }
 
 @media screen and (max-width: 480px) {
@@ -48,7 +48,7 @@ global css entire program
 }*/
 
 body {
-  padding-top: 50px;
+  padding-top: 55px;
   padding-bottom: 70px;
   background:image-url("bg-tan.jpg");
 }
@@ -67,6 +67,7 @@ Navigation
 .navbar {
   margin-bottom: 0px;
   background: image-url("bg4.jpg");
+  box-shadow: 1px 2px 1px $mercury;
 }
 
 .navbar-default .navbar-nav {
