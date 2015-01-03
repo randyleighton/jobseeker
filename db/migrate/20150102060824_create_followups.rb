@@ -5,6 +5,9 @@ class CreateFollowups < ActiveRecord::Migration
       t.string :follow_type
       t.string :action
       t.text :notes
+      t.date :action_date
+
+      t.timestamps
     end
   end
 end

@@ -16,10 +16,12 @@ Rails.application.routes.draw do
     resources :responses
   end
 
+  resources :followups
   resources :contacts, only: :index
   resources :jobs, only: :index
   resources :interviews, only: :index
   resources :feedbacks, only: [:new,:create]
+
 
 
   #one_steps is in development testing
