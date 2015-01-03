@@ -3,6 +3,12 @@
 /*-------------------------
 This is for companies table
  -------------------------*/
+.table-div {
+  display:block;
+  margin: 0 auto;
+  text-align:center;
+}
+
 table {
   max-width: 100%;
   border-color:$mercury;
@@ -28,19 +34,6 @@ th {
   }
 }    
 
-.company-show-head {
-  color: $cardinal;
-  font-family: 'Raleway', sans-serif; 
-  font-weight: bold;
-}
-
-.show-header {
-  display: block;
-  margin: 0 auto;
-  text-align: center;
-  border-bottom: 1px solid $mercury;
-}
-
 .fa-thumbs-down {
   color: $boot_blue;
   &:hover {
@@ -57,5 +50,16 @@ th {
   margin-left: 4px;
 }
 
+/* Table div for toggle info */
+#comp-info {
+  display: none;
+}
 
+.comp-notes {
+  display: block;
+  text-align: left;
+  td {
+    text-align: left;
+  }
+}
 
