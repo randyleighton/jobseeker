@@ -21,7 +21,15 @@
 @import "sass_styles.css.scss";
 
 
-/* Responsive for 3 column view when reduced */
+/* Responsive Media Queries */
+@media screen and (min-width: 769px) and (max-width: 880px) {
+  body { padding-top: 100px !important; }
+}
+
+@media screen and (max-width: 768px) {
+  body { padding-top: 0px; }
+}
+
 @media screen and (max-width: 480px) {
   .show-bottom-line {
     display: block;
@@ -30,35 +38,19 @@
   }
 }
 
-
-/*-----------------------------
-list bullets for each indexpage
------------------------------*/
-.contacts-ul .fa-ul li {
-@include list-bullets('\f007')
-}
-.companies-ul .fa-ul li {
-@include list-bullets('\f0f7')
-}
-.jobs-ul .fa-ul li {
-@include list-bullets('\f11c')
-}
-.interviews-ul .fa-ul li {
-@include list-bullets('\f086')
-}
-
-
 /*----------------------------- 
 global css entire program
 -----------------------------*/
-.yield-box {
+
+/*.yield-box {
   padding-top: 4.5em;
   margin-bottom: 6em;
-}
+}*/
 
 body {
+  padding-top: 50px;
+  padding-bottom: 70px;
   background:image-url("bg-tan.jpg");
-  margin-bottom: 70px;
 }
 
 a {
@@ -158,6 +150,22 @@ Navigation
 
 .logged-in-name {
   color: $cardinal;
+}
+
+/*-----------------------------
+list bullets for each indexpage
+-----------------------------*/
+.contacts-ul .fa-ul li {
+@include list-bullets('\f007')
+}
+.companies-ul .fa-ul li {
+@include list-bullets('\f0f7')
+}
+.jobs-ul .fa-ul li {
+@include list-bullets('\f11c')
+}
+.interviews-ul .fa-ul li {
+@include list-bullets('\f086')
 }
 
 /*------ error box ------*/
