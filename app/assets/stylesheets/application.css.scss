@@ -23,11 +23,11 @@
 
 /* Responsive Media Queries */
 @media screen and (min-width: 769px) and (max-width: 880px) {
-  body { padding-top: 100px !important; }
+  body { padding-top: 105px !important; }
 }
 
 @media screen and (max-width: 768px) {
-  body { padding-top: 0px; }
+  body { padding-top: 5px; }
 }
 
 @media screen and (max-width: 480px) {
@@ -48,7 +48,7 @@ global css entire program
 }*/
 
 body {
-  padding-top: 50px;
+  padding-top: 55px;
   padding-bottom: 70px;
   background:image-url("bg-tan.jpg");
 }
@@ -67,6 +67,7 @@ Navigation
 .navbar {
   margin-bottom: 0px;
   background: image-url("bg4.jpg");
+  box-shadow: 1px 2px 1px $mercury;
 }
 
 .navbar-default .navbar-nav {
@@ -191,15 +192,25 @@ list bullets for each indexpage
   float: right;
 }
 
-
+/* Buffers */
+.margin-top {
+  margin-top: 1.5em;
+}
 .menu-col {
   margin-top: 2em;
 }
-
 .menu-row {
   margin-top: 5em;
 }
+.floater {
+  float: left;
+}
+.floater-right {
+  float:right;
+}
 
+
+/* Not implemented yet */
 .one-step {
   display: block;
   margin: 0 0 .4em 0;
@@ -213,6 +224,8 @@ list bullets for each indexpage
   }
  }
 
+
+/* home page quadrants */
 .row-one, .row-two {
   margin: 0 0 1em;
 }
@@ -237,6 +250,7 @@ list bullets for each indexpage
   padding: .5em;
 }
 
+/* The most used buttons bootstrap style */
 .btn-default {
   color: $cardinal;
   background-color: $button-pri;
@@ -332,10 +346,13 @@ Show page icons
   }
 }
 
-.margin-top {
-  margin-top: 1.5em;
+/* Index pages use head-dev and col-pads
+col-pads used in more places */
+.head-div {
+  h1,h2,h3 {
+    margin: 5px 0;
+  }
 }
-
 .col-pads {
   padding: 0 .5em;
 }
@@ -352,9 +369,7 @@ panels for forms
   background-color: $button-sec;
 }
 
-/* 
-radio buttons
-*/
+/* radio buttons */
 .collection_radio_buttons {
   margin: 0 .5em;
 }
@@ -362,6 +377,8 @@ radio buttons
   margin-left: 1.1em;
   padding: .5em 0;
 }
+
+
 
 .unselectable {
   -webkit-touch-callout: none;
@@ -435,6 +452,24 @@ overflow: hidden;
   font-weight: bold;
 }
 
+.show-header-box {
+  background-color: $button-sec;
+  @include rounded-corners(.4em);
+  @include shadowed-corners(rgba(0,0,0,.10));
+  margin: 1em 0;
+  padding: 1em;
+}
 
+.show-head {
+  color: $cardinal;
+  font-family: 'Raleway', sans-serif; 
+  font-weight: bold;
+}
 
+.show-header {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  border-bottom: 1px solid $mercury;
+}
 

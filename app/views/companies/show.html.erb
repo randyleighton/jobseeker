@@ -1,34 +1,42 @@
 <% content_for(:title, "Companies") %>
 
-<div class="row show-header">
-  <h2>Company: <span class="company-show-head"><%= @company.name %></h2></span>
-</div>
-
-<div class="col-xs-12 show-header show_bottom_line">
-  <% if @company.reminders.count > 0 %>
-    <h4>Important Reminder:</h4>
-    <% @company.reminders.each do |reminder| %>
-      <p><%= l reminder.due_date, format: :short %> - 
-        <%= link_to "<i class='fa fa-reminder fa-bell'></i> #{reminder.subject}".html_safe, company_reminder_path(@company,reminder), title: "View This Reminder", alt: "View This Reminder" %>
-        </p>
+<div class="row show-header-box">
+  <div class="col-xs-6">
+    <h2><%= button_tag("<i id='iconChange'class='fa fa-chevron-down'> Company Info </i>".html_safe ,id:"view-comp-info-btn",type:'button',class: "btn btn-default btn-nofloat",title:'View Company Information') %><span class="show-head"> <%= @company.name %></span>
+    </h2>
+  </div>
+  <div class="col-xs-2"></div>
+  <div class="reminder-head col-xs-4">
+    <% if @company.reminders.count > 0 %>
+      <h4>Important Reminder:</h4>
+      <% @company.reminders.each do |reminder| %>
+        <p><%= l reminder.due_date, format: :short %> - 
+          <%= link_to "<i class='fa fa-reminder fa-bell'></i> #{reminder.subject}".html_safe, company_reminder_path(@company,reminder), title: "View This Reminder", alt: "View This Reminder" %>
+          </p>
+      <% end %>
+    <% else %>
+      <h4><%= link_to new_company_reminder_path(@company), title: "Create New Reminder", alt: "Create New Reminder" do %>
+            <%= content_tag(:i,nil,class: 'fa-reminder fa fa-bell-slash')%>
+            No reminders found - Create one
+          <% end %></h4>
     <% end %>
-  <% else %>
-    <h4><%= link_to new_company_reminder_path(@company), title: "Create New Reminder", alt: "Create New Reminder" do %>
-          <%= content_tag(:i,nil,class: 'fa-reminder fa fa-bell-slash')%>
-          No reminders found - Create one
-        <% end %></h4>
-  <% end %>
+  </div>
 </div>
 
-<div class="col-xs-12 col-sm-6 col-md-4 show-bottom-line col-pads">
-  <table class="table table-condensed table-bordered table-striped table-responsive">
+<div id="comp-info" class="col-xs-8 col-sm-6 col-md-4 show-bottom-line col-pads table-div">
+  <table class="table table-condensed table-bordered table-striped">
     <thead>
         <th colspan = "2"><h3>Company Information:</h3></th>
     </thead>
     <tbody>
       <tr>
         <td>Website: </td>
-        <td><%= link_to "#{@company.url}", @company.url, target: "_blank", title: "#{@company.url}", alt:"#{@company.url}" %></td>
+        <td>
+        <% if @company.url != "" && @company.url !="" %>
+          <%= link_to "#{@company.url}", @company.url, target: "_blank", title: "#{@company.url}", alt:"#{@company.url}" %></td>
+        <% else %>
+          <p> </p>
+        <% end %>
       </tr>
       <tr>
         <td>Phone: </td>
@@ -44,15 +52,27 @@
           <td><%= @company.street %></td>
         </tr>      
         <tr>
-          <td>City/State/Zip: </td>
-          <td><%= @company.city %>, <%= @company.state %> <%= @company.zip %></td>
+          <td>City/ST/Zip: </td>
+          <td>
+            <% if @company.city !=nil && @company.city != "" %>
+              <%= @company.city %>, <%= @company.state %> <%= @company.zip %>
+              <% else %>
+              <p> </p>
+            <% end %>
+          </td>
         </tr>      
       <% end %>        
     </tbody>
   </table>
-  <% if @company.comments !="" %>
-    <p>Notes: <%= @company.comments %></p>
-  <% end %>
+
+  <div class="comp-notes">
+    <% if @company.comments !="" %>
+      <table class="table table-condensed table-bordered">
+        <th>Notes</th>
+        <tr><td><%= @company.comments %></td></tr>
+      </table>
+    <% end %>
+  </div>
 
   <div class="margin-top">
     <div class="show-edit-del">

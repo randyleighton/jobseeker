@@ -22,13 +22,14 @@ before_save :external_link
 
 private
 
+
   def style_text
     self.name = self.name.downcase.titleize
     self.url = self.url.downcase if self.url
   end
 
   def external_link
-    if !self.url.include?("http://")
+    if !self.url == "" && !self.url = nil && !self.url.include?("http://")
       self.url.insert(0,"http://")
     end
   end

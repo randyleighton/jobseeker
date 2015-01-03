@@ -15,4 +15,11 @@ $(document).ready(function() {
     $(this).remove();
   }); 
 
+  $('#view-comp-info-btn').click(function() {
+    $('#comp-info').toggle();
+    $('#iconChange').toggleClass('fa-chevron-up').toggleClass('fa-chevron-down');
+    $('#view-comp-info-btn').blur();
+  });
+
+
 });
