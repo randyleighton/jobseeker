@@ -3,7 +3,9 @@
 <div class="row show-header-box">
 
   <div class="col-xs-6">
-    <h2>Company: <span class="show-head"><%= @company.name %></span></h2>
+    <h2 class="show-head"><%= @company.name %>
+    <%= button_tag("<i id='iconChange'class='fa fa-chevron-down'> Info </i>".html_safe ,id:"view-comp-info-btn",type:'button',class: "btn btn-default btn-nofloat",title:'View Company Information') %>
+    </h2>
   </div>
   <div class="col-xs-2"></div>
   <div class="reminder-head col-xs-4">
@@ -25,7 +27,7 @@
 </div>
 
 
-<div class="col-xs-8 col-sm-6 col-md-4 show-bottom-line col-pads table-div">
+<div id="comp-info" class="col-xs-8 col-sm-6 col-md-4 show-bottom-line col-pads table-div">
   <table class="table table-condensed table-bordered table-striped">
     <thead>
         <th colspan = "2"><h3>Company Information:</h3></th>
@@ -34,10 +36,10 @@
       <tr>
         <td>Website: </td>
         <td>
-        <% if @company.url != "None yet" %>
+        <% if @company.url != "" && @company.url !="" %>
           <%= link_to "#{@company.url}", @company.url, target: "_blank", title: "#{@company.url}", alt:"#{@company.url}" %></td>
         <% else %>
-          None yet
+          <p> </p>
         <% end %>
       </tr>
       <tr>
