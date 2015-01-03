@@ -19,8 +19,16 @@ scope :recent, ->(max){ limit(max) }
 
 before_save :style_text
 before_save :external_link
+before_save :values_check
 
 private
+
+  def values_check
+    self.url = "None yet" if self.url = ""
+    self.email = "None yet" if self.email = ""
+    self.phone = "None yet" if self.phone = ""
+    self.street = "None yet" if self.street = ""
+  end
 
   def style_text
     self.name = self.name.downcase.titleize

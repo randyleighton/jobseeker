@@ -28,7 +28,12 @@
     <tbody>
       <tr>
         <td>Website: </td>
-        <td><%= link_to "#{@company.url}", @company.url, target: "_blank", title: "#{@company.url}", alt:"#{@company.url}" %></td>
+        <td>
+        <% if @company.url != "None yet" %>
+          <%= link_to "#{@company.url}", @company.url, target: "_blank", title: "#{@company.url}", alt:"#{@company.url}" %></td>
+        <% else %>
+          None yet
+        <% end %>
       </tr>
       <tr>
         <td>Phone: </td>
@@ -45,7 +50,13 @@
         </tr>      
         <tr>
           <td>City/State/Zip: </td>
-          <td><%= @company.city %>, <%= @company.state %> <%= @company.zip %></td>
+          <td>
+            <% if @company.city !=nil && @company.city != "" %>
+              <%= @company.city %>, <%= @company.state %> <%= @company.zip %>
+              <% else %>
+              None Yet
+            <% end %>
+          </td>
         </tr>      
       <% end %>        
     </tbody>
