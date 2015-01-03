@@ -1,7 +1,7 @@
 <% content_for(:title, "Companies") %>
 
 <div class="row show-header-box">
-  <div class="col-xs-12 col-sm-7">
+  <div class="col-xs-12 col-sm-7 show-header-title">
     <h2><%= button_tag("<i id='iconChange'class='fa fa-chevron-down'> Company Info </i>".html_safe ,id:"view-comp-info-btn",type:'button',class: "btn btn-default btn-nofloat",title:'View Company Information') %><span class="show-head"> <%= @company.name %></span>
     </h2>
   </div>
