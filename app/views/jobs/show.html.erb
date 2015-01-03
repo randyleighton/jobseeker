@@ -1,12 +1,12 @@
 <% content_for(:title, "Job Applications") %>
 
 <div class="row show-header">
-  <h2>Job Detail: <span class="company-show-head"><%= @job.description %></h2></span>
+  <h2>Job Detail: <span class="show-head"><%= @job.description %></h2></span>
 </div>
 
   <div class="col-xs-12 col-sm-4 show-bottom-line">
     <div class="row col-pads">
-      <h4>Job Title: <span class="company-show-head"><%= @job.description %></span></h4>
+      <h4>Job Title: <span class="show-head"><%= @job.description %></span></h4>
       <p><b>Company Name: </b><%= link_to @job.company.name, company_path(@job.company), title: "View #{@job.company.name}" %></p>
       <p><b>Location: </b><%= @job.location %></p>
       <p class="web-links"><b>Web link to Job: </b><%= link_to "#{@job.posting_url}", @job.posting_url, target: "_blank",title:"View #{@job.posting_url}" %></p>
