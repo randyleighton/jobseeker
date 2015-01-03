@@ -1,7 +1,7 @@
 <div class="auth-buttons">
   <% if user_signed_in? %>
 
-    <div class="nav-format logged-in hidden-sm">
+    <div class="nav-format logged-in hidden-sm hidden-md">
       <% if current_user.username %>
         Logged in as <strong><span class="logged-in-name"><%= current_user.username %></span></strong>.
       <% else %>

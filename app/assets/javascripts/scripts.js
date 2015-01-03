@@ -10,4 +10,9 @@ $(document).ready(function() {
     $('#flash').remove();
   }, 5000);
 
+  $('#add-comp-address-btn').click(function(){
+    $('#add-comp-address').toggle();
+    $(this).remove();
+  }); 
+
 });
