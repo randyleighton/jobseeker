@@ -6,7 +6,7 @@ class ResponsesController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
 
   def index
-    @all_responses = Response.where(user_id:current_user.id)
+    @all_responses = Response.where(user_id:current_user.id).order_by
   end
 
   def new

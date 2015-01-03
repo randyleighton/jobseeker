@@ -6,7 +6,7 @@ class Response < ActiveRecord::Base
   validates :response_date, presence: true
   validate :verify_date
 
-  scope :order_by, ->{ order(response_date: :desc)}
+  scope :order_by, ->{ order(response_date: :desc)} # for response index
 
   def verify_date
     if self.response_date !=nil && self.response_date < self.job.application_date
