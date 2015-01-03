@@ -54,9 +54,12 @@ th {
 #comp-info {
   display: none;
 }
-/*button#view-comp-info-btn {
-  &:focus {
-    background-color: $button-sec;
-  };
-}*/
+
+.comp-notes {
+  display: block;
+  text-align: left;
+  td {
+    text-align: left;
+  }
+}
 
