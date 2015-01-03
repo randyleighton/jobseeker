@@ -191,15 +191,19 @@ list bullets for each indexpage
   float: right;
 }
 
-
+/* Buffers */
+.margin-top {
+  margin-top: 1.5em;
+}
 .menu-col {
   margin-top: 2em;
 }
-
 .menu-row {
   margin-top: 5em;
 }
 
+
+/* Not implemented yet */
 .one-step {
   display: block;
   margin: 0 0 .4em 0;
@@ -213,6 +217,8 @@ list bullets for each indexpage
   }
  }
 
+
+/* home page quadrants */
 .row-one, .row-two {
   margin: 0 0 1em;
 }
@@ -237,6 +243,7 @@ list bullets for each indexpage
   padding: .5em;
 }
 
+/* The most used buttons bootstrap style */
 .btn-default {
   color: $cardinal;
   background-color: $button-pri;
@@ -332,11 +339,6 @@ Show page icons
   }
 }
 
-.margin-top {
-  margin-top: 1.5em;
-}
-
-
 /* Index pages use head-dev and col-pads
 col-pads used in more places */
 .head-div {
@@ -360,9 +362,7 @@ panels for forms
   background-color: $button-sec;
 }
 
-/* 
-radio buttons
-*/
+/* radio buttons */
 .collection_radio_buttons {
   margin: 0 .5em;
 }
@@ -370,6 +370,8 @@ radio buttons
   margin-left: 1.1em;
   padding: .5em 0;
 }
+
+
 
 .unselectable {
   -webkit-touch-callout: none;
