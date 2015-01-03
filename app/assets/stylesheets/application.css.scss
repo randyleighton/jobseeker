@@ -51,6 +51,11 @@ list bullets for each indexpage
 /*----------------------------- 
 global css entire program
 -----------------------------*/
+.yield-box {
+  padding-top: 4.5em;
+  margin-bottom: 6em;
+}
+
 body {
   background:image-url("bg-tan.jpg");
   margin-bottom: 70px;
@@ -95,6 +100,11 @@ Navigation
     }
   }
 }
+
+.nav li a {
+  padding: 15px 10px;
+}
+
 
 .job-seeker {
   font-weight: bold;
@@ -159,11 +169,6 @@ Navigation
   h4 {
     color: $cardinal;
   }
-}
-
-.yield-box {
-  margin-top: 4.5em;
-  margin-bottom: 6em;
 }
 
 .image_box {

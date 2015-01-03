@@ -1,10 +1,22 @@
 <% content_for(:title, "Follow Ups") %>
 
-<div class="row col-pads">
-  <h2>Follow Up Activity</h2>
+<div class="head-div">
+
+  <div class="floater col-xs-12 col-sm-4">
+    <h2>Follow Up Activity
+    <%= link_to new_followup_path, class: "btn btn-adds", title: "Add a new follow up action" do %>
+      <%= content_tag(:i,nil,class: 'fa fa-plus fa-2x')%>
+      Add New
+    <% end %></h2>
+  </div>
+
+  <div class="floater col-xs-12 col-sm-8">
+    <p>Follow ups are actions you have taken. Just enter anything you took action on so you can keep a log with that company or contact. Here is a few examples - Companies: I called a company. I emailed a company. Contacts: I called a contact. I emailed a contact.</p>
+  </div>
+
 </div>
 
-<div class="row companies-ul">
+<div class="companies-ul">
   <ul class="fa-ul">
     <% @followups.all.each do |followup| %>
       <li>
