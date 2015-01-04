@@ -1,7 +1,7 @@
 class FollowupsController < ApplicationController
 
   def index
-    @followups = Followup.all.where(id:current_user.id)
+    @followups = Followup.all.where(user_id:current_user.id)
   end
 
   def new
@@ -29,6 +29,19 @@ class FollowupsController < ApplicationController
     end
   end
 
+  def edit
+    @context = context
+    @followup = context.followups.find(params[:id])
+  end
+
+  def update
+    @context = context
+    @followup = context.followups.find(params[:id])
+    if @followup.update_attributes(followup_params)
+      redirect_to context_url, notice: "The followup has been updated"
+    end
+  end
+
   def destroy
     @context = context
     @followup = context.followups.find(params[:id])
@@ -39,7 +52,7 @@ class FollowupsController < ApplicationController
 
 private
   def followup_params
-    params.require(:followup).permit(:action, :action_date, :notes)
+    params.require(:followup).permit(:action, :action_date, :notes, :contact_id,:user_id)
   end
 
   def context
