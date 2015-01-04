@@ -7,7 +7,7 @@ has_many :responses, through: :jobs
 belongs_to :user
 belongs_to :one_step, inverse_of: :company
 has_many :reminders, as: :rem
-has_many :followups, as: :follow
+has_many :followups,  ->{ order("action_date DESC")}, as: :follow, dependent: :destroy
 
 accepts_nested_attributes_for :contacts
 accepts_nested_attributes_for :jobs
