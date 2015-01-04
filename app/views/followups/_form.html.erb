@@ -1,6 +1,6 @@
 <%= render 'layouts/errors', object: @followup %>
 
-<%= form_for @followup, html: { class: 'form-horizontal' } do |f| %>
+<%= form_for ([@context,@followup]), html: { class: 'form-horizontal' } do |f| %>
   <%= f.hidden_field :user_id, value: current_user.id  %>
 
   <div class="form-group">

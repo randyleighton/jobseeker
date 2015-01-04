@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   resources :contacts, only: :index do
     resources :followups
   end
+  resources :followups, only: :index
   resources :jobs, only: :index
   resources :interviews, only: :index
   resources :feedbacks, only: [:new,:create]

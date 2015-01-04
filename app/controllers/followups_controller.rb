@@ -6,14 +6,14 @@ class FollowupsController < ApplicationController
 
   def new
     @context = context
-    @followup = @context.followups.create.new
+    @followup = @context.followups.new
   end
 
   def create
     @context = context
     @followup = @context.followups.create(followup_params)
     if @followup.valid?
-      redirect_to context_url(context), notice: "The followup has been logged successfully"
+      redirect_to context_url, notice: "The followup has been logged successfully"
     else
       render 'new', alert: "The followup did not save correctly"
     end
@@ -22,9 +22,6 @@ class FollowupsController < ApplicationController
   def show
     @followup = context.followups.find(params[:id])
   end
-
-
-
 
   def destroy
     @context = context
@@ -55,10 +52,6 @@ private
     else
       company_contact_path(context)
     end
-  end
-
-  def find_company
-    @company = Company.find(params[:company_id])
   end
 
 end
