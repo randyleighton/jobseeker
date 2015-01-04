@@ -36,12 +36,12 @@
     <div class="form-group">
       <div class="col-sm-offset-4 col-sm-8">
         <%= button_tag(type: "submit", class: "btn btn-default float-btn", title: "Create an Account") do %>
-          <i class="fa fa-sign-in fa-fw"></i> Create an Account
+          <i class="fa fa-plus fa-fw"></i> Create Account
         <% end %>      
+        <%= link_to '<i class="fa fa-sign-in fa-fw"></i> Log In'.html_safe, new_session_path(resource_name),class: "btn btn-default float-btn", title: "Log In with Existing Account" %>
       </div>
     </div>
 
   <% end %>
-  <%= render "devise/shared/links" %>
 </div>
 
