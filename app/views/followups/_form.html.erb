@@ -1,0 +1,33 @@
+<%= render 'layouts/errors', object: @followup %>
+
+<%= form_for ([@context,@followup]), html: { class: 'form-horizontal' } do |f| %>
+  <%= f.hidden_field :user_id, value: current_user.id  %>
+
+  <div class="form-group">
+    <%= f.label "Followup Action", :action, class: "col-xs-12 col-sm-3" %>
+    <div class="col-xs-12 col-sm-8">
+      <%= f.text_field :action, class: "form-control", placeholder: "Enter a followup action here." %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :notes, class: "col-xs-12 col-sm-3" %>
+    <div class="col-xs-12 col-sm-8">
+      <%= f.text_area :notes, class: "form-control", placeholder: "Enter important notes about your action here." %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "Date of Action", class: "col-xs-12 col-sm-3" %>
+    <div class="col-xs-5 col-sm-5">
+      <%= f.date_field :action_date, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-9">
+      <%= render 'layouts/submit', form_type: "Followup", object: @followup, f: f %>
+    </div>
+  </div>
+
+<% end %>
