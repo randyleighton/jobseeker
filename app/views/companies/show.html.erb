@@ -2,7 +2,7 @@
 
 <div class="row show-header-box">
   <div class="col-xs-12 col-sm-7 show-header-title">
-    <h2><%= button_tag("<i id='iconChange'class='fa fa-chevron-down'> Company Info </i>".html_safe ,id:"view-comp-info-btn",type:'button',class: "btn btn-default btn-nofloat",title:'View Company Information') %><span class="show-head"> <%= @company.name %></span>
+    <h2><span class="show-head"> <%= @company.name %></span> <%= button_tag("<i id='iconChange'class='fa fa-chevron-down'> Company Info </i>".html_safe ,id:"view-comp-info-btn",type:'button',class: "btn btn-default btn-nofloat",title:'View Company Information') %>
     </h2>
   </div>
   <div class="col-xs-12 col-sm-1"></div>
@@ -23,7 +23,17 @@
   </div>
 </div>
 
-<div id="comp-info" class="col-xs-8 col-sm-6 col-md-4 show-bottom-line col-pads table-div">
+<div id="comp-info" class="col-xs-12 col-sm-6 col-md-4 col-pads table-div show-bottom-line">
+
+  <div class="comp-notes">
+    <% if @company.comments !="" %>
+      <table class="table table-condensed table-bordered">
+        <th>Notes about <%= @company.name %></th>
+        <tr><td><%= @company.comments %></td></tr>
+      </table>
+    <% end %>
+  </div>
+
   <table class="table table-condensed table-bordered table-striped">
     <thead>
         <th colspan = "2"><h3>Company Information:</h3></th>
@@ -64,15 +74,6 @@
       <% end %>        
     </tbody>
   </table>
-
-  <div class="comp-notes">
-    <% if @company.comments !="" %>
-      <table class="table table-condensed table-bordered">
-        <th>Notes</th>
-        <tr><td><%= @company.comments %></td></tr>
-      </table>
-    <% end %>
-  </div>
 
   <div class="margin-top">
     <div class="show-edit-del">
