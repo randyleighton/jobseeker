@@ -1,5 +1,9 @@
 @import "sass_styles.css.scss";
 
+body {
+  background:image-url("bg-blue.png") !important;
+  background-repeat: repeat;
+}
 .bgvideo {
   position: fixed;
   right: 0;
