@@ -8,11 +8,13 @@ FactoryGirl.define do
   end
 
   factory :company do
+    user_id 1
     name Faker::Company.name
     url Faker::Internet.url
   end
 
   factory :contact do
+    user_id 1
     first_name Faker::Name.first_name
     last_name Faker::Name.last_name
     title Faker::Name.title
@@ -22,6 +24,7 @@ FactoryGirl.define do
   end
 
   factory :job do
+    user_id 1
     description "Ruby Rails developer"
     location "portland, or"
     posting_url "WWW.CODE.COM"
@@ -34,15 +37,18 @@ FactoryGirl.define do
     notes "This is interview notes"
     interview_date "2014/12/14"
     interview_time "00:38:07 -0800"
+    user_id 1
     contact_id 1
   end
 
   factory :response do
+    user_id 1
     response_date DateTime.now
     notes "This is a response test"
   end
 
   factory :reminder do
+    user_id 1
     subject "Call them tomorrow"
     due_date Faker::Date.forward(1)
   end
@@ -53,4 +59,16 @@ FactoryGirl.define do
     body "Look at this particular place in the app"
   end
 
+  factory :followup do
+    user_id 1
+    follow_type "Company"
+    follow_id 1
+    action "Called George the Recruiter"
+    action_date DateTime.now
+    notes "George was awesome, we talked a lot"
+  end
+
 end
+
+
+

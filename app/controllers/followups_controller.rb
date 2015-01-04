@@ -1,7 +1,7 @@
 class FollowupsController < ApplicationController
 
   def index
-    @followups = Followup.all.where(user_id:current_user.id)
+    @followups = Followup.all.where(user_id:current_user.id).order_by
   end
 
   def new

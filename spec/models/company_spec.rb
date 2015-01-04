@@ -11,18 +11,18 @@ describe Company do
   it { should have_many :reminders }
   it { should have_many :followups }
 
+let!(:company1) { FactoryGirl.create(:company, name: "Beta", url: "www.beta.com") }
+let!(:company2) { FactoryGirl.create(:company, name: "Alpha", url: "www.alpha.com") }
+let!(:company3) { FactoryGirl.create(:company, name: "Charlie", url: "www.charlie.com") }
+
+
   it "should display the number of companies passed into scope" do
-    company1 = Company.create({name:"Beta", url: "www.beta.com"})
-    company2 = Company.create({name: "Alpha", url: "www.alpha.com"})
-    company3 = Company.create({name: "Alpha", url: "www.alpha.com"})
     expect(Company.all).to eq [company1,company2,company3]
     expect(Company.recent(2)).to eq [company1,company2]
   end
 
   it "should display companies in alphabetical order" do
-    company1 = Company.create({name:"Beta", url: "www.beta.com"})
-    company2 = Company.create({name: "Alpha", url: "www.alpha.com"})
-    expect(Company.by_name).to eq [company2,company1]  
+    expect(Company.by_name).to eq [company2,company1,company3]  
   end
   it "should be unique to a user" do
     user = FactoryGirl.create(:user)
@@ -31,27 +31,24 @@ describe Company do
   end
   describe "nested order" do
     it "should display nested contacts by name order" do
-      company = FactoryGirl.create(:company, name:"Beta", url: "www.beta.com")
-      contact1 = FactoryGirl.create(:contact, last_name: "Sanders", company_id: company.id, email:"yar@yar.com")
-      contact2 = FactoryGirl.create(:contact, last_name: "Landers", company_id: company.id)
-      contact3= FactoryGirl.create(:contact, last_name: "Anders", company_id: company.id, email:"yar2@yar.com")
-      expect(company.contacts).to eq [contact3,contact2, contact1]
+      contact1 = FactoryGirl.create(:contact, last_name: "Sanders", company_id: company1.id, email:"yar@yar.com")
+      contact2 = FactoryGirl.create(:contact, last_name: "Landers", company_id: company1.id)
+      contact3= FactoryGirl.create(:contact, last_name: "Anders", company_id: company1.id, email:"yar2@yar.com")
+      expect(company1.contacts).to eq [contact3,contact2, contact1]
     end
     it "should display nested jobs by application date" do
-      company = FactoryGirl.create(:company, name:"Beta", url: "www.beta.com")
-      job1 = FactoryGirl.create(:job, company_id: company.id, application_date: DateTime.now - 1)
-      job2 = FactoryGirl.create(:job, company_id: company.id, application_date: DateTime.now)
-      expect(company.jobs).to eq [job2, job1]
+      job1 = FactoryGirl.create(:job, company_id: company1.id, application_date: DateTime.now - 1)
+      job2 = FactoryGirl.create(:job, company_id: company1.id, application_date: DateTime.now)
+      expect(company1.jobs).to eq [job2, job1]
     end
+    it "should display nested followups by action date" do
+      followup = FactoryGirl.create(:followup, follow_id: company1.id, action: "Oldest Action", action_date: DateTime.now-1)
+      followup2 = FactoryGirl.create(:followup, follow_id: company1.id,action:"Newest Action", action_date: DateTime.now)
+      expect(company1.followups).to eq [followup2, followup]
+    end
+
   end
 
-    it "adds 'None Yet' for url,phone,email,street when blank" do
-      company = FactoryGirl.create(:company, street: "", phone:"", email:"",url:"")
-      expect(company.street).to eq 'None yet'
-      expect(company.phone).to eq 'None yet'
-      expect(company.email).to eq 'None yet'
-      expect(company.url).to eq 'None yet'
-    end
 end
 
 
