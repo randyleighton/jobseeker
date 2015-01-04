@@ -98,6 +98,26 @@
 
 <div class="col-xs-12 col-sm-6 col-md-4 show-bottom-line">
   <div class="row col-pads">
+    <h3>Followup Actions
+      <%= link_to new_followup_path(@company, :company_id =>@company.id), class: "btn btn-adds", title: "Add a New Followup", title: "Add a New Followup" do %>
+        <%= content_tag(:i,nil,class: 'fa fa-plus fa-2x')%> 
+        Add New
+      <% end %></h3>
+    <p>Add all your follow up actions. This includes calls or emails you make to the company. If you contact a person, add a contact then record your followups with them.</p>
+  </div>
+  <div class="row contacts-ul">
+    <ul class="fa-ul">
+      <% @company.followups.each do |followup| %>
+        <li><p><%= link_to "#{followup.action_date} - #{followup.action}", followup_path(followup), title: "View this followup" %></p></li>
+      <% end %>
+    </ul>
+  </div>
+
+</div>
+
+
+<div class="col-xs-12 col-sm-6 col-md-4 show-bottom-line">
+  <div class="row col-pads">
     <h3>Contacts 
       <%= link_to new_company_contact_path(@company), class: "btn btn-adds", title: "Add a New Contact", alt: "Add a New Contact" do %>
         <%= content_tag(:i,nil,class: 'fa fa-plus fa-2x')%> 

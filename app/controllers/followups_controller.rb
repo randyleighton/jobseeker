@@ -1,5 +1,4 @@
 class FollowupsController < ApplicationController
-  before_filter :find_company, except: :index
 
   def index
     @followups = Followup.all.where(id:current_user.id)
@@ -14,7 +13,7 @@ class FollowupsController < ApplicationController
     @context = context
     @followup = @context.followups.create(followup_params)
     if @followup.valid?
-      redirect_context_url(context), notice: "The followup has been logged successfully"
+      redirect_to context_url(context), notice: "The followup has been logged successfully"
     else
       render 'new', alert: "The followup did not save correctly"
     end
@@ -36,6 +35,10 @@ class FollowupsController < ApplicationController
   end
 
 private
+  def followup_params
+    params.require(:followup).permit(:action, :action_date, :notes)
+  end
+
   def context
     if params[:contact_id]
       id = params[:contact_id]
@@ -43,6 +46,7 @@ private
     else 
       id = params[:company_id]
       Company.find(params[:company_id])
+    end
   end
 
   def context_url
@@ -50,6 +54,7 @@ private
       company_path(context)
     else
       company_contact_path(context)
+    end
   end
 
   def find_company
