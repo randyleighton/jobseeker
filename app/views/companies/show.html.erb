@@ -105,7 +105,7 @@
       <% end %></h3>
     <p>Keep track of your followup and actions here. Just log them each time you call or do something like email. If your action was with a contact, add them to it.</p>
   </div>
-  <div class="row contacts-ul">
+  <div class="row followups-ul">
     <ul class="fa-ul">
       <% @company.followups.each do |followup| %>
         <li><p><%= link_to "#{followup.action_date} - #{followup.action}", company_followup_path(@company,followup), title: "View this followup" %></p></li>

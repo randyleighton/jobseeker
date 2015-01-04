@@ -160,16 +160,19 @@ Navigation
 list bullets for each indexpage
 -----------------------------*/
 .contacts-ul .fa-ul li {
-@include list-bullets('\f007')
+  @include list-bullets('\f007')
 }
 .companies-ul .fa-ul li {
-@include list-bullets('\f0f7')
+  @include list-bullets('\f0f7')
 }
 .jobs-ul .fa-ul li {
-@include list-bullets('\f11c')
+  @include list-bullets('\f11c')
 }
 .interviews-ul .fa-ul li {
-@include list-bullets('\f086')
+  @include list-bullets('\f086')
+}
+.followups-ul .fa-ul li {
+  @include list-bullets('\f046')
 }
 
 /*------ error box ------*/
