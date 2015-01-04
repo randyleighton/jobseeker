@@ -1,4 +1,4 @@
-<% content_for(:title, "Sign Up New Account") %>
+<% content_for(:title, "Create Account") %>
 
 <div class="border-form-div">
   <h2>Create Account</h2>
@@ -7,34 +7,38 @@
 
     <div class="form-group">
       <%= f.label "Email", :email, class: "col-sm-4 control-label" %>
-      <div class="col-sm-8">
+      <div class="input-group col-sm-7">
+        <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
         <%= f.email_field :email, required: true, autofocus: true, :placeholder => 'email@provider.com', class: "form-control"  %>
       </div>
     </div>
 
     <div class="form-group">
       <%= f.label "Full Name", :username, class: "col-sm-4 control-label" %>
-      <div class="col-sm-8">
+      <div class="input-group col-sm-7">
+        <span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
         <%= f.text_field :username, :placeholder => 'Your full name', class: "form-control" %>
       </div>
     </div>
 
     <div class="form-group">
       <%= f.label "Password", :password, class: "col-sm-4 control-label" %>
-      <div class="col-sm-8">
+      <div class="input-group col-sm-7">
+        <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
         <%= f.password_field :password, required: true, :placeholder => 'Password with 8 characters', class: "form-control" %>
       </div>
     </div>
 
     <div class="form-group">
       <%= f.label "Confirm Password:", :password_confirmation, class: "col-sm-4 control-label" %>
-      <div class="col-sm-8">  
+      <div class="input-group col-sm-7">  
+        <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
         <%= f.password_field :password_confirmation, required: true, :placeholder => 'Type it again to confirm', class: "form-control"  %>
       </div>
     </div>
 
     <div class="form-group">
-      <div class="col-sm-offset-4 col-sm-8">
+      <div class="col-sm-offset-4 col-sm-7">
         <%= button_tag(type: "submit", class: "btn btn-default float-btn", title: "Create an Account") do %>
           <i class="fa fa-plus fa-fw"></i> Create Account
         <% end %>      
@@ -44,4 +48,3 @@
 
   <% end %>
 </div>
-
