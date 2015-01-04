@@ -1,9 +1,5 @@
 @import "sass_styles.css.scss";
 
-body {
-  background:image-url("bg-blue.png") !important;
-  background-repeat: repeat;
-}
 .bgvideo {
   position: fixed;
   right: 0;
@@ -25,12 +21,12 @@ body {
   }
 
   h1 {
-    color: $button-sec;
-    text-shadow: 0 .5px 0 #000;
+    color: black;
+    text-shadow: 0 .5px 0 $button-pri;
   }
   a {
-    color: $button-sec;
-    text-shadow: 0 .5px 0 #000;
+    color: black;
+    text-shadow: 0 .5px 0 $button-pri;
   }
 
 }
