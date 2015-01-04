@@ -21,6 +21,12 @@ class FollowupsController < ApplicationController
 
   def show
     @followup = context.followups.find(params[:id])
+    @context = context
+    if @context.class == Company
+      @company = @context
+    else
+      @contact = @context
+    end
   end
 
   def destroy
@@ -28,7 +34,7 @@ class FollowupsController < ApplicationController
     @followup = context.followups.find(params[:id])
     @followup.destroy
     flash[:notice] = "Followup removed"
-    redirect_to context_url(context)
+    redirect_to context_url
   end
 
 private
