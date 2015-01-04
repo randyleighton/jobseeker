@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       resources :reminders
       resources :contacts
       resources :jobs
+      resources :followups
   end
 
   resources :jobs do
@@ -16,8 +17,10 @@ Rails.application.routes.draw do
     resources :responses
   end
 
-  resources :followups
-  resources :contacts, only: :index
+  resources :contacts, only: :index do
+    resources :followups
+  end
+  resources :followups, only: :index
   resources :jobs, only: :index
   resources :interviews, only: :index
   resources :feedbacks, only: [:new,:create]

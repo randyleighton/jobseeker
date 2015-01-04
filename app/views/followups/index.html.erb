@@ -3,11 +3,7 @@
 <div class="row head-div col-pads">
 
   <div class="floater col-xs-12 col-sm-5 col-md-4">
-    <h2>Followups
-    <%= link_to root_path, class: "btn btn-adds", title: "Add a new follow up action" do %>
-      <%= content_tag(:i,nil,class: 'fa fa-plus fa-2x')%>
-      Add New
-    <% end %></h2>
+    <h2>Followups</h2>
   </div>
 
   <div class="floater col-xs-12 col-sm-7 col-md-8">
@@ -16,13 +12,17 @@
 
 </div>
 
-<div class="companies-ul">
+<div class="followups-ul">
   <ul class="fa-ul">
     <% @followups.all.each do |followup| %>
       <li>
-        <%= link_to followup_path(followup), title: "View #{followup.action}" do %>
+      <% if followup.follow_type == "Company" %>
+        <% @company = Company.find(followup.follow_id) %>
+        <%= link_to company_followup_path(@company,followup), title: "View #{followup.action}" do %>
           <%= followup.action %>
         <% end %>
+        
+      <% end %>
       </li>
     <% end %>
   </ul>
