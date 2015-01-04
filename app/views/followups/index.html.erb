@@ -7,7 +7,7 @@
   </div>
 
   <div class="floater col-xs-12 col-sm-7 col-md-8">
-    <p>Follow ups are actions you have taken. Just enter anything you took action on so you can keep a log with that company or contact. Here is a few examples - Companies: I called a company. I emailed a company. Contacts: I called a contact. I emailed a contact.</p>
+    <p>Follow ups are actions you have taken. Just enter anything you took action on so you can keep a log with that company or contact. Here is a few examples - Companies: I called a company. I emailed a company. Contacts: I called a contact. I emailed a contact. <%= link_to "Create or select a company", companies_path, title: "View the company list to create new one" %> and log them under there.</p>
   </div>
 
 </div>
@@ -18,10 +18,7 @@
       <li>
       <% if followup.follow_type == "Company" %>
         <% @company = Company.find(followup.follow_id) %>
-        <%= link_to company_followup_path(@company,followup), title: "View #{followup.action}" do %>
-          <%= followup.action %>
-        <% end %>
-        
+        <%= link_to "#{followup.action_date.strftime('%m/%d/%Y')} | #{@company.name} | <span class='link-color'>#{followup.action}</span>".html_safe, company_followup_path(@company,followup), title: "View #{followup.action}" %>
       <% end %>
       </li>
     <% end %>

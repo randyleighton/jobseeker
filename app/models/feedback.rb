@@ -1,8 +1,8 @@
 class Feedback < ActiveRecord::Base
 
-belongs_to :user
+  belongs_to :user
 
-validates :subject, presence: true
-validates :body, presence: true
+  validates :subject, presence: true
+  validates :body, presence: true
 
 end
