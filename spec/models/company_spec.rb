@@ -45,13 +45,6 @@ describe Company do
     end
   end
 
-    it "adds 'None Yet' for url,phone,email,street when blank" do
-      company = FactoryGirl.create(:company, street: "", phone:"", email:"",url:"")
-      expect(company.street).to eq 'None yet'
-      expect(company.phone).to eq 'None yet'
-      expect(company.email).to eq 'None yet'
-      expect(company.url).to eq 'None yet'
-    end
 end
 
 
