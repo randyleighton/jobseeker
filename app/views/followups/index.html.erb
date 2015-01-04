@@ -18,10 +18,7 @@
       <li>
       <% if followup.follow_type == "Company" %>
         <% @company = Company.find(followup.follow_id) %>
-        <%= link_to company_followup_path(@company,followup), title: "View #{followup.action}" do %>
-          <%= followup.action %>
-        <% end %>
-        
+        <%= link_to "#{followup.action_date.strftime('%m/%d/%Y')} | #{@company.name} | <span class='link-color'>#{followup.action}</span>".html_safe, company_followup_path(@company,followup), title: "View #{followup.action}" %>
       <% end %>
       </li>
     <% end %>
