@@ -15,6 +15,7 @@ class FollowupsController < ApplicationController
     if @followup.valid?
       redirect_to context_url, notice: "The followup has been logged successfully"
     else
+      @followup.action_date = nil
       render 'new', alert: "The followup did not save correctly"
     end
   end
