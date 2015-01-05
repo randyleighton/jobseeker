@@ -6,44 +6,49 @@
     <%= devise_error_messages! %>
 
     <div class="form-group">
-        <%= f.label "Full Name", :username, class: 'col-sm-4 control-label'  %>
-        <div class="col-sm-8">
+        <%= f.label "Full Name", :username, class: 'col-xs-12 col-sm-4 control-label'  %>
+        <div class="input-group col-xs-12 col-sm-7">
+        <span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
             <%= f.text_field :username, autofocus: true, class: 'form-control'  %>
         </div>
     </div>
 
     <div class="form-group">
-        <%= f.label :email, class: 'col-sm-4 control-label'  %>
-        <div class="col-sm-8">
+        <%= f.label :email, class: 'col-xs-12 col-sm-4 control-label'  %>
+        <div class="input-group col-xs-12 col-sm-7">
+        <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
             <%= f.email_field :email, class: 'form-control'  %>
         </div>
     </div>
 
     <div class="form-group">
-        <%= f.label "New Password", :password, class: 'col-sm-4 control-label'  %>
-        <div class="col-sm-8">
+        <%= f.label "New Password", :password, class: 'col-xs-12 col-sm-4 control-label'  %>
+        <div class="input-group col-xs-12 col-sm-7">
+        <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
             <%= f.password_field :password, :placeholder => 'Leave blank unless you want to change', autocomplete: "off", class: 'form-control'  %>
         </div>
     </div>
 
 
     <div class="form-group">
-        <%= f.label "Confirm Password", :password_confirmation, class: 'col-sm-4 control-label' %>
-        <div class="col-sm-8">
+        <%= f.label "Confirm Password", :password_confirmation, class: 'col-xs-12 col-sm-4 control-label' %>
+        <div class="input-group col-xs-12 col-sm-7">
+        <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
             <%= f.password_field :password_confirmation, :placeholder => 'Confirm new password if changing', autocomplete: "off", class: 'form-control'  %>
         </div>
     </div>
 
     <div class="form-group">
-        <%= f.label "Current Password", :current_password, class: 'col-sm-4 control-label' %>
-        <div class="col-sm-8">
-            <%= f.password_field :current_password, autocomplete: "off", :placeholder => 'Enter current password if you make any changes', class: 'form-control' %>
+        <%= f.label "Current Password", :current_password, class: 'col-xs-12 col-sm-4 control-label' %>
+        <div class="input-group col-xs-12 col-sm-7">
+        <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+            <%= f.password_field :current_password, autocomplete: "off", :placeholder => 'Enter current password if you make changes', class: 'form-control' %>
         </div>
     </div>
 
     <% if current_user.email != "test@test.com" %>
       <div class="form-group">
-        <div class="col-sm-offset-4 col-sm-8">
+        <div class="col-xs-12 col-sm-offset-4 col-sm-12">
           <%= button_tag(type: "submit", class: "btn btn-default float-btn", title: "Update Profile") do %>
             <i class="fa fa-sign-in fa-fw"></i> Update Profile
           <% end %>
