@@ -7,7 +7,7 @@
     <%= f.error_notification %>
   
     <div class="form-group">
-      <%= f.label :email, class: "col-sm-3 control-label" %>
+      <%= f.label :email,"Email", class: "col-sm-3 control-label" %>
       <div class="input-group col-sm-6">
         <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw form-fa"></i></span>
         <%= f.email_field :email, :autofocus => true, :placeholder => 'email@provider.com', class: "form-control" %>
@@ -15,12 +15,12 @@
     </div>
 
     <div class="form-group">
-      <%= f.label :password, class: "col-sm-3 control-label" %>
+      <%= f.label :password, "Password",class: "col-sm-3 control-label" %>
       <div class="input-group col-sm-6">
         <% if :email == "test@test.com" %>
             <%= f.password_field :password, value: "test1234", class: "form-control" %>
         <% else %>
-            <%= f.password_field :password, :placeholder => 'Password with 8 characters', class: "form-control" %>
+            <%= f.password_field :password, :placeholder => 'Password with 8+ characters', class: "form-control" %>
         <% end %>
         <span class="input-group-addon"><%= link_to '<i class="fa fa-question fa-fw form-fa"></i>'.html_safe, new_password_path(resource_name), title: "Forgot Password? Request New One" %></span>
       </div>
