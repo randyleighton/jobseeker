@@ -6,4 +6,6 @@ class Followup < ActiveRecord::Base
   scope :recent, ->(max){ limit(max) }
   scope :order_by, ->{ order(action_date: :desc)}
 
+  
+
 end
