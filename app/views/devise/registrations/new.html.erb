@@ -8,7 +8,7 @@
     <div class="form-group">
       <%= f.label "Email", :email, class: "col-sm-4 control-label" %>
       <div class="input-group col-sm-7">
-        <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+        <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw form-fa"></i></span>
         <%= f.email_field :email, required: true, autofocus: true, :placeholder => 'email@provider.com', class: "form-control"  %>
       </div>
     </div>
@@ -16,7 +16,7 @@
     <div class="form-group">
       <%= f.label "Full Name", :username, class: "col-sm-4 control-label" %>
       <div class="input-group col-sm-7">
-        <span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
+        <span class="input-group-addon"><i class="fa fa-user fa-fw form-fa"></i></span>
         <%= f.text_field :username, :placeholder => 'Your full name', class: "form-control" %>
       </div>
     </div>
@@ -24,7 +24,7 @@
     <div class="form-group">
       <%= f.label "Password", :password, class: "col-sm-4 control-label" %>
       <div class="input-group col-sm-7">
-        <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+        <span class="input-group-addon"><i class="fa fa-key fa-fw form-fa"></i></span>
         <%= f.password_field :password, required: true, :placeholder => 'Password with 8 characters', class: "form-control" %>
       </div>
     </div>
@@ -32,7 +32,7 @@
     <div class="form-group">
       <%= f.label "Confirm Password:", :password_confirmation, class: "col-sm-4 control-label" %>
       <div class="input-group col-sm-7">  
-        <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+        <span class="input-group-addon"><i class="fa fa-key fa-fw form-fa"></i></span>
         <%= f.password_field :password_confirmation, required: true, :placeholder => 'Type it again to confirm', class: "form-control"  %>
       </div>
     </div>
