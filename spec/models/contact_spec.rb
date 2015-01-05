@@ -35,7 +35,8 @@ describe Contact do
   end
 
   it "should display both names when using full_name method" do
-
+    contact = FactoryGirl.create(:contact, first_name: "Nacho", last_name: "Libre")
+    expect(contact.full_name). to eq "Nacho Libre"
   end
 
 end
