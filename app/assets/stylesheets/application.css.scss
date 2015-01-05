@@ -28,6 +28,12 @@
 
 @media screen and (max-width: 768px) {
   body { padding-top: 5px; }
+  .input-group {
+    padding: 0px 20px !important;
+  }
+  .offset3 {
+    padding: 0 15px;
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -485,6 +491,9 @@ overflow: hidden;
     color: $cardinal;
   }
 }
-
+/* This is to remove the offset padding */
+.offset3, .checkbox {
+  padding: 0px;
+}
 
 
