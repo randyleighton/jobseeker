@@ -14,8 +14,19 @@ let!(:followup) { FactoryGirl.create(:followup, follow_id: company.id, follow_ty
     expect(Followup.all.order_by).to eq [followup2, followup]
   end
 
-  it "should not create an action already taken in the future" do
+  it "should not create a followup action in the future" do
+    followup_future = FactoryGirl.build(:followup, follow_id: company.id, follow_type: "Company", action_date: DateTime.now+10)
+    expect(followup_future.save).to eq false
     expect(followup.update_attributes(action_date: DateTime.now+10)).to eq false
+  end
+
+  it "should not update a followup action in the future" do
+    expect(followup.update_attributes(action_date: DateTime.now+10)).to eq false
+  end
+
+  it "should create an action if not in the future" do
+    followup_past = FactoryGirl.create(:followup, follow_id: company.id, follow_type: "Company", action_date: DateTime.now-1)
+    expect(followup_past).to be_valid
   end
 
 end
