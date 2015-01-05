@@ -28,7 +28,6 @@
           <li><%= link_to "Contacts", contacts_path, title: "View your Contacts" %></li>
           <li><%= link_to "Jobs", jobs_path, title: "View your jobs applied for" %></li>
           <li><%= link_to "Followups", followups_path, title: "View your Follow Up Activity Log" %></li>
-          <li><%= link_to "Contact Us", new_feedback_path, title: "Submit Feedback or a Question" %></li>
         <% end %>
       </ul>
       <div class="nav navbar-nav navbar-right">
@@ -52,8 +51,12 @@
   </div>
 
   <div class="navbar navbar-default navbar-fixed-bottom clearfix">
-    <p id="copyright">Ruby on Rails application &copy; 2014 built by: <%= link_to "Visible Difference Web Development", "http://www.visible-difference.com", target: "_blank", title: "Visit www.visible-difference.com" %></p>
+    <div class="floater">
+      <%= link_to "<i class='fa fa-envelope fa-fw fa-2x'></i> Suggestions/Questions/Problems?  - Send Jobseeker a Message".html_safe, new_feedback_path, title: "Submit Feedback or a Question" %>
+    </div>
+    <div class="floater-right">
+      <p id="copyright">Ruby on Rails application &copy; 2014 built by: <%= link_to "Visible Difference Web Development", "http://www.visible-difference.com", target: "_blank", title: "Visit www.visible-difference.com" %></p>
+    </div>
   </div>
-
 </body>
 </html>
