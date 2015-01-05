@@ -10,6 +10,10 @@ class Contact < ActiveRecord::Base
 
   scope :by_last_name, -> {order(:last_name) }
 
+  def full_name
+    "#{first_name} #{last_name}"
+  end
+
 private
 
   def text_style
@@ -18,5 +22,6 @@ private
     self.title = self.title.titleize
     self.email = self.email.downcase
   end
+
 
 end
