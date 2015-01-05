@@ -32,7 +32,8 @@
   <div class="form-group">
       <%= f.label "Contact", class: "col-xs-2 col-sm-2"%>
     <div class="col-xs-3 col-sm-3">
-      <%= f.collection_select :contact_id, @company.contacts, :id, :first_name, prompt: true, class: 'form-select' %>
+      <%= f.collection_select :contact_id, @company.contacts, :id, :full_name, prompt: true, class: 'form-select' %>
+
     </div>
   </div>
 
