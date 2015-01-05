@@ -23,11 +23,13 @@
     </div>
     <div class="collapse navbar-collapse navbar-responsive-collapse">
       <ul class="nav navbar-nav">
-        <li><%= link_to "Companies", companies_path, title: "Manage your Companies" %></li>
-        <li><%= link_to "Contacts", contacts_path, title: "View your Contacts" %></li>
-        <li><%= link_to "Jobs", jobs_path, title: "View your jobs applied for" %></li>
-        <li><%= link_to "Followups", followups_path, title: "View your Follow Up Activity Log" %></li>
-        <li><%= link_to "Contact Us", new_feedback_path, title: "Submit Feedback or a Question" %></li>
+        <% if current_user %>
+          <li><%= link_to "Companies", companies_path, title: "Manage your Companies" %></li>
+          <li><%= link_to "Contacts", contacts_path, title: "View your Contacts" %></li>
+          <li><%= link_to "Jobs", jobs_path, title: "View your jobs applied for" %></li>
+          <li><%= link_to "Followups", followups_path, title: "View your Follow Up Activity Log" %></li>
+          <li><%= link_to "Contact Us", new_feedback_path, title: "Submit Feedback or a Question" %></li>
+        <% end %>
       </ul>
       <div class="nav navbar-nav navbar-right">
         <%= render 'layouts/login' %>

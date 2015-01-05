@@ -5,7 +5,7 @@
     <div class="form-group">
       <%= f.label "Date", class: "col-xs-12 col-sm-2"%>
       <div class="input-group col-xs-8 col-sm-5">
-        <span class="input-group-addon"><i class="fa fa-calendar fa-fw"></i></span>
+        <span class="input-group-addon"><i class="fa fa-calendar fa-fw form-fa"></i></span>
         <%= f.date_field :interview_date, :autofocus=>true, class: 'form-control' %>
       </div>
     </div>
@@ -15,7 +15,7 @@
     <div class="form-group">
         <%= f.label "Time", class: "col-xs-12 col-sm-2"%>
       <div class="input-group col-xs-8 col-sm-5">
-        <span class="input-group-addon"><i class="fa fa-calendar fa-fw"></i></span>
+        <span class="input-group-addon"><i class="fa fa-calendar fa-fw form-fa"></i></span>
         <%= f.time_field :interview_time, class: 'form-control' %>
       </div>
     </div>
@@ -24,7 +24,7 @@
   <div class="form-group">
       <%= f.label "Notes", class: "col-xs-12 col-sm-2"%>
     <div class="input-group col-xs-11 col-sm-9">
-      <span class="input-group-addon"><i class="fa fa-book fa-fw"></i></span>
+      <span class="input-group-addon"><i class="fa fa-book fa-fw form-fa"></i></span>
       <%= f.text_area :notes, size: "100%x8%", class: 'form-control' %>
     </div>
   </div>
