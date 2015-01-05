@@ -103,16 +103,6 @@ Navigation
   padding: 15px 10px;
 }
 
-.navbar-fixed-bottom {
-  .floater {
-    margin: 1em 1em;
-  }
-  .floater-right {
-    margin: 0 1em 0 0;
-  }
-}
-
-
 .job-seeker {
   font-weight: bold;
   font-family: 'Raleway', sans-serif;
@@ -142,10 +132,19 @@ Navigation
   a {
     color: $cardinal;
   &:hover {
+    color: black;
     text-decoration: none;
   };
   }
+  .floater {
+    margin: 1.1em 1em;
+  }
+  .floater-right {
+    margin: .4em 1em 0 0;
+  }
 }
+
+
 
 .nav-format {
   float: left;
@@ -462,6 +461,11 @@ overflow: hidden;
 .fa-plus {
   vertical-align: middle;
 }
+#nav-bot-icon {
+  vertical-align: middle;
+  color: $boot_blue;
+}
+
 
 /* Devise login form style for test login */
 .test-style {
@@ -505,4 +509,6 @@ overflow: hidden;
 .form-fa {
   color: $boot-blue;
 }
+
+
 
