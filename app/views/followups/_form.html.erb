@@ -4,7 +4,7 @@
   <%= f.hidden_field :user_id, value: current_user.id  %>
 
   <div class="form-group">
-    <%= f.label "Followup Action", :action, class: "col-xs-12 col-sm-3" %>
+    <%= f.label :action, "Action Taken", class: "col-xs-12 col-sm-3" %>
     <div class="input-group col-xs-12 col-sm-7">
       <span class="input-group-addon"><i class="fa fa-bolt fa-fw form-fa"></i></span>
       <%= f.text_field :action, class: "form-control", placeholder: "Enter a followup action here." %>
@@ -12,7 +12,7 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :notes, class: "col-xs-12 col-sm-3" %>
+    <%= f.label :notes, "Notes", class: "col-xs-12 col-sm-3" %>
     <div class="input-group col-xs-12 col-sm-7">
       <span class="input-group-addon"><i class="fa fa-book fa-fw form-fa"></i></span>
       <%= f.text_area :notes, class: "form-control", placeholder: "Enter important notes about your action here." %>
@@ -20,7 +20,7 @@
   </div>
 
   <div class="form-group">
-    <%= f.label "Date of Action", class: "col-xs-12 col-sm-3" %>
+    <%= f.label :action_date, "Action Date", class: "col-xs-12 col-sm-3" %>
     <div class="input-group col-xs-6 col-sm-6">
       <span class="input-group-addon"><i class="fa fa-calendar fa-fw form-fa"></i></span>
       <%= f.date_field :action_date, class: "form-control" %>

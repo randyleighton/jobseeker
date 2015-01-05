@@ -6,7 +6,7 @@
     <%= devise_error_messages! %>
 
     <div class="form-group">
-        <%= f.label "Full Name", :username, class: 'col-xs-12 col-sm-4 control-label'  %>
+        <%= f.label :username, "Full Name", class: 'col-xs-12 col-sm-4 control-label'  %>
         <div class="input-group col-xs-12 col-sm-7">
           <span class="input-group-addon"><i class="fa fa-user fa-fw form-fa"></i></span>
           <%= f.text_field :username, autofocus: true, class: 'form-control'  %>
@@ -14,7 +14,7 @@
     </div>
 
     <div class="form-group">
-        <%= f.label :email, class: 'col-xs-12 col-sm-4 control-label'  %>
+        <%= f.label :email, "Email", class: 'col-xs-12 col-sm-4 control-label'  %>
         <div class="input-group col-xs-12 col-sm-7">
           <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw form-fa"></i></span>
           <%= f.email_field :email, class: 'form-control'  %>
@@ -22,7 +22,7 @@
     </div>
 
     <div class="form-group">
-        <%= f.label "New Password", :password, class: 'col-xs-12 col-sm-4 control-label'  %>
+        <%= f.label :password, "New Password", class: 'col-xs-12 col-sm-4 control-label'  %>
         <div class="input-group col-xs-12 col-sm-7">
           <span class="input-group-addon"><i class="fa fa-key fa-fw form-fa"></i></span>
           <%= f.password_field :password, :placeholder => 'Leave blank unless you want to change', autocomplete: "off", class: 'form-control'  %>
@@ -31,7 +31,7 @@
 
 
     <div class="form-group">
-        <%= f.label "Confirm Password", :password_confirmation, class: 'col-xs-12 col-sm-4 control-label' %>
+        <%= f.label :password_confirmation, "Confirm Password", class: 'col-xs-12 col-sm-4 control-label' %>
         <div class="input-group col-xs-12 col-sm-7">
           <span class="input-group-addon"><i class="fa fa-key fa-fw form-fa"></i></span>
           <%= f.password_field :password_confirmation, :placeholder => 'Confirm new password if changing', autocomplete: "off", class: 'form-control'  %>
@@ -39,7 +39,7 @@
     </div>
 
     <div class="form-group">
-        <%= f.label "Current Password", :current_password, class: 'col-xs-12 col-sm-4 control-label' %>
+        <%= f.label :current_password, "Current Password", class: 'col-xs-12 col-sm-4 control-label' %>
         <div class="input-group col-xs-12 col-sm-7">
           <span class="input-group-addon"><i class="fa fa-key fa-fw form-fa"></i></span>
           <%= f.password_field :current_password, autocomplete: "off", :placeholder => 'Enter current password if you make changes', class: 'form-control' %>
