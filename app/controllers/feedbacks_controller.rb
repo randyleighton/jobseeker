@@ -1,9 +1,12 @@
 class FeedbacksController < ApplicationController
-  before_filter :authenticate_user!
+  # before_filter :authenticate_user!
 
   def new
-    @feedback = Feedback.new
-    @user = current_user
+      @feedback = Feedback.new
+      if current_user
+        @user = current_user
+      else
+        @user = User.new
   end
 
   def create
