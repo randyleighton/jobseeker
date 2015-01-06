@@ -24,9 +24,28 @@ let!(:followup) { FactoryGirl.create(:followup, follow_id: company.id, follow_ty
     expect(followup.update_attributes(action_date: DateTime.now+10)).to eq false
   end
 
+  it "[4.2 validate] should not create a followup action in the future" do
+    fol = Followup.new(action: "Run", notes:"Jump", action_date: DateTime.now+10)
+    fol.validate
+    expect(fol.errors[:action_date]).to_not be_empty
+  end
+
+  it "[4.2 validate with FactoryGirl] should not create a followup action in the future" do
+    fol = FactoryGirl.build(:followup, action_date: DateTime.now+5)
+    fol.validate
+    expect(fol.errors[:action_date]).to_not be_empty
+  end
+
   it "should create an action if not in the future" do
     followup_past = FactoryGirl.create(:followup, follow_id: company.id, follow_type: "Company", action_date: DateTime.now-1)
     expect(followup_past).to be_valid
   end
+
+
+
+
+
+
+
 
 end
