@@ -6,6 +6,7 @@
     <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.hidden_field :sender_email, value: current_user.email %>
     <%= f.hidden_field :sender_name, value: current_user.username %>
+    <h4 class="user-greeting">Hello <%= current_user.username %>, what would you like to tell us?</h4>
   <% else %>
     <div class="form-group">
       <%= f.label :sender_name, "Your Name", class: "col-xs-12 col-sm-2 control-label" %>
