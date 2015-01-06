@@ -3,9 +3,9 @@
 <%= simple_form_for @feedback do |f| %>
 
   <% if current_user != nil %>
-   <%= f.hidden_field :user_id, value: current_user.id %>
-   <%= f.hidden_field :sender_email, value: current_user.email %>
-   <%= f.hidden_field :sender_name, value: current_user.username %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :sender_email, value: current_user.email %>
+    <%= f.hidden_field :sender_name, value: current_user.username %>
   <% else %>
     <div class="form-group">
       <%= f.label :sender_name, "Your Name", class: "col-xs-12 col-sm-2 control-label" %>

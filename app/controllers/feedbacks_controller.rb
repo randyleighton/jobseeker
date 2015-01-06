@@ -9,7 +9,9 @@ class FeedbacksController < ApplicationController
     @feedback = Feedback.create(feedback_params)
     if @feedback.valid?
       AdminMailer.send_feedback(@feedback).deliver_now
-      AdminMailer.feedback_confirmation(@feedback).deliver
+      if @feedback.sender_email != ""
+        AdminMailer.feedback_confirmation(@feedback).deliver_now
+      end
       redirect_to root_path, notice: "Thank you so much for the feedback, we will look at it ASAP"
     else
       render 'new'
