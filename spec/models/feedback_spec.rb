@@ -23,8 +23,14 @@ describe Feedback do
 
   it "should not validate email addresses without the @" do
     feedback = FactoryGirl.create(:feedback, sender_email: "coder@code.com")
-    feedback.sender_email = nil
+    feedback.sender_email = "john at coder.com"
     expect(feedback).to_not be_valid
+  end
+
+  it "should still create feedback if no email or name provided" do
+    feedback.sender_name = ""
+    feedback.sender_email = ""
+    expect(feedback).to be_valid
   end
 
 end
