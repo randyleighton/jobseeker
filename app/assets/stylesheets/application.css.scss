@@ -76,12 +76,19 @@ Navigation
 }
 
 .navbar-default .navbar-nav {
+  .open {
+    .dropdown-menu {
+      background:image-url("bg-tan.jpg");
+      li a {
+        color: $cardinal;
+      }
+    }
+  }
   li a{
     color: black;
     font-size: 1.2em;
     &:hover {
       color: $cardinal;
-      font-weight: bold;
     }
   }
 }
@@ -138,7 +145,12 @@ Navigation
   }
 }
 
-
+.dropdown-menu {
+  background:image-url("bg-tan.jpg");
+  li a {
+    color: $cardinal;
+  }
+}
 
 .nav-format {
   float: left;
