@@ -1,10 +1,5 @@
-<h4>Hello 
-  <% if @user.username !="" %>
-    <%= @user.username %>,
-  <% else %>
-    Jobseeker,
-  <% end %>
-</h4>
+<h4>Hello <%= @feedback.sender_name %>,</h4>
+
 <p>This message is just a quick confirmation that we received a feedback message from you on <%= @feedback.created_at.to_formatted_s(:short) %></p>
 <p>We will look at this shortly and appreciate your feedback on this.</p>
 <br>

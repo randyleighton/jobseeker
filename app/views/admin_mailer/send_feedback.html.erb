@@ -1,8 +1,7 @@
 <h4>User Feedback</h4>
-<p>User email: <%= @user.email %></p>
-<% if @user.username != "" %>
-  <p>User name: <%= @user.username %></p>
-<% end %>
+<p>User email: <%= @feedback.sender_email %></p>
+<p>User name: <%= @feedback.sender_name %></p>
+
 <h4>Feedback</h4>
 <p>Subject: <%= @feedback.subject %></p>
 <br>
