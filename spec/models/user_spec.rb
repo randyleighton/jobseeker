@@ -4,6 +4,7 @@ describe User do
   it { should have_many(:jobs).through(:companies) }
   it { should have_many(:interviews).through(:companies) }
   it { should have_many :feedbacks }
+  it { should validate_presence_of :email }
 
 
   describe "signup_confirmation" do
