@@ -11,37 +11,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150104071120) do
+ActiveRecord::Schema.define(version: 20150106183723) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "companies", force: true do |t|
-    t.string   "name"
+  create_table "companies", force: :cascade do |t|
+    t.string   "name",        limit: 255
     t.text     "url"
     t.text     "comments"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "one_step_id"
     t.integer  "user_id"
-    t.string   "street"
-    t.string   "city"
-    t.string   "state"
-    t.string   "zip"
-    t.string   "phone"
-    t.string   "email"
-    t.string   "country"
+    t.string   "street",      limit: 255
+    t.string   "city",        limit: 255
+    t.string   "state",       limit: 255
+    t.string   "zip",         limit: 255
+    t.string   "phone",       limit: 255
+    t.string   "email",       limit: 255
+    t.string   "country",     limit: 255
   end
 
   add_index "companies", ["one_step_id"], name: "index_companies_on_one_step_id", using: :btree
 
-  create_table "contacts", force: true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "title"
-    t.string   "email"
-    t.string   "cell_phone"
-    t.string   "work_phone"
+  create_table "contacts", force: :cascade do |t|
+    t.string   "first_name", limit: 255
+    t.string   "last_name",  limit: 255
+    t.string   "title",      limit: 255
+    t.string   "email",      limit: 255
+    t.string   "cell_phone", limit: 255
+    t.string   "work_phone", limit: 255
     t.text     "notes"
     t.integer  "company_id"
     t.datetime "created_at"
@@ -51,18 +51,20 @@ ActiveRecord::Schema.define(version: 20150104071120) do
 
   add_index "contacts", ["company_id"], name: "index_contacts_on_company_id", using: :btree
 
-  create_table "feedbacks", force: true do |t|
-    t.string   "subject"
+  create_table "feedbacks", force: :cascade do |t|
+    t.string   "subject",      limit: 255
     t.text     "body"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "sender_name"
+    t.string   "sender_email"
   end
 
-  create_table "followups", force: true do |t|
+  create_table "followups", force: :cascade do |t|
     t.integer  "follow_id"
-    t.string   "follow_type"
-    t.string   "action"
+    t.string   "follow_type", limit: 255
+    t.string   "action",      limit: 255
     t.text     "notes"
     t.date     "action_date"
     t.datetime "created_at"
@@ -70,7 +72,7 @@ ActiveRecord::Schema.define(version: 20150104071120) do
     t.integer  "user_id"
   end
 
-  create_table "interviews", force: true do |t|
+  create_table "interviews", force: :cascade do |t|
     t.date     "interview_date"
     t.text     "notes"
     t.integer  "job_id"
@@ -83,38 +85,38 @@ ActiveRecord::Schema.define(version: 20150104071120) do
 
   add_index "interviews", ["job_id"], name: "index_interviews_on_job_id", using: :btree
 
-  create_table "jobs", force: true do |t|
+  create_table "jobs", force: :cascade do |t|
     t.text     "description"
-    t.string   "location"
+    t.string   "location",         limit: 255
     t.text     "posting_url"
     t.date     "application_date"
     t.integer  "company_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
-    t.string   "status"
+    t.string   "status",           limit: 255
   end
 
   add_index "jobs", ["company_id"], name: "index_jobs_on_company_id", using: :btree
 
-  create_table "one_steps", force: true do |t|
+  create_table "one_steps", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "reminders", force: true do |t|
-    t.string   "subject"
-    t.string   "body"
+  create_table "reminders", force: :cascade do |t|
+    t.string   "subject",    limit: 255
+    t.string   "body",       limit: 255
     t.date     "due_date"
     t.integer  "rem_id"
-    t.string   "rem_type"
+    t.string   "rem_type",   limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
     t.boolean  "email"
   end
 
-  create_table "responses", force: true do |t|
+  create_table "responses", force: :cascade do |t|
     t.text     "notes"
     t.date     "response_date"
     t.integer  "job_id"
@@ -126,20 +128,20 @@ ActiveRecord::Schema.define(version: 20150104071120) do
 
   add_index "responses", ["job_id"], name: "index_responses_on_job_id", using: :btree
 
-  create_table "users", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
+  create_table "users", force: :cascade do |t|
+    t.string   "email",                  limit: 255, default: "", null: false
+    t.string   "encrypted_password",     limit: 255, default: "", null: false
+    t.string   "reset_password_token",   limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",                      default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "username"
+    t.string   "username",               limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

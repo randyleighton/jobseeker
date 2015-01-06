@@ -1,6 +1,6 @@
 <h4>Hello 
-  <% if @user.username !="" %>
-    <%= @user.username %>,
+  <% if @feedback.sender_name != "" %>
+    <%= @feedback.sender_name %>,
   <% else %>
     Jobseeker,
   <% end %>

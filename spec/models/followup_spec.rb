@@ -41,11 +41,8 @@ let!(:followup) { FactoryGirl.create(:followup, follow_id: company.id, follow_ty
     expect(followup_past).to be_valid
   end
 
-
-
-
-
-
-
-
 end
+
+
+
+

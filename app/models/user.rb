@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   has_many :jobs, through: :companies
   has_many :interviews, through: :companies
   has_many :feedbacks
+  validates :email, uniqueness: true
 
   def signup_confirm
     UserMailer.signup_confirmation(self).deliver_now

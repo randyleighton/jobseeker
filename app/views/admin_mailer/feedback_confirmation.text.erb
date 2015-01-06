@@ -1,4 +1,4 @@
-Hello <% if @user.username !="" %><%= @user.username %>,<% else %>Jobseeker,<% end %>
+Hello <% if @feedback.sender_name !="" %><%= @feedback.sender_name %>, <% else %>Jobseeker, <% end %>
 
 This message is just a quick confirmation that we received a feedback message from you on <%= @feedback.created_at.to_formatted_s(:short) %>
 
