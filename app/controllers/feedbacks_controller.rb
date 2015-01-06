@@ -3,10 +3,11 @@ class FeedbacksController < ApplicationController
 
   def new
       @feedback = Feedback.new
-      if current_user
+      if current_user != nil
         @user = current_user
       else
-        @user = User.new
+        @feedback.build_user
+      end
   end
 
   def create
@@ -24,7 +25,7 @@ class FeedbacksController < ApplicationController
 private
 
   def feedback_params
-    params.require(:feedback).permit(:user_id, :subject, :body)
+    params.require(:feedback).permit(:user_id, :subject, :body, user_attributes:[:username, :email])
   end
 
 end
