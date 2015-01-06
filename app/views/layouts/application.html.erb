@@ -51,11 +51,11 @@
   </div>
 
   <div class="navbar navbar-default navbar-fixed-bottom clearfix">
-    <div class="floater">
-      <%= link_to "<i id='nav-bot-icon' class='fa fa-envelope fa-fw fa-2x'></i> Suggestions/Questions/Problems?  - Send Jobseeker a Message".html_safe, new_feedback_path, title: "Submit Feedback or a Question" %>
+    <div class="col-xs-12 col-sm-6">
+      <p><%= link_to "<i id='nav-bot-icon' class='fa fa-envelope fa-fw fa-2x'></i> Suggestions/Questions/Problems?".html_safe, new_feedback_path, title: "Submit Feedback or a Question" %></p>
     </div>
-    <div class="floater-right">
-      <p id="copyright">Ruby on Rails application &copy; 2014 built by: <%= link_to "Visible Difference Web Development", "http://www.visible-difference.com", target: "_blank", title: "Visit www.visible-difference.com" %></p>
+    <div class="col-xs-12 col-sm-6 hidden-xs">
+      <p>Ruby on Rails application &copy; 2014 <%= link_to "Visible Difference Web Development", "http://www.visible-difference.com", target: "_blank", title: "Visit www.visible-difference.com" %></p>
     </div>
   </div>
 </body>

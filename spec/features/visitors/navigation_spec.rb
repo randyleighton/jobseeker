@@ -1,10 +1,8 @@
 feature 'Navigation links', type: :feature do
   scenario 'view navigation links not logged in' do
     visit root_path
-
     expect(page).to have_content 'Create Account'
     expect(page).to have_content 'Log In'
-    expect(page).to have_content 'Home'
   end
 
   scenario 'view navigation links when logged in' do

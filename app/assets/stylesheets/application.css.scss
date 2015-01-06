@@ -76,12 +76,19 @@ Navigation
 }
 
 .navbar-default .navbar-nav {
+  .open {
+    .dropdown-menu {
+      background:image-url("bg-tan.jpg");
+      li a {
+        color: $cardinal;
+      }
+    }
+  }
   li a{
     color: black;
     font-size: 1.2em;
     &:hover {
       color: $cardinal;
-      font-weight: bold;
     }
   }
 }
@@ -136,15 +143,14 @@ Navigation
     text-decoration: none;
   };
   }
-  .floater {
-    margin: 1.1em 1em;
-  }
-  .floater-right {
-    margin: .4em 1em 0 0;
-  }
 }
 
-
+.dropdown-menu {
+  background:image-url("bg-tan.jpg");
+  li a {
+    color: $cardinal;
+  }
+}
 
 .nav-format {
   float: left;
