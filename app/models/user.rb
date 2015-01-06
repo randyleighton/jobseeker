@@ -12,6 +12,6 @@ class User < ActiveRecord::Base
   has_many :feedbacks
 
   def signup_confirm
-    UserMailer.signup_confirmation(self).deliver
+    UserMailer.signup_confirmation(self).deliver_now
   end
 end
