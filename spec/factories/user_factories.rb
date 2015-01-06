@@ -55,6 +55,8 @@ FactoryGirl.define do
 
   factory :feedback do
     user_id 1
+    sender_email "coder@coder.com"
+    sender_name "John Coder"
     subject "This needs fixed"
     body "Look at this particular place in the app"
   end
