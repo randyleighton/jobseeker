@@ -13,4 +13,8 @@ This will utilize the following branching structure:
 Application is Ruby 2.1.1 and Rails 4.1.8
 Testing is RSPEC and Capybara for unit and integration testing.
 ---
-No free license to use this.
+License
+
+Copyright © 2014 by Visible Difference Web Development
+
+All rights reserved. No part of this software may be reproduced, distributed, or transmitted in any form or by any means, including photocopying, recording, or other electronic or mechanical methods, without the prior written permission of Visible Difference Web Development. 
