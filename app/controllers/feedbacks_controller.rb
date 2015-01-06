@@ -2,12 +2,7 @@ class FeedbacksController < ApplicationController
   # before_filter :authenticate_user!
 
   def new
-      @feedback = Feedback.new
-      if current_user != nil
-        @user = current_user
-      else
-        @feedback.build_user
-      end
+    @feedback = Feedback.new
   end
 
   def create
@@ -25,7 +20,7 @@ class FeedbacksController < ApplicationController
 private
 
   def feedback_params
-    params.require(:feedback).permit(:user_id, :subject, :body, user_attributes:[:username, :email])
+    params.require(:feedback).permit(:subject, :body, :sender_name, :sender_email, :user_id)
   end
 
 end
