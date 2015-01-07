@@ -1,12 +1,13 @@
 class FeedbacksController < ApplicationController
-
+require 'open-uri'
+require 'JSON'
+  
   def new
     @feedback = Feedback.new
   end
 
   def create
     result = JSON.parse(open("https://www.google.com/recaptcha/api/siteverify?secret=" + ENV['recaptcha_secretkey'] + "&response=" + params["g-recaptcha-response"]).read)
-    binding.pry
     if result["success"] != true
       flash["alert"]="No bots/computers/spam allowed, please verify you are not a robot."
       @feedback = Feedback.new(feedback_params)
