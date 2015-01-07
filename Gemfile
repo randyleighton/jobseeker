@@ -14,6 +14,7 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'turbolinks'
 gem 'uglifier'
+gem 'recaptcha'
 
 group :development do
   gem 'web-console', '~> 2.0'

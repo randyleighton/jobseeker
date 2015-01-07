@@ -37,6 +37,8 @@
     </div>
   </div>
 
+  <div class="floater g-recaptcha" data-sitekey="<%= ENV['recaptcha_sitekey'] %>"></div>
+
   <div class="form-group">
     <div class="col-xs-12 feedback-submit">
       <%= render 'layouts/submit', form_type: "Feedback", object: @feedback, f: f %>
