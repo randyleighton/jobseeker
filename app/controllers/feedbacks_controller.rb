@@ -1,6 +1,4 @@
 class FeedbacksController < ApplicationController
-require 'open-uri'
-require 'JSON'
   
   def new
     @feedback = Feedback.new
