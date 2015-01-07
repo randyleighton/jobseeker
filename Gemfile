@@ -15,6 +15,8 @@ gem 'simple_form'
 gem 'turbolinks'
 gem 'uglifier'
 gem 'recaptcha'
+gem 'json'
+
 
 group :development do
   gem 'web-console', '~> 2.0'
