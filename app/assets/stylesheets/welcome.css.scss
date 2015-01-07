@@ -12,11 +12,11 @@
 }
 
 .welcome-head {
-  margin-top: 70px;
   display: block;
   margin: 0 auto;
   text-align: center;
   h3 {
+    color: $cardinal;
     margin-bottom: .9em;
   }
 
@@ -47,11 +47,15 @@
   }
 }
 
-.image-style {
+.image-style, .ss-images {
 @include rounded-corners(5px);
 @include shadowed-corners(#696969);
-max-width: 100%;
+max-width: 90%;
 height: auto;
+}
+
+.ss-images {
+  max-height: 150px;
 }
 
 .guest-style {
@@ -61,4 +65,33 @@ height: auto;
       color: $cardinal;
   }
 }
+.r1 {
+  padding: 1em;
+  background-color: white;
+  div p {
+    margin-left: 1em;
+  }
+  h2 {
+    margin: 0 0 .5em;
+    text-align: center;
+    color: $cardinal;
+    text-shadow: 0 .5px 0 $button-pri;
+  }
+}
+.r2 {
+  padding: 1em;
+  h2 {
+    margin: 0 0 .5em;
+    text-align: center;
+    color: $cardinal;
+    text-shadow: 0 .5px 0 $button-pri;
+    span {
+      color: black;
+    }
+  }
+}
+
+
+
+
 

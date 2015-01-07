@@ -1,27 +1,39 @@
 <% content_for(:title, "The Jobseeker - A Job Search Organizer") %>
 
-<%= video_tag("clouds.mp4", :autoplay=> "true", :muted=>"true", :loop=>"true", class:"bgvideo") %>
-
 <div class="welcome-head">
-  <h1>Welcome to the Jobseeker!</h1>
-  <h3><%= link_to "Sign up now", new_user_registration_path, id: "login-prof",class: "guest-style",title: "Sign up for a new account" %> to organize your jobsearch!</h3>
-  <p> -or- </p>
-  <h3><%= link_to "Use the test account ", new_user_session_path, id: "login-prof",class: "guest-style", title:"Log In now to start using The Jobseeker" %>to try out the Jobseeker.</h3>
+  <h1>Organize your Job Search!</h1>
+  <h3><%= link_to "Sign up now", new_user_registration_path, class: "guest-style",title: "Sign up for a new account" %> or <%= link_to "Use the test account ", new_user_session_path, id: "login-prof",class: "guest-style", title:"Log In now to start using The Jobseeker" %>to try out the Jobseeker.</h3>
 </div>
 
-<div class="welcome-body">
-  <div class="row">
-    <div class="col-xs-12 col-sm-3 image-div">
-      <%= link_to image_tag("welcome-mobile1.png", class: "image-style"), new_user_session_path, id: "login-prof", title: "Log In now to start using The Jobseeker" %>
-      <p class="unselectable" >See your reminders and recent activities from your home page.</p>
-    </div>    
-    <div class="col-sm-6 col-xs-12 image-div">
-      <%= link_to image_tag("welcome-full1.png", class: "image-style"), new_user_session_path, id: "login-prof", title: "Log In now to start using The Jobseeker" %>
-      <p class="unselectable">Once you create a company you then enter the job you applied for, create contacts and more.</p>
-    </div>
-    <div class="col-xs-12 col-sm-3 image-div">
-      <%= link_to image_tag("welcome-mobile2.png", class: "image-style"), new_user_session_path, id: "login-prof", title: "Log In now to start using The Jobseeker" %>
-      <p class="unselectable">Each job application has a wealth of information opportunities, including tracking responses and interviews with note logs.</p>
-    </div>    
+<div class="r1 row">
+  <h2 class="col-xs-12">The Old Way</h2>
+  <div class="col-sm-3 hidden-xs">
+    <%= image_tag('ss1.png', class: "ss-images")%>
   </div>
+  <div class="col-xs-12 col-sm-9">
+    <p>How do you organize your job search? Spreadsheets are the most widely used and recommend way to do this. Spreadsheets are a much better tool than nothing or writing it all down. Unfortunately, spreadsheets require a lot of manual work and constant setting up and configuring if you want them to look acceptable. </p>
+    <p>In a very popular <%= link_to "Huffington Post article", "http://www.huffingtonpost.com/cezary-pietrzak/getting-organized-the-key_b_1553627.html",target: "_blank" %>, columnist Cezary Pietrzak states "doing the job search properly requires the right set of tools." He then talks about using job search boards and dashboards to manage your professional connections. In reference to spreadsheets, he puts it very well: "While spreadsheets are also an option, the process of updating them is very manual, which makes them error-prone and time-consuming."</p>
+    <p>So the JobSeeker was created to give a better option for job searchers who want to be organized, but do not want to use an annoying spreadsheet!</p>
+  </div>
+</div>
+
+
+<div class="row r2">
+  <h2 class="col-xs-12">The <span>Better</span> Way</h2>
+  <p>The JobSeeker does the back end for you. Let's say you apply for a job with a company. Log into JobSeeker and create a company. Then add your contacts and job applications with that company. Next look at the job application. Track your activities in a followup log. Track your interviews. Track the responses you receive from the company. It is all there and organized, you just put the information you want in and it is all done for you.</p>
+  <p>Here is some examples of what you might see: </p>
+
+  <div class="col-xs-12 col-sm-3 image-div">
+    <%= link_to image_tag("welcome-mobile1.png", class: "image-style"), new_user_session_path, title: "Log In now to start using The Jobseeker" %>
+    <p class="unselectable" >See your reminders and recent activities from your home page.</p>
+  </div>    
+  <div class="col-sm-6 col-xs-12 image-div">
+    <%= link_to image_tag("welcome-full1.png", class: "image-style"), new_user_session_path, title: "Log In now to start using The Jobseeker" %>
+    <p class="unselectable">Once you create a company you then enter the job you applied for, create contacts and more.</p>
+  </div>
+  <div class="col-xs-12 col-sm-3 image-div">
+    <%= link_to image_tag("welcome-mobile2.png", class: "image-style"), new_user_session_path, title: "Log In now to start using The Jobseeker" %>
+    <p class="unselectable">Each job application has a wealth of information opportunities, including tracking responses and interviews with note logs.</p>
+  </div>    
+
 </div>
