@@ -5,10 +5,7 @@ class FeedbacksController < ApplicationController
   end
 
   def create
-    url = "https://www.google.com/recaptcha/api/siteverify?secret=" + ENV['recaptcha_secretkey'] + "&response=" + params["g-recaptcha-response"]
-    encoded_url = URI.encode(url)
-    binding.pry
-    result = JSON.parse(open(encoded_url).read)
+    result = HTTParty.get("https://www.google.com/recaptcha/api/siteverify?secret=" + ENV['recaptcha_secretkey'] + "&response=" + params["g-recaptcha-response"])
     if result["success"] != true
       flash["alert"]="No bots/computers/spam allowed, please verify you are not a robot."
       @feedback = Feedback.new(feedback_params)

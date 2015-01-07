@@ -94,6 +94,9 @@ GEM
     haml (4.0.6)
       tilt
     hike (1.2.3)
+    httparty (0.13.1)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     i18n (0.7.0)
     jquery-rails (4.0.3)
       rails-dom-testing (~> 1.0)
@@ -113,6 +116,7 @@ GEM
     mini_portile (0.6.2)
     minitest (5.5.0)
     multi_json (1.10.1)
+    multi_xml (0.5.5)
     nokogiri (1.6.5)
       mini_portile (~> 0.6.0)
     oauth (0.4.7)
@@ -235,6 +239,7 @@ DEPENDENCIES
   figaro
   font-awesome-rails
   haml
+  httparty
   jquery-rails
   json
   launchy

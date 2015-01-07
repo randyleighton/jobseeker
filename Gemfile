@@ -16,6 +16,7 @@ gem 'turbolinks'
 gem 'uglifier'
 gem 'recaptcha'
 gem 'json'
+gem 'httparty'
 
 
 group :development do
