@@ -24,13 +24,13 @@ ActiveRecord::Schema.define(version: 20150106183723) do
     t.datetime "updated_at"
     t.integer  "one_step_id"
     t.integer  "user_id"
-    t.string   "street",      limit: 255
-    t.string   "city",        limit: 255
-    t.string   "state",       limit: 255
-    t.string   "zip",         limit: 255
-    t.string   "phone",       limit: 255
-    t.string   "email",       limit: 255
-    t.string   "country",     limit: 255
+    t.string   "street"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.string   "phone"
+    t.string   "email"
+    t.string   "country"
   end
 
   add_index "companies", ["one_step_id"], name: "index_companies_on_one_step_id", using: :btree
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 20150106183723) do
   add_index "contacts", ["company_id"], name: "index_contacts_on_company_id", using: :btree
 
   create_table "feedbacks", force: :cascade do |t|
-    t.string   "subject",      limit: 255
+    t.string   "subject"
     t.text     "body"
     t.integer  "user_id"
     t.datetime "created_at"
@@ -63,8 +63,8 @@ ActiveRecord::Schema.define(version: 20150106183723) do
 
   create_table "followups", force: :cascade do |t|
     t.integer  "follow_id"
-    t.string   "follow_type", limit: 255
-    t.string   "action",      limit: 255
+    t.string   "follow_type"
+    t.string   "action"
     t.text     "notes"
     t.date     "action_date"
     t.datetime "created_at"
@@ -105,11 +105,11 @@ ActiveRecord::Schema.define(version: 20150106183723) do
   end
 
   create_table "reminders", force: :cascade do |t|
-    t.string   "subject",    limit: 255
-    t.string   "body",       limit: 255
+    t.string   "subject"
+    t.string   "body"
     t.date     "due_date"
     t.integer  "rem_id"
-    t.string   "rem_type",   limit: 255
+    t.string   "rem_type"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
