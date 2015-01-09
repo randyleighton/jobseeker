@@ -1,3 +1,8 @@
 @import "sass_styles.css.scss";
 
-
+.show-header {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  border-bottom: 1px solid $mercury;
+}
