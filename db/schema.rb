@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150106183723) do
+ActiveRecord::Schema.define(version: 20150109201647) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -79,11 +79,18 @@ ActiveRecord::Schema.define(version: 20150106183723) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
-    t.integer  "contact_id"
     t.time     "interview_time"
   end
 
   add_index "interviews", ["job_id"], name: "index_interviews_on_job_id", using: :btree
+
+  create_table "interviews_contacts", force: :cascade do |t|
+    t.integer "interview_id"
+    t.integer "contact_id"
+  end
+
+  add_index "interviews_contacts", ["contact_id"], name: "index_interviews_contacts_on_contact_id", using: :btree
+  add_index "interviews_contacts", ["interview_id"], name: "index_interviews_contacts_on_interview_id", using: :btree
 
   create_table "jobs", force: :cascade do |t|
     t.text     "description"
@@ -147,4 +154,6 @@ ActiveRecord::Schema.define(version: 20150106183723) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "interviews_contacts", "contacts"
+  add_foreign_key "interviews_contacts", "interviews"
 end
