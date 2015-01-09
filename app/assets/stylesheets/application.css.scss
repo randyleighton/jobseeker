@@ -38,7 +38,7 @@
     margin: 0 auto;
     border-bottom: 1px solid $mercury;
   }
-  .show-header-title h2 {
+  .show-header-title h2 { 
     font-size: 1.5em;
   }
 }
@@ -482,17 +482,24 @@ overflow: hidden;
   padding: 1em;
 }
 
-.show-head {
+.show-header-title {
+  h2 {
+    color: $cardinal;
+    font-family: 'Raleway', sans-serif; 
+    font-weight: bold;
+    text-shadow: 1px 1px 1px #000;
+  }
+}
+
+.cardinal-bold {
   color: $cardinal;
   font-family: 'Raleway', sans-serif; 
   font-weight: bold;
 }
 
-.show-header {
-  display: block;
-  margin: 0 auto;
-  text-align: center;
-  border-bottom: 1px solid $mercury;
+.black-span {
+  color: black;
+  text-shadow: none;
 }
 
 .link-color {
