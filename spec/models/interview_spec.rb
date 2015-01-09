@@ -3,6 +3,7 @@ describe Interview do
   it { should belong_to :job } 
   it { should validate_presence_of :interview_date }
   it { should validate_presence_of :interview_time }
+  it { should have_and_belong_to_many :contacts }
 
   it { should have_one(:company).through(:job)}
 
@@ -11,14 +12,14 @@ describe Interview do
  let!(:contact) { contact = FactoryGirl.create(:contact) }
 
   it "should display the number of interviews passed into scope" do
-    interview = FactoryGirl.create(:interview, interview_date: DateTime.now, contact_id: contact.id, job_id:job.id)
-    interview2 = FactoryGirl.create(:interview, interview_date: DateTime.now, contact_id: contact.id, job_id:job.id)
+    interview = FactoryGirl.create(:interview, interview_date: DateTime.now, job_id:job.id)
+    interview2 = FactoryGirl.create(:interview, interview_date: DateTime.now, job_id:job.id)
     expect(Interview.all).to eq [interview, interview2]
     expect(Interview.recent(1)).to eq [interview]
   end
 
   it "should have a contact id" do
-    interview = FactoryGirl.create(:interview, interview_date: DateTime.now, contact_id: contact.id, job_id:job.id)
+    interview = FactoryGirl.create(:interview, interview_date: DateTime.now, job_id:job.id)
     expect(Interview.all).to eq [interview]
   end
 
