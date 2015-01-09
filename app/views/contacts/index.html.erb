@@ -1,8 +1,11 @@
 <% content_for(:title, "Contacts") %>
 
 <div class="row show-header-box">
-  <div class="col-xs-12 col-sm-6 show-header-title">
+  <div class="col-xs-12 col-sm-6 col-md-4 show-header-title">
     <h2>Contacts Directory</h2>
+  </div>
+  <div class="col-xs-12 col-sm-6 col-md-8">
+    <p>Contacts are who you interact with at a company. Keep track of their important information. Contacts are specific to a company (for now), so after you <%= link_to "Create or select a company", companies_path, title: "View the company list to create new one" %> just click <b>Add New</b> and save whatever information you have. From this page you can view the individual contacts and see their information.</p>
   </div>
 </div>
 
