@@ -27,9 +27,11 @@ class InterviewsController < ApplicationController
 
   def show
     @company = Company.find(@job.company_id)
-    if @interview.contact_id
-      @contact = Contact.find(@interview.contact_id)
-    end
+
+    #remove to start rework of multiple interviewers
+    # if @interview.contact_id
+    #   @contact = Contact.find(@interview.contact_id)
+    # end
   end
 
   def update
