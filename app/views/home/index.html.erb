@@ -7,7 +7,7 @@
 	<div class="row row-one">
 		<div class="outer-box col-xs-12 col-sm-12 col-md-6">
 			<div class="index-one">
-				<h4><%= content_tag(:i,nil,class: 'fa-reminder fa fa-keyboard-o')%> Recent Job Applications:</h4>
+				<h3><%= content_tag(:i,nil,class: 'fa-reminder fa fa-keyboard-o')%> Recent Job Applications:</h3>
 					<% @jobs.each do |job| %>
 						<% company = Company.find(job.company_id) %>
 						<p><%= link_to company_job_path(company, job), class: "companies-all", title: "View Application for #{job.description}" do %>
@@ -20,7 +20,7 @@
 		</div>
 		<div class="outer-box col-xs-12 col-sm-12 col-md-6">
 			<div class="index-two">
-				<h4><%= content_tag(:i,nil,class: 'fa-reminder fa fa-building')%>  Recent Companies: </h4>
+				<h3><%= content_tag(:i,nil,class: 'fa-reminder fa fa-building')%>  Recent Companies: </h3>
 					<% @companies.each do |company| %>
 						<p><%= link_to "#{company.name}", company_path(company), class: "companies-all", title:"View #{company.name}" %></p>
 					<% end %>
@@ -31,7 +31,7 @@
 	<div class="row row-two">
 		<div class="outer-box col-xs-12 col-sm-12 col-md-6">
 			<div class="index-three">
-				<h4><%= content_tag(:i,nil,class: 'fa-reminder fa fa-comments')%> Upcoming Interviews:</h4>
+				<h3><%= content_tag(:i,nil,class: 'fa-reminder fa fa-comments')%> Upcoming Interviews:</h3>
 					<% @interviews.each do |interview| %>
 						<% job = Job.find(interview.job_id) %>
 						<% if interview.interview_date >= DateTime.now %>
@@ -43,7 +43,7 @@
 
 		<div class="outer-box col-xs-12 col-sm-12 col-md-6">
 			<div class="index-four">
-				<h4><%= content_tag(:i,nil,class: 'fa-reminder fa fa-bell')%>  Reminders: </h4>
+				<h3><%= content_tag(:i,nil,class: 'fa-reminder fa fa-bell')%>  Reminders: </h3>
 					<% @companies.each do |company| %>
 						<% company.reminders.each do |reminder| %>
 							<p><%= reminder.due_date.to_formatted_s(:short) %>:<%= link_to " #{company.name}: #{reminder.subject}", company_path(company), title:"View Reminder on #{reminder.due_date.to_formatted_s(:short)}" %></p>

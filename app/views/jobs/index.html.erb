@@ -1,7 +1,12 @@
 <% content_for(:title, "Job Applications") %>
 
-<div class="row head-div col-pads">
-  <h2>Job Applications List</h2>
+<div class="row show-header-box">
+  <div class="col-xs-12 col-sm-6 col-md-4 show-header-title">
+    <h2>Job Applications List</h2>
+  </div>
+  <div class="col-xs-12 col-sm-6 col-md-8">
+    <p>The job application list is to keep track of jobs you have applied with companies. The first step here is to <%= link_to "Create or select a company", companies_path, title: "View the company list to create new one" %>. Then create your job application for that specific company by clicking <b>Add New</b> Application. Then enter the information about it. From this page you can view all the individual job applications and open them up to see the detailed information. That detailed information includes being able to log all your responses and interviews for that job.</p>
+  </div>
 </div>
 
 <div class="row jobs-ul">
