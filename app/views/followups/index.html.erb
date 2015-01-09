@@ -1,16 +1,14 @@
 <% content_for(:title, "Followups") %>
 
-<div class="row head-div col-pads">
-
-  <div class="floater col-xs-12 col-sm-5 col-md-4">
+<div class="row show-header-box">
+  <div class="col-xs-12 col-sm-6 col-md-4 show-header-title">
     <h2>Followups</h2>
   </div>
-
-  <div class="floater col-xs-12 col-sm-7 col-md-8">
+  <div class="col-xs-12 col-sm-6 col-md-8">
     <p>Follow ups are actions you have taken. Just enter anything you took action on so you can keep a log with that company or contact. Here is a few examples - Companies: I called a company. I emailed a company. Contacts: I called a contact. I emailed a contact. <%= link_to "Create or select a company", companies_path, title: "View the company list to create new one" %> and log them under there.</p>
   </div>
-
 </div>
+
 
 <div class="followups-ul">
   <ul class="fa-ul">

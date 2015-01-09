@@ -1,11 +1,12 @@
 <% content_for(:title, "Companies") %>
 
-<div class="row head-div col-pads">
-	<h2>Companies
-	<%= link_to new_company_path, class: "btn btn-adds", title: "Add a new Company" do %>
+<div class="row show-header-box">
+  <div class="col-xs-12 col-sm-6 show-header-title">
+    <h2>Companies <%= link_to new_company_path, class: "btn btn-adds", title: "Add a new Company" do %>
     <%= content_tag(:i,nil,class: 'fa fa-plus fa-2x')%>
     Add New
   <% end %></h2>
+  </div>
 </div>
 
 <div class="row companies-ul">
