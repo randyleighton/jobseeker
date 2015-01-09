@@ -2,7 +2,7 @@ class Contact < ActiveRecord::Base
   belongs_to :company
   has_many :reminders, as: :rem
   has_many :followups, as: :follow
-  has_and_belongs_to_many :contacts
+  has_and_belongs_to_many :interviews
 
   validates :email, :format => { :with => /@/, :message => "Invalid email format" }
   validates_presence_of :first_name, :last_name
