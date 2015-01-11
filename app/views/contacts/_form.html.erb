@@ -30,7 +30,7 @@
     <%= f.label :email, "Email", class: 'col-sm-3 control-label' %>
     <div class="input-group col-xs-12 col-sm-7">
       <span class="input-group-addon"><i class="fa fa-envelope fa-fw form-fa"></i></span>
-    <%= f.text_field :email, placeholder: "example: john@company.com",class: 'form-control' %>
+    <%= f.email_field :email, placeholder: "example: john@company.com",class: 'form-control' %>
     </div>
   </div>
 
@@ -38,7 +38,7 @@
     <%= f.label :cell_phone, "Cell Phone", class: 'col-sm-3 control-label' %>
     <div class="input-group col-xs-12 col-sm-7">
       <span class="input-group-addon"><i class="fa fa-mobile fa-fw form-fa"></i></span>
-    <%= f.text_field :cell_phone, placeholder: "123-456-7890",class: 'form-control' %>
+    <%= f.telephone_field :cell_phone, placeholder: "123-456-7890",class: 'form-control' %>
     </div>
   </div>
 
@@ -46,7 +46,7 @@
     <%= f.label :work_phone, "Work Phone", class: 'col-sm-3 control-label' %>
     <div class="input-group col-xs-12 col-sm-7">
       <span class="input-group-addon"><i class="fa fa-phone fa-fw form-fa"></i></span>
-    <%= f.text_field :work_phone, placeholder: "123-456-7890", class: 'form-control' %>
+    <%= f.telephone_field :work_phone, placeholder: "123-456-7890", class: 'form-control' %>
     </div>
   </div>
 
