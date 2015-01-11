@@ -1,6 +1,6 @@
 <%= render 'layouts/errors', object: @interview %>
 
-<%= simple_form_for([@job,@interview], html: { class: 'form-horizontal' }, url: job_interview_path(@job, @interview)) do |f| %>
+<%= simple_form_for(([@job,@interview]), html: { class: 'form-horizontal' }) do |f| %>
     <div class="form-group">
       <%= f.label :interview_date, "Date", class: "col-xs-12 col-sm-2"%>
       <div class="input-group col-xs-8 col-sm-6">
@@ -27,6 +27,7 @@
 
   <div class="form-group">
     <%= f.association :contacts, as: :check_boxes, collection: @contacts, label_method: :first_name %>
+    <%= f.label :contacts, "Interviewers" %>
   </div>
 
   <%= f.hidden_field :job_id, :value => @job.id %>
