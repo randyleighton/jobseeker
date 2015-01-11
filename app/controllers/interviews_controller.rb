@@ -11,11 +11,12 @@ class InterviewsController < ApplicationController
 
   def new
     @interview = Interview.new
-    @contacts = Contact.all.where(user_id: current_user.id)
-    @contact = @interview.contacts.new
+    @contacts = Contact.all.where(user_id: current_user.id).where(company_id: @company.id)
+
   end
 
   def create
+    @contacts = Contact.all.where(user_id: current_user.id).where(company_id: @company.id)
     @interview = Interview.create(interview_params)
     if @interview.valid?
       redirect_to company_job_path(@company, @job), notice: "Interview on #{@interview.interview_date.strftime("%m/%d/%Y")} created."
@@ -27,14 +28,16 @@ class InterviewsController < ApplicationController
   end
 
   def show
-    #remove to start rework of multiple interviewers
-    # if @interview.contact_id
-    #   @contact = Contact.find(@interview.contact_id)
-    # end
+  end
+
+  def edit
+    @contacts = @interview.contacts
   end
 
   def update
-    if @interview.update_attributes(interview_params)
+    @contacts = Contact.all.where(user_id: current_user.id).where(company_id: @company.id)
+    @interview.update_attributes(interview_params)
+    if @interview.valid?
       redirect_to company_job_path(@company,@job), notice: "Interview on #{@interview.interview_date.strftime("%m/%d/%Y")} updated."
     else
       render job_interview_path(@interview), alert: "Failed to Update."
@@ -62,7 +65,7 @@ class InterviewsController < ApplicationController
   end
 
   def interview_params
-    params.require(:interview).permit(:interview_date, :interview_time, :notes, :job_id, :user_id, :contact_id)
+    params.require(:interview).permit(:interview_date, :interview_time, :notes, :job_id, :user_id, contact_ids: [])
   end
 
   def not_found
