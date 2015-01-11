@@ -1,7 +1,13 @@
 <% content_for(:title, "Followups") %>
 
+<ol class="breadcrumb">
+  <li><%= link_to "Home", root_path %></li>
+  <li><%= link_to "Company", company_path(@company) %></li>
+  <li class="active"><i class="fa fa-hand-o-right"></i> Follow Up</li>
+</ol>
+
 <div class="row col-pads">
-  <h3>Followup Details</h3>
+  <h3>Follow Up Details</h3>
   <p><b>Company: </b><%= link_to "#{@company.name}", company_path(@company) %></p>
   <p><b>Action Taken: </b><%= @followup.action %></p>
   <p><b>Action Date </b><%= l @followup.action_date, format: :long %></p>
@@ -9,7 +15,6 @@
 </div>
 
 <div class="margin-top row col-pads">
-  
   <div class="show-edit-del">
     <%= link_to edit_company_followup_path(@company, @followup),title:"Edit Reminder Details" do %>
       <%= image_tag("edit.png") %>
@@ -22,11 +27,4 @@
       <p>Delete</p>
     <% end %>
   </div>
-  <div class="show-edit-del">
-  <%= link_to company_path(@company), title:"Back" do %>
-    <%= image_tag("navigation.png") %>
-     <p>Back</p>
-  <% end %>
-  </div>
-
 </div>
