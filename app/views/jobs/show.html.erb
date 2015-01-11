@@ -1,5 +1,11 @@
 <% content_for(:title, "Job Applications") %>
 
+<ol class="breadcrumb">
+  <li><%= link_to "Home", root_path %></li>
+  <li><%= link_to "Company", company_path(@company) %></li>
+  <li class="active">Job Application</li>
+</ol>
+
 <div class="row show-header-box">
   <div class="col-xs-12 col-sm-7 show-header-title">
     <h2><span class="black-span">Job:</span> <%= @job.description %></h2>

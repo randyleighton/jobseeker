@@ -1,5 +1,11 @@
 <% content_for(:title, "Contacts") %>
 
+<ol class="breadcrumb">
+  <li><%= link_to "Home", root_path %></li>
+  <li><%= link_to "Company", company_path(@company) %></li>
+  <li class="active">Contact</li>
+</ol>
+
 <div class="row col-pads">
   <h3><%= @contact.first_name + " " + @contact.last_name %></h3>
   <p><b>Company: </b><%= link_to @contact.company.name, company_path(@contact.company),title:"View #{@contact.company.name}" %></p>
