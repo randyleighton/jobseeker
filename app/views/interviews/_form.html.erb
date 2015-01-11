@@ -1,21 +1,21 @@
 <%= render 'layouts/errors', object: @interview %>
 
-<%= form_for(@interview, html: { class: 'form-horizontal' }, url: job_interviews_path(@job, @interview)) do |f| %>
-    <div class="form-group">
-      <%= f.label :interview_date, "Date", class: "col-xs-12 col-sm-2"%>
-      <div class="input-group col-xs-8 col-sm-6">
-        <span class="input-group-addon"><i class="fa fa-calendar fa-fw form-fa"></i></span>
-        <%= f.date_field :interview_date, :autofocus=>true, class: 'form-control' %>
-      </div>
+<%= simple_form_for(([@job,@interview]), html: { class: 'form-horizontal' }) do |f| %>
+  <div class="form-group">
+    <%= f.label :interview_date, "Date", class: "col-xs-12 col-sm-2"%>
+    <div class="input-group col-xs-8 col-sm-6">
+      <span class="input-group-addon"><i class="fa fa-calendar fa-fw form-fa"></i></span>
+      <%= f.date_field :interview_date, :autofocus=>true, class: 'form-control' %>
     </div>
+  </div>
 
-    <div class="form-group">
-        <%= f.label :interview_time, "Time", class: "col-xs-12 col-sm-2"%>
-      <div class="input-group col-xs-8 col-sm-6">
-        <span class="input-group-addon"><i class="fa fa-calendar fa-fw form-fa"></i></span>
-        <%= f.time_field :interview_time, class: 'form-control' %>
-      </div>
+  <div class="form-group">
+      <%= f.label :interview_time, "Time", class: "col-xs-12 col-sm-2"%>
+    <div class="input-group col-xs-8 col-sm-6">
+      <span class="input-group-addon"><i class="fa fa-calendar fa-fw form-fa"></i></span>
+      <%= f.time_field :interview_time, class: 'form-control' %>
     </div>
+  </div>
 
   <div class="form-group">
       <%= f.label :notes, "Notes", class: "col-xs-12 col-sm-2"%>
@@ -25,13 +25,8 @@
     </div>
   </div>
 
- 
-
-  <div class="form-group">
-    <% @contacts.each do |contact| %>
-      <%= check_box_tag 'interview[contact_ids][]', contact.id, @interview.contacts.include?(contact), dom_id(contact) %>
-      <%= label_tag dom_id(contact), contact.full_name, class: "check_box_label" %>
-    <% end %>
+  <div class="form-group col-xs-12">
+    <%= f.association :contacts, as: :check_boxes, collection: @contacts, label_method: :full_name, label_html:{ class: "checkbox cardinal-bold" }, label: "Interviewers" %>
   </div>
 
   <%= f.hidden_field :job_id, :value => @job.id %>
