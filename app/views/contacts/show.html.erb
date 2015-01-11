@@ -16,7 +16,6 @@
 </div>
 
 <div class="margin-top row col-pads">
-  
   <div class="show-edit-del">
     <%= link_to edit_company_contact_path(@contact.company, @contact),title:"Edit Contact Details" do %>
       <%= image_tag("edit.png") %>
@@ -29,11 +28,4 @@
       <p>Delete</p>
     <% end %>
   </div>
-  <div class="show-edit-del">
-  <%= link_to company_path(@company),title:"Back to Company" do %>
-    <%= image_tag("navigation.png") %>
-     <p>Back</p>
-  <% end %>
-  </div>
-
 </div>

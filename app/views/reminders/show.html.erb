@@ -14,7 +14,6 @@
 </div>
 
 <div class="margin-top row col-pads">
-  
   <div class="show-edit-del">
     <%= link_to edit_company_reminder_path(@company, @reminder),title:"Edit Reminder Details" do %>
       <%= image_tag("edit.png") %>
@@ -27,11 +26,4 @@
       <p>Delete</p>
     <% end %>
   </div>
-  <div class="show-edit-del">
-  <%= link_to company_path(@company), title:"Back" do %>
-    <%= image_tag("navigation.png") %>
-     <p>Back</p>
-  <% end %>
-  </div>
-
 </div>
