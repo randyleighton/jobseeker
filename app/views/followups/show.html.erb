@@ -1,7 +1,13 @@
 <% content_for(:title, "Followups") %>
 
+<ol class="breadcrumb">
+  <li><%= link_to "Home", root_path %></li>
+  <li><%= link_to "Company", company_path(@company) %></li>
+  <li class="active">Follow Up</li>
+</ol>
+
 <div class="row col-pads">
-  <h3>Followup Details</h3>
+  <h3>Follow Up Details</h3>
   <p><b>Company: </b><%= link_to "#{@company.name}", company_path(@company) %></p>
   <p><b>Action Taken: </b><%= @followup.action %></p>
   <p><b>Action Date </b><%= l @followup.action_date, format: :long %></p>
