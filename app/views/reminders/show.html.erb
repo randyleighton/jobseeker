@@ -1,5 +1,11 @@
 <% content_for(:title, "Reminders") %>
 
+<ol class="breadcrumb">
+  <li><%= link_to "Home", root_path %></li>
+  <li><%= link_to "Company", company_path(@company) %></li>
+  <li class="active "><i class="fa fa-hand-o-right"></i> Reminder</li>
+</ol>
+
 <div class="row col-pads">
   <h3>Reminder Details</h3>
   <p><b>Company: </b><%= link_to "#{@company.name}", company_path(@company) %></p>

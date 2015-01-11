@@ -1,5 +1,12 @@
 <% content_for(:title, "Job Interviews") %>
 
+<ol class="breadcrumb">
+  <li><%= link_to "Home", root_path %></li>
+  <li><%= link_to "Company", company_path(@company) %></li>
+  <li><%= link_to "Job Application", company_job_path(@company, @job) %>
+  <li class="active "><i class="fa fa-hand-o-right"></i> Interview</li>
+</ol>
+
 <div class="row col-pads">
   <h4>Interview Details</h4>
   <p><b>Company: </b><%= link_to "#{@company.name}", company_path(@company),title:"View #{@company.name}" %></p>
