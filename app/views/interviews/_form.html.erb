@@ -1,6 +1,6 @@
 <%= render 'layouts/errors', object: @interview %>
 
-<%= simple_form_for(@interview, html: { class: 'form-horizontal' }, url: job_interviews_path(@job, @interview)) do |f| %>
+<%= simple_form_for([@job,@interview], html: { class: 'form-horizontal' }, url: job_interview_path(@job, @interview)) do |f| %>
     <div class="form-group">
       <%= f.label :interview_date, "Date", class: "col-xs-12 col-sm-2"%>
       <div class="input-group col-xs-8 col-sm-6">
