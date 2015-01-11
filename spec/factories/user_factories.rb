@@ -38,7 +38,6 @@ FactoryGirl.define do
     interview_date "2014/12/14"
     interview_time "00:38:07 -0800"
     user_id 1
-    contact_id 1
   end
 
   factory :response do
