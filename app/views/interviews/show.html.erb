@@ -7,6 +7,11 @@
   <p><b>Date Scheduled: </b><%= @interview.interview_date.strftime("%m/%d/%Y") %></p>
   <p><b>Time Scheduled: </b><%= @interview.interview_time.strftime("%I:%M %p") %></p>
   <p><b>Notes: </b><%=@interview.notes %></p>
+  <p><b>Interviewers: </b></p>
+  <% @interview.contacts.each do |interviewer| %>
+    <p><%= link_to "<i class='fa fa-user -fa-fw but-pri'></i> #{interviewer.full_name}".html_safe, company_contact_path(@company, interviewer) %></p>
+  <% end %>
+
   <br>
 </div>
 
