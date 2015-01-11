@@ -2,6 +2,7 @@ class InterviewsController < ApplicationController
   before_filter :authenticate_user!
   before_filter :find_interview, except: [:index,:new, :create]
   before_filter :find_job, except: [:index]
+  before_filter :find_company, except: [:index]
   # rescue_from ActiveRecord::RecordNotFound, with: :not_found
 
   def index
@@ -10,11 +11,11 @@ class InterviewsController < ApplicationController
 
   def new
     @interview = Interview.new
-    @company = Company.find(@job.company_id)
+    @contacts = Contact.all.where(user_id: current_user.id)
+    @contact = @interview.contacts.new
   end
 
   def create
-    @company = Company.find(@job.company_id)
     @interview = Interview.create(interview_params)
     if @interview.valid?
       redirect_to company_job_path(@company, @job), notice: "Interview on #{@interview.interview_date.strftime("%m/%d/%Y")} created."
@@ -26,8 +27,6 @@ class InterviewsController < ApplicationController
   end
 
   def show
-    @company = Company.find(@job.company_id)
-
     #remove to start rework of multiple interviewers
     # if @interview.contact_id
     #   @contact = Contact.find(@interview.contact_id)
@@ -35,7 +34,6 @@ class InterviewsController < ApplicationController
   end
 
   def update
-    @company = Company.find(@job.company_id)
     if @interview.update_attributes(interview_params)
       redirect_to company_job_path(@company,@job), notice: "Interview on #{@interview.interview_date.strftime("%m/%d/%Y")} updated."
     else
@@ -46,7 +44,6 @@ class InterviewsController < ApplicationController
   def destroy
     @interview.destroy
     flash[:notice]="Interview on #{@interview.interview_date.strftime("%m/%d/%Y")} deleted"
-    @company = Company.find(@job.company_id)
     redirect_to company_job_path(@company, @job)
   end
 
@@ -58,6 +55,10 @@ class InterviewsController < ApplicationController
 
   def find_job
     @job = Job.find(params[:job_id])
+  end
+
+  def find_company
+    @company = Company.find(@job.company_id)
   end
 
   def interview_params

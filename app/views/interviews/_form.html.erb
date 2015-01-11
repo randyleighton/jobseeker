@@ -25,6 +25,13 @@
     </div>
   </div>
 
+  <div class="form-group">
+    <% for contact in @contacts %>
+      <%= check_box_tag 'interview[contact_ids][]', contact.id, @interview.contacts.include?(contact_id) %>
+      <%= label_tag dom_id(contact), contact.full_name, class: "check_box_label" %>
+    <% end %>
+  </div>
+
   <%= f.hidden_field :job_id, :value => @job.id %>
   <%= f.hidden_field :user_id, :value => current_user.id %>
 
