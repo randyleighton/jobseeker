@@ -66,6 +66,8 @@ Navigation
 --------------------*/
 .breadcrumb {
   background-color: transparent;
+  margin-bottom: 0 !important;
+  font-size: 1.1em;
 }
 
 .navbar {
@@ -478,7 +480,7 @@ overflow: hidden;
   background-color: $button-sec;
   @include rounded-corners(.4em);
   @include shadowed-corners(rgba(0,0,0,.10));
-  margin: 1em 0;
+  margin: 0 0 1em 0;
   padding: 1em;
 }
 
