@@ -1,44 +1,46 @@
-<% content_for(:title, "Job Interview") %>
-
 <%= render 'layouts/errors', object: @interview %>
-<%= form_for(@interview, html: { class: 'form-horizontal' }, url: job_interview_path(@job, @interview)) do |f| %>
 
-  <div class="form-group">
-      <%= f.label :interview_date, "Interview Date", class: "col-xs-12 col-sm-2"%>
+<%= form_for(@interview, html: { class: 'form-horizontal' }, url: job_interviews_path(@job, @interview)) do |f| %>
+  <% if !@interview.interview_date %>
+    <div class="form-group">
+      <%= f.label :interview_date, "Date", class: "col-xs-12 col-sm-2"%>
       <div class="input-group col-xs-8 col-sm-6">
         <span class="input-group-addon"><i class="fa fa-calendar fa-fw form-fa"></i></span>
         <%= f.date_field :interview_date, :autofocus=>true, class: 'form-control' %>
+      </div>
     </div>
-  </div>
+  <% end %>
 
+<% if !@interview.interview_time %>
     <div class="form-group">
-      <%= f.label :interview_time, "Interview Time", class: "col-xs-12 col-sm-2"%>
+        <%= f.label :interview_time, "Time", class: "col-xs-12 col-sm-2"%>
       <div class="input-group col-xs-8 col-sm-6">
         <span class="input-group-addon"><i class="fa fa-calendar fa-fw form-fa"></i></span>
         <%= f.time_field :interview_time, class: 'form-control' %>
       </div>
     </div>
+  <% end %>
 
   <div class="form-group">
-    <%= f.label :notes, "Notes", class: "col-xs-12 col-sm-2"%>
+      <%= f.label :notes, "Notes", class: "col-xs-12 col-sm-2"%>
     <div class="input-group col-xs-11 col-sm-9">
       <span class="input-group-addon"><i class="fa fa-book fa-fw form-fa"></i></span>
-      <%= f.text_area :notes, class: 'form-control' %>
+      <%= f.text_area :notes, size: "100%x8%", class: 'form-control' %>
     </div>
   </div>
 
-  <%= f.hidden_field :user_id, :value => current_user.id %>
-  <%= f.hidden_field :job_id, :value => @job.id %>
-
   <div class="form-group">
-      <%= f.label :contact_id, "Interviewer", class: "col-xs-12 col-sm-2"%>
-    <div class="col-xs-3 col-sm-4">
+      <%= f.label :contact_id, "Interviewer", class: "col-xs-2 col-sm-2"%>
+    <div class="col-xs-3 col-sm-3">
       <%= f.collection_select :contact_id, @company.contacts, :id, :full_name, prompt: true, class: 'form-select' %>
     </div>
   </div>
 
- 	<div class="form-group">
-    <div class="col-xs-12 col-sm-offset-2">
+  <%= f.hidden_field :job_id, :value => @job.id %>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-9">
       <%= render 'layouts/submit', form_type: "Interview", object: @interview, f: f %>
     </div>
   </div>

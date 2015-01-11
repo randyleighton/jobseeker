@@ -11,9 +11,9 @@ describe "feedback mailer" do
       expect(feedback_message.from).to eq(["postmaster@sandbox125040c2263144c7a0c152df1aedc874.mailgun.org"])
     end
 
-    it "send the user a confimation email" do
+    it "send the user a feedback confimation email" do
       expect(feedback_confirmation.subject).to eq("Your feedback to The Jobseeker")
-      expect(feedback_confirmation.to).to eq([user.email])
+      expect(feedback_confirmation.to).to eq([feedback.sender_email])
       expect(feedback_confirmation.from).to eq(["postmaster@sandbox125040c2263144c7a0c152df1aedc874.mailgun.org"])
     end
 

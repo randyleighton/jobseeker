@@ -435,10 +435,6 @@ span.enter-home-2 {
   }
 }
 
-.rulers {
-  color: black;
-}
-
 .web-links {
 overflow: hidden;
 }
@@ -516,6 +512,14 @@ overflow: hidden;
 /* FA icons for forms*/
 .form-fa {
   color: $boot-blue;
+}
+
+.rulers {
+  color: black;
+}
+
+.but-pri {
+  color: $button-pri;
 }
 
 

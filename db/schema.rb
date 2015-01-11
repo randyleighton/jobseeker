@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150106183723) do
+ActiveRecord::Schema.define(version: 20150109222334) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,14 @@ ActiveRecord::Schema.define(version: 20150106183723) do
 
   add_index "contacts", ["company_id"], name: "index_contacts_on_company_id", using: :btree
 
+  create_table "contacts_interviews", force: :cascade do |t|
+    t.integer "contact_id"
+    t.integer "interview_id"
+  end
+
+  add_index "contacts_interviews", ["contact_id"], name: "index_contacts_interviews_on_contact_id", using: :btree
+  add_index "contacts_interviews", ["interview_id"], name: "index_contacts_interviews_on_interview_id", using: :btree
+
   create_table "feedbacks", force: :cascade do |t|
     t.string   "subject"
     t.text     "body"
@@ -79,7 +87,6 @@ ActiveRecord::Schema.define(version: 20150106183723) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
-    t.integer  "contact_id"
     t.time     "interview_time"
   end
 
@@ -147,4 +154,6 @@ ActiveRecord::Schema.define(version: 20150106183723) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "contacts_interviews", "contacts"
+  add_foreign_key "contacts_interviews", "interviews"
 end
