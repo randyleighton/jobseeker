@@ -16,7 +16,7 @@
       <%= f.label :url, "Website", class: "col-sm-3 control-label"%>
     <div class="input-group col-xs-12 col-sm-6">
         <span class="input-group-addon"><i class="fa fa-globe fa-fw form-fa"></i></span>
-      <%= f.text_field :url, placeholder: "Enter the website address",class: 'form-control' %>
+      <%= f.url_field :url, placeholder: "Enter the website address",class: 'form-control' %>
     </div>
   </div>  
 
@@ -32,7 +32,7 @@
       <%= f.label :email, "Email", class: "col-sm-3 control-label"%>
     <div class="input-group col-xs-12 col-sm-6">
         <span class="input-group-addon"><i class="fa fa-envelope fa-fw form-fa"></i></span>
-      <%= f.text_field :email, placeholder: "example: recruiting@company.com",class: 'form-control' %>
+      <%= f.email_field :email, placeholder: "example: recruiting@company.com",class: 'form-control' %>
     </div>
   </div>
 
