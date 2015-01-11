@@ -26,7 +26,7 @@
   </div>
 
   <div class="form-group col-xs-12">
-    <%= f.association :contacts, as: :check_boxes, collection: @contacts, label_method: :full_name, label_html:{ class: "checkbox cardinal-bold" }, label: "Interviewers" %>
+    <%= f.association :contacts, as: :check_boxes, collection: @contacts, label_method: :full_name, label_html:{ class: "checkbox cardinal-bold" }, label: "Interviewer(s)" %>
   </div>
 
   <%= f.hidden_field :job_id, :value => @job.id %>
