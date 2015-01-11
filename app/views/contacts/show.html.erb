@@ -1,5 +1,11 @@
 <% content_for(:title, "Contacts") %>
 
+<ol class="breadcrumb">
+  <li><%= link_to "Home", root_path %></li>
+  <li><%= link_to "Company", company_path(@company) %></li>
+  <li class="active"><i class="fa fa-hand-o-right"></i> Contact</li>
+</ol>
+
 <div class="row col-pads">
   <h3><%= @contact.first_name + " " + @contact.last_name %></h3>
   <p><b>Company: </b><%= link_to @contact.company.name, company_path(@contact.company),title:"View #{@contact.company.name}" %></p>
@@ -10,7 +16,6 @@
 </div>
 
 <div class="margin-top row col-pads">
-  
   <div class="show-edit-del">
     <%= link_to edit_company_contact_path(@contact.company, @contact),title:"Edit Contact Details" do %>
       <%= image_tag("edit.png") %>
@@ -23,11 +28,4 @@
       <p>Delete</p>
     <% end %>
   </div>
-  <div class="show-edit-del">
-  <%= link_to company_path(@company),title:"Back to Company" do %>
-    <%= image_tag("navigation.png") %>
-     <p>Back</p>
-  <% end %>
-  </div>
-
 </div>

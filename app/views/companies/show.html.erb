@@ -1,5 +1,11 @@
 <% content_for(:title, "Companies") %>
 
+<ol class="breadcrumb">
+  <li><%= link_to "Home", root_path %></li>
+  <li class="active"><i class="fa fa-hand-o-right"></i> Company</li>
+</ol>
+
+
 <div class="row show-header-box">
   <div class="col-xs-12 col-sm-6 show-header-title">
     <h2><span class="show-head"> <%= @company.name %></span> <%= button_tag("<i id='iconChange'class='fa fa-chevron-down'> Company Info </i>".html_safe ,id:"view-comp-info-btn",type:'button',class: "btn btn-default btn-nofloat",title:'View Company Information') %>
@@ -86,12 +92,6 @@
         <%= image_tag("trash-holiday.png") %>
         <p>Delete</p>
       <% end %>
-    </div>
-    <div class="show-edit-del">
-    <%= link_to root_path, title: "Home Page", alt: "Home Page" do %>
-      <%= image_tag("navigation.png") %>
-       <p>Home</p>
-    <% end %>
     </div>
   </div>
 </div>
