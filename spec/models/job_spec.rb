@@ -9,9 +9,10 @@ describe Job do
   let!(:date_prev) { date_prev = DateTime.now - 10 }
   let!(:date_future) { date_future = DateTime.now + 10 }
 
+  let!(:job) { FactoryGirl.create(:job) }
+
   describe "scope testing" do
     it "should display the number of jobs passed into scope" do
-      job = FactoryGirl.create(:job)
       job2 = FactoryGirl.create(:job)
       expect(Job.all).to eq [job,job2]
       expect(Job.recent(1)).to eq [job]
@@ -20,15 +21,12 @@ describe Job do
 
   describe "text styling" do
     it "should titleize all the words in the description" do
-      job = FactoryGirl.create(:job)
       expect(job.description).to eq "Ruby Rails Developer"
     end
     it "should downcase and titleize the location" do
-      job = FactoryGirl.create(:job)
       expect(job.location).to eq "Portland, Or"
     end
     it "should downcase the posting_url" do
-      job = FactoryGirl.create(:job)
       expect(job.posting_url).to eq "http://www.code.com"
     end
   end
@@ -39,25 +37,25 @@ describe Job do
                          location: "Bend, OR", posting_url: "www.abc.com"})
       job2 = Job.create({description: "Rails Ruby Dev", application_date: "12/5/2014", 
                          location: "Portland, OR", posting_url: "www.abc.com"})
-      expect(Job.order_by).to eq [job2, job1]
+      expect(Job.order_by).to eq [job2, job1, job]
     end
 
     it "should allow job applications to be created now or prior" do
-      job = FactoryGirl.create(:job, application_date: date_prev)
-      job2 = FactoryGirl.create(:job, application_date: date_now)
-      expect(job.application_date).to be <= date_now
-      expect(job2.application_date).to be <= date_now
+      job_prev = FactoryGirl.create(:job, application_date: date_prev)
+      job_now = FactoryGirl.create(:job, application_date: date_now)
+      expect(job_prev.application_date).to be <= date_now
+      expect(job_now.application_date).to be <= date_now
     end
 
     it "should not allow job applications to be created in the future" do
-      job = FactoryGirl.build(:job, application_date: date_future)
-      expect(job.save).to eq false
+      job_fut = FactoryGirl.build(:job, application_date: date_future)
+      expect(job_fut.save).to eq false
     end
   end
 
   it "should have an open or closed status" do
-    job = FactoryGirl.create(:job, status:"closed")
-    expect(Job.all).to eq [job]
+    job1 = FactoryGirl.create(:job, status:"closed")
+    expect(job1.status).to eq "Closed"
   end
   it "should be unique to a user" do
     user = FactoryGirl.create(:user)
@@ -81,10 +79,16 @@ describe Job do
   end
 
   it "should add 'http://' to job.posting_url if missing" do
-      job = FactoryGirl.create(:job, posting_url: "www.yahoo.com")
-      expect(job.posting_url).to eq 'http://www.yahoo.com'
+      job1 = FactoryGirl.create(:job, posting_url: "www.yahoo.com")
+      expect(job1.posting_url).to eq 'http://www.yahoo.com'
   end
 
+  it "should display only open jobs when calling .open" do
+    job.update_attributes(status: "open")
+    job2 = FactoryGirl.create(:job, status: "closed")
+    job3 = FactoryGirl.create(:job, status: "open")
+    expect(Job.all.by_status).to eq [job1,job3]
+  end
 
 end
 
