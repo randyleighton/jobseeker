@@ -84,10 +84,10 @@ describe Job do
   end
 
   it "should display only open jobs when calling .open" do
-    job.update_attributes(status: "open")
+    job.update_attributes(status: "Open")
     job2 = FactoryGirl.create(:job, status: "closed")
-    job3 = FactoryGirl.create(:job, status: "open")
-    expect(Job.all.by_status).to eq [job1,job3]
+    job3 = FactoryGirl.create(:job, status: "Open")
+    expect(Job.all.by_status("Open")).to eq [job,job3]
   end
 
 end
