@@ -5,9 +5,15 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+User.destroy_all
+Company.destroy_all
+Job.destroy_all
+Contact.destroy_all
+Response.destroy_all
+Interview.destroy_all
+p "Cleaned database completely."
 
 user1 = User.create(email: "randyleighton@yahoo.com", username:"Randy", password: "test1234")
-
 company1 = Company.create(name: "Coding Academy", url:"www.code.com", comments:"coding company", user_id: user1.id)
 company2 = Company.create(name: "Dogma Coders", url: "www.dogma.com", comments:"only the best", user_id: user1.id)
 job1 = Job.create(description: "Ruby Rails Developer", location: "Portland, OR", company_id: company2.id,
@@ -19,4 +25,4 @@ response1 = Response.create(notes: "We want to interview you", response_date: Da
                             user_id: user1.id, contact_id: contact1.id)
 interview1 = Interview.create(interview_date: DateTime.now+5, notes: "Interview with the VP", 
                                interview_time: "12:00 PM", job_id: job1.id, user_id: user1.id)
-
+p "Created #{Company.count} Companies, #{Job.count} jobs, #{Contact.count} Contacts, #{Response.count} Responses, #{Interview.count} Interviews"
