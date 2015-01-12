@@ -12,6 +12,7 @@ class Job < ActiveRecord::Base
 
   scope :order_by, ->{ order(created_at: :desc)}
   scope :recent, ->(max){ limit(max) }
+  scope :by_status,->(status){ where(status: status) }
 
   before_save :text_style
   before_save :external_link
