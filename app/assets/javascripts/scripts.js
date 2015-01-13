@@ -21,7 +21,7 @@ $(document).ready(function() {
     $('#view-comp-info-btn').blur();
   });
 
-  $('enter-home-1').click(function() {
+  $('.enter-home-1').click(function() {
     $(this).blur();
   }) 
 
