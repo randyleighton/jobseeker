@@ -59,12 +59,8 @@ height: auto;
 }
 
 .guest-style {
-  color: $button-sec;
-  text-shadow: 0 .5px 0 #000;
-  &:hover {
-      color: $cardinal;
-  }
 }
+
 .r1 {
   padding: 1em;
   background-color: white;
