@@ -22,7 +22,7 @@ $(document).ready(function() {
   });
 
   $('enter-home-1').click(function() {
-    $(this).css('background-color','transparent')
+    $(this).blur();
   }) 
 
 });
