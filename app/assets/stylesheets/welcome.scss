@@ -59,12 +59,15 @@ height: auto;
 }
 
 .guest-style {
-  color: $button-sec;
-  text-shadow: 0 .5px 0 #000;
+  background: -webkit-radial-gradient(circle, $button-sec, $button-pri) !important;
+  margin-bottom: 10px !important;
   &:hover {
-      color: $cardinal;
+    background: -webkit-radial-gradient(circle, $button-pri, $button-sec) !important;
+    color: $cardinal !important;
+    text-shadow: 0 1px 1px black;
   }
 }
+
 .r1 {
   padding: 1em;
   background-color: white;
