@@ -24,12 +24,8 @@
 /* Responsive Media Queries */
 @media screen and (max-width: 768px) {
   body { padding-top: 5px; }
-  .input-group {
-    // padding: 0px 20px !important;
-  }
-  .offset3 {
-    padding: 0 15px;
-  }
+  .offset3 { padding: 0 15px; }
+  .home-p { font-size: 1.3em; }
 }
 
 @media screen and (max-width: 480px) {
@@ -38,16 +34,13 @@
     margin: 0 auto;
     border-bottom: 1px solid $mercury;
   }
-  .show-header-title h2 { 
-    font-size: 1.5em;
-  }
+  .show-header-title h2 { font-size: 1.5em; }
 }
 
 @media screen and ( min-width: 768px) {
-  .col-sm-offset-4 {
-    padding-left: 0px;
-  }
+  .col-sm-offset-4 { padding-left: 0px; }
 }
+
 
 /*----------------------------- 
 global css entire program
@@ -545,5 +538,7 @@ overflow: hidden;
   margin-left: 0px !important;
   margin-right: 0px !important;
 }
-
+.home-p {
+  font-size: 1.1em;
+}
 

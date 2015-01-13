@@ -11,7 +11,7 @@
 				<% @interviews.each do |interview| %>
 					<% job = Job.find(interview.job_id) %>
 					<% if interview.interview_date >= DateTime.now %>
-					<p><%= link_to "#{interview.interview_date.strftime("%A, %b %d")} - #{interview.interview_time.strftime("%I:%M %p")}", job_interview_path(job,interview), title: "View Interview on #{interview.interview_date.to_formatted_s(:short)}", class: "companies-all" %></p>
+					<p><%= link_to "#{interview.interview_date.strftime("%A, %b %d")} - #{interview.interview_time.strftime("%I:%M %p")}", job_interview_path(job,interview), title: "View Interview on #{interview.interview_date.to_formatted_s(:short)}", class: "home-p" %></p>
 					<% end %>
 				<% end -%>
 		</div>
@@ -22,7 +22,7 @@
 			<h3><%= content_tag(:i,nil,class: 'fa-reminder fa fa-bell')%>  Reminders: </h3>
 				<% @companies.each do |company| %>
 					<% company.reminders.each do |reminder| %>
-						<p><%= reminder.due_date.to_formatted_s(:short) %>:<%= link_to " #{company.name}: #{reminder.subject}", company_path(company), title:"View Reminder on #{reminder.due_date.to_formatted_s(:short)}" %></p>
+						<p><%= reminder.due_date.to_formatted_s(:short) %>:<%= link_to " #{company.name}: #{reminder.subject}", company_path(company), title:"View Reminder on #{reminder.due_date.to_formatted_s(:short)}", class: "home-p" %></p>
 					<% end %>
 				<% end %>
 		</div>
@@ -36,7 +36,7 @@
 			<h3><%= content_tag(:i,nil,class: 'fa-reminder fa fa-keyboard-o')%> Recent Open Applications:</h3>
 				<% @jobs.each do |job| %>
 					<% company = Company.find(job.company_id) %>
-					<p><%= link_to company_job_path(company, job), class: "companies-all", title: "View Application for #{job.description}" do %>
+					<p><%= link_to company_job_path(company, job), class: "home-p", title: "View Application for #{job.description}" do %>
 							<%= job.description %>
 		        	<%= render 'layouts/job_closed', object: job %>
 		        <% end %>
@@ -48,7 +48,7 @@
 		<div class="index-two">
 			<h3><%= content_tag(:i,nil,class: 'fa-reminder fa fa-building')%>  Recent Companies: </h3>
 				<% @companies.each do |company| %>
-					<p><%= link_to "#{company.name}", company_path(company), class: "companies-all", title:"View #{company.name}" %></p>
+					<p><%= link_to "#{company.name}", company_path(company), class: "home-p", title:"View #{company.name}" %></p>
 				<% end %>
 		</div>
 	</div>
