@@ -25,7 +25,7 @@
         <%= f.label :password, "New Password", class: 'col-xs-12 col-sm-4 control-label'  %>
         <div class="input-group col-xs-12 col-sm-7">
           <span class="input-group-addon"><i class="fa fa-key fa-fw form-fa"></i></span>
-          <%= f.password_field :password, :placeholder => 'Leave blank unless you want to change', autocomplete: "off", class: 'form-control'  %>
+          <%= f.password_field :password, :placeholder => 'Enter new password if changing', autocomplete: "off", class: 'form-control'  %>
         </div>
     </div>
 
@@ -34,7 +34,7 @@
         <%= f.label :password_confirmation, "Confirm Password", class: 'col-xs-12 col-sm-4 control-label' %>
         <div class="input-group col-xs-12 col-sm-7">
           <span class="input-group-addon"><i class="fa fa-key fa-fw form-fa"></i></span>
-          <%= f.password_field :password_confirmation, :placeholder => 'Confirm new password if changing', autocomplete: "off", class: 'form-control'  %>
+          <%= f.password_field :password_confirmation, :placeholder => 'Confirm if changing password', autocomplete: "off", class: 'form-control'  %>
         </div>
     </div>
 
@@ -42,17 +42,17 @@
         <%= f.label :current_password, "Current Password", class: 'col-xs-12 col-sm-4 control-label' %>
         <div class="input-group col-xs-12 col-sm-7">
           <span class="input-group-addon"><i class="fa fa-key fa-fw form-fa"></i></span>
-          <%= f.password_field :current_password, autocomplete: "off", :placeholder => 'Enter current password if you make changes', class: 'form-control' %>
+          <%= f.password_field :current_password, autocomplete: "off", :placeholder => 'Enter if you make changes', class: 'form-control' %>
         </div>
     </div>
 
     <% if current_user.email != "test@test.com" %>
       <div class="form-group">
         <div class="col-xs-12 col-sm-offset-4 col-sm-12">
-          <%= button_tag(type: "submit", class: "btn btn-default float-btn", title: "Update Profile") do %>
+          <%= button_tag(type: "submit", class: "btn btn-default float-btn btn-lg", title: "Update Profile") do %>
             <i class="fa fa-sign-in fa-fw"></i> Update Profile
           <% end %>
-          <%= link_to "<i class='fa fa-arrow-circle-left fa-fw'></i> Cancel".html_safe, :back, class: "btn btn-default float-btn",title:"Cancel" %>
+          <%= link_to "<i class='fa fa-arrow-circle-left fa-fw'></i> Cancel".html_safe, :back, class: "btn btn-default float-btn btn-lg",title:"Cancel" %>
         </div>
       </div>
     <% end %>

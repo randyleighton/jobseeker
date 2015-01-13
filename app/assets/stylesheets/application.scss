@@ -43,6 +43,12 @@
   }
 }
 
+@media screen and ( min-width: 768px) {
+  .col-sm-offset-4 {
+    padding-left: 0px;
+  }
+}
+
 /*----------------------------- 
 global css entire program
 -----------------------------*/
@@ -539,4 +545,5 @@ overflow: hidden;
   margin-left: 0px !important;
   margin-right: 0px !important;
 }
+
 
