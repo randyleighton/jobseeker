@@ -38,11 +38,17 @@
     </div>
 
     <div class="form-group">
-      <div class="col-sm-offset-4 col-sm-7">
-        <%= button_tag(type: "submit", class: "btn btn-default float-btn", title: "Create an Account") do %>
+      <div class="offset3 col-sm-offset-4 col-sm-7">
+        <%= button_tag(type: "submit", class: "btn btn-default float-btn btn-lg btn-block", title: "Create an Account") do %>
           <i class="fa fa-plus fa-fw"></i> Create Account
-        <% end %>      
-        <%= link_to '<i class="fa fa-sign-in fa-fw"></i> Log In'.html_safe, new_session_path(resource_name),class: "btn btn-default float-btn", title: "Log In with Existing Account" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-xs-12">
+        <h4> Already have account?
+          <%= link_to '<i class="fa fa-sign-in fa-fw"></i> Log In'.html_safe, new_session_path(resource_name),class: "btn btn-default", title: "Log In with Existing Account" %>
+        </h4>
       </div>
     </div>
 

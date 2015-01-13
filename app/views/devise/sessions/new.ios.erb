@@ -30,12 +30,18 @@
     </div>
 
     <div class="form-group">
-      <div class="offset3 col-sm-offset-3 col-sm-9">
-        <%= button_tag(type: "submit", class: "btn btn-default float-btn", title: "Log In") do %>
+      <div class="offset3 col-sm-offset-3 col-sm-6">
+        <%= button_tag(type: "submit", class: "btn btn-default float-btn btn-lg btn-block", title: "Log In") do %>
           <i class="fa fa-sign-in fa-fw"></i> Log In
         <% end %>
-        <%= link_to '<i class="fa fa-plus fa-fw"></i> Create a New Account'.html_safe, new_registration_path(resource_name),class: "btn btn-default float-btn", title: "Create a New Account" %>
       </div>
-    </div>  
+    </div>
+    <div class="form-group">
+      <div class="col-xs-12">
+        <h4>Need an account?
+        <%= link_to '<i class="fa fa-plus fa-fw"></i> Create a New Account'.html_safe, new_registration_path(resource_name),class: "btn btn-default", title: "Create a New Account" %>
+        </h4>
+      </div>
+    </div>
   <% end %>
 </div>
