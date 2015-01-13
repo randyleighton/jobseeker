@@ -89,6 +89,7 @@ Navigation
     color: black;
     font-size: 1.2em;
     &:hover {
+      background-color: $button-sec !important;
       color: $cardinal;
     }
   }
@@ -150,6 +151,9 @@ Navigation
   background:image-url("bg-tan.jpg");
   li a {
     color: $cardinal;
+    &:hover {
+      background-color: $button-sec;
+    }
   }
 }
 
