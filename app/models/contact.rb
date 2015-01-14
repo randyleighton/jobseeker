@@ -12,7 +12,7 @@ class Contact < ActiveRecord::Base
   scope :by_last_name, -> {order(:last_name) }
 
   def full_name
-    "#{first_name} #{last_name}"
+    [first_name, last_name].compact.join(' ')
   end
 
 private
