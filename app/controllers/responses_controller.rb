@@ -36,7 +36,7 @@ class ResponsesController < ApplicationController
   end
 
   def update
-    if @response.update_attributes(response_params)
+    if @response.update(response_params)
       redirect_to job_response_path(@job, @response), notice: "Response on #{@response.response_date.strftime("%m/%d/%Y")} updated."
     else
       render 'edit', alert: "Failed to Update."

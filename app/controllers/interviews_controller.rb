@@ -36,7 +36,7 @@ class InterviewsController < ApplicationController
 
   def update
     @contacts = Contact.all.where(user_id: current_user.id).where(company_id: @company.id)
-    @interview.update_attributes(interview_params)
+    @interview.update_(interview_params)
     if @interview.valid?
       redirect_to company_job_path(@company,@job), notice: "Interview on #{@interview.interview_date.strftime("%m/%d/%Y")} updated."
     else

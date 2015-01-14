@@ -38,7 +38,7 @@ class FollowupsController < ApplicationController
   def update
     @context = context
     @followup = context.followups.find(params[:id])
-    if @followup.update_attributes(followup_params)
+    if @followup.update(followup_params)
       redirect_to context_url, notice: "The followup has been updated"
     end
   end
