@@ -12,14 +12,11 @@ Rails.application.routes.draw do
   end
 
   resources :jobs do
-    resources :reminders
     resources :interviews
     resources :responses
   end
 
-  resources :contacts, only: :index do
-    resources :followups
-  end
+  resources :contacts, only: :index
   resources :followups, only: :index
   resources :jobs, only: :index
   resources :interviews, only: :index
