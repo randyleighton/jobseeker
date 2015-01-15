@@ -1,5 +1,6 @@
 describe Account do
 
+
 let(:account1) { FactoryGirl.create(:account) }
 
   it "creates an account" do
@@ -11,5 +12,6 @@ let(:account1) { FactoryGirl.create(:account) }
     account = FactoryGirl.create(:account, account_type: "Twitter", account_info: "@george")
     expect(account.account_info).to eq "@george"
   end
+
 
 end
