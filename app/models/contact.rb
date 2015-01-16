@@ -3,7 +3,8 @@ class Contact < ActiveRecord::Base
   has_many :reminders, as: :rem
   has_many :followups, as: :follow
   has_and_belongs_to_many :interviews
-  has_many :accounts
+  has_many :accounts, dependent: :destroy
+  accepts_nested_attributes_for :accounts
 
   validates :email, :format => { :with => /@/, :message => "Invalid email format" }
   validates_presence_of :first_name, :last_name
