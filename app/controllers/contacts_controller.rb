@@ -10,7 +10,7 @@ class ContactsController < ApplicationController
 
   def new
     @contact = @company.contacts.new
-    @contact.build_account
+    @contact.account.new
   end
 
   def create

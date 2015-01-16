@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20150115233618) do
     t.string  "account_type"
     t.string  "account_info"
     t.integer "contact_id"
+    t.integer "user_id"
   end
 
   create_table "companies", force: :cascade do |t|
