@@ -1,5 +1,6 @@
 describe Account do
 
+it { should belong_to :contact }
 
 let(:account1) { FactoryGirl.create(:account) }
 

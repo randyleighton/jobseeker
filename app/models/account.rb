@@ -1,3 +1,5 @@
 class Account < ActiveRecord::Base
 
+belongs_to :contact
+
 end
