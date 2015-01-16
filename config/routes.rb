@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   end
 
   resources :contacts, only: :index do
-    resources :accounts, only: [:new, :create, :update, :destroy]
+    resources :accounts, only: [:new, :create, :edit, :update, :destroy]
   end
 
   resources :followups, only: :index

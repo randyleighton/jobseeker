@@ -15,6 +15,25 @@ class AccountsController < ApplicationController
     end
   end
 
+  def edit
+    @account = @contact.accounts.find(params[:id])
+  end
+
+  def update
+    @account = @contact.accounts.find(params[:id])
+    if @account.update(account_params)
+      redirect_to @contact, notice:"Created Successfully"
+    else
+      render 'edit', notice: "Failed to Create"
+    end
+  end
+
+  def destroy
+    @account = @contact.accounts.find(params[:id])
+    @account.destroy
+    flash[:notice]="Account removed"
+  end
+
 private
 
   def account_params
