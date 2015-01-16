@@ -37,7 +37,7 @@ class AccountsController < ApplicationController
 private
 
   def account_params
-    params.require(:account).permit(:account_type, :account_info)
+    params.require(:account).permit(:description, :info, :user_id, :contact_id)
   end
 
   def find_contact

@@ -17,8 +17,8 @@ ActiveRecord::Schema.define(version: 20150115233618) do
   enable_extension "plpgsql"
 
   create_table "accounts", force: :cascade do |t|
-    t.string  "account_type"
-    t.string  "account_info"
+    t.string  "description"
+    t.string  "info"
     t.integer "contact_id"
     t.integer "user_id"
   end

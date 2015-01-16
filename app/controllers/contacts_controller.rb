@@ -47,7 +47,7 @@ class ContactsController < ApplicationController
   private
 
   def contact_params
-    params.require(:contact).permit(:first_name, :last_name, :title, :email, :cell_phone, :work_phone, :company_id, :user_id, account_attributes: [:account_type, :account_info, :user_id])
+    params.require(:contact).permit(:first_name, :last_name, :title, :email, :cell_phone, :work_phone, :company_id, :user_id, accounts_attributes: [:description, :info, :user_id, :contact_id] )
   end
 
   def find_company

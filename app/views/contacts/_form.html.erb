@@ -50,21 +50,20 @@
     </div>
   </div>
 
-  <%= f.fields_for :account do |p| %>
-    <%= hidden_field :user_id, value: current_user.id %>
+  <%= f.fields_for :accounts do |p| %>
     <div class="form-group">
-      <%= p.label :account_type, "Account Type", class: 'col-sm-3 control-label' %>
+      <%= p.label :description, "Account Type", class: 'col-sm-3 control-label' %>
       <div class="input-group col-xs-12 col-sm-7">
         <span class="input-group-addon"><i class="fa fa-phone fa-fw form-fa"></i></span>
-      <%= p.text_field :account_type, placeholder: "Linkedin, facebook, twitter, etc", class: 'form-control' %>
+      <%= p.text_field :description, placeholder: "Linkedin, facebook, twitter, etc", class: 'form-control' %>
       </div>
     </div>
 
     <div class="form-group">
-      <%= p.label :account_info, "Account Type", class: 'col-sm-3 control-label' %>
+      <%= p.label :info, "Account Info", class: 'col-sm-3 control-label' %>
       <div class="input-group col-xs-12 col-sm-7">
         <span class="input-group-addon"><i class="fa fa-phone fa-fw form-fa"></i></span>
-      <%= p.text_field :account_info, placeholder: "Linkedin URL, facebook name, twitter, etc", class: 'form-control' %>
+      <%= p.text_field :info, placeholder: "Linkedin URL, facebook name, twitter, etc", class: 'form-control' %>
       </div>
     </div>
   <% end %>
