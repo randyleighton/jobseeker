@@ -25,4 +25,11 @@ $(document).ready(function() {
     $(this).blur();
   }) 
 
+  $('#add-account-btn').click(function(){
+    $('#add-account').toggle();
+    $(this).remove();
+  });
+
+
+
 });

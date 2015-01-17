@@ -10,12 +10,14 @@ class ContactsController < ApplicationController
 
   def new
     @contact = @company.contacts.new
-    @contact.accounts.new
+      @contact.accounts.new
   end
 
   def create
-    @contact = @company.contacts.create(contact_params)
-    if @contact.valid?
+    @contact = @company.contacts.new(contact_params)
+    @contact.accounts.last.user_id = current_user.id if @contact.accounts.last
+    binding.pry
+    if @contact.save
       redirect_to company_path(@company), notice: "#{@contact.first_name} #{@contact.last_name} created."
     else
       render 'new', alert: "Contact could not be created."
