@@ -24,13 +24,19 @@ $(document).ready(function() {
   $('.enter-home-1').click(function() {
     $(this).blur();
   })
-  $('#add-account-btn').click(function(){
-    var cloned = $('.add-account').last().clone();
-    cloned.find('input').each(function() {
-      this.name= this.name.replace('[0]', '['+1+']');
-    });
-    $('#social-account').prepend(cloned);
-  });
+  // $('#add-account-btn').click(function(){
+  //   $('#social-account').append('<%= escape_javascript(render partial: "add_account", object: :accounts, f:f) %>');
+
+  //   // var cloned = $('.add-account').first().clone();
+  //   // var i = 0;
+  //   // cloned.find('input').each(function() {
+  //   //   this.name= this.name.replace('[0]', '['+i+']');
+  //   //   i++;
+  //   //   console.log(i)
+  //   // });
+  //   // $('#social-account').append(cloned);
+
+  // });
 
 
 

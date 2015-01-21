@@ -45,6 +45,14 @@ class ContactsController < ApplicationController
     redirect_to company_path(@company)
   end
 
+  #this is under testing as way of adding accounts in view with ajax
+  def add_account
+    respond.to do |format|
+      format.js 
+    end
+  end
+
+
   private
 
   def contact_params

@@ -17,6 +17,9 @@ Rails.application.routes.draw do
   end
 
   resources :contacts, only: :index do
+    collection do
+      get :add_account
+    end
     resources :accounts, only: [:new, :create, :edit, :update, :destroy]
   end
 
