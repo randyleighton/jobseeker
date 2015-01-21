@@ -25,9 +25,11 @@ $(document).ready(function() {
     $(this).blur();
   })
   $('#add-account-btn').click(function(){
-      var cloned = $('.add-account').last().clone();
-    $('#social-account').prepend(cloned)
-
+    var cloned = $('.add-account').last().clone();
+    cloned.find('input').each(function() {
+      this.name= this.name.replace('[0]', '['+1+']');
+    });
+    $('#social-account').prepend(cloned);
   });
 
 
