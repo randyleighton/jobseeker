@@ -23,11 +23,11 @@ $(document).ready(function() {
 
   $('.enter-home-1').click(function() {
     $(this).blur();
-  }) 
-
+  })
   $('#add-account-btn').click(function(){
-    $('#add-account').toggle();
-    $(this).remove();
+      var cloned = $('.add-account').last().clone();
+    $('#social-account').prepend(cloned)
+
   });
 
 

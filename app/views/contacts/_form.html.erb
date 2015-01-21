@@ -50,27 +50,29 @@
     </div>
   </div>
 
-  <div class="col-sm-offset-3">
-    <%= button_tag(f.object.new_record? ? "<i id='iconChange'class='fa fa-list-alt'> Add Social Account (Optional)</i>".html_safe : "<i id='iconChange'class='fa fa-list-alt'> Update the Social Account</i>".html_safe,id:"add-account-btn",type:'button',class: "btn btn-default btn-nofloat",title:'Click if you want to to add a social media account') %>
-  </div>
+  <h4>Social Media Accounts (Optional)</h4>
 
-  <div id="add-account">
+  <div class="add-account">
     <%= f.fields_for :accounts do |p| %>
       <div class="form-group">
         <%= p.label :description, "Account Type", class: 'col-sm-3 control-label' %>
         <div class="input-group col-xs-12 col-sm-7">
-          <span class="input-group-addon"><i class="fa fa-phone fa-fw form-fa"></i></span>
+          <span class="input-group-addon"><i class="fa fa-globe fa-fw form-fa"></i></span>
           <%= p.text_field :description, placeholder: "Linkedin, facebook, twitter, etc", class: 'form-control' %>
         </div>
       </div>
       <div class="form-group">
         <%= p.label :info, "Account Info", class: 'col-sm-3 control-label' %>
         <div class="input-group col-xs-12 col-sm-7">
-          <span class="input-group-addon"><i class="fa fa-phone fa-fw form-fa"></i></span>
+          <span class="input-group-addon"><i class="fa fa-list fa-fw form-fa"></i></span>
         <%= p.text_field :info, placeholder: "Linkedin URL, facebook name, twitter, etc", class: 'form-control' %>
         </div>
       </div>
     <% end %>
+  </div>
+  <div id="social-account"></div>
+  <div class="col-sm-offset-3">
+    <%= button_tag(f.object.new_record? ? "<i id='iconChange'class='fa fa-list-alt'> Add another Social Account</i>".html_safe : "<i id='iconChange'class='fa fa-list-alt'> Update the Social Account</i>".html_safe,id:"add-account-btn",type:'button',class: "btn btn-default btn-nofloat",title:'Click if you want to to add another social media account') %>
   </div>
 
   <div class="form-group">
