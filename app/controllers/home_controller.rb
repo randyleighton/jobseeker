@@ -3,7 +3,7 @@ class HomeController < ApplicationController
   
 def index
   if current_user
-    @companies = Company.where(user_id:current_user.id).by_name.recent(10)
+    @companies = Company.where(user_id:current_user.id).recent(10).latest
     @interviews = Interview.where(user_id:current_user.id).order_by.recent(10)
     @jobs = Job.where(user_id:current_user.id).order_by.recent(10).by_status("Open")
     @reminders = Reminder.where(user_id: current_user.id).recent(10)

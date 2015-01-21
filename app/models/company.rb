@@ -16,6 +16,7 @@ class Company < ActiveRecord::Base
 
   scope :by_name, ->{ order(:name) }
   scope :recent, ->(max){ limit(max) }
+  scope :latest, -> { order("updated_at DESC") }
 
   before_save :style_text
   before_save :external_link
