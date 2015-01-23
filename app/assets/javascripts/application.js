@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require bootstrap.js
 //= require scripts.js
+//= require cocoon
 //= require_tree .
