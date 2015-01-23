@@ -8,10 +8,7 @@ def index
     @jobs = Job.where(user_id:current_user.id).order_by.recent(10).by_status("Open")
     @reminders = Reminder.where(user_id: current_user.id).recent(10)
   else
-    @companies = Company.none
-    @interviews = Interview.none
-    @jobs = Job.none
-    @reminders = Reminder.none
+    redirect_to root_path
   end
 
 end
