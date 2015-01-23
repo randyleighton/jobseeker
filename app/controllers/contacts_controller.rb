@@ -10,7 +10,7 @@ class ContactsController < ApplicationController
 
   def new
     @contact = @company.contacts.new
-    @contact.accounts.new
+    @accounts = @contact.accounts.new
   end
 
   def create
@@ -49,7 +49,7 @@ class ContactsController < ApplicationController
   private
 
   def contact_params
-    params.require(:contact).permit(:first_name, :last_name, :title, :email, :cell_phone, :work_phone, :company_id, :user_id, accounts_attributes: [:description, :info, :user_id, :contact_id] )
+    params.require(:contact).permit(:first_name, :last_name, :title, :email, :cell_phone, :work_phone, :company_id, :user_id, accounts_attributes: [:id, :_destroy, :description, :info, :user_id, :contact_id] )
   end
 
   def find_company

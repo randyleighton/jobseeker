@@ -6,7 +6,8 @@ class Contact < ActiveRecord::Base
   has_many :accounts, dependent: :destroy
   accepts_nested_attributes_for :accounts, :reject_if => :all_blank, 
                                 :reject_if => proc {|attributes| attributes["description"].nil?},
-                                :reject_if => proc {|attributes| attributes["info"].nil?}, allow_destroy: true;
+                                :reject_if => proc {|attributes| attributes["info"].nil?}, 
+                                allow_destroy: true;
 
   validates :email, :format => { :with => /@/, :message => "Invalid email format" }
   validates_presence_of :first_name, :last_name
