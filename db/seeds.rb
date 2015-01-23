@@ -18,6 +18,8 @@ Response.destroy_all
 print "..."
 Interview.destroy_all
 print "..."
+Account.destroy_all
+print "..."
 puts "Done.".green
 
 # Create New Data
@@ -34,6 +36,7 @@ print "..."
 contact1 = Contact.create(first_name: "George", last_name: "Georgeson", title: "Recruiter", 
                           email:"George@#{company1.name}.com", notes:"this is the one who hires people", 
                           company_id: company1.id, user_id: user1.id)
+account1 = Account.create(contact_id: contact1.id, user_id: user1.id, description: "Linked In", info: "www.linkedin.com/in/george")
 print "..."
 response1 = Response.create(notes: "We want to interview you", response_date: 1.day.ago, job_id: job1.id,
                             user_id: user1.id, contact_id: contact1.id)
@@ -43,5 +46,5 @@ interview1 = Interview.create(interview_date: DateTime.now+5, notes: "Interview 
 print "..."
 puts "Done.".green
 puts "Created " + "#{Company.count}".green + " Companies,".black + " #{Job.count}".green + " jobs,".black + " #{Contact.count}".green + 
-  " Contacts,".black + " #{Response.count}".green + " Responses,".black + " #{Interview.count}".green + " Interviews"
+  " Contacts,".black + " #{Response.count}".green + " Responses,".black + " #{Interview.count}".green + " Interviews,".black + " #{Account.count}".green + " Contact Accounts"
 
