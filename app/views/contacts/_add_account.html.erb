@@ -1,4 +1,4 @@
-<%= f.fields_for object do |p| %>
+<%= f.simple_fields_for object do |p| %>
   <%= p.hidden_field :user_id, :value => current_user.id %>
   <div class="form-group">
     <%= p.label :description, "Account Type", class: 'col-sm-3 control-label' %>

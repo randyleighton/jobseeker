@@ -6,6 +6,7 @@ $(document).ready(function() {
       password.value = "test1234";
     }
   });
+
   setTimeout(function(){
     $('#flash').remove();
   }, 5000);
@@ -23,7 +24,49 @@ $(document).ready(function() {
 
   $('.enter-home-1').click(function() {
     $(this).blur();
-  })
+  });
   
+
+
+  $('#duplicate_nested_form').click(function(event) {
+    event.preventDefault();
+    if ($('.duplicatable_nested_form').length) {
+      nestedForm = $('.duplicatable_nested_form').last().clone()
+    }
+    // console.log(nestedForm);
+
+    var formsOnPage, lastNestedForm, newNestedForm;
+    lastNestedForm = $('.duplicatable_nested_form').last();
+    newNestedForm = $(nestedForm).clone;
+    formsOnPage = $('.duplicatable_nested_form').length;
+
+    console.log(lastNestedForm);
+    console.log(newNestedForm);
+    console.log(formsOnPage);
+
+    $(newNestedForm).find('label').each(function() {
+      var newLabel, oldLabel;
+      oldLabel = $(this).attr('for');
+      newLabel = oldLabel.replace(new RegExp(), "_" + formsOnPage);
+
+      console.log(oldLabel);
+      console.log(newLabel);
+    });
+
+  //   $(this).attr('for', newLabel);
+
+  //   $(newNestedForm).find('select, input').each(function() {
+  //     var newId, newName, oldId, oldName;
+  //     oldId = $(this).attr('id');
+  //     newId = oldId.replace(new RegExp(/_[0-9]+_/), "_" + formsOnPage + "_");
+  //   });
+
+  //   $(this).attr('id', newId);
+  //   oldName = $(this).attr('name');
+  //   newName = oldName.replace(new RegExp(/\[[0-9]+\]/), "[" + formsOnPage + "]");
+  //   $(this).attr('name', newName);
+  //   $(newNestedForm).insertAfter(lastNestedForm);
+
+  });
 
 });

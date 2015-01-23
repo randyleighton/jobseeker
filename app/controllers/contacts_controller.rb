@@ -28,7 +28,7 @@ class ContactsController < ApplicationController
   end
 
   def edit
-
+    @contact.accounts.build
   end
 
   def update
@@ -43,10 +43,6 @@ class ContactsController < ApplicationController
     @contact.destroy
     flash[:notice]="Contact #{@contact.first_name} #{@contact.last_name} deleted"
     redirect_to company_path(@company)
-  end
-
-  def add_account
-
   end
 
 
