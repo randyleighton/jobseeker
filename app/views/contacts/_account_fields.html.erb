@@ -14,8 +14,10 @@
       <span class="input-group-addon"><i class="fa fa-list fa-fw form-fa"></i></span>
     <%= f.text_field :info, placeholder: "Linkedin URL, facebook name, twitter, etc", class: 'form-control' %>
     </div>
+    <div class="col-sm-offset-3">
+      <%= link_to_remove_association 'Remove this Social account', f %>
+    </div>
   </div>
 
-  <%= link_to_remove_association 'Remove this Social account', f %>
 
 </div>
