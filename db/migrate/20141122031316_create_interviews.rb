@@ -4,7 +4,6 @@ class CreateInterviews < ActiveRecord::Migration
       t.date :interview_date
       t.text :notes
       t.belongs_to :job, index: true
-      t.timestamps
     end
   end
 end

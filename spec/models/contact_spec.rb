@@ -4,6 +4,7 @@ describe Contact do
   it { should have_many :reminders }
   it { should have_many :followups }
   it { should have_and_belong_to_many :interviews }
+  it { should have_many :accounts }
 
   let!(:user1) { build(:user) }
   let!(:company) { build(:company)}

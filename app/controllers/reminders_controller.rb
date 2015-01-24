@@ -28,7 +28,7 @@ class RemindersController < ApplicationController
   def update
     @context = context
     @reminder = @context.reminders.find(params[:id])
-    if @reminder.update_attributes(reminder_params)
+    if @reminder.update(reminder_params)
       redirect_to context_url(context), notice: "The reminder has been updated"
     end
   end

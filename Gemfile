@@ -17,6 +17,7 @@ gem 'uglifier'
 gem 'recaptcha'
 gem 'json'
 gem 'httparty'
+gem 'cocoon'
 
 
 group :development do

@@ -1,12 +1,12 @@
 <%= render 'layouts/errors', object: @contact %>
 
-<%= form_for(([@contact.company, @contact]), html: { class: 'form-horizontal' }) do |f| %>
+<%= simple_form_for(([@contact.company, @contact]), html: { class: 'form-horizontal' }) do |f| %>
   <%= f.hidden_field :user_id, :value => current_user.id %>
   <div class="form-group">
     <%= f.label :first_name, "First Name", class: 'col-sm-3 control-label' %>
     <div class="input-group col-xs-12 col-sm-7">
       <span class="input-group-addon"><i class="fa fa-user fa-fw form-fa"></i></span>
-    <%= f.text_field :first_name, class: 'form-control', :autofocus=>true %>
+      <%= f.text_field :first_name, class: 'form-control', :autofocus=>true %>
     </div>
   </div>
 
@@ -14,7 +14,7 @@
     <%= f.label :last_name, "Last Name", class: 'col-sm-3 control-label' %>
     <div class="input-group col-xs-12 col-sm-7">
       <span class="input-group-addon"><i class="fa fa-user fa-fw form-fa"></i></span>
-    <%= f.text_field :last_name, class: 'form-control' %>
+      <%= f.text_field :last_name, class: 'form-control' %>
     </div>
   </div>
 
@@ -22,7 +22,7 @@
     <%= f.label :title, "Title", class: 'col-sm-3 control-label' %>
     <div class="input-group col-xs-12 col-sm-7">
       <span class="input-group-addon"><i class="fa fa-briefcase fa-fw form-fa"></i></span>
-    <%= f.text_field :title, class: 'form-control' %>
+      <%= f.text_field :title, class: 'form-control' %>
     </div>
   </div>
 
@@ -30,7 +30,7 @@
     <%= f.label :email, "Email", class: 'col-sm-3 control-label' %>
     <div class="input-group col-xs-12 col-sm-7">
       <span class="input-group-addon"><i class="fa fa-envelope fa-fw form-fa"></i></span>
-    <%= f.email_field :email, placeholder: "example: john@company.com",class: 'form-control' %>
+      <%= f.email_field :email, placeholder: "example: john@company.com",class: 'form-control' %>
     </div>
   </div>
 
@@ -38,7 +38,7 @@
     <%= f.label :cell_phone, "Cell Phone", class: 'col-sm-3 control-label' %>
     <div class="input-group col-xs-12 col-sm-7">
       <span class="input-group-addon"><i class="fa fa-mobile fa-fw form-fa"></i></span>
-    <%= f.telephone_field :cell_phone, placeholder: "123-456-7890",class: 'form-control' %>
+      <%= f.telephone_field :cell_phone, placeholder: "123-456-7890",class: 'form-control' %>
     </div>
   </div>
 
@@ -46,12 +46,24 @@
     <%= f.label :work_phone, "Work Phone", class: 'col-sm-3 control-label' %>
     <div class="input-group col-xs-12 col-sm-7">
       <span class="input-group-addon"><i class="fa fa-phone fa-fw form-fa"></i></span>
-    <%= f.telephone_field :work_phone, placeholder: "123-456-7890", class: 'form-control' %>
+      <%= f.telephone_field :work_phone, placeholder: "123-456-7890", class: 'form-control' %>
+    </div>
+  </div>
+
+  <h4>Social Media Accounts (Optional)</h4>
+
+  <div id="accounts">
+    <%= f.simple_fields_for :accounts do |account| %>
+      <%= account.hidden_field :user_id, :value => current_user.id %>
+      <%= render 'account_fields', f: account %>
+    <% end %>  
+    <div class="links col-sm-offset-3">
+      <%= link_to_add_association '<i class="fa fa-plus fa-fw"></i> Add Another Social Account'.html_safe, f, :accounts, class: "btn btn-default add-social" %>
     </div>
   </div>
 
   <div class="form-group">
-    <div class="col-sm-offset-3 col-sm-8">
+    <div class="col-sm-offset-3 col-sm-9">
       <%= render 'layouts/submit', form_type: "Contact", object: @contact, f: f %>
     </div>
   </div>

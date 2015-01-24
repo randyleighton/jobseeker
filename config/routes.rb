@@ -12,14 +12,17 @@ Rails.application.routes.draw do
   end
 
   resources :jobs do
-    resources :reminders
     resources :interviews
     resources :responses
   end
 
   resources :contacts, only: :index do
-    resources :followups
+    collection do
+      get :add_account
+    end
+    resources :accounts, only: [:new, :create, :edit, :update, :destroy]
   end
+
   resources :followups, only: :index
   resources :jobs, only: :index
   resources :interviews, only: :index

@@ -69,6 +69,11 @@ FactoryGirl.define do
     notes "George was awesome, we talked a lot"
   end
 
+  factory :account do
+    account_type "Linkedin"
+    account_info "http://www.linkedin.com/in/George"
+  end
+  
 end
 
 

@@ -29,7 +29,7 @@ class JobsController < ApplicationController
   end
 
   def update
-    if @job.update_attributes(job_params)
+    if @job.update(job_params)
       redirect_to company_job_path, notice: "#{@job.description} job application updated."
     else
       render company_job_path(@job), alert: "Failed to Update."

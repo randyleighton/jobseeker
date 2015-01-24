@@ -28,7 +28,7 @@ class CompaniesController < ApplicationController
 	end
 
 	def update
-    if @company.update_attributes(company_params)
+    if @company.update(company_params)
 			redirect_to company_path(@company), notice: "Company: #{@company.name} updated."
 		else
 			render 'edit', alert: "Failed to Update."
