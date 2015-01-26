@@ -15,7 +15,9 @@ class ContactsController < ApplicationController
 
   def create
     @contact = @company.contacts.new(contact_params)
-    @contact.accounts.last.user_id = current_user.id
+    if @contact.accounts.last
+      @contact.accounts.last.user_id = current_user.id
+    end
     if @contact.save
       redirect_to company_path(@company), notice: "#{@contact.first_name} #{@contact.last_name} created."
     else

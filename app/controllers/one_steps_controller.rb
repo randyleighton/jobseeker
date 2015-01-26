@@ -12,7 +12,6 @@ class OneStepsController < ApplicationController
 
   def create
     @one_step = One_step.create(onestep_params)
-    binding.pry
     if @one_step.valid?
       redirect_to root_path
     else
