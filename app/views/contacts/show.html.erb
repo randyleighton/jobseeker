@@ -18,9 +18,11 @@
   <p><b>Email: </b><%=h @contact.email %></p>
   <p><b>Work Phone: </b><%=h @contact.work_phone %></p>
   <p><b>Mobile Phone: </b><%=h @contact.cell_phone %></p>
-  <p><b>Social Media Accounts:</b></p>
-  <% @contact.accounts.each do |account| %>
-    <p><b><%= account.description %></b>: <%= account.info %></p>
+  <% if @contact.accounts.length > 0 %>
+    <p><b>Social Media Accounts:</b></p>
+    <% @contact.accounts.each do |account| %>
+      <p><b><%= account.description %></b>: <%= account.info %></p>
+    <% end %>
   <% end %>
 </div>
 
