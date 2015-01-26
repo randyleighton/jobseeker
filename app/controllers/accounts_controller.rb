@@ -9,7 +9,7 @@ class AccountsController < ApplicationController
   def create
     @account = @contact.accounts.create(account_params)
     if @account.valid?
-      redirect_to contact_url(@contact), notice: "The account has been logged successfully"
+      redirect_to contact_url(@contact), notice: "Created #{@account.description} account: #{@account.info}"
     else
       render 'new', alert: "The account did not save correctly"
     end
@@ -22,7 +22,7 @@ class AccountsController < ApplicationController
   def update
     @account = @contact.accounts.find(params[:id])
     if @account.update(account_params)
-      redirect_to @contact, notice:"Created Successfully"
+      redirect_to @contact, notice:"Updated #{@account.description} account: #{@account.info}"
     else
       render 'edit', notice: "Failed to Create"
     end

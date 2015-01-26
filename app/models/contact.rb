@@ -5,8 +5,8 @@ class Contact < ActiveRecord::Base
   has_and_belongs_to_many :interviews
   has_many :accounts, dependent: :destroy
   accepts_nested_attributes_for :accounts, :reject_if => :all_blank, 
-                                :reject_if => proc {|attributes| attributes["description"].nil?},
-                                :reject_if => proc {|attributes| attributes["info"].nil?}, 
+                                :reject_if => proc {|attributes| attributes["description"].nil? || attributes["description"] == ""},
+                                :reject_if => proc {|attributes| attributes["info"].nil? || attributes["info"] == ""}, 
                                 allow_destroy: true;
 
   validates :email, :format => { :with => /@/, :message => "Invalid email format" }
