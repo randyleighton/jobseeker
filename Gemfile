@@ -43,6 +43,5 @@ group :test do
 end
 
 group :production do
-  gem 'angular-rails-templates'
   gem 'rails_12factor'
 end
