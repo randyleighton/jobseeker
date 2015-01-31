@@ -4,67 +4,70 @@
 <h3><%= link_to "Create a company", companies_path, class: "enter-home-1", title: "Create New Company" %> to get started.. <span class="enter-home-2">then add jobs, contacts, interviews, reminders and follow ups.</span></h3>
 </div> 
 
-<div class="row row-two">
-	<div class="outer-box col-xs-12 col-sm-6 col-md-5">
-		<div class="index-three">
-			<h3><%= content_tag(:i,nil,class: 'fa-reminder fa fa-comments')%> Upcoming Interviews:</h3>
-				<% @interviews.each do |interview| %>
-					<% job = Job.find(interview.job_id) %>
-					<% if interview.interview_date >= DateTime.now %>
-					<p><%= link_to "#{interview.interview_date.strftime("%A, %b %d")} - #{interview.interview_time.strftime("%I:%M %p")}", job_interview_path(job,interview), title: "View Interview on #{interview.interview_date.to_formatted_s(:short)}", class: "home-p" %></p>
+<div class="main-column col-xs-12 col-sm-12 col-md-8 col-lg-9">
+	<div class="row row-two">
+		<div class="outer-box col-xs-12 col-sm-6">
+			<div class="index-three">
+				<h3><%= content_tag(:i,nil,class: 'fa-reminder fa fa-comments')%> Upcoming Interviews:</h3>
+					<% @interviews.each do |interview| %>
+						<% job = Job.find(interview.job_id) %>
+						<% if interview.interview_date >= DateTime.now %>
+						<p><%= link_to "#{interview.interview_date.strftime("%A, %b %d")} - #{interview.interview_time.strftime("%I:%M %p")}", job_interview_path(job,interview), title: "View Interview on #{interview.interview_date.to_formatted_s(:short)}", class: "home-p" %></p>
+						<% end %>
+					<% end -%>
+			</div>
+		</div>
+
+		<div class="outer-box col-xs-12 col-sm-6">
+			<div class="index-four">
+				<h3><%= content_tag(:i,nil,class: 'fa-reminder fa fa-bell')%>  Reminders: </h3>
+					<% @companies.each do |company| %>
+						<% company.reminders.each do |reminder| %>
+							<p><%= reminder.due_date.to_formatted_s(:short) %>:<%= link_to " #{company.name}: #{reminder.subject}", company_path(company), title:"View Reminder on #{reminder.due_date.to_formatted_s(:short)}", class: "home-p" %></p>
+						<% end %>
 					<% end %>
-				<% end -%>
+			</div>
+		</div>
+	</div>
+	<div class="row row-one">
+		<div class="outer-box col-xs-12 col-sm-6">
+			<div class="index-one">
+				<h3><%= content_tag(:i,nil,class: 'fa-reminder fa fa-keyboard-o')%> Recent Open Applications:</h3>
+					<% @jobs.each do |job| %>
+						<% company = Company.find(job.company_id) %>
+						<p><%= link_to company_job_path(company, job), class: "home-p", title: "View Application for #{job.description}" do %>
+								<%= job.description %>
+			        	<%= render 'layouts/job_closed', object: job %>
+			        <% end %>
+						</p>
+						<% end %>
+			</div>
+		</div>
+		<div class="outer-box col-xs-12 col-sm-6">
+			<div class="index-two">
+				<h3><%= content_tag(:i,nil,class: 'fa-reminder fa fa-building')%>  Recent Companies: </h3>
+					<% @companies.each do |company| %>
+						<p><%= link_to "#{company.name}", company_path(company), class: "home-p", title:"View #{company.name}" %></p>
+					<% end %>
+			</div>
 		</div>
 	</div>
 
-	<div class="outer-box col-xs-12 col-sm-6 col-md-5">
-		<div class="index-four">
-			<h3><%= content_tag(:i,nil,class: 'fa-reminder fa fa-bell')%>  Reminders: </h3>
-				<% @companies.each do |company| %>
-					<% company.reminders.each do |reminder| %>
-						<p><%= reminder.due_date.to_formatted_s(:short) %>:<%= link_to " #{company.name}: #{reminder.subject}", company_path(company), title:"View Reminder on #{reminder.due_date.to_formatted_s(:short)}", class: "home-p" %></p>
-					<% end %>
-				<% end %>
+</div>
+
+<div class="ad-column col-xs-12 col-sm-12 col-md-4 col-lg-3">
+
+	<div class="row">
+		<div class="outer-box col-xs-12 col-sm-12	 col-md-3">
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+			<!-- JS Tall -->
+			<ins class="adsbygoogle"
+			     style="display:inline-block;width:300px;height:600px"
+			     data-ad-client="ca-pub-1451066381078010"
+			     data-ad-slot="3636838488"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
 		</div>
 	</div>
 </div>
-
-
-<div class="row row-one">
-	<div class="outer-box col-xs-12 col-sm-6 col-md-5">
-		<div class="index-one">
-			<h3><%= content_tag(:i,nil,class: 'fa-reminder fa fa-keyboard-o')%> Recent Open Applications:</h3>
-				<% @jobs.each do |job| %>
-					<% company = Company.find(job.company_id) %>
-					<p><%= link_to company_job_path(company, job), class: "home-p", title: "View Application for #{job.description}" do %>
-							<%= job.description %>
-		        	<%= render 'layouts/job_closed', object: job %>
-		        <% end %>
-					</p>
-					<% end %>
-		</div>
-	</div>
-	<div class="outer-box col-xs-12 col-sm-6 col-md-5">
-		<div class="index-two">
-			<h3><%= content_tag(:i,nil,class: 'fa-reminder fa fa-building')%>  Recent Companies: </h3>
-				<% @companies.each do |company| %>
-					<p><%= link_to "#{company.name}", company_path(company), class: "home-p", title:"View #{company.name}" %></p>
-				<% end %>
-		</div>
-	</div>
-</div>
-
-<div class="row">
-	<div class="outer-box col-xs-12 col-sm-12	 col-md-2">
-		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-		<!-- JS Tall -->
-		<ins class="adsbygoogle"
-		     style="display:inline-block;width:300px;height:600px"
-		     data-ad-client="ca-pub-1451066381078010"
-		     data-ad-slot="3636838488"></ins>
-		<script>
-		(adsbygoogle = window.adsbygoogle || []).push({});
-		</script>
-	</div>
-</div>
-
