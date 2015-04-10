@@ -6,15 +6,9 @@ This is an application to use when looking for a job. It is designed to help you
 View this application running in production: http://thejobseeker.herokuapp.com
 ---
 This will utilize the following branching structure:
-	Master - Production Code
-		Develop - pre production all features merge into this.
-		Features - these will branch off most current develop then merge into develop when done.
+	Master - Production Code - when develop is running stable, it will be merged into master, then pushed to heroku by admin.
+	Develop - Pre-production all features merge into this. Create your feature branches from this branch and merge them into develop.
+	Features - these will branch off most current develop then be merged into develop after quality checking. Name them appropriately, push them up into develop and then create a pull request to get it merged into develop.
 ---
-Application is Ruby 2.1.1 and Rails 4.1.8
+Application is Ruby 2.1.1p76 and Rails 4.2.0
 Testing is RSPEC and Capybara for unit and integration testing.
----
-License
-
-Copyright © 2014 by Visible Difference Web Development
-
-All rights reserved. No part of this software may be reproduced, distributed, or transmitted in any form or by any means, including photocopying, recording, or other electronic or mechanical methods, without the prior written permission of Visible Difference Web Development. 
