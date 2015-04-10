@@ -18,6 +18,7 @@ gem 'recaptcha'
 gem 'json'
 gem 'httparty'
 gem 'cocoon'
+gem 'activeadmin', github: 'activeadmin'
 
 
 group :development do
